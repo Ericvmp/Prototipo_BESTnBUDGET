@@ -1,0 +1,2069 @@
+
+import { Modification, Weapon, Material, LootCategory, Throwable, Augment } from './types';
+
+export const MATERIALS_DATA: Material[] = [
+  {
+    id: 'mat1',
+    name: 'Metal Parts', recycleInfo: [], salvageInfo: [],
+    description: "A very common material used to craft almost anything. It is the backbone of the Foundry's manufacturing process, found in almost all loot containers and discarded machinery.",
+    rarity: 'COMMON',
+    icon: 'construction',
+    imageUrl: 'https://arcraiders.wiki/w/images/8/89/Metal_Parts.png',
+    craftInfo: { isCraftable: false, note: "Material básico" },
+    residualInfo: { items: ["Steel Spring → Metal Parts", "Simple Gun Parts → 2× Metal Parts", "Magnet → 3× Metal Parts"] }
+  },
+  {
+    id: 'mat2',
+    name: 'Rubber Parts', recycleInfo: [], salvageInfo: [],
+    description: "A common material used for flexible components, seals, and ergonomic grips. Essential for recoil management systems and airtight equipment seals.",
+    rarity: 'COMMON',
+    icon: 'settings_input_hdmi',
+    imageUrl: 'https://arcraiders.wiki/w/images/9/93/Rubber_Parts.png',
+    craftInfo: { isCraftable: false, note: "Material básico" },
+    residualInfo: { items: ["Wires → 2× Rubber Parts", "ARC Flex Rubber", "Mechanical Components → 2× Rubber Parts"] }
+  },
+  {
+    id: 'mat3',
+    name: 'Plastic Parts', recycleInfo: [], salvageInfo: [],
+    description: "Lightweight synthetic material used in a wide variety of basic gear, structural weapon parts, and civilian salvage. Extremely versatile and easy to process.",
+    rarity: 'COMMON',
+    icon: 'inventory_2',
+    imageUrl: 'https://arcraiders.wiki/w/images/c/c9/Plastic_Parts.png',
+    craftInfo: { isCraftable: false, note: "Material básico" },
+    residualInfo: { items: ["Diversos itens de lixo plástico"] }
+  },
+  {
+    id: 'mat4',
+    name: 'Mechanical Components', recycleInfo: [{name:'Rubber Parts',quantity:2},{name:'Metal Parts',quantity:3}], salvageInfo: [{name:'Metal Parts',quantity:3}],
+    description: "Precision-engineered parts used for moving mechanisms in weapons and modules. These are frequently recovered from complex toolboxes and industrial crates.",
+    rarity: 'UNCOMMON',
+    icon: 'settings',
+    imageUrl: 'https://arcraiders.wiki/w/images/9/94/Mechanical_Components.png',
+    craftInfo: {
+      isCraftable: true,
+      location: "Refiner 1",
+      requirements: [{ name: "Metal Parts", quantity: 7 }, { name: "Rubber Parts", quantity: 3 }]
+    },
+    residualInfo: {
+      items: [
+        "Advanced Mechanical Components - 1 Mechanical Component (reciclagem)",
+        "Angled Grip II - 1 Mechanical Component (reciclagem)",
+        "Anvil I - 2 Mechanical Components (reciclagem)",
+        "Anvil II - 3 Mechanical Components (reciclagem)",
+        "Anvil III - 4 Mechanical Components (reciclagem)"
+      ]
+    }
+  },
+  {
+    id: 'mat5',
+    name: 'Mod Components', recycleInfo: [{name:'Mechanical Components',quantity:1},{name:'Steel Spring',quantity:1}], salvageInfo: [{name:'Mechanical Components',quantity:1}],
+    description: "Sophisticated mechanical and electronic sub-assemblies specifically required for advanced weapon modifications. Found in high-tech industrial areas.",
+    rarity: 'RARE',
+    icon: 'extension',
+    imageUrl: 'https://arcraiders.wiki/w/images/0/0f/Mod_Components.png',
+    craftInfo: {
+      isCraftable: true,
+      location: "Refiner 2",
+      requirements: [{ name: "Mechanical Components", quantity: 2 }, { name: "Steel Spring", quantity: 2 }]
+    },
+    residualInfo: {
+      items: [
+        "Angled Grip III - 1 Mod Component (reciclagem)",
+        "Anvil Splitter - 1 Mod Component (reciclagem)",
+        "Compensator III - 1 Mod Component (reciclagem)",
+        "Extended Barrel - 1 Mod Component (reciclagem)",
+        "Extended Light Mag III - 1 Mod Component (reciclagem)"
+      ]
+    }
+  },
+  {
+    id: 'mat6',
+    name: 'Steel Spring', recycleInfo: [{name:'Metal Parts',quantity:2}], salvageInfo: [{name:'Metal Parts',quantity:1}],
+    description: "Precision coiled high-tension metal. Critical for the operation of weapon magazines, trigger groups, and any system requiring stored mechanical energy.",
+    rarity: 'COMMON',
+    icon: 'reorder',
+    imageUrl: 'https://arcraiders.wiki/w/images/d/db/Steel_Spring.png',
+    craftInfo: { isCraftable: false },
+    residualInfo: {
+      items: [
+        "Advanced Mechanical Components - 1 Steel Spring (reciclagem)",
+        "Cooling Coil - 2 Steel Springs (reciclagem)",
+        "Extended Light Mag II - 1 Steel Spring (reciclagem)",
+        "Extended Light Mag III - 2 Steel Springs (reciclagem)",
+        "Extended Medium Mag II - 1 Steel Spring (reciclagem)"
+      ]
+    }
+  },
+  {
+    id: 'mat7',
+    name: 'Wires', recycleInfo: [{name:'Rubber Parts',quantity:2}], salvageInfo: [{name:'Rubber Parts',quantity:1}],
+    description: "Conductive wiring used for electrical paths in weapon electronics and automated modules. Can be recovered from broken circuit boards and power stations.",
+    rarity: 'COMMON',
+    icon: 'cable',
+    imageUrl: 'https://arcraiders.wiki/w/images/3/39/Wires.png',
+    craftInfo: { isCraftable: false },
+    residualInfo: {
+      items: [
+        "Acoustic Guitar - 6 Wires (reciclagem)",
+        "Advanced Electrical Components - 1 Wire (reciclagem)",
+        "Broken Handheld Radio - 2 Wires (reciclagem)",
+        "Broken Taser - 2 Wires (reciclagem)",
+        "Compensator II - 1 Wire (reciclagem)"
+      ]
+    }
+  },
+  {
+    id: 'mat8',
+    name: 'Duct Tape', recycleInfo: [{name:'Fabric',quantity:3}], salvageInfo: [{name:'Fabric',quantity:1}],
+    description: "Universal adhesive of the wasteland. Used for everything from field repairs to securing underbarrel attachments. A Raiders' best friend for improvised fixes.",
+    rarity: 'UNCOMMON',
+    icon: 'view_agenda',
+    imageUrl: 'https://arcraiders.wiki/w/images/4/4e/Duct_Tape.png',
+    craftInfo: { isCraftable: false },
+    residualInfo: {
+      items: [
+        "Angled Grip II - 1 Duct Tape (reciclagem)",
+        "Angled Grip III - 2 Duct Tape (reciclagem)",
+        "Horizontal Grip - 2 Duct Tape (reciclagem)",
+        "Kinetic Converter - 2 Duct Tape (reciclagem)",
+        "Lightweight Stock - 1 Duct Tape (reciclagem)"
+      ]
+    }
+  },
+  {
+    id: 'mat9',
+    name: 'Simple Gun Parts', recycleInfo: [{name:'Metal Parts',quantity:2}], salvageInfo: [{name:'Metal Parts',quantity:1}],
+    description: "Basic firearm components like receivers and slides. These are the fundamental building blocks for common-tier weapon construction and repair.",
+    rarity: 'UNCOMMON',
+    icon: 'hardware',
+    imageUrl: 'https://arcraiders.wiki/w/images/d/da/Simple_Gun_Parts.png',
+    craftInfo: { isCraftable: false },
+    residualInfo: {
+      items: [
+        "Anvil I - 2 Simple Gun Parts (reciclagem)",
+        "Anvil II - 3 Simple Gun Parts (reciclagem)",
+        "Anvil III - 4 Simple Gun Parts (reciclagem)",
+        "Anvil IV - 5 Simple Gun Parts (reciclagem)",
+        "Arpeggio I - 2 Simple Gun Parts (reciclagem)"
+      ]
+    }
+  },
+  {
+    id: 'mat10',
+    name: 'Light Gun Parts', recycleInfo: [{name:'Simple Gun Parts',quantity:2}], salvageInfo: [{name:'Simple Gun Parts',quantity:1}],
+    description: "Lightweight, precision-machined internal parts optimized for high-rate-of-fire weapons like SMGs and small-caliber handguns.",
+    rarity: 'RARE',
+    icon: 'precision_manufacturing',
+    imageUrl: 'https://arcraiders.wiki/w/images/c/c9/Light_Gun_Parts.png',
+    craftInfo: {
+      isCraftable: true,
+      location: "Refiner 2",
+      requirements: [{ name: "Simple Gun Parts", quantity: 4 }]
+    },
+    residualInfo: {
+      items: [
+        "Bobcat I - 2 Light Gun Parts (reciclagem)",
+        "Bobcat II - 3 Light Gun Parts (reciclagem)",
+        "Bobcat III - 4 Light Gun Parts (reciclagem)",
+        "Bobcat IV - 4 Light Gun Parts (reciclagem)"
+      ]
+    }
+  },
+  {
+    id: 'mat11',
+    name: 'Medium Gun Parts', recycleInfo: [{name:'Simple Gun Parts',quantity:2}], salvageInfo: [{name:'Simple Gun Parts',quantity:1}],
+    description: "Standard durability weapon components designed for assault rifles and battle rifles. Balanced for weight and heat dissipation under sustained fire.",
+    rarity: 'RARE',
+    icon: 'precision_manufacturing',
+    imageUrl: 'https://arcraiders.wiki/w/images/9/9a/Medium_Gun_Parts.png',
+    craftInfo: {
+      isCraftable: true,
+      location: "Refiner 2",
+      requirements: [{ name: "Simple Gun Parts", quantity: 4 }]
+    },
+    residualInfo: { items: ["Armas médias (Renegade, Venator, Torrente)"] }
+  },
+  {
+    id: 'mat12',
+    name: 'Heavy Gun Parts', recycleInfo: [{name:'Simple Gun Parts',quantity:2}], salvageInfo: [{name:'Simple Gun Parts',quantity:1}],
+    description: "Reinforced, heavy-duty components capable of withstanding the extreme pressure and recoil of high-caliber sniper rifles and light machine guns.",
+    rarity: 'RARE',
+    icon: 'precision_manufacturing',
+    imageUrl: 'https://arcraiders.wiki/w/images/3/33/Heavy_Gun_Parts.png',
+    craftInfo: {
+      isCraftable: true,
+      location: "Refiner 2",
+      requirements: [{ name: "Simple Gun Parts", quantity: 4 }]
+    },
+    residualInfo: { items: ["Armas pesadas (Il Toro, Anvil)"] }
+  },
+  {
+    id: 'mat13',
+    name: 'Advanced Mechanical Components', recycleInfo: [{name:'Steel Spring',quantity:1},{name:'Mechanical Components',quantity:1}], salvageInfo: [{name:'Mechanical Components',quantity:1}],
+    description: "High-tier precision parts requiring expert craftsmanship. These are essential for the construction of elite weapons and experimental tactical gear.",
+    rarity: 'RARE',
+    icon: 'home_repair_service',
+    imageUrl: 'https://arcraiders.wiki/w/images/2/25/Advanced_Mechanical_Components.png',
+    craftInfo: {
+      isCraftable: true,
+      location: "Refiner 2",
+      requirements: [{ name: "Mechanical Components", quantity: 4 }, { name: "Steel Spring", quantity: 2 }]
+    },
+    residualInfo: {
+      items: [
+        "Bastion Cell - 2 Advanced Mechanical Components (reciclagem)",
+        "Bettina I - 1 Advanced Mechanical Component (reciclagem)",
+        "Bettina II - 2 Advanced Mechanical Components (reciclagem)",
+        "Bettina III - 2 Advanced Mechanical Components (reciclagem)",
+        "Bettina IV - 3 Advanced Mechanical Components (reciclagem)"
+      ]
+    }
+  },
+  {
+    id: 'mat14',
+    name: 'Magnet', recycleInfo: [{name:'Metal Parts',quantity:2}], salvageInfo: [{name:'Metal Parts',quantity:1}],
+    description: "Specialized industrial-grade magnet used in the fabrication of railgun components and advanced electromagnetic stabilization for precision scopes.",
+    rarity: 'UNCOMMON',
+    icon: 'u_turn_right',
+    imageUrl: 'https://arcraiders.wiki/w/images/8/8c/Magnet.png',
+    craftInfo: { isCraftable: false },
+    residualInfo: {
+      items: [
+        "Combat Mk. 2 - 1 Magnet (reciclagem)",
+        "Exodus Modules - 2 Magnets (reciclagem)",
+        "Industrial Magnet - 2 Magnets (reciclagem)",
+        "Looting Mk. 2 - 1 Magnet (reciclagem)",
+        "Microscope - 3 Magnets (reciclagem)"
+      ]
+    }
+  },
+  {
+    id: 'mat15',
+    name: 'ARC Alloy', recycleInfo: [{name:'Metal Parts',quantity:2}], salvageInfo: [{name:'Metal Parts',quantity:1}],
+    rarity: 'UNCOMMON',
+    icon: 'token',
+    imageUrl: 'https://arcraiders.wiki/w/images/a/a6/ARC_Alloy.png',
+    description: 'An advanced specialized alloy of ARC origin, offering exceptional electromagnetic properties and thermal resistance.',
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat16',
+    name: 'ARC Powercell',
+    recycleInfo: [{ name: 'Chemicals', quantity: 2 }],
+    salvageInfo: [{ name: 'Chemicals', quantity: 1 }],
+    rarity: 'COMMON',
+    icon: 'battery_charging_full',
+    imageUrl: 'https://arcraiders.wiki/w/images/d/df/ARC_Powercell.png',
+    description: 'A standard energy storage unit for ARC technology. Can be used to recharge portable shield devices.',
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat17',
+    name: 'Advanced ARC Powercell', recycleInfo: [{name:'ARC Powercell',quantity:2}], salvageInfo: [{name:'ARC Powercell',quantity:1}],
+    rarity: 'RARE',
+    icon: 'battery_saver',
+    imageUrl: 'https://arcraiders.wiki/w/images/3/31/Advanced_ARC_Powercell.png',
+    description: 'A high-density energy source found in elite ARC units. Highly efficient and essential for high-tier equipment.',
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat18',
+    name: 'Electrical Components', recycleInfo: [{name:'Plastic Parts',quantity:3},{name:'Rubber Parts',quantity:3}], salvageInfo: [{name:'Plastic Parts',quantity:3}],
+    rarity: 'UNCOMMON',
+    icon: 'memory',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/electrical-components.webp',
+    description: 'Refined circuitry and electrical hardware used in most electronic gear and weapon systems.',
+    craftInfo: {
+      isCraftable: true,
+      location: 'Refiner 1',
+      requirements: [{ name: 'Plastic Parts', quantity: 8 }, { name: 'Rubber Parts', quantity: 4 }]
+    }
+  },
+  {
+    id: 'mat19',
+    name: 'Advanced Electrical Components', recycleInfo: [{name:'Wires',quantity:1},{name:'Electrical Components',quantity:1}], salvageInfo: [{name:'Electrical Components',quantity:1}],
+    rarity: 'RARE',
+    icon: 'developer_board',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/advanced-electrical-components.webp',
+    description: 'State-of-the-art microprocessors and high-frequency hardware required for advanced utility upgrades.',
+    craftInfo: {
+      isCraftable: true,
+      location: 'Refiner 2',
+      requirements: [{ name: 'Wires', quantity: 3 }, { name: 'Electrical Components', quantity: 2 }]
+    }
+  },
+  {
+    id: 'mat20',
+    name: 'ARC Circuitry', recycleInfo: [{name:'ARC Alloy',quantity:2}], salvageInfo: [{name:'ARC Alloy',quantity:1}],
+    rarity: 'RARE',
+    icon: 'circuit',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/arc-circuitry.webp',
+    description: 'Complex neural-like processing arrays recovered from advanced ARC units. Intricate and extremely valuable.',
+    craftInfo: {
+      isCraftable: true,
+      location: 'Refiner 2',
+      requirements: [{ name: 'ARC Alloy', quantity: 8 }]
+    }
+  },
+  {
+    id: 'mat21',
+    name: 'ARC Motion Core', recycleInfo: [{name:'ARC Alloy',quantity:2}], salvageInfo: [{name:'ARC Alloy',quantity:1}],
+    rarity: 'RARE',
+    icon: 'motion_sensor_active',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/arc-motion-core.webp',
+    description: 'A critical mechanical unit that manages high-speed motion and stabilization in ARC drones.',
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat22',
+    name: 'Chemicals', recycleInfo: [], salvageInfo: [],
+    rarity: 'COMMON',
+    icon: 'science',
+    imageUrl: 'https://arcraiders.wiki/w/images/9/92/Chemicals.png',
+    description: 'A variety of reactive substances used in the production of explosives and medical supplies.',
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat23',
+    name: 'Antiseptic', recycleInfo: [{name:'Chemicals',quantity:10}], salvageInfo: [{name:'Chemicals',quantity:5}],
+    rarity: 'UNCOMMON',
+    icon: 'sanitizer',
+    imageUrl: 'https://arcraiders.wiki/w/images/f/f5/Antiseptic.png',
+    description: 'Medical-grade cleaning solution, essential for preventing infection and crafting advanced healing items.',
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat24',
+    name: 'Canister', recycleInfo: [{name:'Plastic Parts',quantity:3}], salvageInfo: [{name:'Plastic Parts',quantity:1}],
+    rarity: 'COMMON',
+    icon: 'nest_cam_wired_stand',
+    imageUrl: 'https://arcraiders.wiki/w/images/5/5f/Canister.png',
+    description: 'A pressurized metal container suitable for storing gases or liquids.',
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat25',
+    name: 'Tick Pod', recycleInfo: [{name:'Chemicals',quantity:2},{name:'ARC Alloy',quantity:2}], salvageInfo: [{name:'ARC Alloy',quantity:1}],
+    rarity: 'RARE',
+    icon: 'pest_control',
+    imageUrl: 'https://arcraiders.wiki/w/images/9/95/Tick_Pod.png',
+    description: 'Biological component harvested from ARC Ticks. Contains enzymes used in high-end medical gear.',
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat26',
+    name: 'Fabric', recycleInfo: [], salvageInfo: [],
+    rarity: 'COMMON',
+    icon: 'texture',
+    imageUrl: 'https://arcraiders.wiki/w/images/2/2b/Fabric.png',
+    description: 'Basic cloth remnants that can be repurposed for simple bandages or clothing repairs.',
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat27',
+    name: 'Durable Cloth', recycleInfo: [{name:'Fabric',quantity:6}], salvageInfo: [{name:'Fabric',quantity:2}],
+    rarity: 'UNCOMMON',
+    icon: 'layers',
+    imageUrl: 'https://arcraiders.wiki/w/images/2/25/Durable_Cloth.png',
+    description: 'Reinforced textile material, much stronger than standard fabric.',
+    craftInfo: {
+      isCraftable: true,
+      location: 'Refiner 1',
+      requirements: [{ name: 'Fabric', quantity: 5 }]
+    }
+  },
+  {
+    id: 'mat28',
+    name: 'Great Mullein', recycleInfo: [{name:'Assorted Seeds',quantity:2}], salvageInfo: [{name:'Assorted Seeds',quantity:1}],
+    rarity: 'COMMON',
+    icon: 'eco',
+    imageUrl: 'https://arcraiders.wiki/w/images/0/0d/Great_Mullein.png',
+    description: 'A hardy plant with medicinal properties, often used in traditional healing.',
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat29',
+    name: 'Moss', recycleInfo: [{name:'Assorted Seeds',quantity:3}], salvageInfo: [{name:'Assorted Seeds',quantity:2}],
+    rarity: 'COMMON',
+    icon: 'grass',
+    imageUrl: 'https://arcraiders.wiki/w/images/6/64/Moss.png',
+    description: 'A simple biological material that can be used as a stabilizer in some chemical reactions.',
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat30',
+    name: 'Battery', recycleInfo: [{name:'Metal Parts',quantity:2}], salvageInfo: [{name:'Metal Parts',quantity:1}],
+    rarity: 'UNCOMMON',
+    icon: 'battery_full',
+    imageUrl: 'https://arcraiders.wiki/w/images/6/6d/Battery.png',
+    description: 'A standard portable power source for civilian and military electronics.',
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat31',
+    name: 'Power Rod', recycleInfo: [{name:'Advanced Electrical Components',quantity:1},{name:'ARC Circuitry',quantity:1}], salvageInfo: [{name:'Advanced Electrical Components',quantity:1}],
+    rarity: 'RARE',
+    icon: 'vertical_align_center',
+    imageUrl: 'https://arcraiders.wiki/w/images/3/31/Power_Rod.png',
+    description: 'A high-capacity energy conductor used in heavy-duty electronic equipment.',
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat32',
+    name: 'Syringe', recycleInfo: [{name:'Plastic Parts',quantity:3},{name:'Chemicals',quantity:2}], salvageInfo: [{name:'Plastic Parts',quantity:2}],
+    rarity: 'COMMON',
+    icon: 'vaccines',
+    imageUrl: 'https://arcraiders.wiki/w/images/1/17/Syringe.png',
+    description: 'A standard medical tool for injecting fluids or extracting samples.',
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat33',
+    name: 'Voltage Converter', recycleInfo: [{name:'Wires',quantity:1},{name:'Rubber Parts',quantity:1}], salvageInfo: [{name:'Rubber Parts',quantity:2}],
+    rarity: 'RARE',
+    icon: 'electrical_services',
+    imageUrl: 'https://arcraiders.wiki/w/images/c/c7/Voltage_Converter.png',
+    description: 'An advanced transformer designed to handle high-power ARC energy systems.',
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat34',
+    name: 'Complex Gun Parts', recycleInfo: [{name:'Simple Gun Parts',quantity:3}], salvageInfo: [{name:'Simple Gun Parts',quantity:2}],
+    rarity: 'RARE',
+    icon: 'extension',
+    imageUrl: '/images/loot/Complex_Gun_Parts.png',
+    description: 'Highly intricate weapon parts required for crafting state-of-the-art ballistic firearms.',
+    craftInfo: { isCraftable: true, location: 'Refiner 3', requirements: [{ name: 'Light Gun Parts', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 2 }] }
+  },
+  {
+    id: 'mat35',
+    name: 'Magnetic Accelerator', recycleInfo: [{name:'Advanced Mechanical Components',quantity:1},{name:'ARC Motion Core',quantity:1}], salvageInfo: [{name:'Advanced Mechanical Components',quantity:1}],
+    rarity: 'EPIC',
+    icon: 'all_inclusive',
+    imageUrl: 'https://arcraiders.wiki/w/images/thumb/5/5e/Magnetic_Accelerator.png/348px-Magnetic_Accelerator.png.webp',
+    description: 'An extremely powerful electromagnetic module used in experimental and high-energy weapons.',
+    craftInfo: { isCraftable: true, location: 'Refiner 3', requirements: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'ARC Motion Core', quantity: 2 }] }
+  },
+  {
+    id: 'mat36',
+    name: 'Processor',
+    rarity: 'RARE',
+    icon: 'memory',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/processor.webp',
+    description: 'A high-performance processing unit recovered from advanced ARC technology or rare weapon modifications.',
+    recycleInfo: [{ name: 'Wires', quantity: 1 }, { name: 'Plastic Parts', quantity: 1 }],
+    salvageInfo: [{ name: 'Wires', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat37',
+    name: 'Exodus Modules',
+    rarity: 'EPIC',
+    icon: 'settings_input_component',
+    imageUrl: 'https://arcraiders.wiki/w/images/1/1b/Exodus_Modules.png',
+    description: 'Advanced coordination modules recovered from high-tier ARC units. Critical for experimental weapon synchronization.',
+    recycleInfo: [{ name: 'Magnet', quantity: 1 }, { name: 'Processor', quantity: 1 }],
+    salvageInfo: [{ name: 'Processor', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat38',
+    name: 'Crude Explosives',
+    rarity: 'UNCOMMON',
+    icon: 'bomb',
+    imageUrl: 'https://arcraiders.wiki/w/images/f/fc/Crude_Explosives.png',
+    description: 'Volatile chemicals packed into an improvised container. The basic building block for Raider explosives.',
+    recycleInfo: [{ name: 'Chemicals', quantity: 2 }],
+    salvageInfo: [{ name: 'Chemicals', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat39',
+    name: 'Explosive Compound',
+    rarity: 'RARE',
+    icon: 'volcano',
+    imageUrl: 'https://arcraiders.wiki/w/images/1/11/Explosive_Compound.png',
+    description: 'Refined explosive material capable of delivering high-yield kinetic energy. Found in military-grade caches.',
+    recycleInfo: [{ name: 'Crude Explosives', quantity: 2 }],
+    salvageInfo: [{ name: 'Crude Explosives', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat40',
+    name: 'Synthesized Fuel',
+    rarity: 'RARE',
+    icon: 'local_fire_department',
+    imageUrl: 'https://arcraiders.wiki/w/images/8/8e/Synthesized_Fuel.png',
+    description: 'High-energy liquid fuel synthesized for propulsion and incendiary devices. Extremely flammable.',
+    recycleInfo: [{ name: 'Oil', quantity: 1 }, { name: 'Plastic Parts', quantity: 1 }],
+    salvageInfo: [{ name: 'Oil', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat41',
+    name: 'Firefly Burner',
+    rarity: 'RARE',
+    icon: 'fireplace',
+    imageUrl: 'https://arcraiders.wiki/w/images/0/04/Firefly_Burner.png',
+    description: 'A precision combustion unit used in high-end incendiary tactical gear.',
+    recycleInfo: [{ name: 'ARC Alloy', quantity: 1 }, { name: 'Crude Explosives', quantity: 1 }],
+    salvageInfo: [{ name: 'Crude Explosives', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat42',
+    name: 'Rocketeer Driver',
+    rarity: 'EPIC',
+    icon: 'rocket_launch',
+    imageUrl: 'https://arcraiders.wiki/w/images/e/ef/Rocketeer_Driver.png',
+    description: 'Propulsion management system for guided rocket ordinance. Recovered from major ARC threats.',
+    recycleInfo: [{ name: 'ARC Alloy', quantity: 2 }, { name: 'Advanced Electrical Components', quantity: 1 }],
+    salvageInfo: [{ name: 'ARC Alloy', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat43',
+    name: 'Comet Igniter',
+    rarity: 'RARE',
+    icon: 'wb_sunny',
+    imageUrl: 'https://arcraiders.wiki/w/images/c/c8/Comet_Igniter.png',
+    description: 'High-intensity ignition core used to trigger vacuum-level thermal reactions.',
+    recycleInfo: [{ name: 'ARC Alloy', quantity: 1 }, { name: 'Crude Explosives', quantity: 1 }],
+    salvageInfo: [{ name: 'Crude Explosives', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat44',
+    name: 'Light Shield',
+    rarity: 'UNCOMMON',
+    icon: 'shield',
+    imageUrl: 'https://arcraiders.wiki/w/images/4/40/Light_Shield.png',
+    description: 'Basic protection made from salvaged parts.',
+    recycleInfo: [{ name: 'Plastic Parts', quantity: 3 }, { name: 'ARC Alloy', quantity: 1 }],
+    salvageInfo: [{ name: 'Plastic Parts', quantity: 2 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat45',
+    name: 'Medium Shield',
+    rarity: 'RARE',
+    icon: 'shield',
+    imageUrl: 'https://arcraiders.wiki/w/images/4/41/Medium_Shield.png',
+    description: 'Standard Shield that offers Raiders fair protection.',
+    recycleInfo: [{ name: 'Electrical Components', quantity: 1 }, { name: 'Rubber Parts', quantity: 1 }],
+    salvageInfo: [{ name: 'Electrical Components', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat46',
+    name: 'Heavy Shield',
+    rarity: 'EPIC',
+    icon: 'shield',
+    imageUrl: 'https://arcraiders.wiki/w/images/f/f9/Heavy_Shield.png',
+    description: 'Heavy Shield offering maximum protection.',
+    recycleInfo: [{ name: 'ARC Circuitry', quantity: 1 }, { name: 'Voltage Converter', quantity: 1 }],
+    salvageInfo: [{ name: 'ARC Alloy', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat47',
+    name: 'Oil',
+    rarity: 'UNCOMMON',
+    icon: 'opacity',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/oil.webp',
+    description: 'A viscous lubricant and fuel source used in weapon maintenance and explosive manufacturing. Recycled from motors, pumps, and coolant systems.',
+    recycleInfo: [{ name: 'Chemicals', quantity: 2 }],
+    salvageInfo: [{ name: 'Chemicals', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat48',
+    name: 'Rope',
+    rarity: 'RARE',
+    icon: 'linear_scale',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/rope.webp',
+    description: 'Durable synthetic rope found in residential and commercial zones. Used for traversal gear like Ziplines and Snap Hooks.',
+    recycleInfo: [{ name: 'Fabric', quantity: 2 }],
+    salvageInfo: [{ name: 'Fabric', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat49',
+    name: 'Sensors',
+    rarity: 'RARE',
+    icon: 'sensors',
+    imageUrl: 'https://arcraiders.wiki/w/images/9/9c/Sensors.png',
+    description: 'Electronic motion detectors salvaged from ARC drones and security infrastructure. Used in trap construction and tracking devices.',
+    recycleInfo: [{ name: 'Wires', quantity: 1 }, { name: 'Metal Parts', quantity: 1 }],
+    salvageInfo: [{ name: 'Wires', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat50',
+    name: 'Speaker Component',
+    rarity: 'RARE',
+    icon: 'volume_up',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/speaker-component.webp',
+    description: 'An audio amplification unit salvaged from electronic devices. Used in sound-based tactical gear like lures and noisemakers.',
+    recycleInfo: [{ name: 'Plastic Parts', quantity: 2 }, { name: 'Rubber Parts', quantity: 1 }],
+    salvageInfo: [{ name: 'Plastic Parts', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat51',
+    name: 'Hornet Driver',
+    rarity: 'RARE',
+    icon: 'bolt',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/hornet-driver.webp',
+    description: 'A high-voltage discharge unit recovered from destroyed ARC Hornets. Can be thrown to stun nearby ARC units and Raiders, or used in the construction of EMP devices.',
+    recycleInfo: [{ name: 'Electrical Components', quantity: 1 }, { name: 'ARC Alloy', quantity: 1 }],
+    salvageInfo: [{ name: 'Electrical Components', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat52',
+    name: 'Matriarch Reactor',
+    rarity: 'LEGENDARY',
+    icon: 'reactor',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/matriarch-reactor.webp',
+    description: 'A high-power reactor core found by scavenging destroyed Matriarchs. Extremely rare and required to craft the legendary Aphelion battle rifle.',
+    recycleInfo: [{ name: 'Magnetic Accelerator', quantity: 1 }],
+    salvageInfo: [{ name: 'Magnetic Accelerator', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  },
+  {
+    id: 'mat53',
+    name: 'Queen Reactor',
+    rarity: 'LEGENDARY',
+    icon: 'reactor',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/queen-reactor.webp',
+    description: 'Recovered from destroyed Queens or their blown-off leg armor segments. Required to craft the legendary Jupiter and Equalizer weapons.',
+    recycleInfo: [{ name: 'Power Rod', quantity: 1 }, { name: 'Magnetic Accelerator', quantity: 1 }],
+    salvageInfo: [{ name: 'Power Rod', quantity: 1 }],
+    craftInfo: { isCraftable: false }
+  }
+];
+
+export const MODS_DATA: Modification[] = [
+
+  // MUZZLE
+  { id: 'm1', name: 'Compensator I', recycleInfo: [{name:'Metal Parts',quantity:5}], salvageInfo: [{name:'Metal Parts',quantity:3}], category: 'MUZZLE', rarity: 'COMMON', icon: 'settings_input_component', tier: 1, description: '20% Reduced Per-Shot Dispersion', materials: [{ name: "Metal Parts", quantity: 4 }, { name: "Wires", quantity: 2 }], imageUrl: '/images/mods/Compensator_I.png' },
+  { id: 'm2', name: 'Compensator II', recycleInfo: [{name:'Mechanical Components',quantity:1},{name:'Wires',quantity:1}], salvageInfo: [{name:'Mechanical Components',quantity:1}], category: 'MUZZLE', rarity: 'UNCOMMON', icon: 'settings_input_component', tier: 2, description: '40% Reduced Per-Shot Dispersion', materials: [{ name: "Mechanical Components", quantity: 2 }, { name: "Wires", quantity: 4 }], imageUrl: '/images/mods/Compensator_II.png' },
+  { id: 'm3', name: 'Compensator III', recycleInfo: [{name:'Mod Components',quantity:1},{name:'Wires',quantity:2}], salvageInfo: [{name:'Mechanical Components',quantity:1}], category: 'MUZZLE', rarity: 'RARE', icon: 'settings_input_component', tier: 3, description: '60% Reduced Per-Shot Dispersion, 20% Increased Durability Burn Rate', materials: [{ name: "Mod Components", quantity: 2 }, { name: "Wires", quantity: 6 }], imageUrl: '/images/mods/Compensator_III.png' },
+  { id: 'mb1', name: 'Muzzle Brake I', recycleInfo: [{name:'Metal Parts',quantity:5}], salvageInfo: [{name:'Metal Parts',quantity:3}], category: 'MUZZLE', rarity: 'COMMON', icon: 'filter_tilt_shift', tier: 1, description: '15% Reduced Horizontal Recoil, 10% Reduced Vertical Recoil', materials: [{ name: "Metal Parts", quantity: 5 }, { name: "Wires", quantity: 3 }], imageUrl: '/images/mods/Shotgun_Choke_I.png' },
+  { id: 'mb2', name: 'Muzzle Brake II', recycleInfo: [{name:'Mechanical Components',quantity:1},{name:'Wires',quantity:1}], salvageInfo: [{name:'Mechanical Components',quantity:1}], category: 'MUZZLE', rarity: 'UNCOMMON', icon: 'filter_tilt_shift', tier: 2, description: '30% Reduced Horizontal Recoil, 20% Reduced Vertical Recoil', materials: [{ name: "Mechanical Components", quantity: 3 }, { name: "Wires", quantity: 5 }], imageUrl: '/images/mods/Shotgun_Choke_II.png' },
+  { id: 'mb3', name: 'Muzzle Brake III', recycleInfo: [{name:'Mod Components',quantity:1},{name:'Wires',quantity:2}], salvageInfo: [{name:'Mechanical Components',quantity:2}], category: 'MUZZLE', rarity: 'RARE', icon: 'filter_tilt_shift', tier: 3, description: '45% Reduced Horizontal Recoil, 35% Reduced Vertical Recoil', materials: [{ name: "Mod Components", quantity: 2 }, { name: "Wires", quantity: 6 }], imageUrl: '/images/mods/Shotgun_Choke_II.png' },
+  { id: 'm5', name: 'Shotgun Choke I', recycleInfo: [{name:'Metal Parts',quantity:5}], salvageInfo: [{name:'Metal Parts',quantity:3}], category: 'MUZZLE', rarity: 'COMMON', icon: 'filter_tilt_shift', tier: 1, description: '10% Reduced Base Dispersion', materials: [{ name: "Metal Parts", quantity: 6 }, { name: "Wires", quantity: 2 }], imageUrl: '/images/mods/Shotgun_Choke_I.png' },
+  { id: 'm6', name: 'Shotgun Choke II', recycleInfo: [{name:'Mechanical Components',quantity:1},{name:'Wires',quantity:1}], salvageInfo: [{name:'Mechanical Components',quantity:1}], category: 'MUZZLE', rarity: 'UNCOMMON', icon: 'filter_tilt_shift', tier: 2, description: '20% Reduced Base Dispersion', materials: [{ name: "Mechanical Components", quantity: 4 }, { name: "Wires", quantity: 4 }], imageUrl: '/images/mods/Shotgun_Choke_II.png' },
+  { id: 'm6b', name: 'Shotgun Choke III', recycleInfo: [{name:'Mod Components',quantity:1},{name:'Wires',quantity:2}], salvageInfo: [{name:'Mechanical Components',quantity:2}], category: 'MUZZLE', rarity: 'RARE', icon: 'filter_tilt_shift', tier: 3, description: '30% Reduced Base Dispersion', materials: [{ name: "Mod Components", quantity: 2 }, { name: "Wires", quantity: 6 }], imageUrl: '/images/mods/Shotgun_Choke_II.png' },
+  { id: 'ms1', name: 'Silencer I', recycleInfo: [{name:'Mechanical Components',quantity:1},{name:'Wires',quantity:1}], salvageInfo: [{name:'Mechanical Components',quantity:1}], category: 'MUZZLE', rarity: 'COMMON', icon: 'volume_off', tier: 1, description: '20% Reduced Noise', materials: [{ name: "Wires", quantity: 4 }, { name: "Duct Tape", quantity: 2 }], imageUrl: '/images/mods/Silencer_II.png' },
+  { id: 'm7', name: 'Silencer II', recycleInfo: [{name:'Mod Components',quantity:1},{name:'Wires',quantity:2}], salvageInfo: [{name:'Mechanical Components',quantity:2}], category: 'MUZZLE', rarity: 'UNCOMMON', icon: 'volume_off', tier: 2, description: '40% Reduced Noise', materials: [{ name: "Mechanical Components", quantity: 2 }, { name: "Duct Tape", quantity: 4 }], imageUrl: '/images/mods/Silencer_II.png' },
+  { id: 'ms3', name: 'Silencer III', recycleInfo: [{name:'Mod Components',quantity:1},{name:'Wires',quantity:3}], salvageInfo: [{name:'Mod Components',quantity:2}], category: 'MUZZLE', rarity: 'RARE', icon: 'volume_off', tier: 3, description: '60% Reduced Noise', materials: [{ name: "Mod Components", quantity: 3 }, { name: "Duct Tape", quantity: 6 }], imageUrl: '/images/mods/Silencer_II.png' },
+  { id: 'm4', name: 'Extended Barrel', recycleInfo: [{name:'Mod Components',quantity:1},{name:'Wires',quantity:1}], salvageInfo: [{name:'Mechanical Components',quantity:2}], category: 'MUZZLE', rarity: 'EPIC', icon: 'straighten', tier: 3, description: '25% Increased Bullet Velocity, 15% Increased Vertical Recoil', materials: [{ name: "Mod Components", quantity: 2 }, { name: "Wires", quantity: 8 }], imageUrl: '/images/mods/Extended_Barrel.png' },
+
+  // MAGAZINE
+  { id: 'm10', name: 'Extended Light Mag I', recycleInfo: [{name:'Plastic Parts',quantity:6}], salvageInfo: [{name:'Plastic Parts',quantity:3}], category: 'MAGAZINE', rarity: 'COMMON', icon: 'view_day', tier: 1, description: '+5 Magazine Size', materials: [{ name: "Plastic Parts", quantity: 4 }, { name: "Steel Spring", quantity: 2 }], imageUrl: '/images/mods/Extended_Light_Mag_I.png' },
+  { id: 'm10b', name: 'Extended Light Mag II', recycleInfo: [{name:'Mechanical Components',quantity:1},{name:'Steel Spring',quantity:1}], salvageInfo: [{name:'Mechanical Components',quantity:1}], category: 'MAGAZINE', rarity: 'UNCOMMON', icon: 'view_day', tier: 2, description: '+10 Magazine Size', materials: [{ name: "Mechanical Components", quantity: 2 }, { name: "Steel Spring", quantity: 4 }], imageUrl: '/images/mods/Extended_Light_Mag_II.png' },
+  { id: 'm11', name: 'Extended Light Mag III', recycleInfo: [{name:'Mod Components',quantity:1},{name:'Steel Spring',quantity:2}], salvageInfo: [{name:'Mechanical Components',quantity:2}], category: 'MAGAZINE', rarity: 'RARE', icon: 'view_day', tier: 3, description: '+15 Magazine Size', materials: [{ name: "Mod Components", quantity: 2 }, { name: "Steel Spring", quantity: 5 }], imageUrl: '/images/mods/Extended_Light_Mag_III.png' },
+  { id: 'm12', name: 'Extended Medium Mag I', recycleInfo: [{name:'Plastic Parts',quantity:6}], salvageInfo: [{name:'Plastic Parts',quantity:3}], category: 'MAGAZINE', rarity: 'COMMON', icon: 'view_day', tier: 1, description: '+4 Magazine Size', materials: [{ name: "Plastic Parts", quantity: 5 }, { name: "Steel Spring", quantity: 2 }], imageUrl: '/images/mods/Extended_Medium_Mag_I.png' },
+  { id: 'mm2', name: 'Extended Medium Mag II', recycleInfo: [{name:'Mechanical Components',quantity:1},{name:'Steel Spring',quantity:1}], salvageInfo: [{name:'Mechanical Components',quantity:1}], category: 'MAGAZINE', rarity: 'UNCOMMON', icon: 'view_day', tier: 2, description: '+8 Magazine Size', materials: [{ name: "Mechanical Components", quantity: 3 }, { name: "Steel Spring", quantity: 3 }], imageUrl: '/images/mods/Extended_Medium_Mag_I.png' },
+  { id: 'm14', name: 'Extended Medium Mag III', recycleInfo: [{name:'Mod Components',quantity:1},{name:'Steel Spring',quantity:2}], salvageInfo: [{name:'Mechanical Components',quantity:2}], category: 'MAGAZINE', rarity: 'RARE', icon: 'view_day', tier: 3, description: '+12 Magazine Size', materials: [{ name: "Mod Components", quantity: 2 }, { name: "Steel Spring", quantity: 4 }], imageUrl: '/images/mods/Extended_Medium_Mag_III.png' },
+  { id: 'msm1', name: 'Extended Shotgun Mag I', recycleInfo: [{name:'Plastic Parts',quantity:6}], salvageInfo: [{name:'Plastic Parts',quantity:3}], category: 'MAGAZINE', rarity: 'COMMON', icon: 'view_day', tier: 1, description: '+2 Magazine Size', materials: [{ name: "Plastic Parts", quantity: 3 }, { name: "Steel Spring", quantity: 1 }], imageUrl: '/images/mods/Extended_Shotgun_Mag_III.png' },
+  { id: 'msm2', name: 'Extended Shotgun Mag II', recycleInfo: [{name:'Mechanical Components',quantity:1},{name:'Steel Spring',quantity:1}], salvageInfo: [{name:'Mechanical Components',quantity:1}], category: 'MAGAZINE', rarity: 'UNCOMMON', icon: 'view_day', tier: 2, description: '+4 Magazine Size', materials: [{ name: "Mechanical Components", quantity: 2 }, { name: "Steel Spring", quantity: 2 }], imageUrl: '/images/mods/Extended_Shotgun_Mag_III.png' },
+  { id: 'm17', name: 'Extended Shotgun Mag III', recycleInfo: [{name:'Mod Components',quantity:1},{name:'Steel Spring',quantity:2}], salvageInfo: [{name:'Mechanical Components',quantity:2}], category: 'MAGAZINE', rarity: 'RARE', icon: 'view_day', tier: 3, description: '+6 Magazine Size', materials: [{ name: "Mod Components", quantity: 2 }, { name: "Steel Spring", quantity: 4 }], imageUrl: '/images/mods/Extended_Shotgun_Mag_III.png' },
+
+  // UNDERBARREL
+  { id: 'm18', name: 'Angled Grip I', recycleInfo: [{name:'Plastic Parts',quantity:6}], salvageInfo: [{name:'Plastic Parts',quantity:3}], category: 'UNDERBARREL', rarity: 'COMMON', icon: 'pan_tool_alt', tier: 1, description: '20% Reduced Horizontal Recoil', materials: [{ name: "Plastic Parts", quantity: 6 }, { name: "Duct Tape", quantity: 2 }], imageUrl: '/images/mods/Angled_Grip_I.png' },
+  { id: 'm19', name: 'Angled Grip II', recycleInfo: [{name:'Mechanical Components',quantity:1},{name:'Duct Tape',quantity:1}], salvageInfo: [{name:'Mechanical Components',quantity:1}], category: 'UNDERBARREL', rarity: 'UNCOMMON', icon: 'pan_tool_alt', tier: 2, description: '30% Reduced Horizontal Recoil', materials: [{ name: "Mechanical Components", quantity: 4 }, { name: "Duct Tape", quantity: 4 }], imageUrl: '/images/mods/Angled_Grip_II.png' },
+  { id: 'ma3', name: 'Angled Grip III', recycleInfo: [{name:'Mod Components',quantity:1},{name:'Duct Tape',quantity:2}], salvageInfo: [{name:'Mechanical Components',quantity:2}], category: 'UNDERBARREL', rarity: 'RARE', icon: 'pan_tool_alt', tier: 3, description: '40% Reduced Horizontal Recoil, 20% Reduced ADS Speed', materials: [{ name: "Mod Components", quantity: 2 }, { name: "Duct Tape", quantity: 5 }], imageUrl: '/images/mods/Angled_Grip_II.png' },
+  { id: 'mv1', name: 'Vertical Grip I', recycleInfo: [{name:'Plastic Parts',quantity:6}], salvageInfo: [{name:'Plastic Parts',quantity:3}], category: 'UNDERBARREL', rarity: 'COMMON', icon: 'pan_tool_alt', tier: 1, description: '20% Reduced Vertical Recoil', materials: [{ name: "Plastic Parts", quantity: 6 }, { name: "Duct Tape", quantity: 2 }], imageUrl: '/images/mods/Vertical_Grip_III.png' },
+  { id: 'mv2', name: 'Vertical Grip II', recycleInfo: [{name:'Mechanical Components',quantity:1},{name:'Duct Tape',quantity:1}], salvageInfo: [{name:'Mechanical Components',quantity:1}], category: 'UNDERBARREL', rarity: 'UNCOMMON', icon: 'pan_tool_alt', tier: 2, description: '30% Reduced Vertical Recoil', materials: [{ name: "Mechanical Components", quantity: 4 }, { name: "Duct Tape", quantity: 4 }], imageUrl: '/images/mods/Vertical_Grip_III.png' },
+  { id: 'm22', name: 'Vertical Grip III', recycleInfo: [{name:'Mechanical Components',quantity:2},{name:'Duct Tape',quantity:2}], salvageInfo: [{name:'Mechanical Components',quantity:2}], category: 'UNDERBARREL', rarity: 'RARE', icon: 'pan_tool_alt', tier: 3, description: '40% Reduced Vertical Recoil, 30% Reduced ADS Speed', materials: [{ name: "Mod Components", quantity: 3 }, { name: "Duct Tape", quantity: 6 }], imageUrl: '/images/mods/Vertical_Grip_III.png' },
+  { id: 'm23', name: 'Horizontal Grip', recycleInfo: [{name:'Mod Components',quantity:1},{name:'Duct Tape',quantity:2}], salvageInfo: [{name:'Mechanical Components',quantity:2}], category: 'UNDERBARREL', rarity: 'EPIC', icon: 'pan_tool_alt', tier: 3, description: '30% Reduced Horizontal Recoil, 30% Reduced Vertical Recoil, 30% Reduced ADS Speed', materials: [], imageUrl: '/images/mods/Horizontal_Grip.png' },
+
+  // STOCK
+  { id: 'm24', name: 'Stable Stock I', recycleInfo: [{name:'Rubber Parts',quantity:6}], salvageInfo: [{name:'Rubber Parts',quantity:3}], category: 'STOCK', rarity: 'COMMON', icon: 'format_underlined', tier: 1, description: '20% Reduced Vertical Recoil', materials: [{ name: "Metal Parts", quantity: 6 }, { name: "Steel Spring", quantity: 2 }], imageUrl: '/images/mods/Stable_Stock_I.png' },
+  { id: 'm25', name: 'Stable Stock II', recycleInfo: [{name:'Mechanical Components',quantity:1},{name:'Duct Tape',quantity:1}], salvageInfo: [{name:'Mechanical Components',quantity:1}], category: 'STOCK', rarity: 'UNCOMMON', icon: 'format_underlined', tier: 2, description: '30% Reduced Vertical Recoil', materials: [{ name: "Mechanical Components", quantity: 3 }, { name: "Steel Spring", quantity: 4 }], imageUrl: '/images/mods/Stable_Stock_II.png' },
+  { id: 'm26', name: 'Stable Stock III', recycleInfo: [{name:'Mod Components',quantity:1},{name:'Duct Tape',quantity:2}], salvageInfo: [{name:'Mechanical Components',quantity:2}], category: 'STOCK', rarity: 'RARE', icon: 'format_underlined', tier: 3, description: '45% Reduced Vertical Recoil, 20% Increased Equip/Unequip Time', materials: [{ name: "Mod Components", quantity: 2 }, { name: "Steel Spring", quantity: 5 }], imageUrl: '/images/mods/Stable_Stock_III.png' },
+  { id: 'mp3', name: 'Padded Stock III', recycleInfo: [{ name: 'Mod Components', quantity: 1 }], salvageInfo: [{ name: 'Mechanical Components', quantity: 1 }], category: 'STOCK', rarity: 'RARE', icon: 'format_underlined', tier: 3, description: '20% Reduced Base Dispersion, 20% Reduced Vertical/Horizontal Recoil, 50% Reduced ADS Speed', materials: [{ name: "Mod Components", quantity: 2 }, { name: "Duct Tape", quantity: 6 }], imageUrl: '/images/mods/Stable_Stock_III.png' },
+  { id: 'm27', name: 'Lightweight Stock', recycleInfo: [{name:'Mod Components',quantity:1},{name:'Duct Tape',quantity:1}], salvageInfo: [{name:'Mechanical Components',quantity:2}], category: 'STOCK', rarity: 'EPIC', icon: 'format_underlined', tier: 3, description: '200% Increased ADS Speed, 30% Reduced Equip/Unequip Time, 50% Increased Vertical Recoil', materials: [{ name: "Mod Components", quantity: 2 }, { name: "Duct Tape", quantity: 5 }], imageUrl: '/images/mods/Lightweight_Stock.png' },
+  { id: 'm28', name: 'Kinetic Converter', recycleInfo: [{name:'Mod Components',quantity:1},{name:'Duct Tape',quantity:2}], salvageInfo: [{name:'Mechanical Components',quantity:2}], category: 'STOCK', rarity: 'LEGENDARY', icon: 'bolt', tier: 'LEGENDARY', description: '15% Increased Fire Rate, 20% Increased Horizontal Recoil, 20% Increased Vertical Recoil', materials: [], imageUrl: '/images/mods/Kinetic_Converter.png' },
+  { id: 'm-anvilsplitter', name: 'Anvil Splitter', recycleInfo: [{name:'Mod Components',quantity:1},{name:'Processor',quantity:1}], salvageInfo: [{name:'Mechanical Components',quantity:2}], category: 'ALL', rarity: 'LEGENDARY', icon: 'bolt', tier: 'LEGENDARY', description: '+3 Projectiles Per Shot, 70% Reduced Projectile Damage', materials: [], imageUrl: 'https://arcraiders.wiki/w/images/thumb/e/ef/Anvil_Splitter.png/348px-Anvil_Splitter.png.webp' },
+];
+
+export const WEAPONS_DATA: Weapon[] = [
+  {
+    id: 'w-rattler', name: 'Rattler', rarity: 'COMMON', icon: 'my_location', imageUrl: '/images/weapons/Rattler.webp',
+    craftInfo: { materials: [{ name: 'Metal Parts', quantity: 16 }, { name: 'Rubber Parts', quantity: 12 }], station: 'Gunsmith 1' },
+    repairInfo: [
+      { tier: 'I', materials: [{ name: 'Mechanical Components', quantity: 1 }, { name: 'Rubber Parts', quantity: 2 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Mechanical Components', quantity: 2 }, { name: 'Rubber Parts', quantity: 1 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Mechanical Components', quantity: 2 }, { name: 'Simple Gun Parts', quantity: 1 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 2 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Metal Parts', quantity: 10 }, { name: 'Rubber Parts', quantity: 10 }], perks: '+4 Magazine Size, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '+8 Magazine Size, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '+12 Magazine Size, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Metal Parts', quantity: 8 }] },
+      { tier: 'II', materials: [{ name: 'Metal Parts', quantity: 12 }] },
+      { tier: 'III', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 1 }] },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 4 }, { name: 'Simple Gun Parts', quantity: 2 }] },
+    ],
+  },
+  {
+    id: 'w-arpeggio', name: 'Arpeggio', rarity: 'UNCOMMON', icon: 'my_location', imageUrl: '/images/weapons/Arpeggio.webp',
+    craftInfo: { materials: [{ name: 'Mechanical Components', quantity: 6 }, { name: 'Simple Gun Parts', quantity: 6 }], station: 'Gunsmith 2' },
+    repairInfo: [
+      { tier: 'I', materials: [{ name: 'Mechanical Components', quantity: 2 }, { name: 'Simple Gun Parts', quantity: 2 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 3 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Mechanical Components', quantity: 4 }, { name: 'Simple Gun Parts', quantity: 4 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 5 }, { name: 'Simple Gun Parts', quantity: 5 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Mechanical Components', quantity: 4 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '20% Increased Fire Rate, 12.5% Reduced Reload Time, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Mechanical Components', quantity: 5 }, { name: 'Medium Gun Parts', quantity: 1 }], perks: '40% Increased Fire Rate, 25% Reduced Reload Time, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 5 }, { name: 'Medium Gun Parts', quantity: 1 }], perks: '60% Increased Fire Rate, 50% Reduced Reload Time, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Mechanical Components', quantity: 2 }, { name: 'Simple Gun Parts', quantity: 2 }] },
+      { tier: 'II', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 3 }] },
+      { tier: 'III', materials: [{ name: 'Mechanical Components', quantity: 4 }, { name: 'Simple Gun Parts', quantity: 4 }] },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 5 }, { name: 'Simple Gun Parts', quantity: 5 }] },
+    ],
+  },
+  {
+    id: 'w-tempest', name: 'Tempest', rarity: 'EPIC', icon: 'my_location', imageUrl: '/images/weapons/Tempest.webp',
+    craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 3 }, { name: 'Exodus Modules', quantity: 2 }], station: 'Gunsmith 3' },
+    repairInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 2 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Medium Gun Parts', quantity: 3 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 4 }, { name: 'Medium Gun Parts', quantity: 4 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 5 }, { name: 'Medium Gun Parts', quantity: 4 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 1 }], perks: '16.6% Reduced Horizontal Recoil, 13% Reduced Reload Time, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 3 }], perks: '33.3% Reduced Horizontal Recoil, 26% Reduced Reload Time, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 4 }], perks: '50% Reduced Horizontal Recoil, 39% Reduced Reload Time, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 2 }] },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Medium Gun Parts', quantity: 3 }] },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 4 }, { name: 'Medium Gun Parts', quantity: 4 }] },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 5 }, { name: 'Medium Gun Parts', quantity: 4 }] },
+    ],
+  },
+  {
+    id: 'w-bettina', name: 'Bettina', rarity: 'EPIC', icon: 'my_location', imageUrl: '/images/weapons/Bettina.png',
+    craftInfo: { materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Heavy Gun Parts', quantity: 3 }, { name: 'Canister', quantity: 3 }], station: 'Gunsmith 3' },
+    repairInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Heavy Gun Parts', quantity: 2 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 2 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 3 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Heavy Gun Parts', quantity: 3 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Heavy Gun Parts', quantity: 2 }], perks: '5% Increased Fire Rate, 11.1% Reduced Reload Time, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Heavy Gun Parts', quantity: 2 }], perks: '10% Increased Fire Rate, 22.2% Reduced Reload Time, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 2 }], perks: '15% Increased Fire Rate, 33.3% Reduced Reload Time, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Heavy Gun Parts', quantity: 2 }] },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 2 }] },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 3 }] },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Heavy Gun Parts', quantity: 3 }] },
+    ],
+  },
+  {
+    id: 'w-aphelion', name: 'Aphelion', rarity: 'LEGENDARY', icon: 'my_location', imageUrl: 'https://arcraiders.wiki/w/images/8/88/Aphelion.png',
+    craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 3 }, { name: 'Complex Gun Parts', quantity: 3 }, { name: 'Matriarch Reactor', quantity: 1 }], station: 'Gunsmith 3' },
+    repairInfo: [
+      { tier: 'I', materials: [{ name: 'Magnetic Accelerator', quantity: 2 }, { name: 'Complex Gun Parts', quantity: 1 }], durability: '+50' },
+    ],
+    upgradeInfo: [],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Magnetic Accelerator', quantity: 2 }, { name: 'Complex Gun Parts', quantity: 1 }] },
+    ],
+  },
+  {
+    id: 'w-bobcat', name: 'Bobcat', rarity: 'EPIC', icon: 'my_location', imageUrl: '/images/weapons/Bobcat.webp',
+    craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 1 }, { name: 'Light Gun Parts', quantity: 3 }, { name: 'Exodus Modules', quantity: 2 }], station: 'Gunsmith 3' },
+    repairInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Light Gun Parts', quantity: 2 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Light Gun Parts', quantity: 3 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 4 }, { name: 'Light Gun Parts', quantity: 4 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 5 }, { name: 'Light Gun Parts', quantity: 4 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Light Gun Parts', quantity: 1 }], perks: '15% Reduced Dispersion, 15% Reduced Horizontal Recoil, 13% Reduced Reload Time, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Light Gun Parts', quantity: 3 }], perks: '30% Reduced Dispersion, 30% Reduced Horizontal Recoil, 26% Reduced Reload Time, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Light Gun Parts', quantity: 3 }], perks: '45% Reduced Dispersion, 45% Reduced Horizontal Recoil, 39% Reduced Reload Time, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Light Gun Parts', quantity: 2 }] },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Light Gun Parts', quantity: 3 }] },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 4 }, { name: 'Light Gun Parts', quantity: 4 }] },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 5 }, { name: 'Light Gun Parts', quantity: 4 }] },
+    ],
+  },
+  {
+    id: 'w-vulcano', name: 'Vulcano', rarity: 'EPIC', icon: 'my_location', imageUrl: '/images/weapons/Vulcano.webp',
+    craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 1 }, { name: 'Heavy Gun Parts', quantity: 3 }, { name: 'Exodus Modules', quantity: 1 }], station: 'Gunsmith 3' },
+    repairInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 1 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 2 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Heavy Gun Parts', quantity: 3 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 4 }, { name: 'Heavy Gun Parts', quantity: 4 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Heavy Gun Parts', quantity: 1 }], perks: '10% Increased Fire Rate, 13% Reduced Reload Time, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 1 }], perks: '20% Increased Fire Rate, 26% Reduced Reload Time, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 3 }], perks: '30% Increased Fire Rate, 40% Reduced Reload Time, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 2 }] },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 3 }] },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Heavy Gun Parts', quantity: 4 }] },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 4 }, { name: 'Heavy Gun Parts', quantity: 5 }] },
+    ],
+  },
+  {
+    id: 'w-hairpin', name: 'Hairpin', rarity: 'COMMON', icon: 'my_location', imageUrl: '/images/weapons/Hairpin.webp',
+    craftInfo: { materials: [{ name: 'Metal Parts', quantity: 2 }, { name: 'Plastic Parts', quantity: 5 }], station: 'Gunsmith 1' },
+repairInfo: [
+      { tier: 'I', materials: [{ name: 'Metal Parts', quantity: 2 }, { name: 'Rubber Parts', quantity: 1 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Metal Parts', quantity: 4 }, { name: 'Rubber Parts', quantity: 3 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Metal Parts', quantity: 6 }, { name: 'Simple Gun Parts', quantity: 1 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 1 }, { name: 'Simple Gun Parts', quantity: 2 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Metal Parts', quantity: 8 }], perks: '10% Increased Fire Rate, 13% Reduced Reload Time, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Metal Parts', quantity: 9 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '20% Increased Fire Rate, 26% Reduced Reload Time, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 1 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '30% Increased Fire Rate, 40% Reduced Reload Time, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Metal Parts', quantity: 2 }, { name: 'Rubber Parts', quantity: 1 }] },
+      { tier: 'II', materials: [{ name: 'Metal Parts', quantity: 4 }, { name: 'Rubber Parts', quantity: 3 }] },
+      { tier: 'III', materials: [{ name: 'Metal Parts', quantity: 6 }, { name: 'Simple Gun Parts', quantity: 1 }] },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 1 }, { name: 'Simple Gun Parts', quantity: 2 }] },
+    ],
+  },
+  {
+    id: 'w-jupiter', name: 'Jupiter', rarity: 'LEGENDARY', icon: 'my_location', imageUrl: 'https://arcraiders.wiki/w/images/6/68/Jupiter.png',
+    craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 3 }, { name: 'Complex Gun Parts', quantity: 3 }, { name: 'Queen Reactor', quantity: 1 }], station: 'Gunsmith 3' },
+    repairInfo: [
+      { tier: 'I', materials: [{ name: 'Magnetic Accelerator', quantity: 2 }, { name: 'Complex Gun Parts', quantity: 1 }], durability: '+50' },
+    ],
+    upgradeInfo: [],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Magnetic Accelerator', quantity: 2 }, { name: 'Complex Gun Parts', quantity: 1 }] },
+    ],
+  },
+  {
+    id: 'w-hullcracker', name: 'Hullcracker', rarity: 'EPIC', icon: 'my_location', imageUrl: '/images/weapons/Hullcracker.webp',
+    craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 1 }, { name: 'Heavy Gun Parts', quantity: 3 }, { name: 'Exodus Modules', quantity: 1 }], station: 'Gunsmith 3' },
+    repairInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 1 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 2 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Heavy Gun Parts', quantity: 3 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 4 }, { name: 'Heavy Gun Parts', quantity: 4 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Heavy Gun Parts', quantity: 2 }], perks: '18% Increased Fire Rate, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 1 }], perks: '35% Increased Fire Rate, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 3 }], perks: '53% Increased Fire Rate, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 2 }] },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Heavy Gun Parts', quantity: 3 }] },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Heavy Gun Parts', quantity: 4 }] },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 4 }, { name: 'Heavy Gun Parts', quantity: 5 }] },
+    ],
+  },
+  {
+    id: 'w-equalizer', name: 'Equalizer', rarity: 'LEGENDARY', icon: 'my_location', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/equalizer.webp',
+    craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 3 }, { name: 'Complex Gun Parts', quantity: 3 }, { name: 'Queen Reactor', quantity: 1 }], station: 'Gunsmith 3' },
+    repairInfo: [
+      { tier: 'I', materials: [{ name: 'Magnetic Accelerator', quantity: 2 }, { name: 'Complex Gun Parts', quantity: 1 }], durability: '+50' },
+    ],
+    upgradeInfo: [],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Magnetic Accelerator', quantity: 2 }, { name: 'Complex Gun Parts', quantity: 1 }] },
+    ],
+  },
+  {
+    id: 'w1', name: 'Ferro', rarity: 'COMMON', icon: 'handyman', imageUrl: '/images/weapons/Ferro.png',
+    craftInfo: { materials: [{ name: 'Metal Parts', quantity: 15 }, { name: 'Simple Gun Parts', quantity: 4 }], station: 'Weapon Workbench' },
+repairInfo: [
+      { tier: 'I', materials: [{ name: 'Metal Parts', quantity: 2 }, { name: 'Rubber Parts', quantity: 1 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Metal Parts', quantity: 4 }, { name: 'Rubber Parts', quantity: 3 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Metal Parts', quantity: 6 }, { name: 'Simple Gun Parts', quantity: 1 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 1 }, { name: 'Simple Gun Parts', quantity: 2 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Metal Parts', quantity: 7 }], perks: '13% Reduced Reload Time, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Metal Parts', quantity: 9 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '26% Reduced Reload Time, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 1 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '39% Reduced Reload Time, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Metal Parts', quantity: 2 }, { name: 'Rubber Parts', quantity: 1 }] },
+      { tier: 'II', materials: [{ name: 'Metal Parts', quantity: 4 }, { name: 'Rubber Parts', quantity: 3 }] },
+      { tier: 'III', materials: [{ name: 'Metal Parts', quantity: 6 }, { name: 'Simple Gun Parts', quantity: 1 }] },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 1 }, { name: 'Simple Gun Parts', quantity: 2 }] },
+    ],
+  },
+  {
+    id: 'w2', name: 'Stitcher', rarity: 'COMMON', icon: 'adjust', imageUrl: '/images/weapons/Stitcher.png',
+    craftInfo: { materials: [{ name: 'Metal Parts', quantity: 8 }, { name: 'Rubber Parts', quantity: 4 }], station: 'Gunsmith 1' },
+repairInfo: [
+      { tier: 'I', materials: [{ name: 'Metal Parts', quantity: 3 }, { name: 'Rubber Parts', quantity: 2 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Metal Parts', quantity: 6 }, { name: 'Rubber Parts', quantity: 6 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Metal Parts', quantity: 12 }, { name: 'Simple Gun Parts', quantity: 1 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 2 }, { name: 'Simple Gun Parts', quantity: 2 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Metal Parts', quantity: 8 }, { name: 'Rubber Parts', quantity: 12 }], perks: '16.6% Reduced Horizontal Recoil, 13% Reduced Reload Time, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Metal Parts', quantity: 10 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '33.3% Reduced Horizontal Recoil, 26% Reduced Reload Time, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '50% Reduced Horizontal Recoil, 40% Reduced Reload Time, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Metal Parts', quantity: 3 }, { name: 'Rubber Parts', quantity: 2 }] },
+      { tier: 'II', materials: [{ name: 'Metal Parts', quantity: 6 }, { name: 'Rubber Parts', quantity: 6 }] },
+      { tier: 'III', materials: [{ name: 'Metal Parts', quantity: 12 }, { name: 'Simple Gun Parts', quantity: 1 }] },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 2 }, { name: 'Simple Gun Parts', quantity: 2 }] },
+    ],
+  },
+  {
+    id: 'w3', name: 'Kettle', rarity: 'COMMON', icon: 'fireplace', imageUrl: '/images/weapons/Kettle.png',
+    craftInfo: { materials: [{ name: 'Metal Parts', quantity: 6 }, { name: 'Rubber Parts', quantity: 8 }], station: 'Gunsmith 1' },
+repairInfo: [
+      { tier: 'I', materials: [{ name: 'Metal Parts', quantity: 3 }, { name: 'Rubber Parts', quantity: 2 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Metal Parts', quantity: 6 }, { name: 'Rubber Parts', quantity: 6 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Metal Parts', quantity: 12 }, { name: 'Simple Gun Parts', quantity: 2 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 2 }, { name: 'Simple Gun Parts', quantity: 2 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Metal Parts', quantity: 8 }, { name: 'Plastic Parts', quantity: 10 }], perks: '25% Increased Bullet Velocity, 13% Reduced Reload Time, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Metal Parts', quantity: 10 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '50% Increased Bullet Velocity, 26% Reduced Reload Time, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '75% Increased Bullet Velocity, 40% Reduced Reload Time, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Metal Parts', quantity: 3 }, { name: 'Rubber Parts', quantity: 2 }] },
+      { tier: 'II', materials: [{ name: 'Metal Parts', quantity: 6 }, { name: 'Rubber Parts', quantity: 6 }] },
+      { tier: 'III', materials: [{ name: 'Metal Parts', quantity: 12 }, { name: 'Simple Gun Parts', quantity: 1 }] },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 2 }, { name: 'Simple Gun Parts', quantity: 2 }] },
+    ],
+  },
+  {
+    id: 'w4', name: 'Il Toro', rarity: 'UNCOMMON', icon: 'sports_martial_arts', imageUrl: '/images/weapons/Il_Toro.png',
+    craftInfo: { materials: [{ name: 'Mechanical Components', quantity: 5 }, { name: 'Simple Gun Parts', quantity: 6 }], station: 'Gunsmith 1' },
+repairInfo: [
+      { tier: 'I', materials: [{ name: 'Mechanical Components', quantity: 2 }, { name: 'Simple Gun Parts', quantity: 2 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 3 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Mechanical Components', quantity: 4 }, { name: 'Simple Gun Parts', quantity: 4 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 5 }, { name: 'Simple Gun Parts', quantity: 5 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '17.5% Increased Fire Rate, +1 Magazine Size, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Mechanical Components', quantity: 4 }, { name: 'Heavy Gun Parts', quantity: 1 }], perks: '35% Increased Fire Rate, +2 Magazine Size, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 4 }, { name: 'Heavy Gun Parts', quantity: 1 }], perks: '50% Increased Fire Rate, +3 Magazine Size, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Mechanical Components', quantity: 2 }, { name: 'Simple Gun Parts', quantity: 2 }] },
+      { tier: 'II', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 3 }] },
+      { tier: 'III', materials: [{ name: 'Mechanical Components', quantity: 4 }, { name: 'Simple Gun Parts', quantity: 4 }] },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 5 }, { name: 'Simple Gun Parts', quantity: 5 }] },
+    ],
+  },
+  {
+    id: 'w5', name: 'Anvil', rarity: 'UNCOMMON', icon: 'construction', imageUrl: '/images/weapons/Anvil.png',
+    craftInfo: { materials: [{ name: 'Mechanical Components', quantity: 5 }, { name: 'Simple Gun Parts', quantity: 6 }], station: 'Gunsmith 1' },
+repairInfo: [
+      { tier: 'I', materials: [{ name: 'Mechanical Components', quantity: 2 }, { name: 'Simple Gun Parts', quantity: 2 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 3 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Mechanical Components', quantity: 4 }, { name: 'Simple Gun Parts', quantity: 4 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 5 }, { name: 'Simple Gun Parts', quantity: 5 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '6.5% Reduced Dispersion Recovery, 25% Increased Fire Rate, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Mechanical Components', quantity: 4 }, { name: 'Heavy Gun Parts', quantity: 1 }], perks: '12.5% Reduced Dispersion Recovery, 50% Increased Fire Rate, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 4 }, { name: 'Heavy Gun Parts', quantity: 1 }], perks: '18.75% Reduced Dispersion Recovery, 75% Increased Fire Rate, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Mechanical Components', quantity: 2 }, { name: 'Simple Gun Parts', quantity: 2 }] },
+      { tier: 'II', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 3 }] },
+      { tier: 'III', materials: [{ name: 'Mechanical Components', quantity: 4 }, { name: 'Simple Gun Parts', quantity: 4 }] },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 5 }, { name: 'Simple Gun Parts', quantity: 5 }] },
+    ],
+  },
+  {
+    id: 'w6', name: 'Burletta', rarity: 'UNCOMMON', icon: 'speed', imageUrl: '/images/weapons/Burletta.png',
+    craftInfo: { materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 3 }], station: 'Gunsmith 1' },
+repairInfo: [
+      { tier: 'I', materials: [{ name: 'Mechanical Components', quantity: 1 }, { name: 'Simple Gun Parts', quantity: 2 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Mechanical Components', quantity: 2 }, { name: 'Simple Gun Parts', quantity: 2 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 3 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 4 }, { name: 'Simple Gun Parts', quantity: 4 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '16.6% Reduced Reload Time, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '33.3% Reduced Reload Time, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 4 }, { name: 'Simple Gun Parts', quantity: 1 }], perks: '50% Reduced Reload Time, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Mechanical Components', quantity: 1 }, { name: 'Simple Gun Parts', quantity: 2 }] },
+      { tier: 'II', materials: [{ name: 'Mechanical Components', quantity: 2 }, { name: 'Simple Gun Parts', quantity: 2 }] },
+      { tier: 'III', materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts', quantity: 3 }] },
+      { tier: 'IV', materials: [{ name: 'Mechanical Components', quantity: 4 }, { name: 'Simple Gun Parts', quantity: 4 }] },
+    ],
+  },
+  {
+    id: 'w7', name: 'Renegade', rarity: 'RARE', icon: 'dangerous', imageUrl: '/images/weapons/Renegade.png',
+    craftInfo: { materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 3 }, { name: 'Oil', quantity: 5 }], station: 'Gunsmith 2' },
+repairInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 1 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 1 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 3 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Medium Gun Parts', quantity: 3 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 2 }], perks: '16.6% Reduced Dispersion Recovery, 25% Increased Fire Rate, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 2 }], perks: '33.3% Reduced Dispersion Recovery, 50% Increased Fire Rate, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 2 }], perks: '50% Reduced Dispersion Recovery, 75% Increased Fire Rate, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 2 }] },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 2 }] },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 3 }] },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Medium Gun Parts', quantity: 3 }] },
+    ],
+  },
+  {
+    id: 'w8', name: 'Venator', rarity: 'RARE', icon: 'track_changes', imageUrl: '/images/weapons/Venator.png',
+    craftInfo: { materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 3 }, { name: 'Magnet', quantity: 5 }], station: 'Gunsmith 2' },
+repairInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 1 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 1 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 3 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Medium Gun Parts', quantity: 3 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 2 }], perks: '13% Increased Fire Rate, 16% Reduced Reload Time, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 2 }], perks: '26% Increased Fire Rate, 33% Reduced Reload Time, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 2 }], perks: '40% Increased Fire Rate, 50% Reduced Reload Time, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 2 }] },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 2 }] },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 3 }] },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Medium Gun Parts', quantity: 3 }] },
+    ],
+  },
+  {
+    id: 'w9', name: 'Osprey', rarity: 'RARE', icon: 'gps_fixed', imageUrl: '/images/weapons/Osprey.png',
+    craftInfo: { materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 3 }, { name: 'Wires', quantity: 7 }], station: 'Gunsmith 2' },
+repairInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 1 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 1 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 3 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Medium Gun Parts', quantity: 3 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 2 }], perks: '20% Reduced Bolt Action Time, 12.5% Reduced Reload Time, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 2 }], perks: '40% Reduced Bolt Action Time, 25% Reduced Reload Time, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 2 }], perks: '60% Reduced Bolt Action Time, 37.5% Reduced Reload Time, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 2 }] },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 2 }] },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 3 }] },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Medium Gun Parts', quantity: 3 }] },
+    ],
+  },
+  {
+    id: 'w10', name: 'Torrente', rarity: 'RARE', icon: 'local_fire_department', imageUrl: '/images/weapons/Torrente.png',
+    craftInfo: { materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 3 }, { name: 'Steel Spring', quantity: 6 }], station: 'Gunsmith 2' },
+repairInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 1 }], durability: '+50' },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 1 }], durability: '+55' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 3 }], durability: '+60' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Medium Gun Parts', quantity: 3 }], durability: '+65' },
+    ],
+    upgradeInfo: [
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 2 }], perks: '+10 Magazine Size, 15% Reduced Reload Time, +10 Durability' },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 2 }], perks: '+20 Magazine Size, 30% Reduced Reload Time, +20 Durability' },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 2 }], perks: '+30 Magazine Size, 45% Reduced Reload Time, +30 Durability' },
+    ],
+    recycleInfo: [
+      { tier: 'I', materials: [{ name: 'Advanced Mechanical Components', quantity: 1 }, { name: 'Medium Gun Parts', quantity: 2 }] },
+      { tier: 'II', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 2 }] },
+      { tier: 'III', materials: [{ name: 'Advanced Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts', quantity: 3 }] },
+      { tier: 'IV', materials: [{ name: 'Advanced Mechanical Components', quantity: 3 }, { name: 'Medium Gun Parts', quantity: 3 }] },
+    ],
+  },
+];
+
+export const THROWABLES_DATA: Throwable[] = [
+
+  {"id":"t-cloak","name":"Photoelectric Cloak","imageUrl":"https://arcraiders.wiki/w/images/0/06/Photoelectric_Cloak.png","rarity":"EPIC","icon":"visibility_off","category":"QUICK USE","description":"Briefly invisible to ARC.","craftInfo":{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Advanced Mechanical Components","quantity":1}]}},
+  {"id":"t-snaphook","name":"Snap Hook","imageUrl":"https://arcraiders.wiki/w/images/5/56/Snap_Hook.png","rarity":"UNCOMMON","icon":"link","category":"QUICK USE","description":"Quick traversal across gaps.","craftInfo":{"station":"Refiner 1","quantityProduced":1,"materials":[{"name":"Metal Parts","quantity":4}]}},
+  {"id":"t-zipline","name":"Zipline","imageUrl":"https://arcraiders.wiki/w/images/f/f9/Zipline.png","rarity":"RARE","icon":"route","category":"QUICK USE","description":"Bidirectional zipline for squad.","craftInfo":{"station":"Refiner 2","quantityProduced":1,"materials":[{"name":"Rope","quantity":4},{"name":"Mechanical Components","quantity":3}]}},
+  // THROWABLES
+  {
+    id: 't1', name: 'Light Impact Grenade', recycleInfo: [{name:'Chemicals',quantity:1},{name:'Plastic Parts',quantity:1}], salvageInfo: [{name:'Chemicals',quantity:1}], rarity: 'COMMON', icon: 'explosion', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/light-impact-grenade.webp',
+    description: '', category: 'THROWABLES',
+    craftInfo: { station: 'Topside (In-Round)', quantityProduced: 1, materials: [{ name: 'Plastic Parts', quantity: 2 }, { name: 'Chemicals', quantity: 3 }] } 
+  },
+  {
+    id: 't2', name: 'Smoke Grenade', recycleInfo: [{name:'Chemicals',quantity:2},{name:'Canister',quantity:1}], salvageInfo: [{name:'Chemicals',quantity:3}], rarity: 'RARE', icon: 'cloud', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/smoke-grenade.webp',
+    description: '', category: 'THROWABLES',
+    craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Chemicals', quantity: 14 }, { name: 'Canister', quantity: 1 }] }
+  },
+  {
+    id: 't4', name: 'Showstopper', recycleInfo: [{name:'Electrical Components',quantity:1},{name:'Voltage Converter',quantity:1}], salvageInfo: [{name:'Electrical Components',quantity:1}], rarity: 'RARE', icon: 'motion_photos_pause', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/showstopper.webp',
+    description: '', category: 'THROWABLES',
+    craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Electrical Components', quantity: 1 }, { name: 'Hornet Driver', quantity: 1 }, { name: 'Voltage Converter', quantity: 1 }] }
+  },
+  {
+    id: 't5', name: 'Jolt Mine', recycleInfo: [{name:'Battery',quantity:1},{name:'Plastic Parts',quantity:2}], salvageInfo: [{name:'Battery',quantity:1}], rarity: 'RARE', icon: 'settings_input_antenna', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/jolt-mine.webp',
+    description: '', category: 'THROWABLES',
+    craftInfo: { station: 'Explosives Station II', quantityProduced: 1, materials: [{ name: 'Electrical Components', quantity: 1 }, { name: 'Battery', quantity: 1 }] } 
+  },
+  {
+    id: 't6', name: 'Explosive Mine', recycleInfo: [{name:'Oil',quantity:2},{name:'Sensors',quantity:1}], salvageInfo: [{name:'Oil',quantity:2}], rarity: 'RARE', icon: 'trip_origin', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/explosive-mine.webp',
+    description: '', category: 'THROWABLES',
+    craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Explosive Compound', quantity: 1 }, { name: 'Sensors', quantity: 1 }] } 
+  },
+  {
+    id: 't7', name: 'Snap Blast Grenade', recycleInfo: [{name:'Chemicals',quantity:1},{name:'Magnet',quantity:1}], salvageInfo: [{name:'Chemicals',quantity:2}], rarity: 'COMMON', icon: 'explosion', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/snap-blast-grenade.webp',
+    description: '', category: 'THROWABLES',
+    craftInfo: { station: 'Explosives Station II', quantityProduced: 1, materials: [{ name: 'Crude Explosives', quantity: 2 }, { name: 'Magnet', quantity: 1 }] }
+  },
+  {
+    id: 't8', name: 'Trigger\'nade', rarity: 'RARE', icon: 'back_hand', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/trigger-nade.webp',
+    description: '', category: 'THROWABLES',
+    craftInfo: { station: 'Explosives Station II', quantityProduced: 1, materials: [{ name: 'Crude Explosives', quantity: 2 }, { name: 'Processor', quantity: 1 }] }
+  },
+  {
+    id: 't9', name: 'Heavy Fuze Grenade', recycleInfo: [{name:'Oil',quantity:1},{name:'Rubber Parts',quantity:2}], salvageInfo: [{name:'Crude Explosives',quantity:1}], rarity: 'RARE', icon: 'bomb', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/heavy-fuze-grenade.webp',
+    description: '', category: 'THROWABLES',
+    craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Explosive Compound', quantity: 1 }, { name: 'Canister', quantity: 2 }] }
+  },
+  {
+    id: 't10', name: 'Blaze Grenade', recycleInfo: [{name:'Metal Parts',quantity:4},{name:'Oil',quantity:2}], salvageInfo: [{name:'Oil',quantity:1}], rarity: 'RARE', icon: 'local_fire_department', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/blaze-grenade.webp',
+    description: '', category: 'THROWABLES',
+    craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Explosive Compound', quantity: 1 }, { name: 'Oil', quantity: 2 }] }
+  },
+  {
+    id: 't11', name: 'Trailblazer', recycleInfo: [{name:'Crude Explosives',quantity:2}], salvageInfo: [{name:'Crude Explosives',quantity:2}], rarity: 'EPIC', icon: 'route', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/trailblazer-grenade.webp',
+    description: '', category: 'THROWABLES',
+    craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Synthesized Fuel', quantity: 1 }, { name: 'Crude Explosives', quantity: 2 }, { name: 'Firefly Burner', quantity: 1 }] }
+  },
+  {
+    id: 't12', name: 'Wolfpack', recycleInfo: [{name:'ARC Motion Core',quantity:1},{name:'Explosive Compound',quantity:1}], salvageInfo: [{name:'Explosive Compound',quantity:2}], rarity: 'EPIC', icon: 'rocket_launch', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/wolfpack.webp',
+    description: '', category: 'THROWABLES',
+    craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Explosive Compound', quantity: 1 }, { name: 'ARC Motion Core', quantity: 2 }, { name: 'Rocketeer Driver', quantity: 1 }] }
+  },
+  {
+    id: 't13', name: 'Seeker Grenade', recycleInfo: [{name:'Crude Explosives',quantity:1}], salvageInfo: [{name:'Chemicals',quantity:3}], rarity: 'RARE', icon: 'assistant_navigation', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/seeker-grenade.webp',
+    description: '', category: 'THROWABLES',
+    craftInfo: { station: 'Explosives Station I', quantityProduced: 1, materials: [{ name: 'Crude Explosives', quantity: 1 }, { name: 'ARC Alloy', quantity: 2 }] }
+  },
+  {
+    id: 't14', name: 'Shrapnel Grenade', recycleInfo: [{name:'Crude Explosives',quantity:1},{name:'Metal Parts',quantity:1}], salvageInfo: [{name:'Crude Explosives',quantity:1}], rarity: 'UNCOMMON', icon: 'blur_on', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/shrapnel-grenade.webp',
+    description: '', category: 'THROWABLES',
+    craftInfo: { station: 'Explosives Station I', quantityProduced: 1, materials: [{ name: 'Crude Explosives', quantity: 1 }, { name: 'Steel Spring', quantity: 2 }] }
+  },
+  {
+    id: 't15', name: 'Deadline', recycleInfo: [{name:'Explosive Compound',quantity:1},{name:'ARC Circuitry',quantity:1}], salvageInfo: [{name:'Explosive Compound',quantity:1}], rarity: 'EPIC', icon: 'warning', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/deadline.webp',
+    description: '', category: 'THROWABLES',
+    craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Comet Igniter', quantity: 1 }, { name: 'Explosive Compound', quantity: 3 }, { name: 'ARC Circuitry', quantity: 2 }] }
+  },
+  // DEFENSIVE - SHIELDS
+  {
+    id: 't16', name: 'Light Shield', recycleInfo: [{name:'Plastic Parts',quantity:4}], salvageInfo: [{name:'ARC Alloy',quantity:1}], rarity: 'UNCOMMON', icon: 'shield', category: 'SHIELDS',
+    imageUrl: 'https://arcraiders.wiki/w/images/4/40/Light_Shield.png',
+    description: 'Basic protection made from salvaged parts. Lightweight and portable.',
+    craftInfo: { station: 'Gear Bench 1', quantityProduced: 1, materials: [{name: 'Duct Tape', quantity: 2}, {name: 'Plastic Parts', quantity: 4}] }
+  },
+  {
+    id: 't17', name: 'Medium Shield', recycleInfo: [{name:'ARC Circuitry',quantity:1}], salvageInfo: [{name:'ARC Alloy',quantity:2}], rarity: 'RARE', icon: 'shield', category: 'SHIELDS',
+    imageUrl: 'https://arcraiders.wiki/w/images/4/41/Medium_Shield.png',
+    description: 'Standard Shield that offers Raiders fair protection, but it has a small movement penalty.',
+    craftInfo: { station: 'Gear Bench 2', quantityProduced: 1, materials: [{name: 'Electrical Components', quantity: 3}, {name: 'Mechanical Components', quantity: 3}, {name: 'Light Shield', quantity: 1}] }
+  },
+  {
+    id: 't18', name: 'Heavy Shield', recycleInfo: [{name:'ARC Circuitry',quantity:2},{name:'Voltage Converter',quantity:1}], salvageInfo: [{name:'ARC Alloy',quantity:4}], rarity: 'EPIC', icon: 'shield', category: 'SHIELDS',
+    imageUrl: 'https://arcraiders.wiki/w/images/f/f9/Heavy_Shield.png',
+    description: 'Heavy Shield offering maximum protection at the cost of significantly reduced mobility.',
+    craftInfo: { station: 'Gear Bench 3', quantityProduced: 1, materials: [{name: 'Advanced Electrical Components', quantity: 3}, {name: 'Medium Shield', quantity: 1}] }
+  },
+  // DEFENSIVE - QUICK USE
+  {
+    id: 't19', name: 'Shield Recharger', recycleInfo: [{name:'Rubber Parts',quantity:4}], salvageInfo: [{name:'Rubber Parts',quantity:3}], rarity: 'UNCOMMON', icon: 'battery_charging_full', category: 'DEFENSIVE',
+    imageUrl: 'https://arcraiders.wiki/w/images/thumb/4/44/Shield_Recharger.png/348px-Shield_Recharger.png.webp',
+    description: 'Quick Use item that can be used to recharge Shields over time.',
+    craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Rubber Parts', quantity: 4 }, { name: 'ARC Powercell', quantity: 1 }] }
+  },
+  {
+    id: 't20', name: 'Surge Shield Recharger', recycleInfo: [{name:'Electrical Components',quantity:1}], salvageInfo: [{name:'Plastic Parts',quantity:5}], rarity: 'RARE', icon: 'bolt', category: 'DEFENSIVE',
+    imageUrl: 'https://arcraiders.wiki/w/images/thumb/c/c9/Surge_Shield_Recharger.png/348px-Surge_Shield_Recharger.png.webp',
+    description: 'Quick Use item that can be used to recharge Shields instantly.',
+    craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Electrical Components', quantity: 4 }, { name: 'Advanced ARC Powercell', quantity: 1 }] }
+  },
+  {
+    id: 't21', name: 'Vita Spray', recycleInfo: [{name:'Antiseptic',quantity:1},{name:'Canister',quantity:1}], salvageInfo: [{name:'Antiseptic',quantity:1}], rarity: 'EPIC', icon: 'medication', category: 'DEFENSIVE',
+    imageUrl: 'https://arcraiders.wiki/w/images/thumb/1/1d/Vita_Spray.png/348px-Vita_Spray.png.webp',
+    description: 'A pressurized healing spray that restores health rapidly over time.',
+    craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Antiseptic', quantity: 4 }, { name: 'Canister', quantity: 1 }, { name: 'Tick Pod', quantity: 1 }] }
+  },
+  {
+    id: 't22', name: 'Vita Shot', recycleInfo: [{name:'Chemicals',quantity:4},{name:'Syringe',quantity:1}], salvageInfo: [{name:'Syringe',quantity:1}], rarity: 'RARE', icon: 'vaccines', category: 'DEFENSIVE',
+    imageUrl: 'https://arcraiders.wiki/w/images/thumb/7/7d/Vita_Shot.png/348px-Vita_Shot.png.webp',
+    description: 'An injectable healing agent that provides an immediate boost to health.',
+    craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Antiseptic', quantity: 3 }, { name: 'Syringe', quantity: 1 }] }
+  },
+  {
+    id: 't23', name: 'Sterilized Bandage', recycleInfo: [{name:'Fabric',quantity:1},{name:'Antiseptic',quantity:1}], salvageInfo: [{name:'Durable Cloth',quantity:1}], rarity: 'RARE', icon: 'healing', category: 'DEFENSIVE',
+    imageUrl: 'https://arcraiders.wiki/w/images/thumb/9/99/Sterilized_Bandage.png/348px-Sterilized_Bandage.png.webp',
+    description: 'Clean medical wrap treated with antiseptic to heal wounds.',
+    craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Durable Cloth', quantity: 2 }, { name: 'Antiseptic', quantity: 1 }] }
+  },
+  {
+    id: 't24', name: 'Herbal Bandage', recycleInfo: [{name:'Assorted Seeds',quantity:2},{name:'Fabric',quantity:5}], salvageInfo: [{name:'Fabric',quantity:8}], rarity: 'UNCOMMON', icon: 'healing', category: 'DEFENSIVE',
+    imageUrl: 'https://arcraiders.wiki/w/images/thumb/c/c5/Herbal_Bandage.png/348px-Herbal_Bandage.png.webp',
+    description: 'A traditional bandage using medicinal plants for natural healing.',
+    craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Fabric', quantity: 4 }, { name: 'Great Mullein', quantity: 2 }] }
+  },
+  {
+    id: 't25', name: 'Defibrillator', recycleInfo: [{name:'Plastic Parts',quantity:1},{name:'Moss',quantity:1}], salvageInfo: [{name:'Chemicals',quantity:2}], rarity: 'RARE', icon: 'heart_minus', category: 'DEFENSIVE',
+    imageUrl: 'https://arcraiders.wiki/w/images/thumb/5/5f/Defibrillator.png/348px-Defibrillator.png.webp',
+    description: 'A device used to revive downed teammates in the heat of battle.',
+    craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Plastic Parts', quantity: 6 }, { name: 'Moss', quantity: 2 }] }
+  }
+];
+
+export const AUGMENTS_DATA: Augment[] = [
+  {"id":"a-c3a","name":"Combat Mk. 3 (Aggressive)","imageUrl":"https://arcraiders.wiki/w/images/a/a4/Combat_Mk._3_%28Aggressive%29.png","rarity":"EPIC","icon":"shield_with_heart","craftInfo":{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Advanced Mechanical Components","quantity":4}]}},
+  {"id":"a-c3f","name":"Combat Mk. 3 (Flanking)","imageUrl":"https://arcraiders.wiki/w/images/7/73/Combat_Mk._3_%28Flanking%29.png","rarity":"EPIC","icon":"shield_with_heart","craftInfo":{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Advanced Mechanical Components","quantity":4}]}},
+  {"id":"a-l2","name":"Looting Mk. 2","imageUrl":"https://arcraiders.wiki/w/images/7/7c/Looting_Mk._2.png","rarity":"RARE","icon":"shopping_bag","craftInfo":{"station":"Refiner 2","quantityProduced":1,"materials":[{"name":"Magnet","quantity":2}]}},
+  {"id":"a-l3c","name":"Looting Mk. 3 (Cautious)","imageUrl":"https://arcraiders.wiki/w/images/6/68/Looting_Mk._3_%28Cautious%29.png","rarity":"EPIC","icon":"shopping_bag","craftInfo":{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Advanced Mechanical Components","quantity":4}]}},
+  {"id":"a-l3sa","name":"Looting Mk. 3 (Safekeeper)","imageUrl":"https://arcraiders.wiki/w/images/c/c6/Looting_Mk._3_%28Safekeeper%29.png","rarity":"EPIC","icon":"shopping_bag","craftInfo":{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Advanced Mechanical Components","quantity":4}]}},
+  {"id":"a-l3su","name":"Looting Mk. 3 (Survivor)","imageUrl":"https://arcraiders.wiki/w/images/7/74/Looting_Mk._3_%28Survivor%29.png","rarity":"EPIC","icon":"shopping_bag","craftInfo":{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Advanced Mechanical Components","quantity":4}]}},
+  {"id":"a-t2","name":"Tactical Mk. 2","imageUrl":"https://arcraiders.wiki/w/images/6/6c/Tactical_Mk._2.png","rarity":"RARE","icon":"tactic","craftInfo":{"station":"Refiner 2","quantityProduced":1,"materials":[{"name":"Magnet","quantity":2}]}},
+  {"id":"a-t3d","name":"Tactical Mk. 3 (Defensive)","imageUrl":"https://arcraiders.wiki/w/images/a/a9/Tactical_Mk._3_%28Defensive%29.png","rarity":"EPIC","icon":"tactic","craftInfo":{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Advanced Mechanical Components","quantity":4}]}},
+  {"id":"a-t3h","name":"Tactical Mk. 3 (Healing)","imageUrl":"https://arcraiders.wiki/w/images/1/12/Tactical_Mk._3_%28Healing%29.png","rarity":"EPIC","icon":"tactic","craftInfo":{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Advanced Mechanical Components","quantity":4}]}},
+  {"id":"a-t3r","name":"Tactical Mk. 3 (Revival)","imageUrl":"https://arcraiders.wiki/w/images/e/e0/Tactical_Mk._3_%28Revival%29.png","rarity":"EPIC","icon":"tactic","craftInfo":{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Advanced Mechanical Components","quantity":4}]}},
+  {
+    id: 'a1', name: 'Combat Mk. 1', rarity: 'UNCOMMON', icon: 'shield_with_heart',
+    imageUrl: 'https://arcraiders.wiki/w/images/thumb/1/14/Combat_Mk._1.png/50px-Combat_Mk._1.png.webp',
+    description: 'Offers Raiders the choice to equip a Medium Shield, but limited backpack capacity.',
+    craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Rubber Parts', quantity: 6 }, { name: 'Plastic Parts', quantity: 10 }] }
+  },
+  {
+    id: 'a2', name: 'Combat Mk. 2', rarity: 'RARE', icon: 'shield_with_heart',
+    imageUrl: 'https://arcraiders.wiki/w/images/thumb/5/54/Combat_Mk._2.png/50px-Combat_Mk._2.png.webp',
+    description: 'Allows equipping Heavy Shields and provides improved combat capacity.',
+    craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Magnet', quantity: 2 }, { name: 'Advanced Mechanical Components', quantity: 2 }] }
+  },
+  {
+    id: 'a3', name: 'Looting Mk. 1', rarity: 'UNCOMMON', icon: 'shopping_bag',
+    imageUrl: 'https://arcraiders.wiki/w/images/thumb/2/27/Looting_Mk._1.png/50px-Looting_Mk._1.png.webp',
+    description: 'Increases carrying weight and backpack slots for better exploration.',
+    craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Fabric', quantity: 12 }, { name: 'Plastic Parts', quantity: 8 }] }
+  },
+  {
+    id: 'a4', name: 'Tactical Mk. 1', rarity: 'UNCOMMON', icon: 'tactic',
+    imageUrl: 'https://arcraiders.wiki/w/images/thumb/1/18/Tactical_Mk._1.png/50px-Tactical_Mk._1.png.webp',
+    description: 'Provides additional Quick Use slots for tactical items.',
+    craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Wires', quantity: 8 }, { name: 'Plastic Parts', quantity: 10 }] }
+  }
+];
+
+export const LOOT_DATA: LootCategory[] = [
+  // --- NON-CRAFTABLE ITEMS FIRST (A-Z) ---
+  {
+    id: 'loot-arc-alloy',
+    material: 'ARC Alloy',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/a/a6/ARC_Alloy.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/ARC_Alloy',
+    sources: [
+      { name: 'Damaged Leaper Pulse Unit', quantity: 3, imageUrl: '/images/loot/Damaged_Leaper_Pulse_Unit.png' },
+      { name: 'Damaged Rocketeer Driver', quantity: 3, imageUrl: '/images/loot/Damaged_Rocketeer_Driver.png' },
+      { name: 'Bastion Cell', quantity: 3, imageUrl: '/images/loot/Bastion_Cell.png' },
+      { name: 'Bombardier Cell', quantity: 3, imageUrl: '/images/loot/Bombardier_Cell.png' },
+      { name: 'Leaper Pulse Unit', quantity: 3, imageUrl: '/images/loot/Leaper_Pulse_Unit.png' },
+      { name: 'Heavy Shield', quantity: 3, imageUrl: '/images/loot/Heavy_Shield.png' },
+      { name: 'ARC Circuitry', quantity: 2, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/arc-circuitry.webp' },
+      { name: 'ARC Motion Core', quantity: 2, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/arc-motion-core.webp' },
+      { name: 'Rocketeer Driver', quantity: 2, imageUrl: '/images/loot/Rocketeer_Driver.png' },
+    ],
+  },
+  {
+    id: 'loot-arc-powercell',
+    material: 'ARC Powercell',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/d/df/ARC_Powercell.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/ARC_Powercell',
+    sources: [
+      { name: 'Advanced ARC Powercell', quantity: 2, imageUrl: '/images/loot/Advanced_ARC_Powercell.png' },
+    ],
+  },
+  {
+    id: 'loot-duct-tape',
+    material: 'Duct Tape',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/4/4e/Duct_Tape.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Duct_Tape',
+    sources: [
+      { name: 'Angled Grip III', quantity: 2, imageUrl: '/images/loot/Angled_Grip_III.png' },
+      { name: 'Kinetic Converter', quantity: 2, imageUrl: '/images/mods/Kinetic_Converter.png' },
+      { name: 'Horizontal Grip', quantity: 2, imageUrl: '/images/mods/Horizontal_Grip.png' },
+      { name: 'Stable Stock III', quantity: 2, imageUrl: '/images/mods/Stable_Stock_III.png' },
+      { name: 'Vertical Grip III', quantity: 2, imageUrl: '/images/mods/Vertical_Grip_III.png' },
+      { name: 'Angled Grip II', quantity: 1 },
+      { name: 'Lightweight Stock', quantity: 1 },
+      { name: 'Padded Stock III', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-chemicals',
+    material: 'Chemicals',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/9/92/Chemicals.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Chemicals',
+    sources: [
+      { name: 'Vita Shot', quantity: 4, imageUrl: '/images/loot/Vita_Shot.png' },
+      { name: 'Pulse Mine Blueprint', quantity: 2 },
+      { name: 'Soap', quantity: 1, imageUrl: '/images/loot/Soap.png' },
+      { name: 'Bleach', quantity: 1, imageUrl: '/images/loot/Bleach.png' },
+      { name: 'Syringe', quantity: 1, imageUrl: '/images/loot/Syringe.png' },
+    ],
+  },
+  {
+    id: 'loot-rubber-parts',
+    material: 'Rubber Parts',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/9/93/Rubber_Parts.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Rubber_Parts',
+    sources: [
+      { name: 'Wires', quantity: 2, imageUrl: '/images/loot/Wires.png' },
+      { name: 'Mechanical Components', quantity: 2, imageUrl: '/images/materials/Mechanical_Components.png' },
+      { name: 'Rattler II', quantity: 2 },
+      { name: 'Shield Recharger', quantity: 4 },
+    ],
+  },
+  {
+    id: 'loot-plastic-parts',
+    material: 'Plastic Parts',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/c/c9/Plastic_Parts.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Plastic_Parts',
+    sources: [
+      { name: 'Toaster', quantity: 5, imageUrl: '/images/loot/Toaster.png' },
+      { name: 'Processor', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/processor.webp' },
+      { name: 'Vita Shot', quantity: 1, imageUrl: '/images/loot/Vita_Shot.png' },
+      { name: 'Electrical Components', quantity: 3 },
+    ],
+  },
+  {
+    id: 'loot-wires',
+    material: 'Wires',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/3/39/Wires.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Wires',
+    sources: [
+      { name: 'Toaster', quantity: 3, imageUrl: '/images/loot/Toaster.png' },
+      { name: 'Processor', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/processor.webp' },
+      { name: 'Voltage Converter', quantity: 1, imageUrl: '/images/materials/Voltage_Converter.png' },
+      { name: 'Broken Handheld Radio', quantity: 2 },
+      { name: 'Broken Taser', quantity: 2 },
+    ],
+  },
+  {
+    id: 'loot-magnet',
+    material: 'Magnet',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/8/8c/Magnet.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Magnet',
+    sources: [
+      { name: 'Microscope', quantity: 3, imageUrl: '/images/loot/Microscope.png' },
+      { name: 'Exodus Modules', quantity: 2, imageUrl: '/images/loot/Exodus_Modules.png' },
+      { name: 'Industrial Magnet', quantity: 2, imageUrl: '/images/loot/Industrial_Magnet.png' },
+      { name: 'Combat Mk. 2', quantity: 1, imageUrl: '/images/loot/Combat_Mk._2.png' },
+      { name: 'Looting Mk. 2', quantity: 1, imageUrl: '/images/loot/Looting_Mk._2.png' },
+      { name: 'Ripped Safety Vest', quantity: 1, imageUrl: '/images/loot/Ripped_Safety_Vest.png' },
+      { name: 'Ruined Tactical Vest', quantity: 1, imageUrl: '/images/loot/Ruined_Tactical_Vest.png' },
+      { name: 'Snap Blast Grenade', quantity: 1, imageUrl: '/images/loot/Snap_Blast_Grenade.png' },
+      { name: 'Tactical Mk. 2', quantity: 1, imageUrl: '/images/loot/Tactical_Mk._2.png' },
+    ],
+  },
+  {
+    id: 'loot-metal-parts',
+    material: 'Metal Parts',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/8/89/Metal_Parts.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Metal_Parts',
+    sources: [
+      { name: 'Rattler IV', quantity: 12, imageUrl: '/images/weapons/Rattler.webp' },
+      { name: 'Il Toro IV', quantity: 8, imageUrl: '/images/weapons/Il_Toro.png' },
+      { name: 'Heavy Shield', quantity: 3, imageUrl: '/images/loot/Heavy_Shield.png' },
+      { name: 'Magnet', quantity: 3, imageUrl: '/images/materials/Magnet.png' },
+      { name: 'Mechanical Components', quantity: 3, imageUrl: '/images/materials/Mechanical_Components.png' },
+      { name: 'Microscope', quantity: 2, imageUrl: '/images/loot/Microscope.png' },
+      { name: 'Toaster', quantity: 2, imageUrl: '/images/loot/Toaster.png' },
+      { name: 'Steel Spring', quantity: 2, imageUrl: '/images/materials/Steel_Spring.png' },
+      { name: 'Simple Gun Parts', quantity: 2, imageUrl: '/images/materials/Simple_Gun_Parts.png' },
+      { name: 'Unusable Weapon', quantity: 2, imageUrl: '/images/loot/Unusable_Weapon.png' },
+    ],
+  },
+  {
+    id: 'loot-mod-components',
+    material: 'Mod Components',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/0/0f/Mod_Components.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Mod_Components',
+    craftingStation: 'Refiner 2',
+    sources: [
+      { name: 'Anvil Splitter', quantity: 1, imageUrl: 'https://arcraiders.wiki/w/images/thumb/e/ef/Anvil_Splitter.png/348px-Anvil_Splitter.png.webp' },
+      { name: 'Kinetic Converter', quantity: 1, imageUrl: '/images/mods/Kinetic_Converter.png' },
+      { name: 'Horizontal Grip', quantity: 1, imageUrl: '/images/mods/Horizontal_Grip.png' },
+      { name: 'Angled Grip III', quantity: 1, imageUrl: '/images/loot/Angled_Grip_III.png' },
+      { name: 'Extended Barrel', quantity: 1 },
+      { name: 'Vertical Grip III', quantity: 1 },
+      { name: 'Stable Stock III', quantity: 1 },
+      { name: 'Padded Stock III', quantity: 1 },
+      { name: 'Lightweight Stock', quantity: 1 },
+      { name: 'Trigger \'Nade', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-plastic-parts',
+    material: 'Plastic Parts',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/c/c9/Plastic_Parts.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Plastic_Parts',
+    sources: [
+      { name: 'ARC Synthetic Resin', quantity: 14, imageUrl: '/images/loot/ARC_Synthetic_Resin.png' },
+      { name: 'Cooling Fan', quantity: 14, imageUrl: '/images/loot/Cooling_Fan.png' },
+      { name: 'Recorder', quantity: 10, imageUrl: '/images/loot/Recorder.png' },
+      { name: 'Ruined Riot Shield', quantity: 10, imageUrl: '/images/loot/Ruined_Riot_Shield.png' },
+      { name: 'Shaker', quantity: 10, imageUrl: '/images/loot/Shaker.png' },
+      { name: 'Dried-Out ARC Resin', quantity: 9, imageUrl: '/images/loot/Dried-Out_ARC_Resin.png' },
+      { name: 'Camera Lens', quantity: 8, imageUrl: '/images/loot/Camera_Lens.png' },
+      { name: 'Remote Control', quantity: 7, imageUrl: '/images/loot/Remote_Control.png' },
+      { name: 'Alarm Clock', quantity: 6, imageUrl: '/images/loot/Alarm_Clock.png' },
+      { name: 'Angled Grip I', quantity: 6, imageUrl: '/images/mods/Angled_Grip_I.png' },
+    ],
+  },
+  {
+    id: 'loot-rubber-parts',
+    material: 'Rubber Parts',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/9/93/Rubber_Parts.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Rubber_Parts',
+    sources: [
+      { name: 'Rubber Pad', quantity: 18, imageUrl: '/images/loot/Rubber_Pad.png' },
+      { name: 'Ruined Accordion', quantity: 18, imageUrl: '/images/loot/Ruined_Accordion.png' },
+      { name: 'ARC Flex Rubber', quantity: 16, imageUrl: '/images/loot/ARC_Flex_Rubber.png' },
+      { name: 'Diving Goggles', quantity: 12, imageUrl: '/images/loot/Diving_Goggles.png' },
+      { name: 'Degraded ARC Rubber', quantity: 11, imageUrl: '/images/loot/Degraded_ARC_Rubber.png' },
+      { name: 'Deflated Football', quantity: 9, imageUrl: '/images/loot/Deflated_Football.png' },
+      { name: 'Expired Respirator', quantity: 8, imageUrl: '/images/loot/Expired_Respirator.png' },
+      { name: 'Headphones', quantity: 7, imageUrl: '/images/loot/Headphones.png' },
+      { name: 'Thermostat', quantity: 7, imageUrl: '/images/loot/Thermostat.png' },
+      { name: 'Ruined Riot Shield', quantity: 6, imageUrl: '/images/loot/Ruined_Riot_Shield.png' },
+    ],
+  },
+  {
+    id: 'loot-steel-spring',
+    material: 'Steel Spring',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/d/db/Steel_Spring.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Steel_Spring',
+    sources: [
+      { name: 'Ruined Accordion', quantity: 3, imageUrl: '/images/loot/Ruined_Accordion.png' },
+      { name: 'Cooling Coil', quantity: 2, imageUrl: '/images/loot/Cooling_Coil.png' },
+      { name: 'Extended Light Mag III', quantity: 2, imageUrl: '/images/mods/Extended_Light_Mag_III.png' },
+      { name: 'Extended Medium Mag III', quantity: 2, imageUrl: '/images/mods/Extended_Medium_Mag_III.png' },
+      { name: 'Extended Shotgun Mag III', quantity: 2, imageUrl: '/images/mods/Extended_Shotgun_Mag_III.png' },
+      { name: 'Spring Cushion', quantity: 2, imageUrl: '/images/loot/Spring_Cushion.png' },
+      { name: 'Advanced Mechanical Components', quantity: 1, imageUrl: '/images/materials/Advanced_Mechanical_Components.png' },
+      { name: 'Mod Components', quantity: 1, imageUrl: '/images/materials/Mod_Components.png' },
+      { name: 'Extended Light Mag II', quantity: 1, imageUrl: '/images/mods/Extended_Light_Mag_II.png' },
+      { name: 'Extended Medium Mag II', quantity: 1, imageUrl: '/images/loot/Extended_Medium_Mag_II.png' },
+    ],
+  },
+  {
+    id: 'loot-wires',
+    material: 'Wires',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/3/39/Wires.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Wires',
+    sources: [
+      { name: 'Portable TV', quantity: 6, imageUrl: '/images/loot/Portable_TV.png' },
+      { name: 'Acoustic Guitar', quantity: 6, imageUrl: '/images/loot/Acoustic_Guitar.png' },
+      { name: 'Cooling Fan', quantity: 4, imageUrl: '/images/loot/Cooling_Fan.png' },
+      { name: 'Power Cable', quantity: 4, imageUrl: '/images/loot/Power_Cable.png' },
+      { name: 'Toaster', quantity: 3, imageUrl: '/images/loot/Toaster.png' },
+      { name: 'Damaged Heat Sink', quantity: 2, imageUrl: '/images/loot/Damaged_Heat_Sink.png' },
+      { name: 'Power Bank', quantity: 2, imageUrl: '/images/loot/Power_Bank.png' },
+      { name: 'Humidifier', quantity: 2, imageUrl: '/images/loot/Humidifier.png' },
+      { name: 'Muzzle Brake III', quantity: 2, imageUrl: '/images/loot/Muzzle_Brake_III.png' },
+      { name: 'Shotgun Choke III', quantity: 2, imageUrl: '/images/loot/Shotgun_Choke_III.png' },
+    ],
+  },
+
+  // --- CRAFTABLE ITEMS LAST (A-Z) ---
+  {
+    id: 'loot-adv-electrical',
+    material: 'Advanced Electrical Components',
+    materialImageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/advanced-electrical-components.webp',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Advanced_Electrical_Components',
+    craftingStation: 'Refiner 2',
+    sources: [
+      { name: 'Rocketeer Driver', quantity: 2, imageUrl: '/images/loot/Rocketeer_Driver.png' },
+      { name: 'Combat Mk. 3 (Aggressive)', quantity: 1, imageUrl: '/images/loot/Combat_Mk._3_(Aggressive).png' },
+      { name: 'Combat Mk. 3 (Flanking)', quantity: 1, imageUrl: '/images/loot/Combat_Mk._3_(Flanking).png' },
+      { name: 'Frequency Modulation Box', quantity: 1, imageUrl: '/images/loot/Frequency_Modulation_Box.png' },
+      { name: 'Looting Mk. 3 (Cautious)', quantity: 1, imageUrl: '/images/loot/Looting_Mk._3_(Cautious).png' },
+      { name: 'Looting Mk. 3 (Safekeeper)', quantity: 1, imageUrl: '/images/loot/Looting_Mk._3_(Safekeeper).png' },
+      { name: 'Looting Mk. 3 (Survivor)', quantity: 1, imageUrl: '/images/loot/Looting_Mk._3_(Survivor).png' },
+      { name: 'Photoelectric Cloak', quantity: 1, imageUrl: '/images/loot/Photoelectric_Cloak.png' },
+      { name: 'Power Rod', quantity: 1, imageUrl: '/images/loot/Power_Rod.png' },
+      { name: 'Tactical Mk. 3 (Defensive)', quantity: 1, imageUrl: '/images/loot/Tactical_Mk._3_(Defensive).png' },
+    ],
+  },
+  {
+    id: 'loot-adv-mechanical',
+    material: 'Advanced Mechanical Components',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/2/25/Advanced_Mechanical_Components.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Advanced_Mechanical_Components',
+    craftingStation: 'Refiner 2',
+    sources: [
+      { name: 'Bobcat IV', quantity: 5 },
+      { name: 'Tempest IV', quantity: 5 },
+      { name: 'Bobcat III', quantity: 4 },
+      { name: 'Hullcracker IV', quantity: 4 },
+      { name: 'Tempest III', quantity: 4 },
+      { name: 'Vulcano IV', quantity: 4 },
+      { name: 'Bettina IV', quantity: 3 },
+      { name: 'Bobcat II', quantity: 3 },
+      { name: 'Hullcracker III', quantity: 3 },
+      { name: 'Osprey IV', quantity: 3, imageUrl: '/images/weapons/Osprey.png' },
+    ],
+  },
+  {
+    id: 'loot-electrical-components',
+    material: 'Electrical Components',
+    materialImageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/electrical-components.webp',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Electrical_Components',
+    craftingStation: 'Refiner 1',
+    sources: [
+      { name: 'Fried Motherboard', quantity: 2, imageUrl: '/images/loot/Fried_Motherboard.png' },
+      { name: 'Hornet Driver', quantity: 2, imageUrl: '/images/loot/Hornet_Driver.png' },
+      { name: 'Rotary Encoder', quantity: 2, imageUrl: '/images/loot/Rotary_Encoder.png' },
+      { name: 'Sample Cleaner', quantity: 2, imageUrl: '/images/loot/Sample_Cleaner.png' },
+      { name: 'Signal Amplifier', quantity: 2, imageUrl: '/images/loot/Signal_Amplifier.png' },
+      { name: 'Snitch Scanner', quantity: 2, imageUrl: '/images/loot/Snitch_Scanner.png' },
+      { name: 'Spotter Relay', quantity: 2, imageUrl: '/images/loot/Spotter_Relay.png' },
+      { name: 'Advanced Electrical Components', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/advanced-electrical-components.webp' },
+      { name: 'Combat Mk. 2', quantity: 1, imageUrl: '/images/loot/Combat_Mk._2.png' },
+      { name: 'Looting Mk. 2', quantity: 1, imageUrl: '/images/loot/Looting_Mk._2.png' },
+    ],
+  },
+  {
+    id: 'loot-heavy-gun-parts',
+    material: 'Heavy Gun Parts',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/3/33/Heavy_Gun_Parts.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Heavy_Gun_Parts',
+    craftingStation: 'Refiner 2',
+    sources: [
+      { name: 'Hullcracker IV', quantity: 5 },
+      { name: 'Vulcano IV', quantity: 5 },
+      { name: 'Hullcracker III', quantity: 4 },
+      { name: 'Vulcano III', quantity: 4 },
+      { name: 'Bettina III', quantity: 3 },
+      { name: 'Bettina IV', quantity: 3 },
+      { name: 'Hullcracker II', quantity: 3 },
+      { name: 'Vulcano II', quantity: 3 },
+      { name: 'Bettina II', quantity: 2 },
+      { name: 'Bettina I', quantity: 2 },
+    ],
+  },
+  {
+    id: 'loot-light-gun-parts',
+    material: 'Light Gun Parts',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/c/c9/Light_Gun_Parts.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Light_Gun_Parts',
+    craftingStation: 'Refiner 2',
+    sources: [
+      { name: 'Bobcat IV', quantity: 4 },
+      { name: 'Bobcat III', quantity: 3 },
+      { name: 'Bobcat II', quantity: 2 },
+      { name: 'Bobcat I', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-mechanical-components',
+    material: 'Mechanical Components',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/9/94/Mechanical_Components.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Mechanical_Components',
+    craftingStation: 'Refiner 1',
+    sources: [
+      { name: 'Arpeggio III', quantity: 4 },
+      { name: 'Burletta IV', quantity: 4, imageUrl: '/images/weapons/Burletta.png' },
+      { name: 'Power Drill', quantity: 4, imageUrl: '/images/loot/Power_Drill.png' },
+      { name: 'Rattler IV', quantity: 4 },
+    ],
+  },
+  {
+    id: 'loot-medium-gun-parts',
+    material: 'Medium Gun Parts',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/9/9a/Medium_Gun_Parts.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Medium_Gun_Parts',
+    craftingStation: 'Refiner 2',
+    sources: [
+      { name: 'Tempest III', quantity: 4 },
+      { name: 'Tempest IV', quantity: 4 },
+      { name: 'Osprey III', quantity: 3, imageUrl: '/images/weapons/Osprey.png' },
+      { name: 'Osprey IV', quantity: 3, imageUrl: '/images/weapons/Osprey.png' },
+      { name: 'Renegade III', quantity: 3, imageUrl: '/images/weapons/Renegade.png' },
+      { name: 'Renegade IV', quantity: 3, imageUrl: '/images/weapons/Renegade.png' },
+      { name: 'Tempest II', quantity: 3 },
+      { name: 'Torrente III', quantity: 3, imageUrl: '/images/weapons/Torrente.png' },
+      { name: 'Torrente IV', quantity: 3, imageUrl: '/images/weapons/Torrente.png' },
+      { name: 'Venator III', quantity: 3, imageUrl: '/images/weapons/Venator.png' },
+    ],
+  },
+  {
+    id: 'loot-simple-gun-parts',
+    material: 'Simple Gun Parts',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/d/da/Simple_Gun_Parts.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Simple_Gun_Parts',
+    craftingStation: 'Refiner 3',
+    sources: [
+      { name: 'Anvil IV', quantity: 5, imageUrl: '/images/weapons/Anvil.png' },
+      { name: 'Arpeggio IV', quantity: 5 },
+      { name: 'Il Toro IV', quantity: 5, imageUrl: '/images/weapons/Il_Toro.png' },
+      { name: 'Unusable Weapon', quantity: 5, imageUrl: '/images/loot/Unusable_Weapon.png' },
+      { name: 'Anvil III', quantity: 4, imageUrl: '/images/weapons/Anvil.png' },
+      { name: 'Arpeggio III', quantity: 4 },
+      { name: 'Burletta IV', quantity: 4, imageUrl: '/images/weapons/Burletta.png' },
+      { name: 'Il Toro III', quantity: 4, imageUrl: '/images/weapons/Il_Toro.png' },
+      { name: 'Complex Gun Parts', quantity: 3, imageUrl: '/images/loot/Complex_Gun_Parts.png' },
+      { name: 'Anvil II', quantity: 3, imageUrl: '/images/weapons/Anvil.png' },
+    ],
+  },
+  {
+    id: 'loot-complex-gun-parts',
+    material: 'Complex Gun Parts',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Complex_Gun_Parts',
+    craftingStation: 'Refiner 3',
+    sources: [
+      { name: 'Jupiter', quantity: 3, imageUrl: '/images/weapons/Jupiter.png' },
+      { name: 'Aphelion', quantity: 2, imageUrl: '/images/weapons/Aphelion.png' },
+      { name: 'Equalizer', quantity: 2, imageUrl: '/images/weapons/Equalizer.png' },
+      { name: 'Jupiter (Tier 1)', quantity: 2 },
+      { name: 'Aphelion (Tier 1)', quantity: 2 },
+    ],
+  },
+  {
+    id: 'loot-arc-circuitry',
+    material: 'ARC Circuitry',
+    materialImageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/arc-circuitry.webp',
+    wikiUrl: 'https://arcraiders.wiki/wiki/ARC_Circuitry',
+    sources: [
+      { name: 'Power Rod', quantity: 1, imageUrl: '/images/loot/Power_Rod.png' },
+      { name: 'Heavy Shield', quantity: 1, imageUrl: '/images/loot/Heavy_Shield.png' },
+      { name: 'Deadline', quantity: 1, imageUrl: '/images/weapons/Deadline.png' },
+      { name: 'Sentinel Weaponry Core', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-arc-motion-core',
+    material: 'ARC Motion Core',
+    materialImageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/arc-motion-core.webp',
+    wikiUrl: 'https://arcraiders.wiki/wiki/ARC_Motion_Core',
+    sources: [
+      { name: 'Wolfpack', quantity: 1, imageUrl: '/images/weapons/Wolfpack.png' },
+      { name: 'Launcher Ammo', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-processor',
+    material: 'Processor',
+    materialImageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/processor.webp',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Processor',
+    sources: [
+      { name: 'Anvil Splitter', quantity: 1 },
+      { name: 'Tactical Mk. 3 (Healing)', quantity: 1 },
+      { name: 'Tactical Mk. 3 (Defensive)', quantity: 1 },
+      { name: 'Trigger \'Nade', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-magnetic-accelerator',
+    material: 'Magnetic Accelerator',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/thumb/5/5e/Magnetic_Accelerator.png/348px-Magnetic_Accelerator.png.webp',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Magnetic_Accelerator',
+    craftingStation: 'Refiner 3',
+    sources: [
+      { name: 'Queen Reactor', quantity: 3 },
+      { name: 'Matriarch Reactor', quantity: 2 },
+      { name: 'Aphelion', quantity: 1 },
+      { name: 'Equalizer', quantity: 1 },
+      { name: 'Jupiter', quantity: 1 },
+      { name: 'Magnetron', quantity: 1 },
+      { name: 'Advanced Mechanical Components', quantity: 1 },
+      { name: 'ARC Motion Core', quantity: 1 }
+    ]
+  },
+  {
+    id: 'loot-voltage-converter',
+    material: 'Voltage Converter',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Voltage_Converter',
+    craftingStation: 'Refiner 3',
+    sources: [
+      { name: 'Heavy Shield', quantity: 3 },
+      { name: 'Industrial Charger', quantity: 2 },
+      { name: 'Ion Sputter', quantity: 2 },
+      { name: 'Showstopper', quantity: 1 },
+      { name: 'Signal Amplifier', quantity: 1 },
+      { name: 'Wires', quantity: 1 },
+      { name: 'Rubber Parts', quantity: 1 }
+    ]
+  },
+
+  // --- NEWLY ADDED MATERIALS ---
+  {
+    id: 'loot-advanced-arc-powercell',
+    material: 'Advanced ARC Powercell',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/a/a4/Advanced_ARC_Powercell.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Advanced_ARC_Powercell',
+    sources: [
+      { name: 'Sentinel Weaponry Core', quantity: 3 },
+      { name: 'Surge Shield Recharger', quantity: 2 },
+      { name: 'Tactical Mk. 3 (Healing)', quantity: 2, imageUrl: '/images/loot/Tactical_Mk._3_(Healing).png' },
+      { name: 'Tactical Mk. 3 (Defensive)', quantity: 2, imageUrl: '/images/loot/Tactical_Mk._3_(Defensive).png' },
+    ],
+  },
+  {
+    id: 'loot-antiseptic',
+    material: 'Antiseptic',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/f/f5/Antiseptic.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Antiseptic',
+    sources: [
+      { name: 'Vita Spray', quantity: 4, imageUrl: 'https://arcraiders.wiki/w/images/thumb/1/1d/Vita_Spray.png/348px-Vita_Spray.png.webp' },
+      { name: 'Vita Shot', quantity: 3, imageUrl: 'https://arcraiders.wiki/w/images/thumb/7/7d/Vita_Shot.png/348px-Vita_Shot.png.webp' },
+      { name: 'Sterilized Bandage', quantity: 1, imageUrl: 'https://arcraiders.wiki/w/images/thumb/9/99/Sterilized_Bandage.png/348px-Sterilized_Bandage.png.webp' },
+      { name: 'Soap', quantity: 1 },
+      { name: 'Bleach', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-canister',
+    material: 'Canister',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/5/5f/Canister.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Canister',
+    sources: [
+      { name: 'Fire Extinguisher', quantity: 3 },
+      { name: 'Compressed Air Can', quantity: 2 },
+      { name: 'Vita Spray', quantity: 1, imageUrl: 'https://arcraiders.wiki/w/images/thumb/1/1d/Vita_Spray.png/348px-Vita_Spray.png.webp' },
+      { name: 'Smoke Grenade', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/smoke-grenade.webp' },
+      { name: 'Heavy Fuze Grenade', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/heavy-fuze-grenade.webp' },
+    ],
+  },
+  {
+    id: 'loot-tick-pod',
+    material: 'Tick Pod',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/9/95/Tick_Pod.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Tick_Pod',
+    sources: [
+      { name: 'ARC Tick', quantity: 2 },
+      { name: 'ARC Tick Nymph', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-fabric',
+    material: 'Fabric',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/2/2b/Fabric.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Fabric',
+    sources: [
+      { name: 'Herbal Bandage', quantity: 5, imageUrl: 'https://arcraiders.wiki/w/images/thumb/c/c5/Herbal_Bandage.png/348px-Herbal_Bandage.png.webp' },
+      { name: 'Ripped Safety Vest', quantity: 2, imageUrl: '/images/loot/Ripped_Safety_Vest.png' },
+      { name: 'Ruined Tactical Vest', quantity: 4, imageUrl: '/images/loot/Ruined_Tactical_Vest.png' },
+      { name: 'Rope', quantity: 2, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/rope.webp' },
+      { name: 'Sterilized Bandage', quantity: 1, imageUrl: 'https://arcraiders.wiki/w/images/thumb/9/99/Sterilized_Bandage.png/348px-Sterilized_Bandage.png.webp' },
+    ],
+  },
+  {
+    id: 'loot-durable-cloth',
+    material: 'Durable Cloth',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/2/25/Durable_Cloth.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Durable_Cloth',
+    craftingStation: 'Refiner 1',
+    sources: [
+      { name: 'Sterilized Bandage', quantity: 2, imageUrl: 'https://arcraiders.wiki/w/images/thumb/9/99/Sterilized_Bandage.png/348px-Sterilized_Bandage.png.webp' },
+      { name: 'Ruined Riot Shield', quantity: 2, imageUrl: '/images/loot/Ruined_Riot_Shield.png' },
+      { name: 'Ruined Tactical Vest', quantity: 2, imageUrl: '/images/loot/Ruined_Tactical_Vest.png' },
+    ],
+  },
+  {
+    id: 'loot-great-mullein',
+    material: 'Great Mullein',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/0/0d/Great_Mullein.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Great_Mullein',
+    sources: [
+      { name: 'Herbal Bandage', quantity: 2, imageUrl: 'https://arcraiders.wiki/w/images/thumb/c/c5/Herbal_Bandage.png/348px-Herbal_Bandage.png.webp' },
+      { name: 'Scavenging (Outdoors / Nature zones)', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-moss',
+    material: 'Moss',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/6/64/Moss.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Moss',
+    sources: [
+      { name: 'Defibrillator', quantity: 1, imageUrl: 'https://arcraiders.wiki/w/images/thumb/5/5f/Defibrillator.png/348px-Defibrillator.png.webp' },
+      { name: 'Scavenging (Rocks / Damp surfaces)', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-battery',
+    material: 'Battery',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/6/6d/Battery.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Battery',
+    sources: [
+      { name: 'Jolt Mine', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/jolt-mine.webp' },
+      { name: 'Power Bank', quantity: 2, imageUrl: '/images/loot/Power_Bank.png' },
+      { name: 'Alarm Clock', quantity: 1, imageUrl: '/images/loot/Alarm_Clock.png' },
+      { name: 'Portable TV', quantity: 2, imageUrl: '/images/loot/Portable_TV.png' },
+    ],
+  },
+  {
+    id: 'loot-power-rod',
+    material: 'Power Rod',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/3/31/Power_Rod.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Power_Rod',
+    sources: [
+      { name: 'Queen Reactor', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/queen-reactor.webp' },
+      { name: 'Matriarch Reactor', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/matriarch-reactor.webp' },
+      { name: 'Advanced Electrical Components', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/advanced-electrical-components.webp' },
+    ],
+  },
+  {
+    id: 'loot-syringe',
+    material: 'Syringe',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/1/17/Syringe.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Syringe',
+    sources: [
+      { name: 'Vita Shot', quantity: 1, imageUrl: 'https://arcraiders.wiki/w/images/thumb/7/7d/Vita_Shot.png/348px-Vita_Shot.png.webp' },
+      { name: 'Medical Supply Box', quantity: 2 },
+      { name: 'First Aid Kit', quantity: 1 },
+      { name: 'Scavenging (Medical zones)', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-exodus-modules',
+    material: 'Exodus Modules',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/1/1b/Exodus_Modules.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Exodus_Modules',
+    sources: [
+      { name: 'Bombardier Cell', quantity: 2, imageUrl: '/images/loot/Bombardier_Cell.png' },
+      { name: 'Bastion Cell', quantity: 2, imageUrl: '/images/loot/Bastion_Cell.png' },
+      { name: 'Leaper Pulse Unit', quantity: 2, imageUrl: '/images/loot/Leaper_Pulse_Unit.png' },
+      { name: 'Rocketeer Driver', quantity: 1, imageUrl: 'https://arcraiders.wiki/w/images/e/ef/Rocketeer_Driver.png' },
+    ],
+  },
+  {
+    id: 'loot-crude-explosives',
+    material: 'Crude Explosives',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/f/fc/Crude_Explosives.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Crude_Explosives',
+    sources: [
+      { name: 'Trigger \'Nade', quantity: 2, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/trigger-nade.webp' },
+      { name: 'Snap Blast Grenade', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/snap-blast-grenade.webp' },
+      { name: 'Trailblazer', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/trailblazer.webp' },
+      { name: 'Shrapnel Grenade', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/shrapnel-grenade.webp' },
+      { name: 'Seeker Grenade', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/seeker-grenade.webp' },
+    ],
+  },
+  {
+    id: 'loot-explosive-compound',
+    material: 'Explosive Compound',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/1/11/Explosive_Compound.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Explosive_Compound',
+    sources: [
+      { name: 'Heavy Fuze Grenade', quantity: 2, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/heavy-fuze-grenade.webp' },
+      { name: 'Blaze Grenade', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/blaze-grenade.webp' },
+      { name: 'Explosive Mine', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/explosive-mine.webp' },
+      { name: 'Deadline', quantity: 1 },
+      { name: 'Wolfpack', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-synthesized-fuel',
+    material: 'Synthesized Fuel',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/8/8e/Synthesized_Fuel.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Synthesized_Fuel',
+    sources: [
+      { name: 'Trailblazer', quantity: 2, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/trailblazer.webp' },
+      { name: 'Launcher Ammo (Incendiary)', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-firefly-burner',
+    material: 'Firefly Burner',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/0/04/Firefly_Burner.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Firefly_Burner',
+    sources: [
+      { name: 'Trailblazer', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/trailblazer.webp' },
+      { name: 'Damaged Leaper Pulse Unit', quantity: 2, imageUrl: '/images/loot/Damaged_Leaper_Pulse_Unit.png' },
+      { name: 'Leaper Pulse Unit', quantity: 1, imageUrl: '/images/loot/Leaper_Pulse_Unit.png' },
+    ],
+  },
+  {
+    id: 'loot-rocketeer-driver',
+    material: 'Rocketeer Driver',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/e/ef/Rocketeer_Driver.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Rocketeer_Driver',
+    sources: [
+      { name: 'Wolfpack', quantity: 1 },
+      { name: 'Damaged Rocketeer Driver', quantity: 3, imageUrl: '/images/loot/Damaged_Rocketeer_Driver.png' },
+      { name: 'ARC Rocketeer', quantity: 2 },
+    ],
+  },
+  {
+    id: 'loot-comet-igniter',
+    material: 'Comet Igniter',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/c/c8/Comet_Igniter.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Comet_Igniter',
+    sources: [
+      { name: 'Deadline', quantity: 1 },
+      { name: 'Leaper Pulse Unit', quantity: 1, imageUrl: '/images/loot/Leaper_Pulse_Unit.png' },
+      { name: 'Damaged Leaper Pulse Unit', quantity: 2, imageUrl: '/images/loot/Damaged_Leaper_Pulse_Unit.png' },
+    ],
+  },
+  {
+    id: 'loot-light-shield',
+    material: 'Light Shield',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/4/40/Light_Shield.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Light_Shield',
+    craftingStation: 'Gear Bench I',
+    sources: [
+      { name: 'Ruined Riot Shield', quantity: 3, imageUrl: '/images/loot/Ruined_Riot_Shield.png' },
+      { name: 'Medium Shield', quantity: 1, imageUrl: 'https://arcraiders.wiki/w/images/4/41/Medium_Shield.png' },
+    ],
+  },
+  {
+    id: 'loot-medium-shield',
+    material: 'Medium Shield',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/4/41/Medium_Shield.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Medium_Shield',
+    craftingStation: 'Gear Bench II',
+    sources: [
+      { name: 'Light Shield', quantity: 1, imageUrl: 'https://arcraiders.wiki/w/images/4/40/Light_Shield.png' },
+      { name: 'Heavy Shield', quantity: 1, imageUrl: 'https://arcraiders.wiki/w/images/f/f9/Heavy_Shield.png' },
+    ],
+  },
+  {
+    id: 'loot-heavy-shield-mat',
+    material: 'Heavy Shield',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/f/f9/Heavy_Shield.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Heavy_Shield',
+    sources: [
+      { name: 'ARC Bastion', quantity: 3 },
+      { name: 'Bastion Cell', quantity: 3, imageUrl: '/images/loot/Bastion_Cell.png' },
+      { name: 'ARC Tank', quantity: 2 },
+    ],
+  },
+  {
+    id: 'loot-oil',
+    material: 'Oil',
+    materialImageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/oil.webp',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Oil',
+    sources: [
+      { name: 'Motor', quantity: 3 },
+      { name: 'Water Pump', quantity: 3 },
+      { name: 'Turbo Pump', quantity: 3 },
+      { name: 'Coolant', quantity: 2 },
+      { name: 'Blaze Grenade', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/blaze-grenade.webp' },
+      { name: 'Explosive Mine', quantity: 2, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/explosive-mine.webp' },
+      { name: 'Polluted Air Filter', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-rope',
+    material: 'Rope',
+    materialImageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/rope.webp',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Rope',
+    sources: [
+      { name: 'Zipline', quantity: 2 },
+      { name: 'Snap Hook', quantity: 1 },
+      { name: 'Scavenging (Residential / Commercial zones)', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-sensors',
+    material: 'Sensors',
+    materialImageUrl: 'https://arcraiders.wiki/w/images/9/9c/Sensors.png',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Sensors',
+    sources: [
+      { name: 'ARC Snitch', quantity: 2 },
+      { name: 'ARC Surveyor', quantity: 2 },
+      { name: 'ARC Android', quantity: 1 },
+      { name: 'Server Rack', quantity: 2 },
+      { name: 'Explosive Mine', quantity: 1, imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/explosive-mine.webp' },
+    ],
+  },
+  {
+    id: 'loot-speaker-component',
+    material: 'Speaker Component',
+    materialImageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/speaker-component.webp',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Speaker_Component',
+    sources: [
+      { name: 'Headphones', quantity: 2, imageUrl: '/images/loot/Headphones.png' },
+      { name: 'Frequency Modulation Box', quantity: 1, imageUrl: '/images/loot/Frequency_Modulation_Box.png' },
+      { name: 'Radio', quantity: 2 },
+      { name: 'Noisemaker', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-hornet-driver',
+    material: 'Hornet Driver',
+    materialImageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/hornet-driver.webp',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Hornet_Driver',
+    sources: [
+      { name: 'ARC Hornet', quantity: 2 },
+      { name: 'ARC Courier', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-matriarch-reactor',
+    material: 'Matriarch Reactor',
+    materialImageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/matriarch-reactor.webp',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Matriarch_Reactor',
+    sources: [
+      { name: 'ARC Matriarch (Boss drop)', quantity: 1 },
+    ],
+  },
+  {
+    id: 'loot-queen-reactor',
+    material: 'Queen Reactor',
+    materialImageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/queen-reactor.webp',
+    wikiUrl: 'https://arcraiders.wiki/wiki/Queen_Reactor',
+    sources: [
+      { name: 'ARC Queen (Boss drop)', quantity: 1 },
+      { name: 'ARC Queen Leg Armor', quantity: 1 },
+    ],
+  },
+];
+
+const RARITY_ORDER: Record<string, number> = { 'LEGENDARY': 0, 'EPIC': 1, 'RARE': 2, 'UNCOMMON': 3, 'COMMON': 4 };
+
+MATERIALS_DATA.sort((a, b) => RARITY_ORDER[a.rarity] - RARITY_ORDER[b.rarity]);
+MODS_DATA.sort((a, b) => RARITY_ORDER[a.rarity] - RARITY_ORDER[b.rarity]);
+WEAPONS_DATA.sort((a, b) => RARITY_ORDER[a.rarity] - RARITY_ORDER[b.rarity]);
+THROWABLES_DATA.sort((a, b) => RARITY_ORDER[a.rarity] - RARITY_ORDER[b.rarity]);
+AUGMENTS_DATA.sort((a, b) => RARITY_ORDER[a.rarity] - RARITY_ORDER[b.rarity]);
+
+LOOT_DATA.sort((a, b) => {
+  const matA = MATERIALS_DATA.find(m => m.name === a.material);
+  const matB = MATERIALS_DATA.find(m => m.name === b.material);
+  const rarityA = matA?.rarity || 'COMMON';
+  const rarityB = matB?.rarity || 'COMMON';
+  return RARITY_ORDER[rarityA] - RARITY_ORDER[rarityB];
+});
+
+
+
