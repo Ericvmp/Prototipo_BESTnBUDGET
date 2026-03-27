@@ -13,7 +13,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ activeScreen, onNavigate }) => {
     { id: 'mods', label: 'MODS', icon: 'settings_input_component', color: '#2df287', image: '/images/mods/Compensator_II.png' },
     { id: 'materials', label: 'MATERIALS', icon: 'construction', color: '#fbd008', image: '/images/materials/Metal_Parts.png' },
     { id: 'throwables', label: 'TACTICAL', icon: 'explosion', color: '#fb090b', image: '/images/loot/Snap_Blast_Grenade.png' },
-    { id: 'planner', label: 'PLANNER', icon: 'calculate', color: '#f97316', image: '/images/loot/Snap_Blast_Grenade.png' }, // You might want to use a specific icon for the planner
+    { id: 'planner', label: 'PLANNER', icon: 'calculate', color: '#135bec', image: '/images/loot/Snap_Blast_Grenade.png' }, // You might want to use a specific icon for the planner
   ];
 
   return (

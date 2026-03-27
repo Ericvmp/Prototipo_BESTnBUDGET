@@ -48,6 +48,7 @@ const ModOverlay: React.FC<ModOverlayProps> = ({ mod, onClose, onNavigateMateria
   const MatRow = ({ mat, onClick }: { mat: Material & { quantity: number }; onClick: () => void }) => (
     <button
       onClick={onClick}
+      data-material={mat.name}
       className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 transition-all hover:bg-white/10 group/mat text-left w-full"
     >
       <div className="flex items-center gap-3">

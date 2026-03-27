@@ -205,6 +205,7 @@ const FinalReportModal: React.FC<{
                      {materials.map((mat: any, idx: number) => (
                         <div 
                            key={idx} 
+                           data-material={mat.name}
                            className={`flex items-center justify-between p-3 bg-slate-900/30 backdrop-blur-sm border-2 rounded-2xl group transition-all duration-300 shadow-xl overflow-hidden relative ${getRarityStyles(mat.rarity)} ${getRarityHoverStyles(mat.rarity)}`}
                         >
                            {/* Internal High-Density Card */}
@@ -815,7 +816,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                               </div>
                               <div className="grid grid-cols-2 gap-2">
                                  {maintenanceMaterials.map((mat, idx) => (
-                                    <div key={idx} className="flex items-center gap-3 p-2.5 rounded-xl bg-black/30 border border-white/5 group hover:border-amber-500/30 transition-all">
+                                    <div key={idx} data-material={mat.name} className="flex items-center gap-3 p-2.5 rounded-xl bg-black/30 border border-white/5 group hover:border-amber-500/30 transition-all">
                                        <div className="w-8 h-8 rounded-lg bg-black/50 p-1 border border-white/5 shrink-0 group-hover:scale-110 transition-transform">
                                           {mat.imageUrl ? <img src={mat.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-lg text-slate-600">inventory_2</span>}
                                        </div>
@@ -841,6 +842,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                     return (
                                        <div
                                           key={idx}
+                                          data-material={mat.name}
                                           onClick={() => {
                                              setCheckedMaterials(prev => prev.includes(mat.name) ? prev.filter(i => i !== mat.name) : [...prev, mat.name]);
                                           }}

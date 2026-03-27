@@ -10,6 +10,7 @@ import WeaponOverlay from './components/WeaponOverlay';
 import ModOverlay from './components/ModOverlay';
 import MaterialOverlay from './components/MaterialOverlay';
 import TacticalOverlay from './components/TacticalOverlay';
+import GlobalMaterialTooltip from './components/GlobalMaterialTooltip';
 import { WEAPONS_DATA, MODS_DATA, MATERIALS_DATA, LOOT_DATA, THROWABLES_DATA, AUGMENTS_DATA } from './data';
 import { Weapon, Modification, Material, Screen, Augment, Throwable } from './types';
 
@@ -107,7 +108,7 @@ const App: React.FC = () => {
           <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-primary/50"></div>
         </div>
         <h1 className="text-3xl md:text-5xl font-black tracking-[0.3em] uppercase text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-          STASH COPILOT
+          XANNAX STASH COPILOT
         </h1>
         <p className="text-[16px] md:text-[22px] text-primary tracking-[0.4em] uppercase mt-4 font-bold opacity-90 drop-shadow-glow">
           SUSTAINABLE STASH PLANNER
@@ -319,6 +320,8 @@ const App: React.FC = () => {
       {currentScreen !== 'home' && !selectedWeapon && !selectedMod && !selectedMaterial && (
         <BottomNav activeScreen={currentScreen} onNavigate={setCurrentScreen} />
       )}
+
+      <GlobalMaterialTooltip />
     </div>
   );
 };

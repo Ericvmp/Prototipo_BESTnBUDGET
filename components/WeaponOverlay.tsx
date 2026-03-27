@@ -32,6 +32,7 @@ const MaterialBadge: React.FC<{
     <button
       onClick={onClick}
       disabled={!onClick}
+      data-material={name}
       className="group/mat flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-white/5 border border-white/5 hover:border-primary/30 hover:bg-white/10 transition-all text-left"
     >
       <div className="w-6 h-6 rounded bg-slate-800 flex items-center justify-center overflow-hidden shrink-0">

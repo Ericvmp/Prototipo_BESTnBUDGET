@@ -30,6 +30,7 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                         <button
                             key={category.id}
                             onClick={() => material && onMaterialSelect(material)}
+                            data-material={material?.name}
                             className={`group cursor-pointer relative flex flex-col bg-card-dark rounded-2xl transition-all duration-300 overflow-hidden shadow-lg border-2 hover:ring-8 hover:ring-inset border-slate-800 ${getRarityHoverStyles(material?.rarity || 'COMMON')}`}
                         >
                                 {/* Background Rarity Glow */}
