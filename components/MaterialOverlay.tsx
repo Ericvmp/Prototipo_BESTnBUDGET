@@ -69,7 +69,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
           )}
         </div>
         <div className="flex flex-col">
-          <span className="text-sm font-bold text-white uppercase tracking-wider group-hover/mat:text-primary transition-colors">{mat.name}</span>
+          <span className="text-sm font-bold text-white group-hover/mat:text-primary transition-colors">{mat.name}</span>
           <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">{mat.rarity}</span>
         </div>
       </div>
@@ -124,9 +124,9 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
               className={`text-[11px] font-black tracking-[0.5em] uppercase mb-1 ${rarityColor.text}`}
               style={{ textShadow: `0 0 12px ${rarityColor.hex}` }}
             >
-              MATERIAL · {material.rarity}
+              MATERIAL ARCHIVE · {material.rarity}
             </div>
-            <h2 className="text-3xl md:text-4xl font-black tracking-[0.35em] uppercase text-white drop-shadow-lg">
+            <h2 className="text-3xl md:text-4xl font-black tracking-[0.2em] text-white drop-shadow-lg">
               {material.name}
             </h2>
           </div>
@@ -141,7 +141,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
 
         {/* Scrollable body */}
         <main
-          className="pointer-events-auto flex-1 overflow-y-auto pb-16 px-4 md:px-6"
+          className="pointer-events-auto flex-1 overflow-y-auto no-scrollbar pb-16 px-4 md:px-6"
           style={{ scrollbarWidth: 'thin', scrollbarColor: `${rarityColor.hex}40 transparent` }}
         >
           {/* Main card */}
@@ -151,6 +151,14 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
           >
             {/* Top rarity bar */}
             <div className={`absolute top-0 left-0 w-full h-1 ${rarityColor.topBar}`} />
+
+            {/* Stack Size Badge (Top Right) */}
+            <div className="absolute top-4 right-4 z-20">
+              <span className="flex items-center gap-1.5 text-xs font-black px-3 py-1 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest shadow-inner shadow-black/50" title="Stack Size">
+                <span className="material-symbols-outlined text-[14px] text-slate-400">layers</span>
+                STACK: {material.stackSize || 1}
+              </span>
+            </div>
 
             <div className="p-6 md:p-8">
               {/* Image + info */}
@@ -193,7 +201,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
               <section className="mb-8">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="material-symbols-outlined" style={{ color: rarityColor.hex }}>precision_manufacturing</span>
-                  <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">CRAFT</h3>
+                  <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">CRAFTING COST</h3>
                 </div>
                 {!material.craftInfo?.isCraftable ? (
                   <div className="flex justify-center py-6">
@@ -228,7 +236,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                                     <span className="material-symbols-outlined text-xl text-slate-400">{targetMat?.icon || 'inventory_2'}</span>
                                   )}
                                 </div>
-                                <span className="text-sm font-bold text-white uppercase tracking-wider group-hover/req:text-primary transition-colors">
+                                <span className="text-sm font-bold text-white group-hover/req:text-primary transition-colors">
                                   {req.name}
                                 </span>
                               </div>
@@ -242,12 +250,12 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                 )}
               </section>
 
-              {/* ── FONTES DE RECICLAGEM ── */}
+              {/* ── RECYCLING SOURCES ── */}
               {materialLootData && materialLootData.sources.length > 0 && (
                 <section className="mb-8">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="material-symbols-outlined text-yellow-400 drop-shadow-[0_0_6px_rgba(234,179,8,0.5)]">recycling</span>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-yellow-400">FONTES DE RECICLAGEM</h3>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-yellow-400">RECYCLING SOURCES</h3>
                     <span className="ml-auto text-[10px] font-bold text-slate-600 tracking-widest">TOP {materialLootData.sources.length}</span>
                   </div>
                   <div className="space-y-2">
@@ -271,7 +279,9 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                               )}
                             </div>
                             <div className="flex flex-col">
-                              <span className="text-[12px] font-black uppercase text-slate-100 tracking-wider">{source.name}</span>
+                              <span className="text-[12px] font-black text-slate-100 tracking-wider">
+                                {source.name}
+                              </span>
                               <span className={`text-[9px] font-bold mt-0.5 px-1.5 py-0.5 rounded border-[0.5px] uppercase tracking-[0.15em] self-start ${srcRarityStyles}`}>
                                 {srcRarity}
                               </span>

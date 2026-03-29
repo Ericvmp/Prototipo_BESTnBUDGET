@@ -1,0 +1,5013 @@
+{
+  "Metal Parts": {
+    "localName": "Metal Parts",
+    "stackSize": 50,
+    "crafting": [],
+    "recycling": [],
+    "salvaging": []
+  },
+  "Rubber Parts": {
+    "localName": "Rubber Parts",
+    "stackSize": 50,
+    "crafting": [],
+    "recycling": [],
+    "salvaging": []
+  },
+  "Plastic Parts": {
+    "localName": "Plastic Parts",
+    "stackSize": 50,
+    "crafting": [],
+    "recycling": [],
+    "salvaging": []
+  },
+  "Mechanical Components": {
+    "localName": "Mechanical Components",
+    "stackSize": 10,
+    "crafting": [
+      {
+        "name": "Metal Parts",
+        "quantity": 7
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 2
+      },
+      {
+        "name": "Metal Parts",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Metal Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Mod Components": {
+    "localName": "Mod Components",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Steel Spring",
+        "quantity": 2
+      },
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Steel Spring": {
+    "localName": "Steel Spring",
+    "stackSize": 15,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Metal Parts",
+        "quantity": 1
+      }
+    ]
+  },
+  "Wires": {
+    "localName": "Wires",
+    "stackSize": 15,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 1
+      }
+    ]
+  },
+  "Duct Tape": {
+    "localName": "Duct Tape",
+    "stackSize": 15,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Fabric",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Fabric",
+        "quantity": 1
+      }
+    ]
+  },
+  "Fabric": {
+    "localName": "Fabric",
+    "stackSize": 50,
+    "crafting": [],
+    "recycling": [],
+    "salvaging": []
+  },
+  "Simple Gun Parts": {
+    "localName": "Simple Gun Parts",
+    "stackSize": 10,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Metal Parts",
+        "quantity": 1
+      }
+    ]
+  },
+  "Light Gun Parts": {
+    "localName": "Light Gun Parts",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 4
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 1
+      }
+    ]
+  },
+  "Medium Gun Parts": {
+    "localName": "Medium Gun Parts",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 4
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 1
+      }
+    ]
+  },
+  "Heavy Gun Parts": {
+    "localName": "Heavy Gun Parts",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 4
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 1
+      }
+    ]
+  },
+  "Advanced Mechanical Components": {
+    "localName": "Advanced Mechanical Components",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Steel Spring",
+        "quantity": 2
+      },
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Steel Spring",
+        "quantity": 1
+      },
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Magnet": {
+    "localName": "Magnet",
+    "stackSize": 15,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Metal Parts",
+        "quantity": 1
+      }
+    ]
+  },
+  "ARC Alloy": {
+    "localName": "ARC Alloy",
+    "stackSize": 15,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Metal Parts",
+        "quantity": 1
+      }
+    ]
+  },
+  "ARC Powercell": {
+    "localName": "ARC Powercell",
+    "stackSize": 5,
+    "crafting": [],
+    "recycling": [],
+    "salvaging": []
+  },
+  "Chemicals": {
+    "localName": "Chemicals",
+    "stackSize": 50,
+    "crafting": [],
+    "recycling": [],
+    "salvaging": []
+  },
+  "Advanced ARC Powercell": {
+    "localName": "Advanced ARC Powercell",
+    "stackSize": 5,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "ARC Powercell",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "ARC Powercell",
+        "quantity": 1
+      }
+    ]
+  },
+  "Electrical Components": {
+    "localName": "Electrical Components",
+    "stackSize": 10,
+    "crafting": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 8
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 4
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Advanced Electrical Components": {
+    "localName": "Advanced Electrical Components",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Wires",
+        "quantity": 3
+      },
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Wires",
+        "quantity": 1
+      },
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "ARC Circuitry": {
+    "localName": "ARC Circuitry",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 8
+      }
+    ],
+    "recycling": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 1
+      }
+    ]
+  },
+  "ARC Motion Core": {
+    "localName": "ARC Motion Core",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 8
+      }
+    ],
+    "recycling": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 1
+      }
+    ]
+  },
+  "Antiseptic": {
+    "localName": "Antiseptic",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Chemicals",
+        "quantity": 10
+      },
+      {
+        "name": "Great Mullein",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Chemicals",
+        "quantity": 10
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Chemicals",
+        "quantity": 5
+      }
+    ]
+  },
+  "Canister": {
+    "localName": "Canister",
+    "stackSize": 15,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 1
+      }
+    ]
+  },
+  "Tick Pod": {
+    "localName": "Tick Pod",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Chemicals",
+        "quantity": 2
+      },
+      {
+        "name": "ARC Alloy",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 1
+      }
+    ]
+  },
+  "Durable Cloth": {
+    "localName": "Durable Cloth",
+    "stackSize": 10,
+    "crafting": [
+      {
+        "name": "Fabric",
+        "quantity": 14
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Fabric",
+        "quantity": 6
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Fabric",
+        "quantity": 2
+      }
+    ]
+  },
+  "Great Mullein": {
+    "localName": "Great Mullein",
+    "stackSize": 15,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Assorted Seeds",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Assorted Seeds",
+        "quantity": 1
+      }
+    ]
+  },
+  "Assorted Seeds": {
+    "localName": "Assorted Seeds",
+    "stackSize": 100,
+    "crafting": [],
+    "recycling": [],
+    "salvaging": []
+  },
+  "Moss": {
+    "localName": "Moss",
+    "stackSize": 10,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Assorted Seeds",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Assorted Seeds",
+        "quantity": 2
+      }
+    ]
+  },
+  "Battery": {
+    "localName": "Battery",
+    "stackSize": 15,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Metal Parts",
+        "quantity": 1
+      }
+    ]
+  },
+  "Power Rod": {
+    "localName": "Power Rod",
+    "stackSize": 3,
+    "crafting": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 2
+      },
+      {
+        "name": "ARC Circuitry",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "ARC Circuitry",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Syringe": {
+    "localName": "Syringe",
+    "stackSize": 5,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Chemicals",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Voltage Converter": {
+    "localName": "Voltage Converter",
+    "stackSize": 5,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Wires",
+        "quantity": 1
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Complex Gun Parts": {
+    "localName": "Complex Gun Parts",
+    "stackSize": 3,
+    "crafting": [
+      {
+        "name": "Light Gun Parts",
+        "quantity": 2
+      },
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 2
+      },
+      {
+        "name": "Heavy Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Magnetic Accelerator": {
+    "localName": "Magnetic Accelerator",
+    "stackSize": 3,
+    "crafting": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "ARC Motion Core",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "ARC Motion Core",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Processor": {
+    "localName": "Processor",
+    "stackSize": 5,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Wires",
+        "quantity": 1
+      },
+      {
+        "name": "Plastic Parts",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Exodus Modules": {
+    "localName": "Exodus Modules",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Magnet",
+        "quantity": 2
+      },
+      {
+        "name": "Processor",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Processor",
+        "quantity": 2
+      }
+    ]
+  },
+  "Crude Explosives": {
+    "localName": "Crude Explosives",
+    "stackSize": 10,
+    "crafting": [
+      {
+        "name": "Chemicals",
+        "quantity": 6
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Chemicals",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Chemicals",
+        "quantity": 2
+      }
+    ]
+  },
+  "Explosive Compound": {
+    "localName": "Explosive Compound",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Crude Explosives",
+        "quantity": 2
+      },
+      {
+        "name": "Oil",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Crude Explosives",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Crude Explosives",
+        "quantity": 1
+      }
+    ]
+  },
+  "Synthesized Fuel": {
+    "localName": "Synthesized Fuel",
+    "stackSize": 5,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Oil",
+        "quantity": 1
+      },
+      {
+        "name": "Plastic Parts",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Oil",
+        "quantity": 1
+      }
+    ]
+  },
+  "Oil": {
+    "localName": "Oil",
+    "stackSize": 15,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Chemicals",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Chemicals",
+        "quantity": 1
+      }
+    ]
+  },
+  "Firefly Burner": {
+    "localName": "Firefly Burner",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 2
+      },
+      {
+        "name": "Crude Explosives",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Crude Explosives",
+        "quantity": 2
+      }
+    ]
+  },
+  "Rocketeer Driver": {
+    "localName": "Rocketeer Driver",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 3
+      },
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "ARC Circuitry",
+        "quantity": 2
+      }
+    ]
+  },
+  "Comet Igniter": {
+    "localName": "Comet Igniter",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 2
+      },
+      {
+        "name": "Crude Explosives",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Crude Explosives",
+        "quantity": 2
+      }
+    ]
+  },
+  "Light Shield": {
+    "localName": "Light Shield",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 2
+      },
+      {
+        "name": "Plastic Parts",
+        "quantity": 4
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 4
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 1
+      }
+    ]
+  },
+  "Medium Shield": {
+    "localName": "Medium Shield",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Battery",
+        "quantity": 4
+      },
+      {
+        "name": "ARC Circuitry",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "ARC Circuitry",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 2
+      }
+    ]
+  },
+  "Heavy Shield": {
+    "localName": "Heavy Shield",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Power Rod",
+        "quantity": 1
+      },
+      {
+        "name": "Voltage Converter",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "ARC Circuitry",
+        "quantity": 2
+      },
+      {
+        "name": "Voltage Converter",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 4
+      }
+    ]
+  },
+  "Rope": {
+    "localName": "Rope",
+    "stackSize": 5,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Fabric",
+        "quantity": 5
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Fabric",
+        "quantity": 2
+      }
+    ]
+  },
+  "Sensors": {
+    "localName": "Sensors",
+    "stackSize": 5,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Wires",
+        "quantity": 1
+      },
+      {
+        "name": "Metal Parts",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Wires",
+        "quantity": 1
+      }
+    ]
+  },
+  "Speaker Component": {
+    "localName": "Speaker Component",
+    "stackSize": 5,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 2
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Hornet Driver": {
+    "localName": "Hornet Driver",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "ARC Alloy",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Matriarch Reactor": {
+    "localName": "Matriarch Reactor",
+    "stackSize": 1,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Power Rod",
+        "quantity": 1
+      },
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 1
+      }
+    ]
+  },
+  "Queen Reactor": {
+    "localName": "Queen Reactor",
+    "stackSize": 1,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Power Rod",
+        "quantity": 1
+      },
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Power Rod",
+        "quantity": 1
+      }
+    ]
+  },
+  "Compensator I": {
+    "localName": "Compensator I",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Metal Parts",
+        "quantity": 6
+      },
+      {
+        "name": "Wires",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 5
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Metal Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Compensator II": {
+    "localName": "Compensator II",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Wires",
+        "quantity": 4
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Wires",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Compensator III": {
+    "localName": "Compensator III",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mod Components",
+        "quantity": 2
+      },
+      {
+        "name": "Wires",
+        "quantity": 8
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mod Components",
+        "quantity": 1
+      },
+      {
+        "name": "Wires",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Muzzle Brake I": {
+    "localName": "Muzzle Brake I",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Metal Parts",
+        "quantity": 6
+      },
+      {
+        "name": "Wires",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 5
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Metal Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Muzzle Brake II": {
+    "localName": "Muzzle Brake II",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Wires",
+        "quantity": 4
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Wires",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Muzzle Brake III": {
+    "localName": "Muzzle Brake III",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mod Components",
+        "quantity": 2
+      },
+      {
+        "name": "Wires",
+        "quantity": 8
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mod Components",
+        "quantity": 1
+      },
+      {
+        "name": "Wires",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Shotgun Choke I": {
+    "localName": "Shotgun Choke I",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Metal Parts",
+        "quantity": 6
+      },
+      {
+        "name": "Wires",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 5
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Metal Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Shotgun Choke II": {
+    "localName": "Shotgun Choke II",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Wires",
+        "quantity": 4
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Wires",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Shotgun Choke III": {
+    "localName": "Shotgun Choke III",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mod Components",
+        "quantity": 2
+      },
+      {
+        "name": "Wires",
+        "quantity": 8
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mod Components",
+        "quantity": 1
+      },
+      {
+        "name": "Wires",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Silencer I": {
+    "localName": "Silencer I",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Wires",
+        "quantity": 4
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Wires",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Silencer II": {
+    "localName": "Silencer II",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mod Components",
+        "quantity": 2
+      },
+      {
+        "name": "Wires",
+        "quantity": 8
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mod Components",
+        "quantity": 1
+      },
+      {
+        "name": "Wires",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Silencer III": {
+    "localName": "Silencer III",
+    "stackSize": null,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Mod Components",
+        "quantity": 1
+      },
+      {
+        "name": "Wires",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mod Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Extended Barrel": {
+    "localName": "Extended Barrel",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mod Components",
+        "quantity": 2
+      },
+      {
+        "name": "Wires",
+        "quantity": 8
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mod Components",
+        "quantity": 1
+      },
+      {
+        "name": "Wires",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Extended Light Mag I": {
+    "localName": "Extended Light Mag I",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 6
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 6
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Extended Light Mag II": {
+    "localName": "Extended Light Mag II",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Extended Light Mag III": {
+    "localName": "Extended Light Mag III",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mod Components",
+        "quantity": 2
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 5
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mod Components",
+        "quantity": 1
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Extended Medium Mag I": {
+    "localName": "Extended Medium Mag I",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 6
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 6
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Extended Medium Mag II": {
+    "localName": "Extended Medium Mag II",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Extended Medium Mag III": {
+    "localName": "Extended Medium Mag III",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mod Components",
+        "quantity": 2
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 5
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mod Components",
+        "quantity": 1
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Extended Shotgun Mag I": {
+    "localName": "Extended Shotgun Mag I",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 6
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 6
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Extended Shotgun Mag II": {
+    "localName": "Extended Shotgun Mag II",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Extended Shotgun Mag III": {
+    "localName": "Extended Shotgun Mag III",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mod Components",
+        "quantity": 2
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 5
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mod Components",
+        "quantity": 1
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Angled Grip I": {
+    "localName": "Angled Grip I",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 6
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 6
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Angled Grip II": {
+    "localName": "Angled Grip II",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Angled Grip III": {
+    "localName": "Angled Grip III",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mod Components",
+        "quantity": 2
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 5
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mod Components",
+        "quantity": 1
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Vertical Grip I": {
+    "localName": "Vertical Grip I",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 6
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 6
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Vertical Grip II": {
+    "localName": "Vertical Grip II",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Vertical Grip III": {
+    "localName": "Vertical Grip III",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mod Components",
+        "quantity": 2
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 5
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Horizontal Grip": {
+    "localName": "Horizontal Grip",
+    "stackSize": null,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Mod Components",
+        "quantity": 1
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Stable Stock I": {
+    "localName": "Stable Stock I",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 6
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 6
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Stable Stock II": {
+    "localName": "Stable Stock II",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Stable Stock III": {
+    "localName": "Stable Stock III",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mod Components",
+        "quantity": 2
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 5
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mod Components",
+        "quantity": 1
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Lightweight Stock": {
+    "localName": "Lightweight Stock",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mod Components",
+        "quantity": 2
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 5
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mod Components",
+        "quantity": 1
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Kinetic Converter": {
+    "localName": "Kinetic Converter",
+    "stackSize": null,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Mod Components",
+        "quantity": 1
+      },
+      {
+        "name": "Duct Tape",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Anvil Splitter": {
+    "localName": "Anvil Splitter",
+    "stackSize": null,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Mod Components",
+        "quantity": 1
+      },
+      {
+        "name": "Processor",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Rattler": {
+    "localName": "Rattler",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Metal Parts",
+        "quantity": 16
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 12
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 8
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Metal Parts",
+        "quantity": 4
+      }
+    ]
+  },
+  "Arpeggio": {
+    "localName": "Arpeggio",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 6
+      },
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 6
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 2
+      },
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Tempest": {
+    "localName": "Tempest",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 1
+      },
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Exodus Modules",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Bettina": {
+    "localName": "Bettina",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 3
+      },
+      {
+        "name": "Heavy Gun Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Canister",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Heavy Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Aphelion": {
+    "localName": "Aphelion",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 3
+      },
+      {
+        "name": "Complex Gun Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Matriarch Reactor",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 2
+      },
+      {
+        "name": "Complex Gun Parts",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 1
+      }
+    ]
+  },
+  "Bobcat": {
+    "localName": "Bobcat",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 1
+      },
+      {
+        "name": "Light Gun Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Exodus Modules",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Light Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Light Gun Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Vulcano": {
+    "localName": "Vulcano",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 1
+      },
+      {
+        "name": "Heavy Gun Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Exodus Modules",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Heavy Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Heavy Gun Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Hairpin": {
+    "localName": "Hairpin",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Metal Parts",
+        "quantity": 2
+      },
+      {
+        "name": "Plastic Parts",
+        "quantity": 5
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 2
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Metal Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Jupiter": {
+    "localName": "Jupiter",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 3
+      },
+      {
+        "name": "Complex Gun Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Queen Reactor",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 2
+      },
+      {
+        "name": "Complex Gun Parts",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 3
+      }
+    ]
+  },
+  "Hullcracker": {
+    "localName": "Hullcracker",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 1
+      },
+      {
+        "name": "Heavy Gun Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Exodus Modules",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Heavy Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Heavy Gun Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Equalizer": {
+    "localName": "Equalizer",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 3
+      },
+      {
+        "name": "Complex Gun Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Queen Reactor",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 2
+      },
+      {
+        "name": "Complex Gun Parts",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 1
+      }
+    ]
+  },
+  "Ferro": {
+    "localName": "Ferro",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Metal Parts",
+        "quantity": 5
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 2
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Metal Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Stitcher": {
+    "localName": "Stitcher",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Metal Parts",
+        "quantity": 8
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 4
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Metal Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Kettle": {
+    "localName": "Kettle",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Metal Parts",
+        "quantity": 6
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 8
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Metal Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Il Toro": {
+    "localName": "Il Toro",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 5
+      },
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 6
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Anvil": {
+    "localName": "Anvil",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 5
+      },
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 6
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Burletta": {
+    "localName": "Burletta",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 3
+      },
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Renegade": {
+    "localName": "Renegade",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Oil",
+        "quantity": 5
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Venator": {
+    "localName": "Venator",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Magnet",
+        "quantity": 5
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Osprey": {
+    "localName": "Osprey",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Wires",
+        "quantity": 7
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Torrente": {
+    "localName": "Torrente",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 6
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Medium Gun Parts",
+        "quantity": 2
+      }
+    ]
+  },
+  "Light Impact Grenade": {
+    "localName": "Light Impact Grenade",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 2
+      },
+      {
+        "name": "Chemicals",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Chemicals",
+        "quantity": 1
+      },
+      {
+        "name": "Plastic Parts",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Chemicals",
+        "quantity": 1
+      }
+    ]
+  },
+  "Smoke Grenade": {
+    "localName": "Smoke Grenade",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Chemicals",
+        "quantity": 14
+      },
+      {
+        "name": "Canister",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Chemicals",
+        "quantity": 2
+      },
+      {
+        "name": "Canister",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Chemicals",
+        "quantity": 3
+      }
+    ]
+  },
+  "Showstopper": {
+    "localName": "Showstopper",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Hornet Driver",
+        "quantity": 1
+      },
+      {
+        "name": "Voltage Converter",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Voltage Converter",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Jolt Mine": {
+    "localName": "Jolt Mine",
+    "stackSize": 3,
+    "crafting": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Battery",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Battery",
+        "quantity": 1
+      },
+      {
+        "name": "Plastic Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Battery",
+        "quantity": 1
+      }
+    ]
+  },
+  "Explosive Mine": {
+    "localName": "Explosive Mine",
+    "stackSize": 3,
+    "crafting": [
+      {
+        "name": "Explosive Compound",
+        "quantity": 1
+      },
+      {
+        "name": "Sensors",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Oil",
+        "quantity": 2
+      },
+      {
+        "name": "Sensors",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Oil",
+        "quantity": 2
+      }
+    ]
+  },
+  "Snap Blast Grenade": {
+    "localName": "Snap Blast Grenade",
+    "stackSize": 3,
+    "crafting": [
+      {
+        "name": "Crude Explosives",
+        "quantity": 2
+      },
+      {
+        "name": "Magnet",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Chemicals",
+        "quantity": 1
+      },
+      {
+        "name": "Magnet",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Chemicals",
+        "quantity": 2
+      }
+    ]
+  },
+  "Heavy Fuze Grenade": {
+    "localName": "Heavy Fuze Grenade",
+    "stackSize": 3,
+    "crafting": [
+      {
+        "name": "Explosive Compound",
+        "quantity": 1
+      },
+      {
+        "name": "Canister",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Oil",
+        "quantity": 1
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Crude Explosives",
+        "quantity": 1
+      }
+    ]
+  },
+  "Blaze Grenade": {
+    "localName": "Blaze Grenade",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Explosive Compound",
+        "quantity": 1
+      },
+      {
+        "name": "Oil",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 4
+      },
+      {
+        "name": "Oil",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Oil",
+        "quantity": 1
+      }
+    ]
+  },
+  "Trailblazer": {
+    "localName": "Trailblazer",
+    "stackSize": 3,
+    "crafting": [
+      {
+        "name": "Synthesized Fuel",
+        "quantity": 1
+      },
+      {
+        "name": "Crude Explosives",
+        "quantity": 2
+      },
+      {
+        "name": "Firefly Burner",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Crude Explosives",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Crude Explosives",
+        "quantity": 2
+      }
+    ]
+  },
+  "Wolfpack": {
+    "localName": "Wolfpack",
+    "stackSize": 1,
+    "crafting": [
+      {
+        "name": "Explosive Compound",
+        "quantity": 1
+      },
+      {
+        "name": "ARC Motion Core",
+        "quantity": 2
+      },
+      {
+        "name": "Rocketeer Driver",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "ARC Motion Core",
+        "quantity": 1
+      },
+      {
+        "name": "Explosive Compound",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Explosive Compound",
+        "quantity": 2
+      }
+    ]
+  },
+  "Seeker Grenade": {
+    "localName": "Seeker Grenade",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Crude Explosives",
+        "quantity": 1
+      },
+      {
+        "name": "ARC Alloy",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Crude Explosives",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Chemicals",
+        "quantity": 3
+      }
+    ]
+  },
+  "Shrapnel Grenade": {
+    "localName": "Shrapnel Grenade",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Crude Explosives",
+        "quantity": 1
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Crude Explosives",
+        "quantity": 1
+      },
+      {
+        "name": "Metal Parts",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Crude Explosives",
+        "quantity": 1
+      }
+    ]
+  },
+  "Deadline": {
+    "localName": "Deadline",
+    "stackSize": 1,
+    "crafting": [
+      {
+        "name": "Comet Igniter",
+        "quantity": 1
+      },
+      {
+        "name": "Explosive Compound",
+        "quantity": 3
+      },
+      {
+        "name": "ARC Circuitry",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Explosive Compound",
+        "quantity": 1
+      },
+      {
+        "name": "ARC Circuitry",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Explosive Compound",
+        "quantity": 1
+      }
+    ]
+  },
+  "Shield Recharger": {
+    "localName": "Shield Recharger",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 5
+      },
+      {
+        "name": "ARC Powercell",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 4
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Surge Shield Recharger": {
+    "localName": "Surge Shield Recharger",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Advanced ARC Powercell",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 5
+      }
+    ]
+  },
+  "Vita Spray": {
+    "localName": "Vita Spray",
+    "stackSize": 1,
+    "crafting": [
+      {
+        "name": "Antiseptic",
+        "quantity": 3
+      },
+      {
+        "name": "Canister",
+        "quantity": 1
+      },
+      {
+        "name": "Tick Pod",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Antiseptic",
+        "quantity": 1
+      },
+      {
+        "name": "Canister",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Antiseptic",
+        "quantity": 1
+      }
+    ]
+  },
+  "Vita Shot": {
+    "localName": "Vita Shot",
+    "stackSize": 3,
+    "crafting": [
+      {
+        "name": "Antiseptic",
+        "quantity": 2
+      },
+      {
+        "name": "Syringe",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Chemicals",
+        "quantity": 4
+      },
+      {
+        "name": "Syringe",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Syringe",
+        "quantity": 1
+      }
+    ]
+  },
+  "Sterilized Bandage": {
+    "localName": "Sterilized Bandage",
+    "stackSize": 3,
+    "crafting": [
+      {
+        "name": "Durable Cloth",
+        "quantity": 2
+      },
+      {
+        "name": "Antiseptic",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Fabric",
+        "quantity": 1
+      },
+      {
+        "name": "Antiseptic",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Durable Cloth",
+        "quantity": 1
+      }
+    ]
+  },
+  "Herbal Bandage": {
+    "localName": "Herbal Bandage",
+    "stackSize": 5,
+    "crafting": [
+      {
+        "name": "Durable Cloth",
+        "quantity": 1
+      },
+      {
+        "name": "Great Mullein",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Assorted Seeds",
+        "quantity": 2
+      },
+      {
+        "name": "Fabric",
+        "quantity": 5
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Fabric",
+        "quantity": 8
+      }
+    ]
+  },
+  "Defibrillator": {
+    "localName": "Defibrillator",
+    "stackSize": 3,
+    "crafting": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 9
+      },
+      {
+        "name": "Moss",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 1
+      },
+      {
+        "name": "Moss",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Chemicals",
+        "quantity": 2
+      }
+    ]
+  },
+  "Combat Mk. 1": {
+    "localName": "Combat Mk. 1",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 6
+      },
+      {
+        "name": "Plastic Parts",
+        "quantity": 6
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Combat Mk. 2": {
+    "localName": "Combat Mk. 2",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Magnet",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Magnet",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Looting Mk. 1": {
+    "localName": "Looting Mk. 1",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 6
+      },
+      {
+        "name": "Plastic Parts",
+        "quantity": 6
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Tactical Mk. 1": {
+    "localName": "Tactical Mk. 1",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 6
+      },
+      {
+        "name": "Plastic Parts",
+        "quantity": 6
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 3
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "Damaged Leaper Pulse Unit": {
+    "localName": "Damaged Leaper Pulse Unit",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 2
+      }
+    ]
+  },
+  "Damaged Rocketeer Driver": {
+    "localName": "Damaged Rocketeer Driver",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "ARC Alloy",
+        "quantity": 2
+      }
+    ]
+  },
+  "Bastion Cell": {
+    "localName": "Bastion Cell",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "ARC Alloy",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Bombardier Cell": {
+    "localName": "Bombardier Cell",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "ARC Alloy",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Leaper Pulse Unit": {
+    "localName": "Leaper Pulse Unit",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "ARC Alloy",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Toaster": {
+    "localName": "Toaster",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 5
+      },
+      {
+        "name": "Wires",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Wires",
+        "quantity": 3
+      }
+    ]
+  },
+  "Broken Handheld Radio": {
+    "localName": "Broken Handheld Radio",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Sensors",
+        "quantity": 3
+      },
+      {
+        "name": "Wires",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Sensors",
+        "quantity": 2
+      }
+    ]
+  },
+  "Broken Taser": {
+    "localName": "Broken Taser",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Battery",
+        "quantity": 2
+      },
+      {
+        "name": "Wires",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Battery",
+        "quantity": 2
+      }
+    ]
+  },
+  "Microscope": {
+    "localName": "Microscope",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Magnet",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Industrial Magnet": {
+    "localName": "Industrial Magnet",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 4
+      },
+      {
+        "name": "Magnet",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Magnet",
+        "quantity": 2
+      }
+    ]
+  },
+  "Looting Mk. 2": {
+    "localName": "Looting Mk. 2",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Magnet",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Magnet",
+        "quantity": 1
+      },
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Ripped Safety Vest": {
+    "localName": "Ripped Safety Vest",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Durable Cloth",
+        "quantity": 1
+      },
+      {
+        "name": "Magnet",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Fabric",
+        "quantity": 8
+      }
+    ]
+  },
+  "Ruined Tactical Vest": {
+    "localName": "Ruined Tactical Vest",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Fabric",
+        "quantity": 5
+      },
+      {
+        "name": "Magnet",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Fabric",
+        "quantity": 5
+      }
+    ]
+  },
+  "Tactical Mk. 2": {
+    "localName": "Tactical Mk. 2",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Magnet",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Magnet",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Unusable Weapon": {
+    "localName": "Unusable Weapon",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 4
+      },
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 5
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Simple Gun Parts",
+        "quantity": 3
+      }
+    ]
+  },
+  "ARC Synthetic Resin": {
+    "localName": "ARC Synthetic Resin",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 14
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 9
+      }
+    ]
+  },
+  "Cooling Fan": {
+    "localName": "Cooling Fan",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 14
+      },
+      {
+        "name": "Wires",
+        "quantity": 4
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Wires",
+        "quantity": 4
+      }
+    ]
+  },
+  "Recorder": {
+    "localName": "Recorder",
+    "stackSize": 1,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 10
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 4
+      }
+    ]
+  },
+  "Ruined Riot Shield": {
+    "localName": "Ruined Riot Shield",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 10
+      },
+      {
+        "name": "Rubber Parts",
+        "quantity": 6
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 10
+      }
+    ]
+  },
+  "Shaker": {
+    "localName": "Shaker",
+    "stackSize": 1,
+    "crafting": [
+      {
+        "name": "Canister",
+        "quantity": 1
+      },
+      {
+        "name": "Assorted Seeds",
+        "quantity": 7
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 10
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 4
+      }
+    ]
+  },
+  "Dried-Out ARC Resin": {
+    "localName": "Dried-Out ARC Resin",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 9
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 4
+      }
+    ]
+  },
+  "Camera Lens": {
+    "localName": "Camera Lens",
+    "stackSize": 5,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 8
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 4
+      }
+    ]
+  },
+  "Remote Control": {
+    "localName": "Remote Control",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 7
+      },
+      {
+        "name": "Sensors",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Sensors",
+        "quantity": 1
+      }
+    ]
+  },
+  "Alarm Clock": {
+    "localName": "Alarm Clock",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 6
+      },
+      {
+        "name": "Processor",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Processor",
+        "quantity": 1
+      }
+    ]
+  },
+  "Rubber Pad": {
+    "localName": "Rubber Pad",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 18
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 12
+      }
+    ]
+  },
+  "Ruined Accordion": {
+    "localName": "Ruined Accordion",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 18
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 13
+      }
+    ]
+  },
+  "ARC Flex Rubber": {
+    "localName": "ARC Flex Rubber",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 16
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 9
+      }
+    ]
+  },
+  "Diving Goggles": {
+    "localName": "Diving Goggles",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 12
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 5
+      }
+    ]
+  },
+  "Degraded ARC Rubber": {
+    "localName": "Degraded ARC Rubber",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 11
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 5
+      }
+    ]
+  },
+  "Deflated Football": {
+    "localName": "Deflated Football",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 9
+      },
+      {
+        "name": "Fabric",
+        "quantity": 9
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 9
+      }
+    ]
+  },
+  "Expired Respirator": {
+    "localName": "Expired Respirator",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 8
+      },
+      {
+        "name": "Fabric",
+        "quantity": 4
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 5
+      }
+    ]
+  },
+  "Headphones": {
+    "localName": "Headphones",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 7
+      },
+      {
+        "name": "Speaker Component",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Speaker Component",
+        "quantity": 1
+      }
+    ]
+  },
+  "Thermostat": {
+    "localName": "Thermostat",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Rubber Parts",
+        "quantity": 7
+      },
+      {
+        "name": "Sensors",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Sensors",
+        "quantity": 1
+      }
+    ]
+  },
+  "Cooling Coil": {
+    "localName": "Cooling Coil",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Chemicals",
+        "quantity": 6
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Steel Spring",
+        "quantity": 2
+      }
+    ]
+  },
+  "Spring Cushion": {
+    "localName": "Spring Cushion",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Durable Cloth",
+        "quantity": 2
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Steel Spring",
+        "quantity": 2
+      }
+    ]
+  },
+  "Portable TV": {
+    "localName": "Portable TV",
+    "stackSize": 1,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Battery",
+        "quantity": 2
+      },
+      {
+        "name": "Wires",
+        "quantity": 6
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Wires",
+        "quantity": 4
+      }
+    ]
+  },
+  "Acoustic Guitar": {
+    "localName": "Acoustic Guitar",
+    "stackSize": 1,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Wires",
+        "quantity": 6
+      },
+      {
+        "name": "Metal Parts",
+        "quantity": 4
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Wires",
+        "quantity": 3
+      }
+    ]
+  },
+  "Power Cable": {
+    "localName": "Power Cable",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Wires",
+        "quantity": 4
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Wires",
+        "quantity": 3
+      }
+    ]
+  },
+  "Damaged Heat Sink": {
+    "localName": "Damaged Heat Sink",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 6
+      },
+      {
+        "name": "Wires",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Wires",
+        "quantity": 3
+      }
+    ]
+  },
+  "Power Bank": {
+    "localName": "Power Bank",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Battery",
+        "quantity": 2
+      },
+      {
+        "name": "Wires",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Battery",
+        "quantity": 2
+      }
+    ]
+  },
+  "Humidifier": {
+    "localName": "Humidifier",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Canister",
+        "quantity": 2
+      },
+      {
+        "name": "Wires",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Canister",
+        "quantity": 2
+      }
+    ]
+  },
+  "Combat Mk. 3 (Aggressive)": {
+    "localName": "Combat Mk. 3 (Aggressive)",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Processor",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Processor",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Combat Mk. 3 (Flanking)": {
+    "localName": "Combat Mk. 3 (Flanking)",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Processor",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Processor",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Frequency Modulation Box": {
+    "localName": "Frequency Modulation Box",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Speaker Component",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Looting Mk. 3 (Cautious)": {
+    "localName": "Looting Mk. 3 (Cautious)",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Processor",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Processor",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Looting Mk. 3 (Safekeeper)": {
+    "localName": "Looting Mk. 3 (Safekeeper)",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Processor",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Processor",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Looting Mk. 3 (Survivor)": {
+    "localName": "Looting Mk. 3 (Survivor)",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Processor",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Processor",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Photoelectric Cloak": {
+    "localName": "Photoelectric Cloak",
+    "stackSize": 1,
+    "crafting": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Speaker Component",
+        "quantity": 4
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Speaker Component",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Tactical Mk. 3 (Defensive)": {
+    "localName": "Tactical Mk. 3 (Defensive)",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Processor",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Processor",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Fried Motherboard": {
+    "localName": "Fried Motherboard",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Plastic Parts",
+        "quantity": 5
+      },
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Wires",
+        "quantity": 5
+      }
+    ]
+  },
+  "Rotary Encoder": {
+    "localName": "Rotary Encoder",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Processor",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Processor",
+        "quantity": 2
+      }
+    ]
+  },
+  "Sample Cleaner": {
+    "localName": "Sample Cleaner",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Assorted Seeds",
+        "quantity": 14
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Assorted Seeds",
+        "quantity": 12
+      }
+    ]
+  },
+  "Signal Amplifier": {
+    "localName": "Signal Amplifier",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Voltage Converter",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Voltage Converter",
+        "quantity": 2
+      }
+    ]
+  },
+  "Snitch Scanner": {
+    "localName": "Snitch Scanner",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "ARC Alloy",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Spotter Relay": {
+    "localName": "Spotter Relay",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "ARC Alloy",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Launcher Ammo": {
+    "localName": "Launcher Ammo",
+    "stackSize": 24,
+    "crafting": [
+      {
+        "name": "ARC Motion Core",
+        "quantity": 1
+      },
+      {
+        "name": "Crude Explosives",
+        "quantity": 2
+      }
+    ],
+    "recycling": [],
+    "salvaging": []
+  },
+  "Tactical Mk. 3 (Healing)": {
+    "localName": "Tactical Mk. 3 (Healing)",
+    "stackSize": null,
+    "crafting": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 2
+      },
+      {
+        "name": "Processor",
+        "quantity": 3
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Processor",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Electrical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "Magnetron": {
+    "localName": "Magnetron",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Magnetic Accelerator",
+        "quantity": 1
+      },
+      {
+        "name": "Steel Spring",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Advanced Mechanical Components",
+        "quantity": 1
+      }
+    ]
+  },
+  "Industrial Charger": {
+    "localName": "Industrial Charger",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 5
+      },
+      {
+        "name": "Voltage Converter",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Voltage Converter",
+        "quantity": 1
+      }
+    ]
+  },
+  "Ion Sputter": {
+    "localName": "Ion Sputter",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Voltage Converter",
+        "quantity": 4
+      },
+      {
+        "name": "Exodus Modules",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Exodus Modules",
+        "quantity": 1
+      }
+    ]
+  },
+  "Motor": {
+    "localName": "Motor",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Oil",
+        "quantity": 2
+      },
+      {
+        "name": "Mechanical Components",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Oil",
+        "quantity": 3
+      }
+    ]
+  },
+  "Water Pump": {
+    "localName": "Water Pump",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Metal Parts",
+        "quantity": 4
+      },
+      {
+        "name": "Oil",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Oil",
+        "quantity": 2
+      }
+    ]
+  },
+  "Turbo Pump": {
+    "localName": "Turbo Pump",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      },
+      {
+        "name": "Oil",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Steel Spring",
+        "quantity": 3
+      }
+    ]
+  },
+  "Coolant": {
+    "localName": "Coolant",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Chemicals",
+        "quantity": 5
+      },
+      {
+        "name": "Oil",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Oil",
+        "quantity": 2
+      }
+    ]
+  },
+  "Polluted Air Filter": {
+    "localName": "Polluted Air Filter",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Fabric",
+        "quantity": 6
+      },
+      {
+        "name": "Oil",
+        "quantity": 2
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Oil",
+        "quantity": 2
+      }
+    ]
+  },
+  "Zipline": {
+    "localName": "Zipline",
+    "stackSize": 3,
+    "crafting": [
+      {
+        "name": "Rope",
+        "quantity": 1
+      },
+      {
+        "name": "Mechanical Components",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Rope",
+        "quantity": 1
+      },
+      {
+        "name": "Metal Parts",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Rope",
+        "quantity": 1
+      }
+    ]
+  },
+  "Snap Hook": {
+    "localName": "Snap Hook",
+    "stackSize": 1,
+    "crafting": [
+      {
+        "name": "Power Rod",
+        "quantity": 2
+      },
+      {
+        "name": "Rope",
+        "quantity": 3
+      },
+      {
+        "name": "Exodus Modules",
+        "quantity": 1
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Power Rod",
+        "quantity": 1
+      },
+      {
+        "name": "Rope",
+        "quantity": 3
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Advanced Electrical Components",
+        "quantity": 2
+      }
+    ]
+  },
+  "ARC Surveyor": {
+    "localName": "ARC Surveyor",
+    "stackSize": null,
+    "crafting": [],
+    "recycling": [],
+    "salvaging": []
+  },
+  "Server Rack": {
+    "localName": "Server Rack",
+    "stackSize": null,
+    "crafting": [],
+    "recycling": [],
+    "salvaging": []
+  },
+  "Radio": {
+    "localName": "Radio",
+    "stackSize": 3,
+    "crafting": [],
+    "recycling": [
+      {
+        "name": "Speaker Component",
+        "quantity": 1
+      },
+      {
+        "name": "Sensors",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Speaker Component",
+        "quantity": 1
+      }
+    ]
+  },
+  "Noisemaker": {
+    "localName": "Noisemaker",
+    "stackSize": 3,
+    "crafting": [
+      {
+        "name": "Speaker Component",
+        "quantity": 1
+      },
+      {
+        "name": "Plastic Parts",
+        "quantity": 2
+      }
+    ],
+    "recycling": [
+      {
+        "name": "Speaker Component",
+        "quantity": 1
+      }
+    ],
+    "salvaging": [
+      {
+        "name": "Speaker Component",
+        "quantity": 1
+      }
+    ]
+  },
+  "ARC Courier": {
+    "localName": "ARC Courier",
+    "stackSize": null,
+    "crafting": [],
+    "recycling": [],
+    "salvaging": []
+  }
+}

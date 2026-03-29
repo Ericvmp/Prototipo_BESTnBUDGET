@@ -99,7 +99,7 @@ const PickerModal: React.FC<{
                         </div>
                         <div className="flex-1 min-w-0">
                            <div className="flex items-center gap-2">
-                              <p className="text-sm font-black text-slate-100 group-hover:text-white truncate uppercase tracking-widest leading-none">{item.name}</p>
+                              <p className="text-lg font-black text-slate-100 group-hover:text-white truncate leading-none">{item.name}</p>
                               {isSelected && <span className="material-symbols-outlined text-primary text-sm font-black">check_circle</span>}
                            </div>
                            <div className="flex gap-2 mt-2">

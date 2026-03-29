@@ -14,9 +14,18 @@ const TacticalCard: React.FC<{ item: Throwable | Augment; onClick: (item: Throwa
   return (
     <button
       onClick={() => onClick(item)}
+      data-tooltip={item.name}
       className={`relative bg-card-dark border-2 border-slate-800 hover:ring-8 hover:ring-inset rounded-xl overflow-hidden transition-all duration-300 group flex flex-col h-full active:scale-[0.98] shadow-lg ${getRarityHoverStyles(item.rarity)}`}
     >
       <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(item.rarity)} to-transparent opacity-0 group-hover:opacity-25 transition-opacity duration-500 pointer-events-none`}></div>
+
+      {/* Stack Size Badge */}
+      <div className="absolute top-3 right-3 z-20">
+        <span className="flex items-center gap-0.5 text-[9px] font-black px-1.5 py-0.5 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest shadow-inner" title="Stack Size">
+          <span className="material-symbols-outlined text-[10px] text-slate-400">layers</span>
+          {item.stackSize || 1}
+        </span>
+      </div>
       
       <div className="p-4 flex items-center gap-4 relative z-10">
         <div className="w-20 h-20 rounded-xl bg-background-dark border border-slate-700 flex items-center justify-center p-2 shrink-0 group-hover:bg-slate-800 transition-colors">
@@ -27,7 +36,7 @@ const TacticalCard: React.FC<{ item: Throwable | Augment; onClick: (item: Throwa
           )}
         </div>
         <div className="flex-1 min-w-0 text-left">
-          <h3 className="text-lg font-black text-slate-100 group-hover:text-white transition-colors truncate uppercase tracking-widest">{item.name}</h3>
+          <h3 className="text-lg font-black text-slate-100 group-hover:text-white transition-colors truncate">{item.name}</h3>
           <div className="flex gap-2 mt-1">
             <span className={`text-[10px] font-black tracking-widest uppercase px-2 py-0.5 rounded inline-block border ${getRarityStyles(item.rarity)}`}>
               {item.rarity}
@@ -37,13 +46,6 @@ const TacticalCard: React.FC<{ item: Throwable | Augment; onClick: (item: Throwa
             </span>
           </div>
         </div>
-      </div>
-      
-      <div className="px-4 pb-4 mt-auto relative z-10">
-         <div className="flex items-center justify-between text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] border-t border-slate-800 pt-3">
-            <span>Details Available</span>
-            <span className="material-symbols-outlined text-sm">open_in_new</span>
-         </div>
       </div>
       
       <div className="scanline-overlay absolute inset-0 opacity-10 pointer-events-none"></div>

@@ -22,32 +22,6 @@ const getRarityColor = (rarity: string) => {
   }
 };
 
-const MaterialBadge: React.FC<{
-  name: string;
-  quantity: number;
-  onClick?: () => void;
-}> = ({ name, quantity, onClick }) => {
-  const mat = MATERIALS_DATA.find(m => m.name === name);
-  return (
-    <button
-      onClick={onClick}
-      disabled={!onClick}
-      data-material={name}
-      className="group/mat flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-white/5 border border-white/5 hover:border-primary/30 hover:bg-white/10 transition-all text-left"
-    >
-      <div className="w-6 h-6 rounded bg-slate-800 flex items-center justify-center overflow-hidden shrink-0">
-         {mat?.imageUrl ? (
-            <img src={mat.imageUrl} alt={name} className="w-full h-full object-contain" />
-         ) : (
-            <span className="material-symbols-outlined text-[14px] text-slate-500">inventory_2</span>
-         )}
-      </div>
-      <span className="text-[11px] font-bold text-slate-300 group-hover/mat:text-primary transition-colors truncate max-w-[80px] md:max-w-none">{name}</span>
-      <span className="text-[12px] font-black text-primary ml-auto">×{quantity}</span>
-    </button>
-  );
-};
-
 const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNavigateWeapon, onNavigateMod, onNavigateMaterial }) => {
   const rarity = getRarityColor(weapon.rarity);
 
@@ -62,9 +36,34 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
   const prevWeapon = currentIndex > 0 ? WEAPONS_DATA[currentIndex - 1] : null;
   const nextWeapon = currentIndex < WEAPONS_DATA.length - 1 ? WEAPONS_DATA[currentIndex + 1] : null;
 
-  const handleMatNav = (name: string) => {
-    const mat = MATERIALS_DATA.find(m => m.name === name);
-    if (mat) onNavigateMaterial(mat);
+  const MatRow: React.FC<{ matName: string; quantity: number; onClick: () => void }> = ({ matName, quantity, onClick }) => {
+    const mat = MATERIALS_DATA.find(m => m.name === matName);
+    if (!mat) return null;
+    return (
+      <button
+        onClick={onClick}
+        data-material={mat.name}
+        className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 transition-all hover:bg-white/10 group/mat text-left w-full mb-2"
+      >
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0">
+            {mat.imageUrl ? (
+              <img src={mat.imageUrl} alt={mat.name} className="w-full h-full object-contain" />
+            ) : (
+              <span className="material-symbols-outlined text-xl text-slate-400">{mat.icon}</span>
+            )}
+          </div>
+          <div className="flex flex-col">
+            <span className="text-sm font-bold text-white group-hover/mat:text-primary transition-colors">{mat.name}</span>
+            <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">{mat.rarity}</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-lg font-black text-primary">×{quantity}</span>
+          <span className="material-symbols-outlined text-primary text-sm opacity-0 group-hover/mat:opacity-100 transition-opacity">chevron_right</span>
+        </div>
+      </button>
+    );
   };
 
   return (
@@ -96,7 +95,7 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
       )}
 
       {/* Panel */}
-      <div className="relative z-10 flex flex-col h-full max-w-4xl mx-auto w-full pointer-events-none">
+      <div className="relative z-10 flex flex-col h-full max-w-2xl mx-auto w-full pointer-events-none">
         {/* Header */}
         <header className="pointer-events-auto flex items-center justify-between p-4 md:p-6 bg-gradient-to-b from-background-dark/95 to-transparent shrink-0">
           <button
@@ -107,10 +106,10 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
           </button>
 
           <div className="text-center">
-            <div className={`text-[10px] font-black tracking-[0.5em] uppercase mb-1 ${rarity.text}`} style={{ textShadow: `0 0 12px ${rarity.hex}` }}>
-              WEAPON SYSTEM · {weapon.rarity}
+            <div className={`text-[11px] font-black tracking-[0.5em] uppercase mb-1 ${rarity.text}`} style={{ textShadow: `0 0 12px ${rarity.hex}` }}>
+              WEAPON SYSTEM · 1.0
             </div>
-            <h2 className="text-3xl md:text-5xl font-black tracking-[0.3em] uppercase text-white drop-shadow-lg leading-tight">{weapon.name}</h2>
+            <h2 className="text-3xl md:text-4xl font-black tracking-[0.2em] text-white drop-shadow-lg leading-tight">{weapon.name}</h2>
           </div>
 
           <button
@@ -128,155 +127,180 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
         >
           {/* Main card */}
           <div
-            className={`w-full bg-slate-900/90 backdrop-blur-3xl border rounded-3xl shadow-2xl relative overflow-hidden ${rarity.border}`}
-            style={{ boxShadow: `0 0 50px ${rarity.shadow}` }}
+            className={`w-full bg-slate-900/80 backdrop-blur-xl border rounded-3xl shadow-2xl relative overflow-hidden ${rarity.border}`}
+            style={{ boxShadow: `0 0 40px ${rarity.shadow}` }}
           >
             {/* Top rarity bar */}
-            <div className={`absolute top-0 left-0 w-full h-1.5 ${rarity.topBar}`} />
+            <div className={`absolute top-0 left-0 w-full h-1 ${rarity.topBar}`} />
 
-            <div className="p-6 md:p-10">
-              {/* Hero Image Section */}
-              <div className="flex flex-col items-center mb-10">
-                 <div className="relative group/img">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${rarity.hex}20 to-transparent blur-3xl opacity-50 group-hover/img:opacity-80 transition-opacity rounded-full animate-pulse`} />
-                    <img 
-                      src={weapon.imageUrl} 
-                      alt={weapon.name} 
-                      className="w-64 h-64 md:w-80 md:h-80 object-contain relative z-10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] filter transition-transform duration-700 group-hover/img:scale-105 group-hover/img:rotate-1"
-                    />
-                 </div>
-                 <div className="mt-4 flex gap-3">
-                   <span className={`px-4 py-1.5 rounded-full text-[12px] font-black uppercase tracking-[0.2em] border ${rarity.border} ${rarity.text}`} style={{ background: `${rarity.hex}15` }}>
+            {/* Stack Size Badge (Top Right) */}
+            <div className="absolute top-4 right-4 z-20">
+              <span className="flex items-center gap-1.5 text-xs font-black px-3 py-1 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest shadow-inner shadow-black/50" title="Stack Size">
+                <span className="material-symbols-outlined text-[14px] text-slate-400">layers</span>
+                STACK: {weapon.stackSize || 1}
+              </span>
+            </div>
+
+            <div className="p-6 md:p-8">
+              {/* Image + info */}
+              <div className="flex flex-col sm:flex-row items-center gap-6 mb-8">
+                <div
+                  className={`w-36 h-36 rounded-2xl bg-slate-800/80 border flex items-center justify-center shadow-inner overflow-hidden p-4 shrink-0 ${rarity.border}`}
+                  style={{ boxShadow: `inset 0 0 20px ${rarity.shadow}` }}
+                >
+                  {weapon.imageUrl ? (
+                    <img src={weapon.imageUrl} alt={weapon.name} className="w-full h-full object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]" />
+                  ) : (
+                    <span className="material-symbols-outlined text-6xl" style={{ color: rarity.hex }}>{weapon.icon || 'military_tech'}</span>
+                  )}
+                </div>
+
+                <div className="flex-1 space-y-3 text-center sm:text-left">
+                  <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+                    <span
+                      className={`px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-widest border ${rarity.border} ${rarity.text}`}
+                      style={{ background: `${rarity.hex}18` }}
+                    >
                       {weapon.rarity}
-                   </span>
-                   <span className="px-4 py-1.5 rounded-full text-[12px] font-black uppercase tracking-[0.2em] border border-white/10 bg-white/5 text-slate-300">
-                      FOUNDRY ID: {weapon.id.split('-')[1]?.toUpperCase()}
-                   </span>
-                 </div>
-              </div>
-
-              {/* Grid Content */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                {/* ── CRAFT SECTION ── */}
-                {weapon.craftInfo && (
-                  <section className="bg-white/[0.03] border border-white/5 rounded-2xl p-5 hover:bg-white/[0.05] transition-colors relative group h-full">
-                    <div className="absolute top-0 left-0 w-1 h-full bg-emerald-500/40 rounded-l-2xl group-hover:bg-emerald-500 transition-colors" />
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="material-symbols-outlined text-emerald-400">precision_manufacturing</span>
-                      <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">CRAFT</h3>
-                    </div>
-                    <div className="grid grid-cols-1 gap-2">
-                       {weapon.craftInfo.materials.map((m, i) => (
-                         <MaterialBadge key={i} name={m.name} quantity={m.quantity} onClick={() => handleMatNav(m.name)} />
-                       ))}
-                    </div>
-                    {weapon.craftInfo.station && (
-                      <div className="mt-4 pt-3 border-t border-white/5 flex items-center gap-2">
-                        <span className="material-symbols-outlined text-[14px] text-slate-500">location_on</span>
-                        <span className="text-[10px] uppercase font-black text-slate-400 tracking-widest">{weapon.craftInfo.station}</span>
-                      </div>
-                    )}
-                  </section>
-                )}
-
-                {/* ── REPAIR SECTION ── */}
-                {weapon.repairInfo && (
-                  <section className="bg-white/[0.03] border border-white/5 rounded-2xl p-5 hover:bg-white/[0.05] transition-colors relative group h-full">
-                    <div className="absolute top-0 left-0 w-1 h-full bg-amber-500/40 rounded-l-2xl group-hover:bg-amber-500 transition-colors" />
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="material-symbols-outlined text-amber-400">build</span>
-                      <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">REPAIR</h3>
-                    </div>
-                    <div className="space-y-2">
-                      {weapon.repairInfo.map((info, i) => (
-                        <div key={i} className="flex flex-col gap-1.5 p-2 rounded-xl bg-black/20 border border-white/5">
-                           <div className="flex items-center justify-between px-1">
-                             <span className="text-[10px] font-black text-amber-400 tracking-widest">TIER {info.tier}</span>
-                             <span className="text-[10px] font-bold text-emerald-400">{info.durability} DURABILITY</span>
-                           </div>
-                           <div className="flex flex-wrap gap-1.5">
-                             {info.materials.map((m, j) => (
-                               <MaterialBadge key={j} name={m.name} quantity={m.quantity} onClick={() => handleMatNav(m.name)} />
-                             ))}
-                           </div>
-                        </div>
-                      ))}
-                    </div>
-                  </section>
-                )}
-
-                {/* ── UPGRADE SECTION ── */}
-                {weapon.upgradeInfo && (
-                  <section className="bg-white/[0.03] border border-white/5 rounded-2xl p-5 hover:bg-white/[0.05] transition-colors relative group h-full">
-                    <div className="absolute top-0 left-0 w-1 h-full bg-blue-500/40 rounded-l-2xl group-hover:bg-blue-500 transition-colors" />
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="material-symbols-outlined text-blue-400">upgrade</span>
-                      <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">UPGRADE</h3>
-                    </div>
-                    <div className="space-y-3">
-                      {weapon.upgradeInfo.map((info, i) => (
-                        <div key={i} className="flex flex-col gap-2 p-2 rounded-xl bg-black/20 border border-white/5">
-                           <div className="flex items-center gap-2 px-1">
-                             <span className="text-[10px] font-black text-blue-400 tracking-widest uppercase">TO TIER {info.tier}</span>
-                           </div>
-                           <div className="flex flex-wrap gap-1.5">
-                             {info.materials.map((m, j) => (
-                               <MaterialBadge key={j} name={m.name} quantity={m.quantity} onClick={() => handleMatNav(m.name)} />
-                             ))}
-                           </div>
-                           <div className="flex flex-wrap gap-1 mt-1">
-                              {info.perks.split(', ').map((perk, k) => (
-                                <span key={k} className="text-[9px] font-bold px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/10">
-                                  {perk}
-                                </span>
-                              ))}
-                           </div>
-                        </div>
-                      ))}
-                    </div>
-                  </section>
-                )}
-
-                {/* ── RECYCLE SECTION ── */}
-                {weapon.recycleInfo && (
-                  <section className="bg-white/[0.03] border border-white/5 rounded-2xl p-5 hover:bg-white/[0.05] transition-colors relative group h-full">
-                    <div className="absolute top-0 left-0 w-1 h-full bg-red-500/40 rounded-l-2xl group-hover:bg-red-500 transition-colors" />
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="material-symbols-outlined text-red-400">recycling</span>
-                      <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">RECYCLE</h3>
-                    </div>
-                    <div className="space-y-2">
-                       {weapon.recycleInfo.map((info, i) => (
-                         <div key={i} className="flex flex-col gap-1.5 p-2 rounded-xl bg-black/20 border border-white/5">
-                            <span className="text-[10px] font-black text-red-400 tracking-widest px-1">FROM TIER {info.tier}</span>
-                            <div className="flex flex-wrap gap-1.5">
-                               {info.materials.map((m, j) => (
-                                 <MaterialBadge key={j} name={m.name} quantity={m.quantity} onClick={() => handleMatNav(m.name)} />
-                               ))}
-                            </div>
-                         </div>
-                       ))}
-                    </div>
-                  </section>
-                )}
-
-              </div>
-
-              {/* Bottom Decorative Uplink */}
-              <div className="mt-12 flex flex-col items-center gap-4 opacity-40">
-                <div className="flex items-center gap-10">
-                  <div className="w-40 h-[1px] bg-gradient-to-r from-transparent via-slate-500 to-transparent"></div>
-                  <div className="flex items-center gap-3">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                     </span>
-                    <span className="text-[10px] font-black uppercase tracking-[0.5em] whitespace-nowrap text-slate-300">DATA UPLINK SECURE</span>
+                    <span className="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-widest border border-white/10 bg-white/5 text-slate-300">
+                      TIER SYSTEM
+                    </span>
                   </div>
-                  <div className="w-40 h-[1px] bg-gradient-to-r from-transparent via-slate-500 to-transparent"></div>
                 </div>
               </div>
+
+              {/* Divider */}
+              <div
+                className="h-px w-full mb-8"
+                style={{ background: `linear-gradient(to right, transparent, ${rarity.hex}60, transparent)` }}
+              />
+
+              {/* ── CRAFT SECTION ── */}
+              {weapon.craftInfo && (
+                <section className="mb-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="material-symbols-outlined" style={{ color: rarity.hex }}>precision_manufacturing</span>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">CRAFTING COST</h3>
+                  </div>
+                  <div className="space-y-2">
+                    {weapon.craftInfo.materials.map((m, i) => (
+                      <MatRow key={i} matName={m.name} quantity={m.quantity} onClick={() => {
+                        const mat = MATERIALS_DATA.find(mat => mat.name === m.name);
+                        if (mat) onNavigateMaterial(mat);
+                      }} />
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {/* ── REPAIR SECTION ── */}
+              {weapon.repairInfo && (
+                <section className="mb-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="material-symbols-outlined text-amber-400">build</span>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-amber-400">REPAIR TIERS</h3>
+                  </div>
+                  <div className="space-y-4">
+                    {weapon.repairInfo.map((info, i) => (
+                      <div key={i} className="bg-black/20 p-4 rounded-2xl border border-white/5">
+                        <div className="flex items-center justify-between mb-3 px-1">
+                          <span className="text-[10px] font-black text-amber-400 tracking-[.2em]">TIER {info.tier}</span>
+                          <span className="text-[10px] font-bold text-emerald-400">{info.durability} DURABILITY</span>
+                        </div>
+                        {info.materials.map((m, j) => (
+                          <MatRow key={j} matName={m.name} quantity={m.quantity} onClick={() => {
+                            const mat = MATERIALS_DATA.find(mat => mat.name === m.name);
+                            if (mat) onNavigateMaterial(mat);
+                          }} />
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {/* ── UPGRADE SECTION ── */}
+              {weapon.upgradeInfo && (
+                <section className="mb-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="material-symbols-outlined text-blue-400">upgrade</span>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">UPGRADES</h3>
+                  </div>
+                  <div className="space-y-4">
+                    {weapon.upgradeInfo.map((info, i) => (
+                      <div key={i} className="bg-black/20 p-4 rounded-2xl border border-white/5">
+                         <div className="flex items-center justify-between mb-3 px-1">
+                           <span className="text-[10px] font-black text-blue-400 tracking-[.2em]">TO TIER {info.tier}</span>
+                         </div>
+                         {info.materials.map((m, j) => (
+                           <MatRow key={j} matName={m.name} quantity={m.quantity} onClick={() => {
+                             const mat = MATERIALS_DATA.find(mat => mat.name === m.name);
+                             if (mat) onNavigateMaterial(mat);
+                           }} />
+                         ))}
+                         <div className="flex flex-wrap gap-1 mt-3">
+                           {info.perks?.split(', ').map((perk, k) => (
+                             <span key={k} className="text-[9px] font-bold px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/10 uppercase tracking-widest">
+                               {perk}
+                             </span>
+                           ))}
+                         </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {/* ── RECYCLING RESULTS ── */}
+              {weapon.recycleInfo && (
+                <section className="mb-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="material-symbols-outlined text-emerald-400">recycling</span>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-emerald-400">RECYCLING</h3>
+                  </div>
+                  <div className="space-y-4">
+                    {weapon.recycleInfo.map((info, i) => (
+                      <div key={i} className="bg-black/20 p-4 rounded-2xl border border-white/5">
+                        <div className="flex items-center justify-between mb-3 px-1">
+                          <span className="text-[10px] font-black text-emerald-400 tracking-[.2em]">FROM TIER {info.tier}</span>
+                        </div>
+                        {info.materials.map((m, j) => (
+                          <MatRow key={j} matName={m.name} quantity={m.quantity} onClick={() => {
+                            const mat = MATERIALS_DATA.find(mat => mat.name === m.name);
+                            if (mat) onNavigateMaterial(mat);
+                          }} />
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {/* ── SALVAGING RESULTS ── */}
+              {weapon.salvageInfo && (
+                <section>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="material-symbols-outlined text-amber-400">build_circle</span>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-amber-400">SALVAGING</h3>
+                  </div>
+                  <div className="space-y-4">
+                    {weapon.salvageInfo.map((info, i) => (
+                      <div key={i} className="bg-black/20 p-4 rounded-2xl border border-white/5">
+                        <div className="flex items-center justify-between mb-3 px-1">
+                          <span className="text-[10px] font-black text-amber-400 tracking-[.2em]">FROM TIER {info.tier}</span>
+                        </div>
+                        {info.materials.map((m, j) => (
+                          <MatRow key={j} matName={m.name} quantity={m.quantity} onClick={() => {
+                            const mat = MATERIALS_DATA.find(mat => mat.name === m.name);
+                            if (mat) onNavigateMaterial(mat);
+                          }} />
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
             </div>
           </div>
         </main>

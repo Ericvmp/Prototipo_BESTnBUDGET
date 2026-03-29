@@ -56,16 +56,18 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                                     </div>
                                     <div className="flex-1 min-w-0">
                                         <div className="flex items-center gap-2 mb-0.5">
-                                            <h3 className="text-[13px] font-black tracking-widest uppercase text-white">{category.material}</h3>
+                                            <h3 className="text-lg font-black text-white truncate">{category.material}</h3>
                                             {material && (
-                                                <span className={`text-[7px] font-black px-1.5 py-0.5 rounded border uppercase tracking-widest ${getRarityStyles(material.rarity)}`}>
-                                                    {material.rarity}
-                                                </span>
+                                                <div className="flex items-center gap-1.5 flex-wrap">
+                                                    <span className={`text-[7px] font-black px-1.5 py-0.5 rounded border uppercase tracking-widest ${getRarityStyles(material.rarity)}`}>
+                                                        {material.rarity}
+                                                    </span>
+                                                    <span className="text-[7px] font-black px-1.5 py-0.5 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest flex items-center gap-0.5 shadow-inner">
+                                                        <span className="material-symbols-outlined text-[9px] text-slate-400">layers</span>
+                                                        STACK: {material.stackSize || 1}
+                                                    </span>
+                                                </div>
                                             )}
-                                        </div>
-                                        <div className="flex items-center gap-1.5 opacity-40">
-                                            <span className="material-symbols-outlined text-[12px]">inventory_2</span>
-                                            <span className="text-[9px] font-bold uppercase tracking-widest">Resource Archive</span>
                                         </div>
                                     </div>
                                 </div>

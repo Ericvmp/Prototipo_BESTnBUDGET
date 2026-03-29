@@ -107,7 +107,7 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({
                     )}
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-md font-bold text-slate-200 group-hover:text-white uppercase tracking-wider">{result.item.name}</h4>
+                    <h4 className="text-lg font-black text-slate-200 group-hover:text-white truncate">{result.item.name}</h4>
                     <span className={`text-[9px] font-bold tracking-[0.2em] uppercase px-1.5 py-0.5 rounded border border-slate-800/50 mt-1 inline-block ${
                       result.type === 'weapon' ? 'text-green-400' :
                       result.type === 'mod' ? 'text-blue-400' :

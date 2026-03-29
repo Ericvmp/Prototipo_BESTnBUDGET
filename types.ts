@@ -8,6 +8,7 @@ export type Rarity = 'COMMON' | 'UNCOMMON' | 'RARE' | 'EPIC' | 'LEGENDARY';
 export interface ModRequirement {
   name: string;
   quantity: number;
+  stackSize?: number;
 }
 
 export interface Modification {
@@ -23,6 +24,7 @@ export interface Modification {
   materials: ModRequirement[];
   recycleInfo?: ModRequirement[];
   salvageInfo?: ModRequirement[];
+  stackSize?: number;
 }
 
 export interface WeaponTierInfo {
@@ -45,6 +47,8 @@ export interface Weapon {
   repairInfo?: WeaponTierInfo[];
   upgradeInfo?: WeaponTierInfo[];
   recycleInfo?: WeaponTierInfo[];
+  salvageInfo?: WeaponTierInfo[];
+  stackSize?: number;
 }
 
 export interface Throwable {
@@ -62,6 +66,7 @@ export interface Throwable {
   };
   recycleInfo?: ModRequirement[];
   salvageInfo?: ModRequirement[];
+  stackSize?: number;
 }
 
 export interface Augment {
@@ -71,6 +76,7 @@ export interface Augment {
   icon: string;
   imageUrl?: string;
   description?: string;
+  category?: 'AUGMENT';
   craftInfo: {
     materials: ModRequirement[];
     quantityProduced: number;
@@ -78,6 +84,7 @@ export interface Augment {
   };
   recycleInfo?: ModRequirement[];
   salvageInfo?: ModRequirement[];
+  stackSize?: number;
 }
 
 export interface Material {
@@ -98,6 +105,7 @@ export interface Material {
   };
   recycleInfo?: ModRequirement[];
   salvageInfo?: ModRequirement[];
+  stackSize?: number;
 }
 
 export interface LootSource {

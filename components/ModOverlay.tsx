@@ -60,7 +60,7 @@ const ModOverlay: React.FC<ModOverlayProps> = ({ mod, onClose, onNavigateMateria
           )}
         </div>
         <div className="flex flex-col">
-          <span className="text-sm font-bold text-white uppercase tracking-wider group-hover/mat:text-primary transition-colors">{mat.name}</span>
+          <span className="text-sm font-bold text-white group-hover/mat:text-primary transition-colors">{mat.name}</span>
           <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">{mat.rarity}</span>
         </div>
       </div>
@@ -112,9 +112,9 @@ const ModOverlay: React.FC<ModOverlayProps> = ({ mod, onClose, onNavigateMateria
 
           <div className="text-center">
             <div className={`text-[11px] font-black tracking-[0.5em] uppercase mb-1 ${rarity.text}`} style={{ textShadow: `0 0 12px ${rarity.hex}` }}>
-              MOD · {mod.category}
+              MOD SYSTEM · 2.0
             </div>
-            <h2 className="text-3xl md:text-4xl font-black tracking-[0.35em] uppercase text-white drop-shadow-lg">{mod.name}</h2>
+            <h2 className="text-3xl md:text-4xl font-black tracking-[0.2em] text-white drop-shadow-lg">{mod.name}</h2>
           </div>
 
           <button
@@ -137,6 +137,14 @@ const ModOverlay: React.FC<ModOverlayProps> = ({ mod, onClose, onNavigateMateria
           >
             {/* Top rarity bar */}
             <div className={`absolute top-0 left-0 w-full h-1 ${rarity.topBar}`} />
+
+            {/* Stack Size Badge (Top Right) */}
+            <div className="absolute top-4 right-4 z-20">
+              <span className="flex items-center gap-1.5 text-xs font-black px-3 py-1 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest shadow-inner shadow-black/50" title="Stack Size">
+                <span className="material-symbols-outlined text-[14px] text-slate-400">layers</span>
+                STACK: {mod.stackSize || 1}
+              </span>
+            </div>
 
             <div className="p-6 md:p-8">
               {/* Image + Stats */}
