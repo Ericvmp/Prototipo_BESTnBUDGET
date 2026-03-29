@@ -1,7 +1,10 @@
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Weapon, Modification, Throwable, Material, Augment, Rarity, PlannerLoadout, MultiLoadoutState, PlannerWeaponSlot, PlannerConsumableSlot } from '../types';
-import { getRarityIconColor, getRarityStyles, getSourceImageUrl, getRarityGlowStyles, getRarityHoverStyles } from '../utils';
+import { getRarityIconColor, getRarityStyles, getSourceImageUrl, getRarityGlowStyles, getRarityHoverStyles, getModSlotType } from '../utils';
+import { generateItemTooltip } from './tooltipHelper';
+import RichTooltip from './RichTooltip';
+import { WEAPON_MOD_SLOTS } from '../data';
 
 interface PlannerScreenProps {
    weapons: Weapon[];
@@ -11,6 +14,53 @@ interface PlannerScreenProps {
    materialsData: Material[];
    onBack: () => void;
 }
+
+const ConfirmationModal: React.FC<{
+   isOpen: boolean;
+   title: string;
+   message: string;
+   onConfirm: () => void;
+   onCancel: () => void;
+   danger?: boolean;
+}> = ({ isOpen, title, message, onConfirm, onCancel, danger = false }) => {
+   if (!isOpen) return null;
+   return (
+      <div className="fixed inset-0 z-[300] bg-background-dark/95 backdrop-blur-md flex items-center justify-center p-6 animate-fade-in">
+         <div className="bg-card-dark border border-slate-700 rounded-2xl w-full max-w-md p-8 shadow-2xl relative overflow-hidden">
+            <div className={`absolute top-0 left-0 w-full h-1 ${danger ? 'bg-red-500' : 'bg-primary'}`} />
+            
+            <div className="flex items-center gap-4 mb-6">
+               <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${danger ? 'bg-red-500/10 text-red-500' : 'bg-primary/10 text-primary'}`}>
+                  <span className="material-symbols-outlined text-3xl">{danger ? 'warning' : 'help'}</span>
+               </div>
+               <div>
+                  <h3 className="text-xl font-black tracking-widest text-white uppercase">{title}</h3>
+                  <p className="text-[10px] text-slate-500 font-bold tracking-widest uppercase">System Confirmation Required</p>
+               </div>
+            </div>
+
+            <p className="text-slate-300 text-sm leading-relaxed mb-8">
+               {message}
+            </p>
+
+            <div className="flex gap-4">
+               <button 
+                  onClick={onCancel}
+                  className="flex-1 px-6 py-3 bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white rounded-xl text-[11px] font-black uppercase tracking-widest transition-all border border-white/5"
+               >
+                  Cancel
+               </button>
+               <button 
+                  onClick={() => { onConfirm(); onCancel(); }}
+                  className={`flex-1 px-6 py-3 ${danger ? 'bg-red-600 hover:bg-red-700' : 'bg-primary hover:bg-primary-dark'} text-white rounded-xl text-[11px] font-black uppercase tracking-widest transition-all shadow-xl`}
+               >
+                  Confirm
+               </button>
+            </div>
+         </div>
+      </div>
+   );
+};
 
 const ScrollContainer: React.FC<{ children: React.ReactNode, className?: string }> = ({ children, className }) => {
    const scrollRef = useRef<HTMLDivElement>(null);
@@ -70,7 +120,7 @@ const PickerModal: React.FC<{
                         onClick={onClose}
                         className="px-6 py-2 bg-primary hover:bg-primary-dark text-white rounded-xl text-[10px] font-black uppercase tracking-widest transition-all shadow-[0_0_15px_rgba(19,91,236,0.3)]"
                      >
-                        Confirm & Close
+                        Confirm
                      </button>
                   )}
                   <button onClick={onClose} className="w-10 h-10 flex items-center justify-center hover:bg-white/5 rounded-full transition-all text-slate-400">
@@ -82,9 +132,9 @@ const PickerModal: React.FC<{
                {items.map(item => {
                   const isSelected = isMultiSelect && selectedIds.includes(item.id);
                   return (
-                     <div
-                        key={item.id}
-                        onClick={() => {
+                     <RichTooltip key={item.id} item={item}>
+                        <div
+                           onClick={() => {
                            if (isMultiSelect && onToggle) {
                               onToggle(item.id);
                            } else {
@@ -113,8 +163,9 @@ const PickerModal: React.FC<{
                            </div>
                         )}
                      </div>
-                  );
-               })}
+                   </RichTooltip>
+                );
+             })}
                {items.length === 0 && (
                   <div className="col-span-full flex flex-col items-center justify-center py-16 text-slate-600 gap-4 opacity-30">
                      <span className="material-symbols-outlined text-6xl">inventory_2</span>
@@ -175,7 +226,7 @@ const FinalReportModal: React.FC<{
                      <span className="material-symbols-outlined text-4xl text-primary drop-shadow-glow">analytics</span>
                   </div>
                   <div>
-                     <h1 className="text-4xl font-black tracking-[0.4em] text-white leading-none italic">PROVISIONING</h1>
+                     <h1 className="text-4xl font-black tracking-[0.4em] text-white leading-none italic">STASH PLAN</h1>
                      <h2 className="text-base font-black tracking-[0.6em] text-primary mt-2">STASH REPORT</h2>
                   </div>
                </div>
@@ -203,25 +254,25 @@ const FinalReportModal: React.FC<{
                   
                   <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3">
                      {materials.map((mat: any, idx: number) => (
-                        <div 
-                           key={idx} 
-                           data-material={mat.name}
-                           className={`flex items-center justify-between p-3 bg-slate-900/30 backdrop-blur-sm border-2 rounded-2xl group transition-all duration-300 shadow-xl overflow-hidden relative ${getRarityStyles(mat.rarity)} ${getRarityHoverStyles(mat.rarity)}`}
-                        >
-                           {/* Internal High-Density Card */}
-                           <div className="flex items-center gap-3 relative z-10 w-full">
-                              <div className="w-11 h-11 bg-black/60 rounded-xl border border-white/5 flex items-center justify-center p-1.5 shrink-0 group-hover:scale-105 transition-transform shadow-[inset_0_0_10px_rgba(255,255,255,0.05)]">
-                                 {mat.imageUrl ? <img src={mat.imageUrl} alt="" className="w-full h-full object-contain filter drop-shadow-[0_0_5px_rgba(255,255,255,0.1)]" /> : <span className="material-symbols-outlined text-slate-700 text-xl">category</span>}
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                 <span className="text-[11px] font-black uppercase tracking-wider block text-slate-100 truncate pr-1 leading-tight group-hover:text-white">{mat.name}</span>
-                                 <span className="text-[8px] font-black tracking-[0.1em] uppercase opacity-60 block mt-0.5">{mat.rarity}</span>
-                              </div>
-                              <div className="text-2xl font-black text-white font-mono shrink-0 pl-3 border-l border-white/10 group-hover:text-primary transition-colors">
-                                 {mat.quantity}
+                        <RichTooltip key={idx} item={mat}>
+                           <div 
+                              className={`flex items-center justify-between p-3 bg-slate-900/30 backdrop-blur-sm border-2 rounded-2xl group transition-all duration-300 shadow-xl overflow-hidden relative ${getRarityStyles(mat.rarity)} ${getRarityHoverStyles(mat.rarity)}`}
+                           >
+                              {/* Internal High-Density Card */}
+                              <div className="flex items-center gap-3 relative z-10 w-full">
+                                 <div className="w-11 h-11 bg-black/60 rounded-xl border border-white/5 flex items-center justify-center p-1.5 shrink-0 group-hover:scale-105 transition-transform shadow-[inset_0_0_10px_rgba(255,255,255,0.05)]">
+                                    {mat.imageUrl ? <img src={mat.imageUrl} alt="" className="w-full h-full object-contain filter drop-shadow-[0_0_5px_rgba(255,255,255,0.1)]" /> : <span className="material-symbols-outlined text-slate-700 text-xl">category</span>}
+                                 </div>
+                                 <div className="flex-1 min-w-0">
+                                    <span className="text-[12px] font-black uppercase tracking-wider block text-slate-100 truncate pr-1 leading-tight group-hover:text-white">{mat.name}</span>
+                                    <span className="text-[8px] font-black tracking-[0.1em] uppercase opacity-60 block mt-0.5">{mat.rarity}</span>
+                                 </div>
+                                 <div className="text-2xl font-black text-white font-mono shrink-0 pl-3 border-l border-white/10 group-hover:text-primary transition-colors">
+                                    {mat.quantity}
+                                 </div>
                               </div>
                            </div>
-                        </div>
+                        </RichTooltip>
                      ))}
                   </div>
                </section>
@@ -290,6 +341,9 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
    } | null>(null);
 
    const [showReport, setShowReport] = useState(false);
+   const [confirmModal, setConfirmModal] = useState<{ isOpen: boolean, title: string, message: string, onConfirm: () => void, danger?: boolean } | null>(null);
+
+   const fileInputRef = useRef<HTMLInputElement>(null);
 
    useEffect(() => {
       localStorage.setItem('planner_state_multi_v1', JSON.stringify(state));
@@ -304,6 +358,60 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
          newLoadouts[activeLoadoutIndex] = { ...newLoadouts[activeLoadoutIndex], ...updates };
          return { ...prev, loadouts: newLoadouts };
       });
+   };
+
+   const resetLoadout = (idx: number) => {
+      setState(prev => {
+         const newLoadouts = [...prev.loadouts];
+         newLoadouts[idx] = {
+            ...newLoadouts[idx],
+            primary: { weaponId: null, attachedModIds: [], maintenanceAction: 'NONE' },
+            secondary: { weaponId: null, attachedModIds: [], maintenanceAction: 'NONE' },
+            augments: [],
+            shields: [],
+            quickUse: []
+         };
+         return { ...prev, loadouts: newLoadouts };
+      });
+   };
+
+   const wipeAllData = () => {
+      const resetLoadouts = state.loadouts.map((l, i) => ({ 
+         ...l, 
+         isActive: i === 0, 
+         primary: { weaponId: null, attachedModIds: [], maintenanceAction: 'NONE' }, 
+         secondary: { weaponId: null, attachedModIds: [], maintenanceAction: 'NONE' }, 
+         augments: [], 
+         shields: [], 
+         quickUse: [] 
+      }));
+      setState(s => ({ ...s, loadouts: resetLoadouts }));
+      setCheckedMaterials([]);
+   };
+
+   const exportConfig = () => {
+      const dataStr = JSON.stringify(state, null, 2);
+      const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+      const exportFileDefaultName = `arc_loadouts_${new Date().toISOString().split('T')[0]}.json`;
+      const linkElement = document.createElement('a');
+      linkElement.setAttribute('href', dataUri);
+      linkElement.setAttribute('download', exportFileDefaultName);
+      linkElement.click();
+   };
+
+   const importConfig = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+         try {
+            const json = JSON.parse(e.target?.result as string);
+            setState(json);
+         } catch (err) {
+            alert("Error importing file. Invalid format.");
+         }
+      };
+      reader.readAsText(file);
    };
 
    const updateLoadoutByIdx = (idx: number, updates: Partial<PlannerLoadout>) => {
@@ -415,7 +523,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
       return (
          <div className={`mb-4 bg-black/20 border border-slate-800 rounded-xl p-4 transition-all duration-300 relative group/wslot ${weapon ? getRarityHoverStyles(weapon.rarity) : ''}`}>
             <div className="flex justify-between items-center mb-3">
-               <h4 className="text-[10px] font-black tracking-[0.3em] uppercase text-slate-500">{title}</h4>
+               <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">{title}</h4>
                {weapon && (
                   <button onClick={() => updateCurrentLoadout({ [slotKey]: { weaponId: null, attachedModIds: [], maintenanceAction: 'NONE' } })} className="text-slate-600 hover:text-red-500 transition-colors opacity-0 group-hover/wslot:opacity-100">
                      <span className="material-symbols-outlined text-sm">remove_circle</span>
@@ -430,33 +538,42 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                   items: weapons,
                   pickerType: 'weapon',
                   slotKey
-               })} className="w-full py-6 border-2 border-dashed border-slate-800 rounded-lg text-slate-500 hover:border-primary hover:text-primary hover:bg-primary/5 transition-all text-[11px] font-black tracking-[0.3em] uppercase flex items-center justify-center gap-2">
+               })} className="w-full py-6 border-2 border-dashed border-slate-800 rounded-lg text-slate-500 hover:border-primary hover:text-primary hover:bg-primary/5 transition-all text-[13px] font-black tracking-[0.3em] uppercase flex items-center justify-center gap-2">
                   <span className="material-symbols-outlined">add_circle</span> Select Weapon
                </button>
             ) : (
                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                     <div className="w-14 h-14 rounded bg-black/50 p-1 shrink-0 border border-white/5 shadow-inner">
-                        {weapon.imageUrl ? <img src={weapon.imageUrl} alt={weapon.name} className="w-full h-full object-contain drop-shadow-md" /> : <span className="material-symbols-outlined">{weapon.icon}</span>}
+                  <RichTooltip item={weapon}>
+                     <div className="flex items-center gap-3">
+                        <div className="w-14 h-14 rounded bg-black/50 p-1 shrink-0 border border-white/5 shadow-inner">
+                           {weapon.imageUrl ? <img src={weapon.imageUrl} alt={weapon.name} className="w-full h-full object-contain drop-shadow-md" /> : <span className="material-symbols-outlined">{weapon.icon}</span>}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                           <p className="font-bold text-slate-100 uppercase tracking-wider text-base">{weapon.name}</p>
+                           <p className={`text-[11px] uppercase font-black tracking-widest mt-0.5 border inline-block px-1.5 py-0.5 rounded leading-none ${getRarityStyles(weapon.rarity)}`}>{weapon.rarity}</p>
+                        </div>
                      </div>
-                     <div className="flex-1 min-w-0">
-                        <p className="font-bold text-slate-100 uppercase tracking-wider text-sm">{weapon.name}</p>
-                        <p className={`text-[9px] uppercase font-black tracking-widest mt-0.5 border inline-block px-1.5 py-0.5 rounded leading-none ${getRarityStyles(weapon.rarity)}`}>{weapon.rarity}</p>
-                     </div>
-                  </div>
+                  </RichTooltip>
 
                   {/* Mods Section */}
                   <div className="bg-background-dark/80 p-3 rounded-lg border border-slate-800/50">
                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-[9px] font-black tracking-widest text-slate-500 uppercase">Weapon Modifications</span>
-                        <button onClick={() => setPickerConfig({
-                           isOpen: true,
-                           title: 'Equip Weapon Mods',
-                           items: mods,
-                           pickerType: 'mods',
-                           slotKey
-                        })} className="text-[9px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
-                           <span className="material-symbols-outlined text-sm text-primary">add</span> Manage
+                        <span className="text-[11px] font-black tracking-widest text-slate-500 uppercase">Apply Mods</span>
+                        <button onClick={() => {
+                            const weapon = weapons.find(w => w.id === slotData.weaponId);
+                            const weaponSlots = weapon ? (WEAPON_MOD_SLOTS[weapon.id] || []) : [];
+                            const filteredMods = weaponSlots.length > 0
+                               ? mods.filter(m => weaponSlots.includes(getModSlotType(m)))
+                               : mods; // Fallback: show all mods if weapon has no slot data
+                            setPickerConfig({
+                               isOpen: true,
+                               title: 'Equip Weapon Mods',
+                               items: filteredMods,
+                               pickerType: 'mods',
+                               slotKey
+                            });
+                         }} className="text-[11px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
+                           <span className="material-symbols-outlined text-sm text-primary">add</span> EDIT
                         </button>
                      </div>
                      <div className="space-y-2">
@@ -464,14 +581,16 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                            const mod = mods.find(m => m.id === mid);
                            if (!mod) return null;
                            return (
-                              <div key={mid} className="flex justify-between items-center bg-black/40 border border-white/5 p-2 rounded-lg group/mod hover:border-slate-500 transition-colors">
+                              <RichTooltip key={mid} item={mod}>
+                              <div 
+                                   className="flex justify-between items-center bg-black/40 border border-white/5 p-2 rounded-lg group/mod hover:border-slate-500 transition-colors">
                                  <div className="flex items-center gap-3">
                                     <div className="w-8 h-8 rounded bg-black/20 flex items-center justify-center p-0.5 border border-white/5">
                                        {mod.imageUrl ? <img src={mod.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-[16px] text-slate-500">settings</span>}
                                     </div>
                                     <div>
-                                       <span className="text-[11px] font-bold text-slate-200 block truncate max-w-[120px]">{mod.name}</span>
-                                       <span className={`text-[8px] font-black uppercase tracking-widest ${getRarityStyles(mod.rarity).split(' ').find(c => c.startsWith('text-'))}`}>{mod.rarity}</span>
+                                       <span className="text-[13px] font-bold text-slate-200 block truncate max-w-[120px]">{mod.name}</span>
+                                       <span className={`text-[10px] font-black uppercase tracking-widest ${getRarityStyles(mod.rarity).split(' ').find(c => c.startsWith('text-'))}`}>{mod.rarity}</span>
                                     </div>
                                  </div>
                                  <button onClick={() => {
@@ -481,9 +600,10 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                     <span className="material-symbols-outlined text-[16px]">close</span>
                                  </button>
                               </div>
-                           );
-                        })}
-                        {slotData.attachedModIds.length === 0 && <p className="text-[10px] text-slate-600 italic px-1 pt-1">No attachments equipped</p>}
+                           </RichTooltip>
+                        );
+                     })}
+                        {slotData.attachedModIds.length === 0 && <p className="text-[12px] text-slate-600 italic px-1 pt-1">No attachments equipped</p>}
                      </div>
                   </div>
                </div>
@@ -547,6 +667,23 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
             multiplier={state.multiplier}
          />
 
+         <ConfirmationModal 
+            isOpen={confirmModal?.isOpen || false}
+            title={confirmModal?.title || ''}
+            message={confirmModal?.message || ''}
+            danger={confirmModal?.danger}
+            onConfirm={confirmModal?.onConfirm || (() => {})}
+            onCancel={() => setConfirmModal(null)}
+         />
+
+         <input 
+            type="file" 
+            ref={fileInputRef} 
+            onChange={importConfig} 
+            className="hidden" 
+            accept=".json"
+         />
+
          {/* Header */}
          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
             <div className="flex items-center gap-4">
@@ -554,25 +691,37 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                   <span className="material-symbols-outlined text-2xl">arrow_back</span>
                </button>
                <div>
-                  <h2 className="text-3xl font-black tracking-[0.3em] uppercase text-white drop-shadow-glow">STASH PLANNER</h2>
-                  <p className="text-[11px] text-primary font-bold tracking-[0.4em] uppercase mt-1 opacity-70 italic">Loadout-Agregated Resource Calibration</p>
+                  <div>
+                     <h2 className="text-3xl font-black tracking-[0.3em] text-white drop-shadow-glow">STASH PLANNER</h2>
+                     <p className="text-[10px] text-primary font-bold tracking-[0.4em] uppercase mt-1 opacity-70">Loadout-Agregated Resource Calibration</p>
+                  </div>
                </div>
             </div>
 
-            <div className="flex items-center gap-4 bg-black/40 border border-slate-800 p-2 rounded-2xl">
-               <div className="flex flex-col items-end px-4 border-r border-slate-800">
-                  <span className="text-[9px] font-black tracking-widest text-slate-600 uppercase">Global Multiplier</span>
-                  <span className="text-[10px] font-bold text-slate-400 italic shrink-0">Total Raids per Loadout</span>
-               </div>
-               <div className="flex items-center gap-3">
-                  <button onClick={() => setState(s => ({ ...s, multiplier: Math.max(1, s.multiplier - 1) }))} className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-white transition-all font-black text-xl flex items-center justify-center">-</button>
-                  <div className="w-12 text-center">
-                     <span className="text-2xl font-black text-primary font-mono">{state.multiplier}</span>
-                  </div>
-                  <button onClick={() => setState(s => ({ ...s, multiplier: s.multiplier + 1 }))} className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-white transition-all font-black text-xl flex items-center justify-center">+</button>
-               </div>
-            </div>
-         </div>
+            <div className="flex items-center gap-6">
+                <div className="flex items-center gap-4 bg-black/40 border-2 border-emerald-500/40 p-2 rounded-2xl shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+                   <div className="flex flex-col items-end px-4 border-r border-emerald-500/20">
+                      <span className="text-[9px] font-black tracking-widest text-emerald-400 uppercase">Save / Load</span>
+                   </div>
+                   <div className="flex items-center gap-2">
+                      <button 
+                         onClick={exportConfig}
+                         className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-emerald-600 transition-all flex items-center justify-center text-emerald-400 hover:text-white"
+                         title="Export Config to File"
+                      >
+                         <span className="material-symbols-outlined">download</span>
+                      </button>
+                      <button 
+                         onClick={() => fileInputRef.current?.click()}
+                         className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-emerald-600 transition-all flex items-center justify-center text-emerald-400 hover:text-white"
+                         title="Import Config from File"
+                      >
+                         <span className="material-symbols-outlined">upload</span>
+                      </button>
+                   </div>
+                </div>
+             </div>
+          </div>
 
          <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 flex-1 min-h-0">
             {/* Left Card: Loadout Selection & Edit */}
@@ -582,18 +731,19 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center gap-4">
                      <span className="material-symbols-outlined text-3xl text-primary drop-shadow-[0_0_8px_rgba(19,91,236,0.6)]">engineering</span>
-                     <h3 className="text-xl font-black text-slate-100 uppercase tracking-[0.2em]">BATTLE GROUPS</h3>
+                      <h3 className="text-xl font-black text-slate-100 tracking-[0.2em]">Loadouts Manager</h3>
                   </div>
                   <button
-                     onClick={() => {
-                        const resetLoadouts = state.loadouts.map((l, i) => ({ ...l, isActive: i === 0, primary: { weaponId: null, attachedModIds: [], maintenanceAction: 'NONE' }, secondary: { weaponId: null, attachedModIds: [], maintenanceAction: 'NONE' }, augments: [], shields: [], quickUse: [] }));
-                        setState(s => ({ ...s, loadouts: resetLoadouts }));
-                        setCheckedMaterials([]);
-                     }}
-                     className="flex items-center gap-2 px-4 py-2 rounded-xl bg-red-500/5 border border-red-500/20 text-red-500 hover:bg-red-500/10 transition-all group"
+                     onClick={() => setConfirmModal({
+                        isOpen: true,
+                        title: 'Wipe All Data',
+                        message: 'This will clear all primary/secondary slots, mods, and tactical items across ALL loadouts. This action cannot be undone.',
+                        danger: true,
+                        onConfirm: wipeAllData
+                     })}
+                      className="flex items-center gap-1.5 px-3 py-1 rounded bg-black/40 border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all text-[9px] font-black uppercase tracking-widest group/wipe"
                   >
-                     <span className="material-symbols-outlined text-xl group-hover:rotate-90 transition-transform">refresh</span>
-                     <span className="text-[10px] font-black uppercase tracking-widest">Wipe Data</span>
+                      <span className="material-symbols-outlined text-[14px]">delete_sweep</span> Wipe All
                   </button>
                </div>
 
@@ -613,7 +763,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                               onChange={(e) => updateLoadoutByIdx(idx, { isActive: e.target.checked })}
                               className={`w-4 h-4 rounded appearance-none border-2 transition-all cursor-pointer ${l.isActive ? 'bg-white border-white' : 'border-slate-700 bg-black/20 hover:border-slate-500'}`}
                            />
-                           <span className={`text-[11px] font-black uppercase tracking-[0.2em] ${activeLoadoutIndex === idx ? 'text-white' : 'text-slate-500 group-hover:text-slate-300'}`}>
+                           <span className={`text-[11px] font-black tracking-[0.2em] ${activeLoadoutIndex === idx ? 'text-white' : 'text-slate-500 group-hover:text-slate-300'}`}>
                               {l.name}
                            </span>
                         </div>
@@ -623,27 +773,39 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
 
                {/* Configuration Area */}
                <div className="flex-1 flex flex-col min-h-0">
-                  <div className="mb-4 flex items-center justify-between border-b border-slate-800 pb-2">
+                  <div className="flex items-center gap-4">
                      <div className="flex items-center gap-2">
                         <span className="text-[10px] font-black tracking-widest text-primary uppercase">Active Config</span>
                         <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
                      </div>
-                     <input
-                        type="text"
-                        value={currentLoadout.name}
-                        onChange={(e) => updateCurrentLoadout({ name: e.target.value.toUpperCase() })}
-                        className="bg-transparent border-none text-right font-black text-white text-xs tracking-[0.2em] focus:ring-0 w-32 outline-none placeholder:opacity-30"
-                        placeholder="RENAME"
-                     />
+                     <button 
+                        onClick={() => setConfirmModal({
+                           isOpen: true,
+                           title: `Wipe ${currentLoadout.name}`,
+                           message: `Are you sure you want to clear all slots for ${currentLoadout.name}? Other loadouts will remain untouched.`,
+                           danger: true,
+                           onConfirm: () => resetLoadout(activeLoadoutIndex)
+                        })}
+                        className="flex items-center gap-1.5 px-3 py-1 rounded bg-black/40 border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all text-[9px] font-black uppercase tracking-widest group/wipe"
+                     >
+                        <span className="material-symbols-outlined text-[14px]">delete</span> Wipe Loadout
+                     </button>
                   </div>
+                  <input
+                     type="text"
+                     value={currentLoadout.name}
+                     onChange={(e) => updateCurrentLoadout({ name: e.target.value })}
+                     className="bg-transparent border-none text-right font-black text-white text-[14px] tracking-[0.2em] focus:ring-0 w-40 outline-none placeholder:opacity-30"
+                     placeholder="Rename"
+                  />
 
                   <ScrollContainer className="flex-1 px-1">
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
 
                         {/* PRIMARY & SECONDARY */}
                         <div className="space-y-4">
-                           {renderWeaponSlot('Primary Armament', currentLoadout.primary, 'primary')}
-                           {renderWeaponSlot('Secondary Armament', currentLoadout.secondary, 'secondary')}
+                           {renderWeaponSlot('Primary Weapon', currentLoadout.primary, 'primary')}
+                           {renderWeaponSlot('Secondary Weapon', currentLoadout.secondary, 'secondary')}
                         </div>
 
                         {/* AUGMENTS, SHIELDS, QUICK USE */}
@@ -652,14 +814,14 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                            {/* Augments */}
                            <div className="bg-black/20 border border-slate-800 rounded-xl p-4">
                               <div className="flex justify-between items-center mb-3">
-                                 <h4 className="text-[10px] font-black tracking-[0.3em] uppercase text-slate-500">Augments</h4>
+                                 <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">AUGMENTS</h4>
                                  <button onClick={() => setPickerConfig({
                                     isOpen: true,
                                     title: 'Equip Augments',
                                     items: augments,
                                     pickerType: 'augments'
-                                 })} className="text-[9px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
-                                    <span className="material-symbols-outlined text-sm">add</span> Manage
+                                 })} className="text-[11px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
+                                    <span className="material-symbols-outlined text-sm">add</span> EDIT
                                  </button>
                               </div>
                               <div className="grid grid-cols-1 gap-2">
@@ -667,34 +829,33 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                     const aug = augments.find(a => a.id === aid);
                                     if (!aug) return null;
                                     return (
-                                       <div key={aid} className="flex justify-between items-center bg-black/40 border border-white/5 p-2 rounded-lg group hover:border-slate-500 transition-colors">
-                                          <div className="flex items-center gap-3">
-                                             <div className="w-8 h-8 rounded bg-black/20 border border-white/5 flex items-center justify-center p-1 shrink-0">
-                                                {aug.imageUrl ? <img src={aug.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-sm text-slate-500">memory</span>}
+                                       <RichTooltip key={aid} item={aug}>
+                                          <div className="flex justify-between items-center bg-black/40 border border-white/5 p-2 rounded-lg group hover:border-slate-500 transition-colors">
+                                             <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded bg-black/20 border border-white/5 flex items-center justify-center p-1 shrink-0">
+                                                   {aug.imageUrl ? <img src={aug.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-sm text-slate-500">memory</span>}
+                                                </div>
+                                                <span className="text-[13px] font-bold text-slate-200 truncate max-w-[120px]">{aug.name}</span>
                                              </div>
-                                             <span className="text-[11px] font-bold text-slate-200 truncate max-w-[120px]">{aug.name}</span>
                                           </div>
-                                          <button onClick={() => updateCurrentLoadout({ augments: currentLoadout.augments.filter(id => id !== aid) })} className="p-1 text-slate-600 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100">
-                                             <span className="material-symbols-outlined text-sm">close</span>
-                                          </button>
-                                       </div>
-                                    );
-                                 })}
-                                 {currentLoadout.augments.length === 0 && <p className="text-[10px] text-slate-600 italic px-1">No augments equipped</p>}
+                                       </RichTooltip>
+                                 );
+                              })}
+                                 {currentLoadout.augments.length === 0 && <p className="text-[12px] text-slate-600 italic px-1">No augments equipped</p>}
                               </div>
                            </div>
 
                            {/* Shields */}
                            <div className="bg-black/20 border border-slate-800 rounded-xl p-4">
                               <div className="flex justify-between items-center mb-3">
-                                 <h4 className="text-[10px] font-black tracking-[0.3em] uppercase text-slate-500">Ballistic Shields</h4>
+                                 <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">SHIELDS</h4>
                                  <button onClick={() => setPickerConfig({
                                     isOpen: true,
                                     title: 'Equip Shields',
                                     items: throwables.filter(t => t.category === 'SHIELDS'),
                                     pickerType: 'shields'
-                                 })} className="text-[9px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
-                                    <span className="material-symbols-outlined text-sm">add</span> Manage
+                                 })} className="text-[11px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
+                                    <span className="material-symbols-outlined text-sm">add</span> EDIT
                                  </button>
                               </div>
                               <div className="grid grid-cols-1 gap-2">
@@ -702,34 +863,33 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                     const item = throwables.find(t => t.id === sid);
                                     if (!item) return null;
                                     return (
-                                       <div key={sid} className="flex justify-between items-center bg-black/40 border border-white/5 p-2 rounded-lg group hover:border-slate-500 transition-colors">
-                                          <div className="flex items-center gap-3">
-                                             <div className="w-8 h-8 rounded bg-black/20 border border-white/5 flex items-center justify-center p-1 shrink-0">
-                                                {item.imageUrl ? <img src={item.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-sm text-slate-500">shield</span>}
+                                       <RichTooltip key={sid} item={item}>
+                                          <div className="flex justify-between items-center bg-black/40 border border-white/5 p-2 rounded-lg group hover:border-slate-500 transition-colors">
+                                             <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded bg-black/20 border border-white/5 flex items-center justify-center p-1 shrink-0">
+                                                   {item.imageUrl ? <img src={item.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-sm text-slate-500">shield</span>}
+                                                </div>
+                                                <span className="text-[13px] font-bold text-slate-200 truncate max-w-[120px]">{item.name}</span>
                                              </div>
-                                             <span className="text-[11px] font-bold text-slate-200 truncate max-w-[120px]">{item.name}</span>
                                           </div>
-                                          <button onClick={() => updateCurrentLoadout({ shields: currentLoadout.shields.filter(id => id !== sid) })} className="p-1 text-slate-600 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100">
-                                             <span className="material-symbols-outlined text-sm">close</span>
-                                          </button>
-                                       </div>
-                                    );
-                                 })}
-                                 {currentLoadout.shields.length === 0 && <p className="text-[10px] text-slate-600 italic px-1">No shields equipped</p>}
+                                       </RichTooltip>
+                                 );
+                              })}
+                                 {currentLoadout.shields.length === 0 && <p className="text-[12px] text-slate-600 italic px-1">No shields equipped</p>}
                               </div>
                            </div>
 
                            {/* Quick Use */}
                            <div className="bg-black/20 border border-slate-800 rounded-xl p-4">
                               <div className="flex justify-between items-center mb-3">
-                                 <h4 className="text-[10px] font-black tracking-[0.3em] uppercase text-slate-500">Quick Use Cache</h4>
+                                 <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">QUICK USE</h4>
                                  <button onClick={() => setPickerConfig({
                                     isOpen: true,
                                     title: 'Manage Quick Use Cache',
                                     items: throwables.filter(t => (t.category === 'THROWABLES' || t.category === 'DEFENSIVE')),
                                     pickerType: 'quickUse'
-                                 })} className="text-[9px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
-                                    <span className="material-symbols-outlined text-sm">add</span> Manage
+                                 })} className="text-[11px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
+                                    <span className="material-symbols-outlined text-sm">add</span> EDIT
                                  </button>
                               </div>
                               <div className="space-y-2">
@@ -737,31 +897,33 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                     const item = throwables.find(t => t.id === qu.itemId);
                                     if (!item) return null;
                                     return (
-                                       <div key={idx} className="flex justify-between items-center bg-black/40 border border-white/5 p-2 rounded-lg group">
-                                          <div className="flex items-center gap-3">
-                                             <div className="w-8 h-8 rounded bg-black/20 border border-white/5 flex items-center justify-center p-1 shrink-0">
-                                                {item.imageUrl ? <img src={item.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-sm text-slate-500">explosion</span>}
+                                       <RichTooltip key={idx} item={item}>
+                                          <div className="flex justify-between items-center bg-black/40 border border-white/5 p-2 rounded-lg group">
+                                             <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded bg-black/20 border border-white/5 flex items-center justify-center p-1 shrink-0">
+                                                   {item.imageUrl ? <img src={item.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-sm text-slate-500">explosion</span>}
+                                                </div>
+                                                <span className="text-[13px] font-bold text-slate-200 truncate max-w-[80px]">{item.name}</span>
                                              </div>
-                                             <span className="text-[11px] font-bold text-slate-200 truncate max-w-[80px]">{item.name}</span>
+                                             <div className="flex items-center gap-2 bg-black/40 rounded border border-white/5 p-0.5">
+                                                <button onClick={() => {
+                                                   const newQU = [...currentLoadout.quickUse];
+                                                   if (newQU[idx].quantity > 1) newQU[idx].quantity -= 1;
+                                                   else newQU.splice(idx, 1);
+                                                   updateCurrentLoadout({ quickUse: newQU });
+                                                }} className="w-5 h-5 flex items-center justify-center text-slate-400 hover:text-white">-</button>
+                                                <span className="text-[13px] font-black text-primary w-4 text-center">{qu.quantity}</span>
+                                                <button onClick={() => {
+                                                   const newQU = [...currentLoadout.quickUse];
+                                                   newQU[idx].quantity += 1;
+                                                   updateCurrentLoadout({ quickUse: newQU });
+                                                }} className="w-5 h-5 flex items-center justify-center text-slate-400 hover:text-white">+</button>
+                                             </div>
                                           </div>
-                                          <div className="flex items-center gap-2 bg-black/40 rounded border border-white/5 p-0.5">
-                                             <button onClick={() => {
-                                                const newQU = [...currentLoadout.quickUse];
-                                                if (newQU[idx].quantity > 1) newQU[idx].quantity -= 1;
-                                                else newQU.splice(idx, 1);
-                                                updateCurrentLoadout({ quickUse: newQU });
-                                             }} className="w-5 h-5 flex items-center justify-center text-slate-400 hover:text-white">-</button>
-                                             <span className="text-[11px] font-black text-primary w-4 text-center">{qu.quantity}</span>
-                                             <button onClick={() => {
-                                                const newQU = [...currentLoadout.quickUse];
-                                                newQU[idx].quantity += 1;
-                                                updateCurrentLoadout({ quickUse: newQU });
-                                             }} className="w-5 h-5 flex items-center justify-center text-slate-400 hover:text-white">+</button>
-                                          </div>
-                                       </div>
-                                    );
-                                 })}
-                                 {currentLoadout.quickUse.length === 0 && <p className="text-[10px] text-slate-600 italic px-1">No tactical gear selected</p>}
+                                       </RichTooltip>
+                                 );
+                              })}
+                                 {currentLoadout.quickUse.length === 0 && <p className="text-[12px] text-slate-600 italic px-1">No tactical gear selected</p>}
                               </div>
                            </div>
 
@@ -776,27 +938,12 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-l from-primary/50 via-primary/10 to-transparent" />
 
-               <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-4">
-                     <span className="material-symbols-outlined text-3xl text-primary drop-shadow-[0_0_8px_rgba(19,91,236,0.6)]">analytics</span>
-                     <h3 className="text-xl font-black text-white uppercase tracking-[0.2em]">STASH LIST</h3>
-                  </div>
-                  <div className="flex items-center gap-2">
-                     <button
-                        onClick={() => setShowReport(true)}
-                        className="px-4 py-2 bg-primary/10 hover:bg-primary text-primary hover:text-white rounded-xl text-[9px] font-black uppercase tracking-widest transition-all border border-primary/30 flex items-center gap-2"
-                     >
-                        Finalize Plan
-                     </button>
-                     <button
-                        onClick={() => setCheckedMaterials([])}
-                        className="w-10 h-10 flex items-center justify-center bg-slate-800/50 hover:bg-slate-700/50 rounded-xl text-slate-500 hover:text-white transition-all border border-slate-700/50"
-                        title="Clear toggles"
-                     >
-                        <span className="material-symbols-outlined text-xl">checklist</span>
-                     </button>
-                  </div>
-               </div>
+                <div className="flex items-center justify-between mb-6">
+                   <div className="flex items-center gap-4">
+                      <span className="material-symbols-outlined text-3xl text-primary drop-shadow-[0_0_8px_rgba(19,91,236,0.6)]">analytics</span>
+                      <h3 className="text-xl font-black text-white tracking-[0.2em]">Stash List</h3>
+                   </div>
+                </div>
 
                <ScrollContainer className="flex-1">
                   {!hasAnyMaterials ? (
@@ -805,94 +952,61 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                         <p className="text-sm font-black uppercase tracking-[0.3em] text-center max-w-[200px] leading-relaxed italic">Configure loadouts to visualize resource needs</p>
                      </div>
                   ) : (
-                     <div className="flex flex-col gap-8">
-                        {/* Maintenance Requirements */}
-                        {maintenanceMaterials.length > 0 && (
-                           <div>
-                              <div className="flex items-center gap-3 mb-4">
-                                 <div className="h-px flex-1 bg-gradient-to-r from-transparent to-amber-500/30"></div>
-                                 <span className="text-[11px] font-black uppercase tracking-[0.4em] text-amber-500 whitespace-nowrap">Asset Maintenance</span>
-                                 <div className="h-px flex-1 bg-gradient-to-l from-transparent to-amber-500/30"></div>
-                              </div>
-                              <div className="grid grid-cols-2 gap-2">
-                                 {maintenanceMaterials.map((mat, idx) => (
-                                    <div key={idx} data-material={mat.name} className="flex items-center gap-3 p-2.5 rounded-xl bg-black/30 border border-white/5 group hover:border-amber-500/30 transition-all">
-                                       <div className="w-8 h-8 rounded-lg bg-black/50 p-1 border border-white/5 shrink-0 group-hover:scale-110 transition-transform">
-                                          {mat.imageUrl ? <img src={mat.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-lg text-slate-600">inventory_2</span>}
-                                       </div>
-                                       <span className="text-[10px] font-bold text-slate-300 uppercase tracking-wider truncate">{mat.name}</span>
-                                    </div>
-                                 ))}
-                              </div>
-                           </div>
-                        )}
-
-                        {/* Crafting Requirements */}
-                        {craftingMaterials.length > 0 && (
-                           <div>
-                              <div className="flex items-center gap-3 mb-4">
-                                 <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/30"></div>
-                                 <span className="text-[11px] font-black uppercase tracking-[0.4em] text-primary whitespace-nowrap">Provisioning Cost</span>
-                                 <div className="h-px flex-1 bg-gradient-to-l from-transparent to-primary/30"></div>
-                              </div>
-                              <div className="space-y-2">
-                                 {craftingMaterials.map((mat, idx) => {
-                                    const isChecked = checkedMaterials.includes(mat.name);
-                                    const rarityStyles = getRarityStyles(mat.rarity as Rarity);
-                                    return (
-                                       <div
-                                          key={idx}
-                                          data-material={mat.name}
-                                          onClick={() => {
-                                             setCheckedMaterials(prev => prev.includes(mat.name) ? prev.filter(i => i !== mat.name) : [...prev, mat.name]);
-                                          }}
-                                          className={`group/mat flex items-center justify-between p-3 rounded-2xl border transition-all cursor-pointer relative overflow-hidden ${isChecked ? 'bg-slate-900/40 border-slate-800 opacity-40' : 'bg-black/40 border-white/5 hover:border-primary/50 hover:bg-black/60'}`}
-                                       >
-                                          {isChecked && <div className="absolute inset-0 bg-slate-900/50 backdrop-grayscale" />}
-                                          <div className="flex items-center gap-3 relative z-10 shrink-0">
-                                             <div className={`w-10 h-10 rounded-xl bg-black/60 border border-white/5 p-1.5 flex items-center justify-center transition-transform ${isChecked ? 'scale-75 opacity-50' : 'group-hover/mat:scale-110'}`}>
-                                                {mat.imageUrl ? <img src={mat.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-lg opacity-40">category</span>}
-                                             </div>
-                                             <div>
-                                                <span className={`text-[12px] font-black uppercase tracking-wider block leading-tight ${isChecked ? 'text-slate-600' : 'text-slate-100'}`}>{mat.name}</span>
-                                                <span className={`text-[8px] font-black uppercase tracking-widest ${rarityStyles.split(' ').find(c => c.startsWith('text-'))}`}>{mat.rarity}</span>
-                                             </div>
-                                          </div>
-                                          <div className="flex items-center gap-4 relative z-10">
-                                             <div className={`text-xl font-black font-mono transition-colors ${isChecked ? 'text-slate-700' : 'text-primary'}`}>
-                                                {mat.quantity}
-                                             </div>
-                                             <div className={`w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all ${isChecked ? 'bg-primary border-primary' : 'border-slate-800'}`}>
-                                                {isChecked && <span className="material-symbols-outlined text-white text-base">check</span>}
-                                             </div>
-                                          </div>
-                                       </div>
-                                    );
-                                 })}
-                              </div>
-                           </div>
-                        )}
-                     </div>
+                      <div className="flex flex-col gap-4">
+                         {/* Items Needed Header */}
+                         <div className="flex items-center gap-3 mb-2">
+                            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/30"></div>
+                            <span className="text-[11px] font-black uppercase tracking-[0.4em] text-primary whitespace-nowrap">ITEMS NEEDED FOR PLAN</span>
+                            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-primary/30"></div>
+                         </div>
+                         <div className="space-y-2">
+                            {[...maintenanceMaterials, ...craftingMaterials].map((mat, idx) => {
+                               const rarityStyles = getRarityStyles(mat.rarity as Rarity);
+                               return (
+                                  <RichTooltip key={idx} item={mat}>
+                                     <div
+                                        key={idx}
+                                        
+                                        className="group/mat flex items-center justify-between p-3 rounded-2xl border transition-all relative overflow-hidden bg-black/40 border-white/5 hover:border-primary/50 hover:bg-black/60"
+                                     >
+                                        <div className="flex items-center gap-3 relative z-10 shrink-0">
+                                           <div className="w-10 h-10 rounded-xl bg-black/60 border border-white/5 p-1.5 flex items-center justify-center transition-transform group-hover/mat:scale-110">
+                                              {mat.imageUrl ? <img src={mat.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-lg opacity-40">category</span>}
+                                           </div>
+                                           <div>
+                                              <span className="text-[12px] font-black uppercase tracking-wider block leading-tight text-slate-100">{mat.name}</span>
+                                              <span className={`text-[8px] font-black uppercase tracking-widest ${rarityStyles.split(' ').find(c => c.startsWith('text-'))}`}>{mat.rarity}</span>
+                                           </div>
+                                        </div>
+                                        <div className="flex items-center gap-4 relative z-10">
+                                           <div className="text-xl font-black font-mono text-primary">
+                                              {mat.quantity}
+                                           </div>
+                                        </div>
+                                     </div>
+                                  </RichTooltip>
+                               );
+                            })}
+                         </div>
+                      </div>
                   )}
-               </ScrollContainer>
+                </ScrollContainer>
 
-               {hasAnyMaterials && (
-                  <div className="mt-6 pt-6 border-t border-slate-800 flex items-center gap-6 text-slate-500 font-bold uppercase tracking-widest text-[10px]">
-                     <div className="flex items-center gap-2">
-                        <span className="material-symbols-outlined text-sm text-primary">shopping_cart</span>
-                        <span>Total Needs: <span className="text-white ml-2">{craftingMaterials.length + maintenanceMaterials.length} Items</span></span>
-                     </div>
-                     <div className="w-1 h-1 rounded-full bg-slate-700" />
-                     <div className="flex items-center gap-2">
-                        <span className="material-symbols-outlined text-sm text-emerald-500">done_all</span>
-                        <span>Checked: <span className="text-white ml-2 cursor-help" title="Itens marcados para acompanhamento">{checkedMaterials.length}</span></span>
-                     </div>
-                  </div>
-               )}
-            </div>
-         </div>
-      </div>
-   );
+                {hasAnyMaterials && (
+                   <div className="mt-6 pt-6 border-t border-slate-800">
+                      <button
+                         onClick={() => setShowReport(true)}
+                         className="w-full py-4 bg-primary/10 hover:bg-primary text-primary hover:text-white rounded-2xl text-sm font-black uppercase tracking-[0.3em] transition-all border-2 border-primary/30 hover:border-primary flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(19,91,236,0.1)] hover:shadow-[0_0_30px_rgba(19,91,236,0.3)]"
+                      >
+                         <span className="material-symbols-outlined text-xl">analytics</span>
+                         Finalize Plan
+                      </button>
+                   </div>
+                )}
+             </div>
+          </div>
+       </div>
+    );
 };
 
 export default PlannerScreen;

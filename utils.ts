@@ -2,6 +2,28 @@
 import { Rarity, Weapon, Modification, Material } from './types';
 import { WEAPONS_DATA, MODS_DATA, MATERIALS_DATA } from './data';
 
+// ─── Mod Slot Type helper (used by Planner compatibility filter) ───
+
+export const getModSlotType = (mod: Modification): string => {
+    // Muzzle family
+    if (mod.category === 'MUZZLE') {
+        if (mod.weaponTypeCompatibility?.includes('SHOTGUN')) return 'Shotgun Muzzle';
+        return 'Muzzle';
+    }
+    // Magazine family
+    if (mod.category === 'MAGAZINE') {
+        if (mod.ammoCompatibility === 'LIGHT') return 'Light Magazine';
+        if (mod.ammoCompatibility === 'MEDIUM') return 'Medium Magazine';
+        if (mod.ammoCompatibility === 'SHOTGUN') return 'Shotgun Magazine';
+        return 'Magazine';
+    }
+    if (mod.category === 'UNDERBARREL') return 'Underbarrel';
+    if (mod.category === 'STOCK') return 'Stock';
+    // Special / Tech mods (e.g. Anvil Splitter)
+    if (mod.category === 'ALL' || mod.category === 'TECH') return 'Tech Mod';
+    return 'Unknown';
+};
+
 // ─── Rarity styling helpers (shared by all Card components) ───
 
 export const getRarityStyles = (rarity: Rarity): string => {
@@ -138,7 +160,7 @@ export const getItemRarity = (name: string): Rarity => {
     if (lowerName.includes('damaged') || lowerName.includes('burned') || lowerName.includes('unusable') || lowerName.includes('ruined')) return 'COMMON';
 
     const arcRareItems = [
-        'pulse unit', 'driver', 'gyro', 'advanced arc powercell',
+        'pulse unit', 'driver', 'gyro', 'adv arc powercell',
         'arc circuitry', 'bastion cell', 'bombardier cell', 'industrial magnet',
         'high-tech', 'frequency modulation', 'photoelectric', 'power rod'
     ];

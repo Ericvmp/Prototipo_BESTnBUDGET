@@ -10,7 +10,6 @@ import WeaponOverlay from './components/WeaponOverlay';
 import ModOverlay from './components/ModOverlay';
 import MaterialOverlay from './components/MaterialOverlay';
 import TacticalOverlay from './components/TacticalOverlay';
-import GlobalMaterialTooltip from './components/GlobalMaterialTooltip';
 import { WEAPONS_DATA, MODS_DATA, MATERIALS_DATA, LOOT_DATA, THROWABLES_DATA, AUGMENTS_DATA } from './data';
 import { Weapon, Modification, Material, Screen, Augment, Throwable } from './types';
 
@@ -111,10 +110,55 @@ const App: React.FC = () => {
           XANNAX STASH COPILOT
         </h1>
         <p className="text-[16px] md:text-[22px] text-primary tracking-[0.4em] uppercase mt-4 font-bold opacity-90 drop-shadow-glow">
-          SUSTAINABLE STASH PLANNER
+          STASH PLANNER
         </p>
       </div>
-      <div className="w-full max-w-6xl animate-fade-in-down" style={{ animationDelay: '100ms' }}>
+      {/* Grid of 4 options */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl mt-4">
+        <HomeOption
+          label="Weapons"
+          icon="military_tech"
+          delay="200ms"
+          image="https://cdn.metaforge.app/arc-raiders/icons/hideout/Gunsmith.webp"
+          itemImage="/images/weapons/Stitcher.png"
+          itemImageClass="w-32 h-32 md:w-52 md:h-52"
+          hoverColor="#85f2e9"
+          onClick={() => setCurrentScreen('weapons')}
+        />
+        <HomeOption
+          label="Mods"
+          icon="settings_input_component"
+          delay="350ms"
+          image="https://cdn.metaforge.app/arc-raiders/icons/hideout/ExplosivesStation.webp"
+          itemImage="/images/mods/Compensator_II.png"
+          itemImageClass="w-24 h-24 md:w-40 md:h-40"
+          hoverColor="#f0ab66"
+          onClick={() => setCurrentScreen('mods')}
+        />
+        <HomeOption
+          label="Materials"
+          icon="inventory_2"
+          delay="500ms"
+          image="/images/Refiner.webp"
+          itemImage="https://arcraiders.wiki/w/images/8/89/Metal_Parts.png"
+          itemImageClass="w-24 h-24 md:w-44 md:h-44"
+          hoverColor="#fbd008"
+          onClick={() => setCurrentScreen('materials')}
+        />
+        <HomeOption
+          label="Tacticals"
+          icon="shield_with_heart"
+          delay="650ms"
+          image="/images/GearBench.webp"
+          itemImage="https://cdn.metaforge.app/arc-raiders/icons/snap-blast-grenade.webp"
+          itemImageClass="w-16 h-16 md:w-32 md:h-32"
+          hoverColor="#fb090b"
+          onClick={() => setCurrentScreen('throwables')}
+        />
+      </div>
+
+      {/* STASH PLANNER Button (Moved Below) */}
+      <div className="w-full max-w-6xl animate-fade-in-up mt-8" style={{ animationDelay: '800ms' }}>
          <button 
            onClick={() => setCurrentScreen('planner')}
            className="w-full relative group overflow-hidden rounded-2xl border-2 border-primary/30 hover:ring-8 hover:ring-inset hover:ring-primary transition-all p-6 flex flex-col md:flex-row items-center justify-between bg-card-dark"
@@ -125,8 +169,8 @@ const App: React.FC = () => {
                    <span className="material-symbols-outlined text-4xl text-primary">analytics</span>
                 </div>
                 <div className="text-left">
-                   <h3 className="text-xl font-bold tracking-[0.2em] transform-gpu transition-all uppercase text-white group-hover:text-primary">
-                      SUSTAINABLE STASH PLANNER
+                   <h3 className="text-xl font-black tracking-[0.3em] transform-gpu transition-all text-white group-hover:text-primary uppercase">
+                      STASH PLANNER
                    </h3>
                    <p className="text-sm text-slate-400 mt-1 max-w-lg">
                       Build your ideal setup and calculate the exact materials needed to craft, upgrade, and maintain it.
@@ -136,54 +180,8 @@ const App: React.FC = () => {
             <span className="material-symbols-outlined text-4xl text-slate-600 group-hover:text-primary transition-all relative z-10 mt-4 md:mt-0">
                arrow_forward
             </span>
-
          </button>
       </div>
-
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl mt-4">
-        <HomeOption
-          label="WEAPONS"
-          icon="military_tech"
-          delay="200ms"
-          image="https://cdn.metaforge.app/arc-raiders/icons/hideout/Gunsmith.webp"
-          itemImage="/images/weapons/Stitcher.png"
-          itemImageClass="w-32 h-32 md:w-52 md:h-52"
-          hoverColor="#85f2e9"
-          onClick={() => setCurrentScreen('weapons')}
-        />
-        <HomeOption
-          label="MODS"
-          icon="settings_input_component"
-          delay="350ms"
-          image="https://cdn.metaforge.app/arc-raiders/icons/hideout/ExplosivesStation.webp"
-          itemImage="/images/mods/Compensator_II.png"
-          itemImageClass="w-24 h-24 md:w-40 md:h-40"
-          hoverColor="#2df287"
-          onClick={() => setCurrentScreen('mods')}
-        />
-        <HomeOption
-          label="MATERIALS"
-          icon="construction"
-          delay="500ms"
-          image="https://cdn.metaforge.app/arc-raiders/icons/hideout/Refiner.webp"
-          itemImage="/images/materials/Metal_Parts.png"
-          itemImageClass="w-28 h-28 md:w-48 md:h-48"
-          hoverColor="#fbd008"
-          onClick={() => setCurrentScreen('materials')}
-        />
-        <HomeOption
-          label="TACTICAL"
-          icon="explosion"
-          delay="650ms"
-          image="https://cdn.metaforge.app/arc-raiders/icons/hideout/GearBench.webp"
-          itemImage="/images/loot/Snap_Blast_Grenade.png"
-          itemImageClass="w-24 h-24 md:w-40 md:h-40"
-          hoverColor="#fb090b"
-          onClick={() => setCurrentScreen('throwables')}
-        />
-      </div>
-
-
 
       <div className="mt-8 flex flex-col items-center gap-2 opacity-30">
         <div className="flex gap-12 text-[9px] font-bold tracking-[0.3em] uppercase">
@@ -202,7 +200,7 @@ const App: React.FC = () => {
           <span className="material-symbols-outlined text-3xl">arrow_back</span>
         </button>
         <div>
-          <h2 className="text-2xl font-bold tracking-[0.2em] uppercase text-white">WEAPONS Archive</h2>
+          <h2 className="text-2xl font-bold tracking-[0.2em] text-white">Weapons Archive</h2>
           <p className="text-[10px] text-slate-500 tracking-widest uppercase mt-1">Foundry Inventory Access</p>
         </div>
       </div>
@@ -221,7 +219,7 @@ const App: React.FC = () => {
           <span className="material-symbols-outlined text-3xl">arrow_back</span>
         </button>
         <div>
-          <h2 className="text-2xl font-bold tracking-[0.2em] uppercase text-white">Mods Library</h2>
+          <h2 className="text-2xl font-bold tracking-[0.2em] text-white">Mods Library</h2>
           <p className="text-[10px] text-slate-500 tracking-widest uppercase mt-1">Equipment Calibration Node</p>
         </div>
       </div>
@@ -321,7 +319,6 @@ const App: React.FC = () => {
         <BottomNav activeScreen={currentScreen} onNavigate={setCurrentScreen} />
       )}
 
-      <GlobalMaterialTooltip />
     </div>
   );
 };

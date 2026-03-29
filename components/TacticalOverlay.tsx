@@ -2,6 +2,8 @@
 import React, { useEffect } from 'react';
 import { Throwable, Augment, Material } from '../types';
 import { MATERIALS_DATA, THROWABLES_DATA, AUGMENTS_DATA } from '../data';
+import { generateItemTooltip } from './tooltipHelper';
+import RichTooltip from './RichTooltip';
 
 interface TacticalOverlayProps {
   item: Throwable | Augment;
@@ -48,28 +50,30 @@ const TacticalOverlay: React.FC<TacticalOverlayProps> = ({ item, onClose, onNavi
   const salvageResults    = getRequirements(item.salvageInfo || []);
 
   const MatRow = ({ mat, onClick }: { mat: Material & { quantity: number }; onClick: () => void }) => (
-    <button
-      onClick={onClick}
-      className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 transition-all hover:bg-white/10 group/mat text-left w-full"
-    >
-      <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0">
-          {mat.imageUrl ? (
-            <img src={mat.imageUrl} alt={mat.name} className="w-full h-full object-contain" />
-          ) : (
-            <span className="material-symbols-outlined text-xl text-slate-400">{mat.icon}</span>
-          )}
+    <RichTooltip item={mat}>
+      <button
+        onClick={onClick}
+        className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 transition-all hover:bg-white/10 group/mat text-left w-full"
+      >
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0">
+            {mat.imageUrl ? (
+              <img src={mat.imageUrl} alt={mat.name} className="w-full h-full object-contain" />
+            ) : (
+              <span className="material-symbols-outlined text-xl text-slate-400">{mat.icon}</span>
+            )}
+          </div>
+          <div className="flex flex-col">
+            <span className="text-sm font-bold text-white group-hover/mat:text-primary transition-colors">{mat.name}</span>
+            <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">{mat.rarity}</span>
+          </div>
         </div>
-        <div className="flex flex-col">
-          <span className="text-sm font-bold text-white group-hover/mat:text-primary transition-colors">{mat.name}</span>
-          <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">{mat.rarity}</span>
+        <div className="flex items-center gap-2">
+          <span className="text-lg font-black text-primary">×{mat.quantity}</span>
+          <span className="material-symbols-outlined text-primary text-sm opacity-0 group-hover/mat:opacity-100 transition-opacity">chevron_right</span>
         </div>
-      </div>
-      <div className="flex items-center gap-2">
-        <span className="text-lg font-black text-primary">×{mat.quantity}</span>
-        <span className="material-symbols-outlined text-primary text-sm opacity-0 group-hover/mat:opacity-100 transition-opacity">chevron_right</span>
-      </div>
-    </button>
+      </button>
+    </RichTooltip>
   );
 
   return (
@@ -139,11 +143,10 @@ const TacticalOverlay: React.FC<TacticalOverlayProps> = ({ item, onClose, onNavi
             {/* Top rarity bar */}
             <div className={`absolute top-0 left-0 w-full h-1 ${rarity.topBar}`} />
 
-            {/* Stack Size Badge (Top Right) */}
             <div className="absolute top-4 right-4 z-20">
-              <span className="flex items-center gap-1.5 text-xs font-black px-3 py-1 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest shadow-inner shadow-black/50" title="Stack Size">
-                <span className="material-symbols-outlined text-[14px] text-slate-400">layers</span>
-                STACK: {item.stackSize || 1}
+              <span className="flex items-center gap-1.5 text-[16px] font-black px-3 py-1 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest shadow-inner shadow-black/50" title="Stack Size">
+                <span className="material-symbols-outlined text-[18px] text-slate-400">layers</span>
+                {item.stackSize || 1}
               </span>
             </div>
 

@@ -2,6 +2,8 @@
 import React from 'react';
 import { Throwable, Augment } from '../types';
 import { getRarityGlowStyles, getRarityIconColor, getRarityStyles, getRarityHoverStyles } from '../utils';
+import { generateItemTooltip } from './tooltipHelper';
+import RichTooltip from './RichTooltip';
 
 interface ThrowablesScreenProps {
   data: Throwable[];
@@ -12,17 +14,17 @@ interface ThrowablesScreenProps {
 
 const TacticalCard: React.FC<{ item: Throwable | Augment; onClick: (item: Throwable | Augment) => void }> = ({ item, onClick }) => {
   return (
+    <RichTooltip item={item}>
     <button
       onClick={() => onClick(item)}
-      data-tooltip={item.name}
       className={`relative bg-card-dark border-2 border-slate-800 hover:ring-8 hover:ring-inset rounded-xl overflow-hidden transition-all duration-300 group flex flex-col h-full active:scale-[0.98] shadow-lg ${getRarityHoverStyles(item.rarity)}`}
     >
       <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(item.rarity)} to-transparent opacity-0 group-hover:opacity-25 transition-opacity duration-500 pointer-events-none`}></div>
 
       {/* Stack Size Badge */}
       <div className="absolute top-3 right-3 z-20">
-        <span className="flex items-center gap-0.5 text-[9px] font-black px-1.5 py-0.5 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest shadow-inner" title="Stack Size">
-          <span className="material-symbols-outlined text-[10px] text-slate-400">layers</span>
+        <span className="flex items-center gap-1 text-[11px] font-black px-2 py-0.5 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest shadow-inner shadow-black/50" title="Stack Size">
+          <span className="material-symbols-outlined text-[12px] text-slate-400">layers</span>
           {item.stackSize || 1}
         </span>
       </div>
@@ -41,8 +43,8 @@ const TacticalCard: React.FC<{ item: Throwable | Augment; onClick: (item: Throwa
             <span className={`text-[10px] font-black tracking-widest uppercase px-2 py-0.5 rounded inline-block border ${getRarityStyles(item.rarity)}`}>
               {item.rarity}
             </span>
-            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter rounded border border-slate-700 px-2 py-0.5 inline-block">
-              {item.category || 'TACTICAL'}
+            <span className="text-[10px] font-bold text-slate-500 tracking-tighter rounded border border-slate-700 px-2 py-0.5 inline-block">
+              {item.category || 'Tactical'}
             </span>
           </div>
         </div>
@@ -50,6 +52,7 @@ const TacticalCard: React.FC<{ item: Throwable | Augment; onClick: (item: Throwa
       
       <div className="scanline-overlay absolute inset-0 opacity-10 pointer-events-none"></div>
     </button>
+    </RichTooltip>
   );
 };
 
@@ -61,8 +64,8 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
           <span className="material-symbols-outlined text-2xl">arrow_back</span>
         </button>
         <div>
-          <h2 className="text-3xl font-black tracking-[0.3em] uppercase text-white drop-shadow-glow">TACTICAL GEAR</h2>
-          <p className="text-[10px] text-primary font-bold tracking-[0.4em] uppercase mt-1 opacity-70">Equipment & Augmentation Cache</p>
+          <h2 className="text-3xl font-black tracking-[0.3em] text-white drop-shadow-glow">Tactical Gear</h2>
+          <p className="text-[10px] text-primary font-bold tracking-[0.4em] uppercase mt-1 opacity-70">Support & Tactical Inventory</p>
         </div>
       </div>
 
@@ -76,8 +79,8 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
               <div className="flex items-center gap-6">
                  <div className="flex items-center gap-3 shrink-0">
                     <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(19,91,236,1)] animate-pulse"></span>
-                    <h3 className="text-sm font-black tracking-[0.4em] uppercase text-white/90">
-                      {section}
+                    <h3 className="text-sm font-black tracking-[0.4em] text-white/90">
+                      {section.charAt(0).toUpperCase() + section.slice(1).toLowerCase()}
                     </h3>
                  </div>
                  <div className="h-px flex-1 bg-gradient-to-r from-primary/40 via-primary/10 to-transparent"></div>
@@ -98,8 +101,8 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
             <div className="flex items-center gap-6">
                <div className="flex items-center gap-3 shrink-0">
                   <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(19,91,236,1)] animate-pulse"></span>
-                  <h3 className="text-sm font-black tracking-[0.4em] uppercase text-white/90">
-                    AUGMENTS
+                  <h3 className="text-sm font-black tracking-[0.4em] text-white/90">
+                    Augments
                   </h3>
                </div>
                <div className="h-px flex-1 bg-gradient-to-r from-primary/40 via-primary/10 to-transparent"></div>

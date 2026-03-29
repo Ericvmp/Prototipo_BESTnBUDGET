@@ -1,7 +1,11 @@
 
 export type Tier = 1 | 2 | 3 | 4 | 'LEGENDARY';
 
-export type ModCategory = 'ALL' | 'MUZZLE' | 'MAGAZINE' | 'UNDERBARREL' | 'STOCK' | 'OPTICS';
+export type AmmoType = 'LIGHT' | 'MEDIUM' | 'HEAVY' | 'SHOTGUN' | 'ENERGY' | 'EXPLOSIVE';
+
+export type WeaponType = 'AR' | 'SMG' | 'SHOTGUN' | 'SNIPER' | 'LMG' | 'PISTOL' | 'LAUNCHER';
+
+export type ModCategory = 'ALL' | 'MUZZLE' | 'MAGAZINE' | 'UNDERBARREL' | 'STOCK' | 'OPTICS' | 'TECH';
 
 export type Rarity = 'COMMON' | 'UNCOMMON' | 'RARE' | 'EPIC' | 'LEGENDARY';
 
@@ -25,6 +29,8 @@ export interface Modification {
   recycleInfo?: ModRequirement[];
   salvageInfo?: ModRequirement[];
   stackSize?: number;
+  ammoCompatibility?: AmmoType; // Tied to Magazine types
+  weaponTypeCompatibility?: WeaponType[]; // Tied to specialized mods
 }
 
 export interface WeaponTierInfo {
@@ -49,6 +55,8 @@ export interface Weapon {
   recycleInfo?: WeaponTierInfo[];
   salvageInfo?: WeaponTierInfo[];
   stackSize?: number;
+  ammoType?: AmmoType;
+  weaponType?: WeaponType;
 }
 
 export interface Throwable {

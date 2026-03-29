@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { LootCategory, Material } from '../types';
 import { getSourceImageUrl, getRarityStyles, getItemRarity, getRarityGlowStyles, getRarityHoverStyles } from '../utils';
 import { MATERIALS_DATA } from '../data';
+import { generateItemTooltip } from './tooltipHelper';
+import RichTooltip from './RichTooltip';
 
 interface LootScreenProps {
     data: LootCategory[];
@@ -17,8 +19,8 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                     <span className="material-symbols-outlined text-3xl">arrow_back</span>
                 </button>
                 <div>
-                    <h2 className="text-2xl font-bold tracking-[0.2em] uppercase text-white">MATERIALS Inventory</h2>
-                    <p className="text-[10px] text-slate-500 tracking-widest uppercase mt-1">Resource Archive & Extraction Data</p>
+                    <h2 className="text-2xl font-bold tracking-[0.2em] text-white">Materials Inventory</h2>
+                    <p className="text-[10px] text-slate-500 tracking-widest uppercase mt-1">Extraction & Component Data</p>
                 </div>
             </div>
 
@@ -27,10 +29,10 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                     const material = MATERIALS_DATA.find(m => m.name === category.material);
 
                     return (
+                        <RichTooltip item={material || { name: category.material, rarity: 'COMMON' }}>
                         <button
                             key={category.id}
                             onClick={() => material && onMaterialSelect(material)}
-                            data-material={material?.name}
                             className={`group cursor-pointer relative flex flex-col bg-card-dark rounded-2xl transition-all duration-300 overflow-hidden shadow-lg border-2 hover:ring-8 hover:ring-inset border-slate-800 ${getRarityHoverStyles(material?.rarity || 'COMMON')}`}
                         >
                                 {/* Background Rarity Glow */}
@@ -59,12 +61,12 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                                             <h3 className="text-lg font-black text-white truncate">{category.material}</h3>
                                             {material && (
                                                 <div className="flex items-center gap-1.5 flex-wrap">
-                                                    <span className={`text-[7px] font-black px-1.5 py-0.5 rounded border uppercase tracking-widest ${getRarityStyles(material.rarity)}`}>
+                                                    <span className={`text-[9px] font-black px-1.5 py-0.5 rounded border uppercase tracking-widest ${getRarityStyles(material.rarity)}`}>
                                                         {material.rarity}
                                                     </span>
-                                                    <span className="text-[7px] font-black px-1.5 py-0.5 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest flex items-center gap-0.5 shadow-inner">
-                                                        <span className="material-symbols-outlined text-[9px] text-slate-400">layers</span>
-                                                        STACK: {material.stackSize || 1}
+                                                    <span className="text-[11px] font-black px-1.5 py-0.5 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest flex items-center gap-1 shadow-inner shadow-black/50">
+                                                        <span className="material-symbols-outlined text-[13px] text-slate-400">layers</span>
+                                                        {material.stackSize || 1}
                                                     </span>
                                                 </div>
                                             )}
@@ -73,6 +75,7 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                                 </div>
                             </div>
                         </button>
+                        </RichTooltip>
                     );
                 })}
             </div>

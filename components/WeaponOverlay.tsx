@@ -2,6 +2,8 @@
 import React, { useEffect } from 'react';
 import { Weapon, Modification, Material } from '../types';
 import { WEAPONS_DATA, MATERIALS_DATA } from '../data';
+import { generateItemTooltip } from './tooltipHelper';
+import RichTooltip from './RichTooltip';
 
 interface WeaponOverlayProps {
   weapon: Weapon;
@@ -40,29 +42,30 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
     const mat = MATERIALS_DATA.find(m => m.name === matName);
     if (!mat) return null;
     return (
-      <button
-        onClick={onClick}
-        data-material={mat.name}
-        className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 transition-all hover:bg-white/10 group/mat text-left w-full mb-2"
-      >
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0">
-            {mat.imageUrl ? (
-              <img src={mat.imageUrl} alt={mat.name} className="w-full h-full object-contain" />
-            ) : (
-              <span className="material-symbols-outlined text-xl text-slate-400">{mat.icon}</span>
-            )}
+      <RichTooltip item={mat}>
+        <button
+          onClick={onClick}
+          className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 transition-all hover:bg-white/10 group/mat text-left w-full mb-2"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0">
+              {mat.imageUrl ? (
+                <img src={mat.imageUrl} alt={mat.name} className="w-full h-full object-contain" />
+              ) : (
+                <span className="material-symbols-outlined text-xl text-slate-400">{mat.icon}</span>
+              )}
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-bold text-white group-hover/mat:text-primary transition-colors">{mat.name}</span>
+              <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">{mat.rarity}</span>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-bold text-white group-hover/mat:text-primary transition-colors">{mat.name}</span>
-            <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">{mat.rarity}</span>
+          <div className="flex items-center gap-2">
+            <span className="text-lg font-black text-primary">×{quantity}</span>
+            <span className="material-symbols-outlined text-primary text-sm opacity-0 group-hover/mat:opacity-100 transition-opacity">chevron_right</span>
           </div>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-lg font-black text-primary">×{quantity}</span>
-          <span className="material-symbols-outlined text-primary text-sm opacity-0 group-hover/mat:opacity-100 transition-opacity">chevron_right</span>
-        </div>
-      </button>
+        </button>
+      </RichTooltip>
     );
   };
 
@@ -133,13 +136,7 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
             {/* Top rarity bar */}
             <div className={`absolute top-0 left-0 w-full h-1 ${rarity.topBar}`} />
 
-            {/* Stack Size Badge (Top Right) */}
-            <div className="absolute top-4 right-4 z-20">
-              <span className="flex items-center gap-1.5 text-xs font-black px-3 py-1 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest shadow-inner shadow-black/50" title="Stack Size">
-                <span className="material-symbols-outlined text-[14px] text-slate-400">layers</span>
-                STACK: {weapon.stackSize || 1}
-              </span>
-            </div>
+
 
             <div className="p-6 md:p-8">
               {/* Image + info */}
@@ -194,63 +191,7 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                 </section>
               )}
 
-              {/* ── REPAIR SECTION ── */}
-              {weapon.repairInfo && (
-                <section className="mb-8">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="material-symbols-outlined text-amber-400">build</span>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-amber-400">REPAIR TIERS</h3>
-                  </div>
-                  <div className="space-y-4">
-                    {weapon.repairInfo.map((info, i) => (
-                      <div key={i} className="bg-black/20 p-4 rounded-2xl border border-white/5">
-                        <div className="flex items-center justify-between mb-3 px-1">
-                          <span className="text-[10px] font-black text-amber-400 tracking-[.2em]">TIER {info.tier}</span>
-                          <span className="text-[10px] font-bold text-emerald-400">{info.durability} DURABILITY</span>
-                        </div>
-                        {info.materials.map((m, j) => (
-                          <MatRow key={j} matName={m.name} quantity={m.quantity} onClick={() => {
-                            const mat = MATERIALS_DATA.find(mat => mat.name === m.name);
-                            if (mat) onNavigateMaterial(mat);
-                          }} />
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </section>
-              )}
 
-              {/* ── UPGRADE SECTION ── */}
-              {weapon.upgradeInfo && (
-                <section className="mb-8">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="material-symbols-outlined text-blue-400">upgrade</span>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">UPGRADES</h3>
-                  </div>
-                  <div className="space-y-4">
-                    {weapon.upgradeInfo.map((info, i) => (
-                      <div key={i} className="bg-black/20 p-4 rounded-2xl border border-white/5">
-                         <div className="flex items-center justify-between mb-3 px-1">
-                           <span className="text-[10px] font-black text-blue-400 tracking-[.2em]">TO TIER {info.tier}</span>
-                         </div>
-                         {info.materials.map((m, j) => (
-                           <MatRow key={j} matName={m.name} quantity={m.quantity} onClick={() => {
-                             const mat = MATERIALS_DATA.find(mat => mat.name === m.name);
-                             if (mat) onNavigateMaterial(mat);
-                           }} />
-                         ))}
-                         <div className="flex flex-wrap gap-1 mt-3">
-                           {info.perks?.split(', ').map((perk, k) => (
-                             <span key={k} className="text-[9px] font-bold px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/10 uppercase tracking-widest">
-                               {perk}
-                             </span>
-                           ))}
-                         </div>
-                      </div>
-                    ))}
-                  </div>
-                </section>
-              )}
 
               {/* ── RECYCLING RESULTS ── */}
               {weapon.recycleInfo && (
@@ -279,7 +220,7 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
 
               {/* ── SALVAGING RESULTS ── */}
               {weapon.salvageInfo && (
-                <section>
+                <section className="mb-8">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="material-symbols-outlined text-amber-400">build_circle</span>
                     <h3 className="text-xs font-black tracking-[0.4em] uppercase text-amber-400">SALVAGING</h3>
@@ -296,6 +237,64 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                             if (mat) onNavigateMaterial(mat);
                           }} />
                         ))}
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {/* ── REPAIR SECTION ── */}
+              {weapon.repairInfo && (
+                <section className="mb-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="material-symbols-outlined text-amber-400">build</span>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-amber-400">REPAIR TIERS</h3>
+                  </div>
+                  <div className="space-y-4">
+                    {weapon.repairInfo.map((info, i) => (
+                      <div key={i} className="bg-black/20 p-4 rounded-2xl border border-white/5">
+                        <div className="flex items-center justify-between mb-3 px-1">
+                          <span className="text-[10px] font-black text-amber-400 tracking-[.2em]">TIER {info.tier}</span>
+                          <span className="text-[10px] font-bold text-emerald-400">{info.durability} DURABILITY</span>
+                        </div>
+                        {info.materials.map((m, j) => (
+                          <MatRow key={j} matName={m.name} quantity={m.quantity} onClick={() => {
+                            const mat = MATERIALS_DATA.find(mat => mat.name === m.name);
+                            if (mat) onNavigateMaterial(mat);
+                          }} />
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {/* ── UPGRADE SECTION ── */}
+              {weapon.upgradeInfo && (
+                <section>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="material-symbols-outlined text-blue-400">upgrade</span>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">UPGRADES</h3>
+                  </div>
+                  <div className="space-y-4">
+                    {weapon.upgradeInfo.map((info, i) => (
+                      <div key={i} className="bg-black/20 p-4 rounded-2xl border border-white/5">
+                         <div className="flex items-center justify-between mb-3 px-1">
+                           <span className="text-[10px] font-black text-blue-400 tracking-[.2em]">TO TIER {info.tier}</span>
+                         </div>
+                         {info.materials.map((m, j) => (
+                           <MatRow key={j} matName={m.name} quantity={m.quantity} onClick={() => {
+                             const mat = MATERIALS_DATA.find(mat => mat.name === m.name);
+                             if (mat) onNavigateMaterial(mat);
+                           }} />
+                         ))}
+                         <div className="flex flex-wrap gap-1 mt-3">
+                           {info.perks?.split(', ').map((perk, k) => (
+                             <span key={k} className="text-[9px] font-bold px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/10 uppercase tracking-widest">
+                               {perk}
+                             </span>
+                           ))}
+                         </div>
                       </div>
                     ))}
                   </div>

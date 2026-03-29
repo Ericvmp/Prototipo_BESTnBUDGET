@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Modification } from '../types';
 import { getRarityStyles, getRarityIconColor, getRarityGlowStyles, getSourceImageUrl, getRarityHoverStyles } from '../utils';
+import { generateItemTooltip } from './tooltipHelper';
+import RichTooltip from './RichTooltip';
 
 interface ModCardProps {
   mod: Modification;
@@ -11,9 +13,9 @@ const ModCard: React.FC<ModCardProps> = ({ mod, onClick }) => {
   const [imageError, setImageError] = useState(false);
 
   return (
+    <RichTooltip item={mod}>
     <button
       onClick={() => onClick?.(mod)}
-      data-tooltip={mod.name}
       className={`text-left relative bg-card-dark border-2 border-slate-800 hover:ring-8 hover:ring-inset rounded-lg overflow-hidden transition-all duration-300 group flex flex-col h-full shadow-lg active:scale-95 ${getRarityHoverStyles(mod.rarity)}`}
     >
       {/* Background Rarity Glow */}
@@ -46,8 +48,8 @@ const ModCard: React.FC<ModCardProps> = ({ mod, onClick }) => {
 
         {/* Stack Size Badge */}
         <div className="absolute top-3 right-3 z-10">
-          <span className="flex items-center gap-0.5 text-[9px] font-black px-1.5 py-0.5 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest shadow-inner" title="Stack Size">
-            <span className="material-symbols-outlined text-[10px] text-slate-400">layers</span>
+          <span className="flex items-center gap-1 text-[11px] font-black px-2 py-0.5 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest shadow-inner shadow-black/50" title="Stack Size">
+            <span className="material-symbols-outlined text-[12px] text-slate-400">layers</span>
             {mod.stackSize || 1}
           </span>
         </div>
@@ -56,6 +58,7 @@ const ModCard: React.FC<ModCardProps> = ({ mod, onClick }) => {
       {/* Scanline */}
       <div className="scanline-overlay absolute inset-0 opacity-10 pointer-events-none"></div>
     </button>
+    </RichTooltip>
   );
 };
 

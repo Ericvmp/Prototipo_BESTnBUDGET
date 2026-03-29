@@ -2,7 +2,9 @@
 import React, { useEffect } from 'react';
 import { Material, Weapon, Modification } from '../types';
 import { MATERIALS_DATA, LOOT_DATA } from '../data';
-import { getSourceImageUrl, getItemRarity, getRarityStyles, getRarityGlowStyles } from '../utils';
+import { generateItemTooltip } from './tooltipHelper';
+import { getSourceImageUrl, getItemRarity, getRarityStyles, getRarityGlowStyles, getRarityHoverStyles } from '../utils';
+import RichTooltip from './RichTooltip';
 
 interface MaterialOverlayProps {
   material: Material;
@@ -55,11 +57,11 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
 
   // Row component for a material
   const MatRow = ({ mat, onClick }: { mat: Material & { quantity: number }; onClick: () => void }) => (
-    <button
-      onClick={onClick}
-      data-material={mat.name}
-      className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all group/mat text-left w-full"
-    >
+    <RichTooltip item={mat}>
+      <button
+        onClick={onClick}
+        className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all group/mat text-left w-full"
+      >
       <div className="flex items-center gap-3">
         <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0">
           {mat.imageUrl ? (
@@ -78,6 +80,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
         <span className="material-symbols-outlined text-primary text-sm opacity-0 group-hover/mat:opacity-100 transition-opacity">chevron_right</span>
       </div>
     </button>
+    </RichTooltip>
   );
 
   return (
@@ -152,11 +155,10 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
             {/* Top rarity bar */}
             <div className={`absolute top-0 left-0 w-full h-1 ${rarityColor.topBar}`} />
 
-            {/* Stack Size Badge (Top Right) */}
             <div className="absolute top-4 right-4 z-20">
-              <span className="flex items-center gap-1.5 text-xs font-black px-3 py-1 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest shadow-inner shadow-black/50" title="Stack Size">
-                <span className="material-symbols-outlined text-[14px] text-slate-400">layers</span>
-                STACK: {material.stackSize || 1}
+              <span className="flex items-center gap-1.5 text-[16px] font-black px-3 py-1 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest shadow-inner shadow-black/50" title="Stack Size">
+                <span className="material-symbols-outlined text-[18px] text-slate-400">layers</span>
+                {material.stackSize || 1}
               </span>
             </div>
 
@@ -224,10 +226,11 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                         const targetMat = MATERIALS_DATA.find(m => m.name === req.name);
                         return (
                           <div key={i}>
-                            <button
-                              onClick={() => targetMat && onNavigateMaterial(targetMat)}
-                              className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all group/req text-left w-full"
-                            >
+                            <RichTooltip item={targetMat}>
+                              <button
+                                onClick={() => targetMat && onNavigateMaterial(targetMat)}
+                                className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all group/req text-left w-full"
+                              >
                               <div className="flex items-center gap-3">
                                 <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0">
                                   {targetMat?.imageUrl ? (
@@ -242,6 +245,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                               </div>
                               <span className="text-lg font-black text-primary">×{req.quantity}</span>
                             </button>
+                            </RichTooltip>
                           </div>
                         );
                       })}
@@ -265,32 +269,33 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                       const srcRarityStyles = getRarityStyles(srcRarity);
                       const srcGlow = getRarityGlowStyles(srcRarity);
                       return (
-                        <div
-                          key={idx}
-                          className={`relative flex items-center justify-between p-3 rounded-xl bg-slate-800/60 border transition-all group/src ${srcRarityStyles}`}
-                        >
-                          <div className={`absolute inset-0 opacity-0 group-hover/src:opacity-20 bg-gradient-to-r ${srcGlow} to-transparent transition-opacity rounded-xl`} />
-                          <div className="flex items-center gap-3 relative z-10">
-                            <div className="w-10 h-10 rounded-lg bg-black/30 flex items-center justify-center p-1.5 border border-white/5 transition-transform group-hover/src:scale-110 shrink-0">
-                              {sourceImage ? (
-                                <img src={sourceImage} alt={source.name} className="w-full h-full object-contain drop-shadow-md" />
-                              ) : (
-                                <span className="material-symbols-outlined text-lg text-slate-500">inventory_2</span>
-                              )}
-                            </div>
-                            <div className="flex flex-col">
-                              <span className="text-[12px] font-black text-slate-100 tracking-wider">
-                                {source.name}
-                              </span>
-                              <span className={`text-[9px] font-bold mt-0.5 px-1.5 py-0.5 rounded border-[0.5px] uppercase tracking-[0.15em] self-start ${srcRarityStyles}`}>
-                                {srcRarity}
-                              </span>
-                            </div>
-                          </div>
-                          <div className="flex items-center gap-1.5 bg-black/40 border border-white/5 px-2.5 py-1 rounded-lg relative z-10">
-                            <span className="text-[13px] font-black text-primary">×{source.quantity}</span>
-                          </div>
-                        </div>
+                        <RichTooltip key={idx} item={MATERIALS_DATA.find(m => m.name === source.name) || { name: source.name, rarity: srcRarity }}>
+                           <div
+                              className={`relative flex items-center justify-between p-3 rounded-xl bg-slate-800/60 border transition-all group/src ${srcRarityStyles}`}
+                           >
+                              <div className={`absolute inset-0 opacity-0 group-hover/src:opacity-20 bg-gradient-to-r ${srcGlow} to-transparent transition-opacity rounded-xl`} />
+                              <div className="flex items-center gap-3 relative z-10">
+                                 <div className="w-10 h-10 rounded-lg bg-black/30 flex items-center justify-center p-1.5 border border-white/5 transition-transform group-hover/src:scale-110 shrink-0">
+                                 {sourceImage ? (
+                                    <img src={sourceImage} alt={source.name} className="w-full h-full object-contain drop-shadow-md" />
+                                 ) : (
+                                    <span className="material-symbols-outlined text-lg text-slate-500">inventory_2</span>
+                                 )}
+                                 </div>
+                                 <div className="flex flex-col">
+                                 <span className="text-[12px] font-black text-slate-100 tracking-wider">
+                                    {source.name}
+                                 </span>
+                                 <span className={`text-[9px] font-bold mt-0.5 px-1.5 py-0.5 rounded border-[0.5px] uppercase tracking-[0.15em] self-start ${srcRarityStyles}`}>
+                                    {srcRarity}
+                                 </span>
+                                 </div>
+                              </div>
+                              <div className="flex items-center gap-1.5 bg-black/40 border border-white/5 px-2.5 py-1 rounded-lg relative z-10">
+                                 <span className="text-[13px] font-black text-primary">×{source.quantity}</span>
+                              </div>
+                           </div>
+                        </RichTooltip>
                       );
                     })}
                   </div>
