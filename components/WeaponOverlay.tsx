@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { Weapon, Modification, Material } from '../types';
-import { WEAPONS_DATA, MATERIALS_DATA } from '../data';
+import { WEAPONS_DATA, MATERIALS_DATA, WEAPON_SETUPS_DATA, MODS_DATA } from '../data';
 import { generateItemTooltip } from './tooltipHelper';
 import RichTooltip from './RichTooltip';
 import { getRarityBorderColor } from '../utils';
@@ -69,6 +69,17 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
       </RichTooltip>
     );
   };
+
+   const getModRarityClasses = (rarity: string) => {
+      switch (rarity) {
+         case 'COMMON': return { defaultBorder: 'border-slate-500/30', border: 'hover:border-slate-400 hover:border-2', text: 'group-hover/mod:text-slate-100', icon: 'text-slate-500' };
+         case 'UNCOMMON': return { defaultBorder: 'border-emerald-500/40', border: 'hover:border-emerald-400 hover:border-2', text: 'group-hover/mod:text-emerald-400', icon: 'text-emerald-500' };
+         case 'RARE': return { defaultBorder: 'border-blue-500/40', border: 'hover:border-blue-400 hover:border-2', text: 'group-hover/mod:text-blue-400', icon: 'text-blue-500' };
+         case 'EPIC': return { defaultBorder: 'border-fuchsia-500/40', border: 'hover:border-fuchsia-400 hover:border-2', text: 'group-hover/mod:text-fuchsia-400', icon: 'text-fuchsia-500' };
+         case 'LEGENDARY': return { defaultBorder: 'border-amber-500/40', border: 'hover:border-amber-400 hover:border-2', text: 'group-hover/mod:text-amber-400', icon: 'text-amber-500' };
+         default: return { defaultBorder: 'border-slate-500/30', border: 'hover:border-slate-400 hover:border-2', text: 'group-hover/mod:text-slate-100', icon: 'text-slate-500' };
+      }
+   };
 
   return (
     <div className="fixed inset-0 z-[100] flex flex-col animate-fade-in">
@@ -173,6 +184,95 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                 className="h-px w-full mb-8"
                 style={{ background: `linear-gradient(to right, transparent, ${rarity.hex}60, transparent)` }}
               />
+
+              {/* ── TACTICAL LOADOUTS ── */}
+              {WEAPON_SETUPS_DATA.find(s => s.weaponId === weapon.id) && (
+                <section className="mb-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="material-symbols-outlined text-primary" style={{ textShadow: '0 0 10px rgba(30,167,253,0.5)' }}>verified_user</span>
+                    <h3 className="text-[14px] font-black tracking-[0.4em] uppercase text-white">BEST SETUPS (PvP)</h3>
+                  </div>
+                  
+                  {(() => {
+                    const setup = WEAPON_SETUPS_DATA.find(s => s.weaponId === weapon.id);
+                    if (!setup) return null;
+                    
+                    return (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* TIER S */}
+                        <div className="relative group/setup bg-amber-400/5 border-2 border-amber-400/40 rounded-2xl overflow-hidden p-5 transition-all hover:border-amber-400 hover:bg-amber-400/10">
+                          <div className="absolute top-0 right-0 bg-amber-400 px-3 py-1 text-[10px] font-black text-black rounded-bl-xl tracking-widest uppercase z-10 animate-pulse">TIER S</div>
+                          <div className="relative z-10 mt-2">
+                            <div className="flex flex-col gap-2">
+                              {setup.setups.S.modIds.map(modId => {
+                                const mod = MODS_DATA.find(m => m.id === modId);
+                                if (!mod) return null;
+                                const rClass = getModRarityClasses(mod.rarity);
+                                return (
+                                  <RichTooltip key={modId} item={mod}>
+                                    <button 
+                                      onClick={() => onNavigateMod(mod)}
+                                      className={`flex items-center gap-4 p-2 bg-black/40 rounded-xl border transition-all group/mod w-full ${rClass.defaultBorder} ${rClass.border}`}
+                                    >
+                                      <div className={`w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center p-1.5 overflow-hidden shrink-0 border shadow-inner ${rClass.defaultBorder}`}>
+                                        <img src={mod.imageUrl} alt={mod.name} className="w-full h-full object-contain" />
+                                      </div>
+                                      <div className="flex flex-col items-start overflow-hidden">
+                                        <span className={`text-[11px] font-black text-slate-300 truncate uppercase mt-0.5 tracking-wider transition-colors ${rClass.text}`}>
+                                          {mod.name.replace('Extended ', '').replace('III', '3').replace('II', '2').replace('I', '1')}
+                                        </span>
+                                        <span className={`text-[8px] font-black uppercase tracking-widest leading-none transition-colors shrink-0 mb-1 ${rClass.icon}`}>{mod.category}</span>
+                                        <span className="text-[10px] text-slate-500 font-bold uppercase tracking-tighter leading-tight break-words">{mod.description}</span>
+                                      </div>
+                                      <div className="flex-1" />
+                                      <span className={`material-symbols-outlined text-sm opacity-0 group-hover/mod:opacity-100 transition-all mr-2 ${rClass.icon}`}>arrow_forward</span>
+                                    </button>
+                                  </RichTooltip>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* TIER A */}
+                        <div className="relative group/setup bg-red-500/5 border-2 border-red-500/30 rounded-2xl overflow-hidden p-5 transition-all hover:border-red-500 hover:bg-red-500/10">
+                          <div className="absolute top-0 right-0 bg-red-600 px-3 py-1 text-[10px] font-black text-white rounded-bl-xl tracking-widest uppercase z-10">TIER A</div>
+                          <div className="relative z-10 mt-2">
+                            <div className="flex flex-col gap-2">
+                              {setup.setups.A.modIds.map(modId => {
+                                const mod = MODS_DATA.find(m => m.id === modId);
+                                if (!mod) return null;
+                                const rClass = getModRarityClasses(mod.rarity);
+                                return (
+                                  <RichTooltip key={modId} item={mod}>
+                                    <button 
+                                      onClick={() => onNavigateMod(mod)}
+                                      className={`flex items-center gap-4 p-2 bg-black/40 rounded-xl border transition-all group/mod w-full ${rClass.defaultBorder} ${rClass.border}`}
+                                    >
+                                      <div className={`w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center p-1.5 overflow-hidden shrink-0 border shadow-inner ${rClass.defaultBorder}`}>
+                                        <img src={mod.imageUrl} alt={mod.name} className="w-full h-full object-contain" />
+                                      </div>
+                                      <div className="flex flex-col items-start overflow-hidden">
+                                        <span className={`text-[11px] font-black text-slate-300 truncate uppercase mt-0.5 tracking-wider transition-colors ${rClass.text}`}>
+                                          {mod.name.replace('Extended ', '').replace('III', '3').replace('II', '2').replace('I', '1')}
+                                        </span>
+                                        <span className={`text-[8px] font-black uppercase tracking-widest leading-none transition-colors shrink-0 mb-1 ${rClass.icon}`}>{mod.category}</span>
+                                        <span className="text-[10px] text-slate-500 font-bold uppercase tracking-tighter leading-tight break-words">{mod.description}</span>
+                                      </div>
+                                      <div className="flex-1" />
+                                      <span className={`material-symbols-outlined text-sm opacity-0 group-hover/mod:opacity-100 transition-all mr-2 ${rClass.icon}`}>arrow_forward</span>
+                                    </button>
+                                  </RichTooltip>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })()}
+                </section>
+              )}
 
               {/* ── CRAFT SECTION ── */}
               {weapon.craftInfo && (

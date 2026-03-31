@@ -174,3 +174,18 @@ export interface PlannerConsumableSlot {
   itemId: string;
   quantity: number;
 }
+
+export interface SetupDetail {
+  focus: string;
+  description: string;
+  modIds: string[];
+}
+
+export interface WeaponSetup {
+  weaponId: string;
+  setups: {
+    S: SetupDetail;
+    A: SetupDetail;
+    B?: SetupDetail;
+  };
+}

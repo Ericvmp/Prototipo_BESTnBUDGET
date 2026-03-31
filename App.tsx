@@ -23,7 +23,6 @@ const HomeOption: React.FC<{ label: string; icon: string; delay: string; image?:
       className={`group relative aspect-square w-full bg-card-dark rounded-xl overflow-hidden transition-all duration-300 active:scale-95 flex flex-col items-center justify-center gap-2 md:gap-6 shadow-2xl animate-fade-in`}
       style={{
         animationDelay: delay,
-        border: `4px solid ${hoverColor}40`,
       }}
     >
       {/* Background Image */}
@@ -169,10 +168,10 @@ const App: React.FC = () => {
 
       {/* STASH PLANNER Button (Moved Below) */}
       <div className="w-full max-w-6xl animate-fade-in-up mt-8" style={{ animationDelay: '800ms' }}>
-         <button 
-           onClick={() => setCurrentScreen('planner')}
-           className="w-full relative group overflow-hidden rounded-2xl border-4 border-primary/40 hover:ring-8 hover:ring-inset hover:ring-primary transition-all p-6 flex flex-col md:flex-row items-center justify-between bg-card-dark"
-         >
+          <button 
+            onClick={() => setCurrentScreen('planner')}
+            className="w-full relative group overflow-hidden rounded-2xl hover:ring-8 hover:ring-inset hover:ring-primary transition-all p-6 flex flex-col md:flex-row items-center justify-between bg-card-dark"
+          >
             <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
             
             {/* OVERLAY BORDER - OVER EVERYTHING */}
@@ -180,7 +179,7 @@ const App: React.FC = () => {
 
             <div className="relative z-10 flex items-center gap-6">
                 <div className="w-24 h-24 rounded-2xl bg-background-dark border border-slate-700 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform p-3">
-                   <img src="https://arcraiders.wiki/w/images/thumb/4/49/Workshop.png/360px-Workshop.png.webp" alt="Stash Planner" className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(30,167,253,0.5)]" />
+                   <img src="/images/scrappy.webp" alt="Stash Planner" className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(30,167,253,0.5)]" />
                 </div>
                 <div className="text-left">
                    <h3 className="text-4xl font-black tracking-[0.3em] transform-gpu transition-all text-white group-hover:text-primary uppercase">
@@ -237,11 +236,40 @@ const App: React.FC = () => {
           <p className="text-[10px] text-slate-500 tracking-widest uppercase mt-1">Equipment Calibration Node</p>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {MODS_DATA.map(mod => (
-          <ModCard key={mod.id} mod={mod} onClick={handleModSelect} />
-        ))}
-      </div>
+      {(() => {
+        const categoryOrder = ['MUZZLE', 'MAGAZINE', 'UNDERBARREL', 'STOCK', 'ALL'];
+        const categoryLabels: Record<string, string> = { 'MUZZLE': 'Muzzle', 'MAGAZINE': 'Magazine', 'UNDERBARREL': 'Underbarrel', 'STOCK': 'Stock', 'ALL': 'Special' };
+        const categoryIcons: Record<string, string> = { 
+          'MUZZLE': 'https://arcraiders.wiki/w/images/4/4b/Mods_Muzzle.png', 
+          'MAGAZINE': 'https://arcraiders.wiki/w/images/c/c6/Mods_Medium-Mag.png', 
+          'UNDERBARREL': 'https://arcraiders.wiki/w/images/0/01/Mods_Underbarrel.png', 
+          'STOCK': 'https://arcraiders.wiki/w/images/f/f5/Mods_Stock.png', 
+          'ALL': 'auto_awesome' 
+        };
+        return categoryOrder.map(cat => {
+          const catMods = MODS_DATA.filter(m => m.category === cat);
+          if (catMods.length === 0) return null;
+          return (
+            <div key={cat} className="mb-8">
+              <div className="flex items-center gap-3 mb-4">
+                {cat === 'ALL' ? (
+                  <span className="material-symbols-outlined text-primary text-xl">auto_awesome</span>
+                ) : (
+                  <img src={categoryIcons[cat]} alt={cat} className="w-6 h-6 object-contain brightness-0 invert opacity-80" />
+                )}
+                <h3 className="text-[12px] font-black tracking-[0.3em] uppercase text-primary">{categoryLabels[cat]}</h3>
+                <div className="h-px flex-1 bg-gradient-to-r from-primary/30 to-transparent" />
+                <span className="text-[10px] font-black text-slate-600 tracking-widest">{catMods.length}</span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {catMods.map(mod => (
+                  <ModCard key={mod.id} mod={mod} onClick={handleModSelect} />
+                ))}
+              </div>
+            </div>
+          );
+        });
+      })()}
     </main>
   );
 
