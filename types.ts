@@ -67,6 +67,7 @@ export interface Throwable {
   icon: string;
   imageUrl?: string;
   category?: 'THROWABLES' | 'DEFENSIVE' | 'SHIELDS' | 'QUICK USE';
+  perks?: string;
   craftInfo: {
     materials: ModRequirement[];
     quantityProduced: number;
@@ -85,6 +86,7 @@ export interface Augment {
   imageUrl?: string;
   description?: string;
   category?: 'AUGMENT';
+  perks?: string;
   craftInfo: {
     materials: ModRequirement[];
     quantityProduced: number;
@@ -93,6 +95,11 @@ export interface Augment {
   recycleInfo?: ModRequirement[];
   salvageInfo?: ModRequirement[];
   stackSize?: number;
+  maxWeight?: string;
+  backpackSlots?: number;
+  quickUseSlots?: number;
+  safePocketSlots?: number;
+  shieldCompat?: string;
 }
 
 export interface Material {
@@ -114,6 +121,7 @@ export interface Material {
   recycleInfo?: ModRequirement[];
   salvageInfo?: ModRequirement[];
   stackSize?: number;
+  obtainedFrom?: string[];
 }
 
 export interface LootSource {

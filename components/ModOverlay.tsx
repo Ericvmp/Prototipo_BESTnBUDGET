@@ -4,6 +4,7 @@ import { Modification, Material } from '../types';
 import { MATERIALS_DATA, MODS_DATA } from '../data';
 import { generateItemTooltip } from './tooltipHelper';
 import RichTooltip from './RichTooltip';
+import { getRarityBorderColor } from '../utils';
 
 interface ModOverlayProps {
   mod: Modification;
@@ -51,7 +52,7 @@ const ModOverlay: React.FC<ModOverlayProps> = ({ mod, onClose, onNavigateMateria
     <RichTooltip item={mat}>
       <button
         onClick={onClick}
-        className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 transition-all hover:bg-white/10 group/mat text-left w-full"
+        className={`flex items-center justify-between p-3 bg-white/5 rounded-xl border ${getRarityBorderColor(mat.rarity)} hover:border-white/20 transition-all hover:bg-white/10 group/mat text-left w-full`}
       >
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0">

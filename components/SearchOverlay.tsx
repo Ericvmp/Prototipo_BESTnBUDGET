@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Weapon, Modification, Material, Throwable, Augment } from '../types';
+import { Weapon, Modification, Material, Throwable, Augment, Rarity } from '../types';
+import { getRarityBorderColor } from '../utils';
 
 interface SearchOverlayProps {
   onClose: () => void;
@@ -97,7 +98,7 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({
                 <div
                   key={`${result.type}-${result.item.id}`}
                   onClick={() => handleSelect(result)}
-                  className="flex items-center gap-4 p-3 rounded-xl hover:bg-primary/10 cursor-pointer transition-all group border border-transparent hover:border-primary/20"
+                  className={`flex items-center gap-4 p-3 rounded-xl hover:bg-primary/10 cursor-pointer transition-all group border ${getRarityBorderColor(result.item.rarity as Rarity)} hover:border-white/40`}
                 >
                   <div className="w-12 h-12 rounded-lg bg-black/50 border border-slate-800 flex items-center justify-center p-2 shrink-0 group-hover:scale-110 transition-transform">
                     {result.item.imageUrl ? (

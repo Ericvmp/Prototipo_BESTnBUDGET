@@ -1,7 +1,7 @@
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Weapon, Modification, Throwable, Material, Augment, Rarity, PlannerLoadout, MultiLoadoutState, PlannerWeaponSlot, PlannerConsumableSlot } from '../types';
-import { getRarityIconColor, getRarityStyles, getSourceImageUrl, getRarityGlowStyles, getRarityHoverStyles, getModSlotType } from '../utils';
+import { getRarityIconColor, getRarityStyles, getSourceImageUrl, getRarityGlowStyles, getRarityHoverStyles, getModSlotType, getRarityBorderColor } from '../utils';
 import { generateItemTooltip } from './tooltipHelper';
 import RichTooltip from './RichTooltip';
 import { WEAPON_MOD_SLOTS } from '../data';
@@ -226,8 +226,7 @@ const FinalReportModal: React.FC<{
                      <span className="material-symbols-outlined text-4xl text-primary drop-shadow-glow">analytics</span>
                   </div>
                   <div>
-                     <h1 className="text-4xl font-black tracking-[0.4em] text-white leading-none italic">STASH PLAN</h1>
-                     <h2 className="text-base font-black tracking-[0.6em] text-primary mt-2">STASH REPORT</h2>
+                     <h1 className="text-4xl font-black tracking-[0.4em] text-primary leading-none italic uppercase">FINAL STASH PLAN</h1>
                   </div>
                </div>
                <button 
@@ -261,7 +260,7 @@ const FinalReportModal: React.FC<{
                               {/* Internal High-Density Card */}
                               <div className="flex items-center gap-3 relative z-10 w-full">
                                  <div className="w-11 h-11 bg-black/60 rounded-xl border border-white/5 flex items-center justify-center p-1.5 shrink-0 group-hover:scale-105 transition-transform shadow-[inset_0_0_10px_rgba(255,255,255,0.05)]">
-                                    {mat.imageUrl ? <img src={mat.imageUrl} alt="" className="w-full h-full object-contain filter drop-shadow-[0_0_5px_rgba(255,255,255,0.1)]" /> : <span className="material-symbols-outlined text-slate-700 text-xl">category</span>}
+                                    {mat.imageUrl ? <img src={mat.imageUrl} alt="" className="w-full h-full object-contain filter drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] scale-[1.4]" /> : <span className="material-symbols-outlined text-slate-700 text-xl scale-[1.4]">category</span>}
                                  </div>
                                  <div className="flex-1 min-w-0">
                                     <span className="text-[12px] font-black uppercase tracking-wider block text-slate-100 truncate pr-1 leading-tight group-hover:text-white">{mat.name}</span>
@@ -521,9 +520,12 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
    const renderWeaponSlot = (title: string, slotData: PlannerWeaponSlot, slotKey: 'primary' | 'secondary') => {
       const weapon = weapons.find(w => w.id === slotData.weaponId);
       return (
-         <div className={`mb-4 bg-black/20 border border-slate-800 rounded-xl p-4 transition-all duration-300 relative group/wslot ${weapon ? getRarityHoverStyles(weapon.rarity) : ''}`}>
+         <div className={`mb-4 bg-black/20 border ${weapon ? getRarityBorderColor(weapon.rarity) : 'border-slate-800'} rounded-xl p-4 transition-all duration-300 relative group/wslot ${weapon ? getRarityHoverStyles(weapon.rarity) : ''}`}>
             <div className="flex justify-between items-center mb-3">
-               <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">{title}</h4>
+               <div className="flex items-center gap-2">
+                  <img src="https://arcraiders.wiki/w/images/7/7d/Icon_Weapon_%28Augment%29.png?20260103170025" className="w-8 h-8 object-contain opacity-80" alt="" />
+                  <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">{title}</h4>
+               </div>
                {weapon && (
                   <button onClick={() => updateCurrentLoadout({ [slotKey]: { weaponId: null, attachedModIds: [], maintenanceAction: 'NONE' } })} className="text-slate-600 hover:text-red-500 transition-colors opacity-0 group-hover/wslot:opacity-100">
                      <span className="material-symbols-outlined text-sm">remove_circle</span>
@@ -558,7 +560,10 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                   {/* Mods Section */}
                   <div className="bg-background-dark/80 p-3 rounded-lg border border-slate-800/50">
                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-[11px] font-black tracking-widest text-slate-500 uppercase">Apply Mods</span>
+                        <div className="flex items-center gap-2">
+                           <img src="https://arcraiders.wiki/w/images/0/01/Mods_Underbarrel.png" className="w-4 h-4 object-contain opacity-50" alt="" />
+                           <span className="text-[11px] font-black tracking-widest text-slate-500 uppercase">Apply Mods</span>
+                        </div>
                         <button onClick={() => {
                             const weapon = weapons.find(w => w.id === slotData.weaponId);
                             const weaponSlots = weapon ? (WEAPON_MOD_SLOTS[weapon.id] || []) : [];
@@ -583,7 +588,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                            return (
                               <RichTooltip key={mid} item={mod}>
                               <div 
-                                   className="flex justify-between items-center bg-black/40 border border-white/5 p-2 rounded-lg group/mod hover:border-slate-500 transition-colors">
+                                   className={`flex justify-between items-center bg-black/40 border ${getRarityBorderColor(mod.rarity)} p-2 rounded-lg group/mod hover:border-white transition-colors`}>
                                  <div className="flex items-center gap-3">
                                     <div className="w-8 h-8 rounded bg-black/20 flex items-center justify-center p-0.5 border border-white/5">
                                        {mod.imageUrl ? <img src={mod.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-[16px] text-slate-500">settings</span>}
@@ -814,7 +819,10 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                            {/* Augments */}
                            <div className="bg-black/20 border border-slate-800 rounded-xl p-4">
                               <div className="flex justify-between items-center mb-3">
-                                 <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">AUGMENTS</h4>
+                                 <div className="flex items-center gap-2">
+                                    <img src="https://arcraiders.wiki/w/images/6/6b/Icon_Augment.png" className="w-5 h-5 object-contain opacity-60" alt="" />
+                                    <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">AUGMENTS</h4>
+                                 </div>
                                  <button onClick={() => setPickerConfig({
                                     isOpen: true,
                                     title: 'Equip Augments',
@@ -830,7 +838,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                     if (!aug) return null;
                                     return (
                                        <RichTooltip key={aid} item={aug}>
-                                          <div className="flex justify-between items-center bg-black/40 border border-white/5 p-2 rounded-lg group hover:border-slate-500 transition-colors">
+                                          <div className={`flex justify-between items-center bg-black/40 border ${getRarityBorderColor(aug.rarity)} p-2 rounded-lg group hover:border-white transition-colors`}>
                                              <div className="flex items-center gap-3">
                                                 <div className="w-8 h-8 rounded bg-black/20 border border-white/5 flex items-center justify-center p-1 shrink-0">
                                                    {aug.imageUrl ? <img src={aug.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-sm text-slate-500">memory</span>}
@@ -848,7 +856,10 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                            {/* Shields */}
                            <div className="bg-black/20 border border-slate-800 rounded-xl p-4">
                               <div className="flex justify-between items-center mb-3">
-                                 <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">SHIELDS</h4>
+                                 <div className="flex items-center gap-2">
+                                    <img src="https://arcraiders.wiki/w/images/6/61/Icon_Shield_I.png" className="w-5 h-5 object-contain opacity-60" alt="" />
+                                    <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">SHIELDS</h4>
+                                 </div>
                                  <button onClick={() => setPickerConfig({
                                     isOpen: true,
                                     title: 'Equip Shields',
@@ -864,7 +875,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                     if (!item) return null;
                                     return (
                                        <RichTooltip key={sid} item={item}>
-                                          <div className="flex justify-between items-center bg-black/40 border border-white/5 p-2 rounded-lg group hover:border-slate-500 transition-colors">
+                                          <div className={`flex justify-between items-center bg-black/40 border ${getRarityBorderColor(item.rarity)} p-2 rounded-lg group hover:border-white transition-colors`}>
                                              <div className="flex items-center gap-3">
                                                 <div className="w-8 h-8 rounded bg-black/20 border border-white/5 flex items-center justify-center p-1 shrink-0">
                                                    {item.imageUrl ? <img src={item.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-sm text-slate-500">shield</span>}
@@ -882,7 +893,10 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                            {/* Quick Use */}
                            <div className="bg-black/20 border border-slate-800 rounded-xl p-4">
                               <div className="flex justify-between items-center mb-3">
-                                 <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">QUICK USE</h4>
+                                 <div className="flex items-center gap-2">
+                                    <img src="https://arcraiders.wiki/w/images/7/71/Icon_QuickUse.png" className="w-5 h-5 object-contain opacity-60" alt="" />
+                                    <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">QUICK USE</h4>
+                                 </div>
                                  <button onClick={() => setPickerConfig({
                                     isOpen: true,
                                     title: 'Manage Quick Use Cache',
@@ -898,7 +912,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                     if (!item) return null;
                                     return (
                                        <RichTooltip key={idx} item={item}>
-                                          <div className="flex justify-between items-center bg-black/40 border border-white/5 p-2 rounded-lg group">
+                                          <div className={`flex justify-between items-center bg-black/40 border ${getRarityBorderColor(item.rarity as Rarity)} p-2 rounded-lg group hover:border-white transition-colors`}>
                                              <div className="flex items-center gap-3">
                                                 <div className="w-8 h-8 rounded bg-black/20 border border-white/5 flex items-center justify-center p-1 shrink-0">
                                                    {item.imageUrl ? <img src={item.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-sm text-slate-500">explosion</span>}
@@ -967,7 +981,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                      <div
                                         key={idx}
                                         
-                                        className="group/mat flex items-center justify-between p-3 rounded-2xl border transition-all relative overflow-hidden bg-black/40 border-white/5 hover:border-primary/50 hover:bg-black/60"
+                                        className={`group/mat flex items-center justify-between p-3 rounded-2xl border transition-all relative overflow-hidden bg-black/40 ${getRarityBorderColor(mat.rarity as Rarity)} hover:border-primary/50 hover:bg-black/60`}
                                      >
                                         <div className="flex items-center gap-3 relative z-10 shrink-0">
                                            <div className="w-10 h-10 rounded-xl bg-black/60 border border-white/5 p-1.5 flex items-center justify-center transition-transform group-hover/mat:scale-110">

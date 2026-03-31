@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LootCategory, Material } from '../types';
-import { getSourceImageUrl, getRarityStyles, getItemRarity, getRarityGlowStyles, getRarityHoverStyles } from '../utils';
+import { getSourceImageUrl, getRarityStyles, getItemRarity, getRarityGlowStyles, getRarityHoverStyles, getRarityBorderColor } from '../utils';
 import { MATERIALS_DATA } from '../data';
 import { generateItemTooltip } from './tooltipHelper';
 import RichTooltip from './RichTooltip';
@@ -19,7 +19,7 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                     <span className="material-symbols-outlined text-3xl">arrow_back</span>
                 </button>
                 <div>
-                    <h2 className="text-2xl font-bold tracking-[0.2em] text-white">Materials Inventory</h2>
+                    <h2 className="text-2xl font-black tracking-[0.3em] text-white uppercase">MATERIALS</h2>
                     <p className="text-[10px] text-slate-500 tracking-widest uppercase mt-1">Extraction & Component Data</p>
                 </div>
             </div>
@@ -33,7 +33,7 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                         <button
                             key={category.id}
                             onClick={() => material && onMaterialSelect(material)}
-                            className={`group cursor-pointer relative flex flex-col bg-card-dark rounded-2xl transition-all duration-300 overflow-hidden shadow-lg border-2 hover:ring-8 hover:ring-inset border-slate-800 ${getRarityHoverStyles(material?.rarity || 'COMMON')}`}
+                            className={`group cursor-pointer relative flex flex-col bg-card-dark rounded-2xl transition-all duration-300 overflow-hidden shadow-lg border hover:ring-8 hover:ring-inset ${getRarityBorderColor(material?.rarity || 'COMMON')} ${getRarityHoverStyles(material?.rarity || 'COMMON')}`}
                         >
                                 {/* Background Rarity Glow */}
                                 {material && (

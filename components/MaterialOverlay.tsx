@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Material, Weapon, Modification } from '../types';
 import { MATERIALS_DATA, LOOT_DATA } from '../data';
 import { generateItemTooltip } from './tooltipHelper';
-import { getSourceImageUrl, getItemRarity, getRarityStyles, getRarityGlowStyles, getRarityHoverStyles } from '../utils';
+import { getSourceImageUrl, getItemRarity, getRarityStyles, getRarityGlowStyles, getRarityHoverStyles, getRarityBorderColor } from '../utils';
 import RichTooltip from './RichTooltip';
 
 interface MaterialOverlayProps {
@@ -60,7 +60,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
     <RichTooltip item={mat}>
       <button
         onClick={onClick}
-        className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all group/mat text-left w-full"
+        className={`flex items-center justify-between p-3 bg-white/5 rounded-xl border ${getRarityBorderColor(mat.rarity)} hover:border-white/20 hover:bg-white/10 transition-all group/mat text-left w-full`}
       >
       <div className="flex items-center gap-3">
         <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0">
@@ -164,28 +164,24 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
 
             <div className="p-6 md:p-8">
               {/* Image + info */}
-              <div className="flex flex-col sm:flex-row items-center gap-6 mb-8">
+              {/* Centered Image + info */}
+              <div className="flex flex-col items-center gap-6 mb-10">
                 <div
-                  className={`w-36 h-36 rounded-2xl bg-slate-800/80 border flex items-center justify-center shadow-inner overflow-hidden p-4 shrink-0 ${rarityColor.border}`}
-                  style={{ boxShadow: `inset 0 0 20px ${rarityColor.shadow}` }}
+                  className={`w-44 h-44 rounded-3xl bg-slate-800/80 border flex items-center justify-center shadow-inner overflow-hidden p-6 shrink-0 ${rarityColor.border}`}
+                  style={{ boxShadow: `inset 0 0 40px ${rarityColor.shadow}` }}
                 >
                   {material.imageUrl ? (
-                    <img src={material.imageUrl} alt={material.name} className="w-full h-full object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]" />
+                    <img src={material.imageUrl} alt={material.name} className="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]" />
                   ) : (
-                    <span className="material-symbols-outlined text-6xl" style={{ color: rarityColor.hex }}>{material.icon}</span>
+                    <span className="material-symbols-outlined text-7xl" style={{ color: rarityColor.hex }}>{material.icon}</span>
                   )}
                 </div>
 
-                <div className="flex-1 space-y-3 text-center sm:text-left">
-                  {material.description && (
-                    <p className="text-sm text-slate-300 leading-relaxed">
-                      {material.description}
-                    </p>
-                  )}
+                <div className="space-y-3 text-center">
                   {materialLootData?.craftingStation && (
-                    <div className="flex items-center gap-2 justify-center sm:justify-start">
-                      <span className="material-symbols-outlined text-sm" style={{ color: rarityColor.hex }}>precision_manufacturing</span>
-                      <span className="text-[11px] font-bold uppercase tracking-widest text-slate-400">
+                    <div className="flex items-center gap-3 justify-center">
+                      <span className="material-symbols-outlined text-lg" style={{ color: rarityColor.hex }}>precision_manufacturing</span>
+                      <span className="text-[14px] font-black uppercase tracking-[0.3em] text-slate-400">
                         {materialLootData.craftingStation}
                       </span>
                     </div>
@@ -213,11 +209,11 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                   </div>
                 ) : (
                   <div className="space-y-3">
-                    {materialLootData?.craftingStation && (
+                    {material.craftInfo?.location && (
                       <div className="flex items-center justify-between px-4 py-2 bg-white/5 rounded-xl border border-white/5 mb-3">
                         <span className="text-[11px] text-slate-500 font-bold uppercase tracking-widest">Station</span>
                         <span className="text-[11px] font-black uppercase tracking-wider" style={{ color: rarityColor.hex }}>
-                          {materialLootData.craftingStation}
+                          {material.craftInfo.location}
                         </span>
                       </div>
                     )}
@@ -253,6 +249,32 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                   </div>
                 )}
               </section>
+
+              {/* ── OBTAINED FROM SECTION ── */}
+              {material.obtainedFrom && material.obtainedFrom.length > 0 && (
+                <section className="mb-8 p-5 bg-sky-500/5 border border-sky-500/10 rounded-2xl relative overflow-hidden group/obtained">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-sky-500/30" />
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-1.5 rounded-lg bg-sky-500/10 border border-sky-500/20">
+                      <span className="material-symbols-outlined text-[20px] block text-sky-400">explore</span>
+                    </div>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-sky-400">OBTAINED FROM</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-2.5">
+                    {material.obtainedFrom.map((source, idx) => (
+                      <div 
+                        key={idx} 
+                        className="flex items-center gap-2 px-3 py-1.5 bg-slate-900/60 border border-white/5 rounded-xl transition-all hover:border-sky-500/30 hover:bg-slate-800 group/source"
+                      >
+                        <div className="w-1.5 h-1.5 rounded-full bg-sky-500/50" />
+                        <span className="text-[12px] font-bold text-slate-300 group-hover/source:text-sky-300 transition-colors uppercase tracking-wider">
+                          {source}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
 
               {/* ── RECYCLING SOURCES ── */}
               {materialLootData && materialLootData.sources.length > 0 && (

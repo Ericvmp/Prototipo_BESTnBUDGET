@@ -10,7 +10,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'construction',
     imageUrl: 'https://arcraiders.wiki/w/images/8/89/Metal_Parts.png',
     craftInfo: { isCraftable: false, note: "Material básico" },
-    residualInfo: { items: ["Steel Spring → Metal Parts", "Simple Gun Parts → 2× Metal Parts", "Magnet → 3× Metal Parts"] }
+    residualInfo: { items: ["Steel Spring → Metal Parts", "Simple Gun Parts → 2× Metal Parts", "Magnet → 3× Metal Parts"] },
+    obtainedFrom: ["Scavenging (Metal Crate, Car Hood, Server Rack, Seed Vault)", "Celeste", "Scrappy", "Mechanical/Industrial/Electrical/Technological zones"]
   },
   {
     id: 'mat2',
@@ -20,7 +21,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'settings_input_hdmi',
     imageUrl: 'https://arcraiders.wiki/w/images/9/93/Rubber_Parts.png',
     craftInfo: { isCraftable: false, note: "Material básico" },
-    residualInfo: { items: ["Wires → 2× Rubber Parts", "ARC Flex Rubber", "Mechanical Components → 2× Rubber Parts"] }
+    residualInfo: { items: ["Wires → 2× Rubber Parts", "ARC Flex Rubber", "Mechanical Components → 2× Rubber Parts"] },
+    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Scrappy", "Mechanical/Industrial/Electrical zones"]
   },
   {
     id: 'mat3',
@@ -30,7 +32,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'inventory_2',
     imageUrl: 'https://arcraiders.wiki/w/images/c/c9/Plastic_Parts.png',
     craftInfo: { isCraftable: false, note: "Material básico" },
-    residualInfo: { items: ["Diversos itens de lixo plástico"] }
+    residualInfo: { items: ["Diversos itens de lixo plástico"] },
+    obtainedFrom: ["Scavenging (Industrial Drawer, Server Rack)", "Recycling", "Celeste", "Scrappy", "Commercial/Residential/Technological zones"]
   },
   {
     id: 'mat4',
@@ -52,7 +55,8 @@ export const MATERIALS_DATA: Material[] = [
         "Anvil II - 3 Mechanical Components (reciclagem)",
         "Anvil III - 4 Mechanical Components (reciclagem)"
       ]
-    }
+    },
+    obtainedFrom: ["Scavenging: ARC (Bastion, Bombardier, Leaper, Shredder)", "Mechanical zones", "Recycling"]
   },
   {
     id: 'mat5',
@@ -74,7 +78,8 @@ export const MATERIALS_DATA: Material[] = [
         "Extended Barrel - 1 Mod Component (reciclagem)",
         "Extended Light Mag III - 1 Mod Component (reciclagem)"
       ]
-    }
+    },
+    obtainedFrom: ["Scavenging", "Recycling", "Crafting", "Security zones"]
   },
   {
     id: 'mat6',
@@ -92,7 +97,8 @@ export const MATERIALS_DATA: Material[] = [
         "Extended Light Mag III - 2 Steel Springs (reciclagem)",
         "Extended Medium Mag II - 1 Steel Spring (reciclagem)"
       ]
-    }
+    },
+    obtainedFrom: ["Scavenging (Metal Crate)", "Recycling", "Celeste", "Industrial zones"]
   },
   {
     id: 'mat7',
@@ -110,7 +116,8 @@ export const MATERIALS_DATA: Material[] = [
         "Broken Taser - 2 Wires (reciclagem)",
         "Compensator II - 1 Wire (reciclagem)"
       ]
-    }
+    },
+    obtainedFrom: ["Scavenging (Server Rack, Power Distribution Box, Generator Fuse Box)", "Recycling", "Celeste", "Electrical/Technological zones"]
   },
   {
     id: 'mat8',
@@ -128,7 +135,8 @@ export const MATERIALS_DATA: Material[] = [
         "Kinetic Converter - 2 Duct Tape (reciclagem)",
         "Lightweight Stock - 1 Duct Tape (reciclagem)"
       ]
-    }
+    },
+    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Residential/Commercial zones"]
   },
   {
     id: 'mat9',
@@ -146,7 +154,8 @@ export const MATERIALS_DATA: Material[] = [
         "Anvil IV - 5 Simple Gun Parts (reciclagem)",
         "Arpeggio I - 2 Simple Gun Parts (reciclagem)"
       ]
-    }
+    },
+    obtainedFrom: ["Scavenging: ARC (Wasps, Hornets, Turrets, Shredders)", "Recycling", "Celeste", "Raider/Security zones"]
   },
   {
     id: 'mat10',
@@ -167,7 +176,8 @@ export const MATERIALS_DATA: Material[] = [
         "Bobcat III - 4 Light Gun Parts (reciclagem)",
         "Bobcat IV - 4 Light Gun Parts (reciclagem)"
       ]
-    }
+    },
+    obtainedFrom: ["Scavenging", "Crafting", "Recycling", "Celeste", "Raider/Security zones"]
   },
   {
     id: 'mat11',
@@ -181,7 +191,8 @@ export const MATERIALS_DATA: Material[] = [
       location: "Refiner 2",
       requirements: [ { name: 'Simple Gun Parts', stackSize: 10, quantity: 4 } ],
     },
-    residualInfo: { items: ["Armas médias (Renegade, Venator, Torrente)"] }
+    residualInfo: { items: ["Armas médias (Renegade, Venator, Torrente)"] },
+    obtainedFrom: ["Scavenging: ARC (Bastion, Sentinel)", "Crafting", "Recycling", "Celeste", "Raider/Security zones"]
   },
   {
     id: 'mat12',
@@ -195,7 +206,8 @@ export const MATERIALS_DATA: Material[] = [
       location: "Refiner 2",
       requirements: [ { name: 'Simple Gun Parts', stackSize: 10, quantity: 4 } ],
     },
-    residualInfo: { items: ["Armas pesadas (Il Toro, Anvil)"] }
+    residualInfo: { items: ["Armas pesadas (Il Toro, Anvil)"] },
+    obtainedFrom: ["Scavenging: ARC (Bombardier, Rocketeer)", "Crafting", "Recycling", "Celeste", "Security/Raider zones"]
   },
   {
     id: 'mat13',
@@ -217,7 +229,8 @@ export const MATERIALS_DATA: Material[] = [
         "Bettina III - 2 Adv Mechanical Components (reciclagem)",
         "Bettina IV - 3 Adv Mechanical Components (reciclagem)"
       ]
-    }
+    },
+    obtainedFrom: ["Scavenging: ARC (Matriarch, Queen)", "Crafting", "Recycling", "Mechanical zones"]
   },
   {
     id: 'mat14',
@@ -235,7 +248,8 @@ export const MATERIALS_DATA: Material[] = [
         "Looting Mk. 2 - 1 Magnet (reciclagem)",
         "Microscope - 3 Magnets (reciclagem)"
       ]
-    }
+    },
+    obtainedFrom: ["Scavenging", "Celeste", "Exodus zones", "Recycled from: Combat Mk. 2, Exodus Modules"]
   },
   {
     id: 'mat15',
@@ -244,7 +258,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'token',
     imageUrl: 'https://arcraiders.wiki/w/images/a/a6/ARC_Alloy.png',
     description: 'An Adv specialized alloy of ARC origin, offering exceptional electromagnetic properties and thermal resistance.',
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging: ARC machines", "Recycling", "ARC zones"]
   },
   {
     id: 'mat16',
@@ -255,7 +270,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'battery_charging_full',
     imageUrl: 'https://arcraiders.wiki/w/images/d/df/ARC_Powercell.png',
     description: 'A standard energy storage unit for ARC technology. Can be used to recharge portable shield devices.',
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging: ARC (all ARC enemies)", "Recycling", "ARC zones"]
   },
   {
     id: 'mat17',
@@ -264,7 +280,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'battery_saver',
     imageUrl: 'https://arcraiders.wiki/w/images/3/31/Advanced_ARC_Powercell.png',
     description: 'A high-density energy source found in elite ARC units. Highly efficient and essential for high-tier equipment.',
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging: ARC (Elite units: Comet, Bastion, Queen, Matriarch, etc)", "ARC zones"]
   },
   {
     id: 'mat18',
@@ -277,7 +294,8 @@ export const MATERIALS_DATA: Material[] = [
       isCraftable: true,
       location: 'Refiner 1',
       requirements: [ { name: 'Plastic Parts', stackSize: 50, quantity: 8 }, { name: 'Rubber Parts', stackSize: 50, quantity: 4 } ],
-    }
+    },
+    obtainedFrom: ["Scavenging", "Crafting", "Recycling", "Electrical zones"]
   },
   {
     id: 'mat19',
@@ -290,7 +308,8 @@ export const MATERIALS_DATA: Material[] = [
       isCraftable: true,
       location: 'Refiner 2',
       requirements: [ { name: 'Wires', stackSize: 15, quantity: 3 }, { name: 'Electrical Components', stackSize: 10, quantity: 2 } ],
-    }
+    },
+    obtainedFrom: ["Scavenging: ARC (Queen)", "Crafting", "Recycling", "Electrical zones"]
   },
   {
     id: 'mat20',
@@ -303,7 +322,8 @@ export const MATERIALS_DATA: Material[] = [
       isCraftable: true,
       location: 'Refiner 2',
       requirements: [ { name: 'ARC Alloy', stackSize: 15, quantity: 8 } ],
-    }
+    },
+    obtainedFrom: ["Scavenging: ARC (Baron, Bastion, Matriarch, Queen, Rocketeer)", "Recycling"]
   },
   {
     id: 'mat21',
@@ -312,7 +332,12 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'motion_sensor_active',
     imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/arc-motion-core.webp',
     description: 'A critical mechanical unit that manages high-speed motion and stabilization in ARC drones.',
-    craftInfo: { isCraftable: false }
+    craftInfo: {
+      isCraftable: true,
+      location: "Refiner 2",
+      requirements: [ { name: 'ARC Alloy', stackSize: 15, quantity: 8 } ],
+    },
+    obtainedFrom: ["Scavenging: ARC (Bastion, Courier, Leaper, Matriarch, Probe, Queen, Rocketeer, Sentinel, Surveyor)"]
   },
   {
     id: 'mat22',
@@ -321,7 +346,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'science',
     imageUrl: 'https://arcraiders.wiki/w/images/9/92/Chemicals.png',
     description: 'A variety of reactive substances used in the production of explosives and medical supplies.',
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Scrappy", "Mechanical/Residential/Medical zones"]
   },
   {
     id: 'mat23',
@@ -330,7 +356,12 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'sanitizer',
     imageUrl: 'https://arcraiders.wiki/w/images/f/f5/Antiseptic.png',
     description: 'Medical-grade cleaning solution, essential for preventing infection and crafting Adv healing items.',
-    craftInfo: { isCraftable: false }
+    craftInfo: {
+      isCraftable: true,
+      location: "Refiner 2",
+      requirements: [ { name: 'Chemicals', stackSize: 50, quantity: 10 }, { name: 'Great Mullein', stackSize: 15, quantity: 2 } ],
+    },
+    obtainedFrom: ["Scavenging (Medical sector)", "Crafting", "Recycling"]
   },
   {
     id: 'mat24',
@@ -339,7 +370,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'nest_cam_wired_stand',
     imageUrl: 'https://arcraiders.wiki/w/images/5/5f/Canister.png',
     description: 'A pressurized metal container suitable for storing gases or liquids.',
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Commercial zones"]
   },
   {
     id: 'mat25',
@@ -348,7 +380,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'pest_control',
     imageUrl: 'https://arcraiders.wiki/w/images/9/95/Tick_Pod.png',
     description: 'Biological component harvested from ARC Ticks. Contains enzymes used in high-end medical gear.',
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging: Destroyed Ticks (ARC)"]
   },
   {
     id: 'mat26',
@@ -357,7 +390,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'texture',
     imageUrl: 'https://arcraiders.wiki/w/images/2/2b/Fabric.png',
     description: 'Basic cloth remnants that can be repurposed for simple bandages or clothing repairs.',
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Scrappy", "Commercial/Medical/Residential zones"]
   },
   {
     id: 'mat27',
@@ -370,7 +404,8 @@ export const MATERIALS_DATA: Material[] = [
       isCraftable: true,
       location: 'Refiner 1',
       requirements: [ { name: 'Fabric', stackSize: 50, quantity: 14 } ],
-    }
+    },
+    obtainedFrom: ["Scavenging (Industrial Drawer, Blue Multi Drawers)", "Recycling", "Crafting", "Medical/Commercial zones"]
   },
   {
     id: 'mat28',
@@ -379,7 +414,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'eco',
     imageUrl: 'https://arcraiders.wiki/w/images/0/0d/Great_Mullein.png',
     description: 'A hardy plant with medicinal properties, often used in traditional healing.',
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Harvesting", "Scavenging (Backpack, Wicker Basket)", "Celeste", "Nature"]
   },
   {
     id: 'mat29',
@@ -388,7 +424,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'grass',
     imageUrl: 'https://arcraiders.wiki/w/images/6/64/Moss.png',
     description: 'A simple biological material that can be used as a stabilizer in some chemical reactions.',
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging (Wicker Basket, Hydroponic Domes)", "Celeste", "Nature"]
   },
   {
     id: 'mat30',
@@ -397,7 +434,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'battery_full',
     imageUrl: 'https://arcraiders.wiki/w/images/6/6d/Battery.png',
     description: 'A standard portable power source for civilian and military electronics.',
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging (Recording Panel, Computer, Terminal, Metal Crate)", "Celeste", "Technological/Electrical zones"]
   },
   {
     id: 'mat31',
@@ -406,7 +444,12 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'vertical_align_center',
     imageUrl: 'https://arcraiders.wiki/w/images/3/31/Power_Rod.png',
     description: 'A high-capacity energy conductor used in heavy-duty electronic equipment.',
-    craftInfo: { isCraftable: false }
+    craftInfo: {
+      isCraftable: true,
+      location: "Refiner 3",
+      requirements: [ { name: 'Adv Electrical Components', stackSize: 5, quantity: 2 }, { name: 'ARC Circuitry', stackSize: 5, quantity: 2 } ],
+    },
+    obtainedFrom: ["Scavenging", "Crafting", "Recycling", "Exodus zones"]
   },
   {
     id: 'mat32',
@@ -415,7 +458,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'vaccines',
     imageUrl: 'https://arcraiders.wiki/w/images/1/17/Syringe.png',
     description: 'A standard medical tool for injecting fluids or extracting samples.',
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging", "Recycling (Medical Kit, Vita Shot)", "Celeste", "Medical zones"]
   },
   {
     id: 'mat33',
@@ -424,7 +468,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'electrical_services',
     imageUrl: 'https://arcraiders.wiki/w/images/c/c7/Voltage_Converter.png',
     description: 'An Adv transformer designed to handle high-power ARC energy systems.',
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Electrical zones"]
   },
   {
     id: 'mat34',
@@ -433,7 +478,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'extension',
     imageUrl: '/images/loot/Complex_Gun_Parts.png',
     description: 'Highly intricate weapon parts required for crafting state-of-the-art ballistic firearms.',
-    craftInfo: { isCraftable: true, location: 'Refiner 3', requirements: [ { name: 'Light Gun Parts', stackSize: 5, quantity: 2 }, { name: 'Medium Gun Parts', stackSize: 5, quantity: 2 }, { name: 'Heavy Gun Parts', stackSize: 5, quantity: 2 } ], }
+    craftInfo: { isCraftable: true, location: 'Refiner 3', requirements: [ { name: 'Light Gun Parts', stackSize: 5, quantity: 2 }, { name: 'Medium Gun Parts', stackSize: 5, quantity: 2 }, { name: 'Heavy Gun Parts', stackSize: 5, quantity: 2 } ], },
+    obtainedFrom: ["Scavenging: ARC (Queen, Matriarch)", "Recycling", "Celeste", "Security zones"]
   },
   {
     id: 'mat35',
@@ -442,7 +488,8 @@ export const MATERIALS_DATA: Material[] = [
     icon: 'all_inclusive',
     imageUrl: 'https://arcraiders.wiki/w/images/thumb/5/5e/Magnetic_Accelerator.png/348px-Magnetic_Accelerator.png.webp',
     description: 'An extremely powerful electromagnetic module used in experimental and high-energy weapons.',
-    craftInfo: { isCraftable: true, location: 'Refiner 3', requirements: [ { name: 'Adv Mechanical Components', stackSize: 5, quantity: 2 }, { name: 'ARC Motion Core', stackSize: 5, quantity: 2 } ], }
+    craftInfo: { isCraftable: true, location: 'Refiner 3', requirements: [ { name: 'Adv Mechanical Components', stackSize: 5, quantity: 2 }, { name: 'ARC Motion Core', stackSize: 5, quantity: 2 } ], },
+    obtainedFrom: ["Scavenging: ARC (Matriarch, Queen)", "Exodus zones"]
   },
   {
     id: 'mat36',
@@ -453,7 +500,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'A high-performance processing unit recovered from Adv ARC technology or rare weapon modifications.',
     recycleInfo: [ { name: 'Wires', stackSize: 15, quantity: 1 }, { name: 'Plastic Parts', stackSize: 50, quantity: 1 } ],
     salvageInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 2 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging (Server Rack, Recording Panel, Computer)", "Recycling", "Celeste", "Technological zones"]
   },
   {
     id: 'mat37',
@@ -464,7 +512,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'Adv coordination modules recovered from high-tier ARC units. Critical for experimental weapon synchronization.',
     recycleInfo: [ { name: 'Magnet', stackSize: 15, quantity: 2 }, { name: 'Processor', stackSize: 5, quantity: 2 } ],
     salvageInfo: [ { name: 'Processor', stackSize: 5, quantity: 2 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Exodus zones"]
   },
   {
     id: 'mat38',
@@ -475,7 +524,12 @@ export const MATERIALS_DATA: Material[] = [
     description: 'Volatile chemicals packed into an improvised container. The basic building block for Raider explosives.',
     recycleInfo: [ { name: 'Chemicals', stackSize: 50, quantity: 3 } ],
     salvageInfo: [ { name: 'Chemicals', stackSize: 50, quantity: 2 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: {
+      isCraftable: true,
+      location: "Refiner 1",
+      requirements: [ { name: 'Chemicals', stackSize: 50, quantity: 6 } ],
+    },
+    obtainedFrom: ["Scavenging (Metal Crates)", "Pop and Fireball ARC", "Industrial zones", "Security zones"]
   },
   {
     id: 'mat39',
@@ -486,7 +540,12 @@ export const MATERIALS_DATA: Material[] = [
     description: 'Refined explosive material capable of delivering high-yield kinetic energy. Found in military-grade caches.',
     recycleInfo: [ { name: 'Crude Explosives', stackSize: 10, quantity: 2 } ],
     salvageInfo: [ { name: 'Crude Explosives', stackSize: 10, quantity: 1 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: {
+      isCraftable: true,
+      location: "Refiner 2",
+      requirements: [ { name: 'Crude Explosives', stackSize: 10, quantity: 2 }, { name: 'Oil', stackSize: 15, quantity: 2 } ],
+    },
+    obtainedFrom: ["Scavenging: Comet", "Metal Crate", "Industrial zones", "Security zones"]
   },
   {
     id: 'mat40',
@@ -497,7 +556,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'High-energy liquid fuel synthesized for propulsion and incendiary devices. Extremely flammable.',
     recycleInfo: [ { name: 'Oil', stackSize: 15, quantity: 1 }, { name: 'Plastic Parts', stackSize: 50, quantity: 1 } ],
     salvageInfo: [ { name: 'Oil', stackSize: 15, quantity: 1 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Exodus zones"]
   },
   {
     id: 'mat41',
@@ -508,7 +568,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'A precision combustion unit used in high-end incendiary tactical gear.',
     recycleInfo: [ { name: 'ARC Alloy', stackSize: 15, quantity: 2 }, { name: 'Crude Explosives', stackSize: 10, quantity: 2 } ],
     salvageInfo: [ { name: 'Crude Explosives', stackSize: 10, quantity: 2 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging: Destroyed Fireflies (ARC)", "ARC zones"]
   },
   {
     id: 'mat42',
@@ -519,7 +580,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'Propulsion management system for guided rocket ordinance. Recovered from major ARC threats.',
     recycleInfo: [ { name: 'ARC Alloy', stackSize: 15, quantity: 3 }, { name: 'Adv Electrical Components', stackSize: 5, quantity: 2 } ],
     salvageInfo: [ { name: 'ARC Circuitry', stackSize: 5, quantity: 2 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging: Rocketeers / Rocketeer Husks", "ARC zones"]
   },
   {
     id: 'mat43',
@@ -530,7 +592,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'High-intensity ignition core used to trigger vacuum-level thermal reactions.',
     recycleInfo: [ { name: 'ARC Alloy', stackSize: 15, quantity: 2 }, { name: 'Crude Explosives', stackSize: 10, quantity: 2 } ],
     salvageInfo: [ { name: 'Crude Explosives', stackSize: 10, quantity: 2 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging: Non-exploded Comets", "ARC zones"]
   },
   {
     id: 'mat44',
@@ -541,7 +604,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'Basic protection made from salvaged parts.',
     recycleInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 4 } ],
     salvageInfo: [ { name: 'ARC Alloy', stackSize: 15, quantity: 1 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging: Salvaged Parts"]
   },
   {
     id: 'mat45',
@@ -552,7 +616,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'Standard Shield that offers Raiders fair protection.',
     recycleInfo: [ { name: 'ARC Circuitry', stackSize: 5, quantity: 1 } ],
     salvageInfo: [ { name: 'ARC Alloy', stackSize: 15, quantity: 2 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging: ARC technology"]
   },
   {
     id: 'mat46',
@@ -563,7 +628,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'Heavy Shield offering maximum protection.',
     recycleInfo: [ { name: 'ARC Circuitry', stackSize: 5, quantity: 2 }, { name: 'Voltage Converter', stackSize: 5, quantity: 1 } ],
     salvageInfo: [ { name: 'ARC Alloy', stackSize: 15, quantity: 4 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging: Elite ARC technology"]
   },
   {
     id: 'mat47',
@@ -574,7 +640,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'A viscous lubricant and fuel source used in weapon maintenance and explosive manufacturing. Recycled from motors, pumps, and coolant systems.',
     recycleInfo: [ { name: 'Chemicals', stackSize: 50, quantity: 3 } ],
     salvageInfo: [ { name: 'Chemicals', stackSize: 50, quantity: 1 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Mechanical zones"]
   },
   {
     id: 'mat48',
@@ -585,7 +652,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'Durable synthetic rope found in residential and commercial zones. Used for traversal gear like Ziplines and Snap Hooks.',
     recycleInfo: [ { name: 'Fabric', stackSize: 50, quantity: 5 } ],
     salvageInfo: [ { name: 'Fabric', stackSize: 50, quantity: 2 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Residential/Commercial zones"]
   },
   {
     id: 'mat49',
@@ -596,7 +664,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'Electronic motion detectors salvaged from ARC drones and security infrastructure. Used in trap construction and tracking devices.',
     recycleInfo: [ { name: 'Wires', stackSize: 15, quantity: 1 }, { name: 'Metal Parts', stackSize: 50, quantity: 1 } ],
     salvageInfo: [ { name: 'Wires', stackSize: 15, quantity: 1 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging: ARC (Snitch, Surveyor)", "Androids", "Server Racks", "Recycling", "Celeste", "Security/Technological zones"]
   },
   {
     id: 'mat50',
@@ -607,7 +676,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'An audio amplification unit salvaged from electronic devices. Used in sound-based tactical gear like lures and noisemakers.',
     recycleInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 2 }, { name: 'Rubber Parts', stackSize: 50, quantity: 3 } ],
     salvageInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 2 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Commercial zones"]
   },
   {
     id: 'mat51',
@@ -618,7 +688,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'A high-voltage discharge unit recovered from destroyed ARC Hornets. Can be thrown to stun nearby ARC units and Raiders, or used in the construction of EMP devices.',
     recycleInfo: [ { name: 'Electrical Components', stackSize: 10, quantity: 1 }, { name: 'ARC Alloy', stackSize: 15, quantity: 1 } ],
     salvageInfo: [ { name: 'Electrical Components', stackSize: 10, quantity: 1 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging: ARC (Courier, Hornet)", "ARC zones"]
   },
   {
     id: 'mat52',
@@ -629,7 +700,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'A high-power reactor core found by scavenging destroyed Matriarchs. Extremely rare and required to craft the legendary Aphelion battle rifle.',
     recycleInfo: [ { name: 'Power Rod', stackSize: 3, quantity: 1 }, { name: 'Magnetic Accelerator', stackSize: 3, quantity: 1 } ],
     salvageInfo: [ { name: 'Magnetic Accelerator', stackSize: 3, quantity: 1 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging: Destroyed Matriarchs", "ARC zones"]
   },
   {
     id: 'mat53',
@@ -640,7 +712,8 @@ export const MATERIALS_DATA: Material[] = [
     description: 'Recovered from destroyed Queens or their blown-off leg armor segments. Required to craft the legendary Jupiter and Equalizer weapons.',
     recycleInfo: [ { name: 'Power Rod', stackSize: 3, quantity: 1 }, { name: 'Magnetic Accelerator', stackSize: 3, quantity: 1 } ],
     salvageInfo: [ { name: 'Power Rod', stackSize: 3, quantity: 1 } ],
-    craftInfo: { isCraftable: false }
+    craftInfo: { isCraftable: false },
+    obtainedFrom: ["Scavenging: Destroyed Queens", "ARC zones"]
   }
 ];
 
@@ -1397,79 +1470,154 @@ export const THROWABLES_DATA: Throwable[] = [
 ];
 
 export const AUGMENTS_DATA: Augment[] = [
-  {"id":"a-c3a","name":"Combat Mk. 3 (Aggressive)","imageUrl":"https://arcraiders.wiki/w/images/a/a4/Combat_Mk._3_%28Aggressive%29.png","rarity":"EPIC","icon":"shield_with_heart","category":"AUGMENT","stackSize":1,
-    craftInfo:{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Adv Electrical Components","quantity":2},{"name":"Processor","quantity":3}]},
-    recycleInfo:[{"name":"Adv Electrical Components","quantity":1},{"name":"Processor","quantity":1}],
-    salvageInfo:[{"name":"Electrical Components","quantity":2}]
-  },
-  {"id":"a-c3f","name":"Combat Mk. 3 (Flanking)","imageUrl":"https://arcraiders.wiki/w/images/7/73/Combat_Mk._3_%28Flanking%29.png","rarity":"EPIC","icon":"shield_with_heart","category":"AUGMENT","stackSize":1,
-    craftInfo:{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Adv Electrical Components","quantity":2},{"name":"Processor","quantity":3}]},
-    recycleInfo:[{"name":"Adv Electrical Components","quantity":1},{"name":"Processor","quantity":1}],
-    salvageInfo:[{"name":"Electrical Components","quantity":2}]
-  },
-  {"id":"a-l2","name":"Looting Mk. 2","imageUrl":"https://arcraiders.wiki/w/images/7/7c/Looting_Mk._2.png","rarity":"RARE","icon":"shopping_bag","category":"AUGMENT","stackSize":1,
-    craftInfo:{"station":"Refiner 2","quantityProduced":1,"materials":[{"name":"Magnet","quantity":2}]},
-    recycleInfo:[{"name":"Electrical Components","quantity":1}],
-    salvageInfo:[{"name":"Plastic Parts","quantity":4}]
-  },
-  {"id":"a-l3c","name":"Looting Mk. 3 (Cautious)","imageUrl":"https://arcraiders.wiki/w/images/6/68/Looting_Mk._3_%28Cautious%29.png","rarity":"EPIC","icon":"shopping_bag","category":"AUGMENT","stackSize":1,
-    craftInfo:{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Adv Electrical Components","quantity":2},{"name":"Processor","quantity":3}]},
-    recycleInfo:[{"name":"Adv Electrical Components","quantity":1},{"name":"Processor","quantity":1}],
-    salvageInfo:[{"name":"Electrical Components","quantity":2}]
-  },
-  {"id":"a-l3sa","name":"Looting Mk. 3 (Safekeeper)","imageUrl":"https://arcraiders.wiki/w/images/c/c6/Looting_Mk._3_%28Safekeeper%29.png","rarity":"EPIC","icon":"shopping_bag","category":"AUGMENT","stackSize":1,
-    craftInfo:{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Adv Electrical Components","quantity":2},{"name":"Processor","quantity":3}]},
-    recycleInfo:[{"name":"Adv Electrical Components","quantity":1},{"name":"Processor","quantity":1}],
-    salvageInfo:[{"name":"Electrical Components","quantity":2}]
-  },
-  {"id":"a-l3su","name":"Looting Mk. 3 (Survivor)","imageUrl":"https://arcraiders.wiki/w/images/7/74/Looting_Mk._3_%28Survivor%29.png","rarity":"EPIC","icon":"shopping_bag","category":"AUGMENT","stackSize":1,
-    craftInfo:{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Adv Electrical Components","quantity":2},{"name":"Processor","quantity":3}]},
-    recycleInfo:[{"name":"Adv Electrical Components","quantity":1},{"name":"Processor","quantity":1}],
-    salvageInfo:[{"name":"Electrical Components","quantity":2}]
-  },
-  {"id":"a-t2","name":"Tactical Mk. 2","imageUrl":"https://arcraiders.wiki/w/images/6/6c/Tactical_Mk._2.png","rarity":"RARE","icon":"tactic","category":"AUGMENT","stackSize":1,
-    craftInfo:{"station":"Refiner 2","quantityProduced":1,"materials":[{"name":"Magnet","quantity":2}]},
-    recycleInfo:[{"name":"Electrical Components","quantity":1}],
-    salvageInfo:[{"name":"Plastic Parts","quantity":4}]
-  },
-  {"id":"a-t3d","name":"Tactical Mk. 3 (Defensive)","imageUrl":"https://arcraiders.wiki/w/images/a/a9/Tactical_Mk._3_%28Defensive%29.png","rarity":"EPIC","icon":"tactic","category":"AUGMENT","stackSize":1,
-    craftInfo:{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Adv Electrical Components","quantity":2},{"name":"Processor","quantity":3}]},
-    recycleInfo:[{"name":"Adv Electrical Components","quantity":1},{"name":"Processor","quantity":1}],
-    salvageInfo:[{"name":"Electrical Components","quantity":2}]
-  },
-  {"id":"a-t3h","name":"Tactical Mk. 3 (Healing)","imageUrl":"https://arcraiders.wiki/w/images/1/12/Tactical_Mk._3_%28Healing%29.png","rarity":"EPIC","icon":"tactic","category":"AUGMENT","stackSize":1,
-    craftInfo:{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Adv Electrical Components","quantity":2},{"name":"Processor","quantity":3}]},
-    recycleInfo:[{"name":"Adv Electrical Components","quantity":1},{"name":"Processor","quantity":1}],
-    salvageInfo:[{"name":"Electrical Components","quantity":2}]
-  },
-  {"id":"a-t3r","name":"Tactical Mk. 3 (Revival)","imageUrl":"https://arcraiders.wiki/w/images/e/e0/Tactical_Mk._3_%28Revival%29.png","rarity":"EPIC","icon":"tactic","category":"AUGMENT","stackSize":1,
-    craftInfo:{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Adv Electrical Components","quantity":2},{"name":"Processor","quantity":3}]},
-    recycleInfo:[{"name":"Adv Electrical Components","quantity":1},{"name":"Processor","quantity":1}],
-    salvageInfo:[{"name":"Electrical Components","quantity":2}]
+  {
+    id: "a0", name: "Free Loadout Augment", rarity: "COMMON", icon: "shield_with_heart", category: "AUGMENT", stackSize: 1,
+    imageUrl: "https://arcraiders.wiki/w/images/thumb/1/14/Combat_Mk._1.png/50px-Combat_Mk._1.png.webp",
+    description: "Standard issue frame. Minimal protection and capacity.",
+    perks: "Opção inicial 'sem risco'; mochila e peso básicos.",
+    maxWeight: "35", backpackSlots: 14, quickUseSlots: 4, safePocketSlots: 0, shieldCompat: "Light",
+    craftInfo: { station: "Default", quantityProduced: 1, materials: [] },
+    recycleInfo: [], salvageInfo: []
   },
   {
-    id: 'a1', name: 'Combat Mk. 1', rarity: 'UNCOMMON', icon: 'shield_with_heart', recycleInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 3 }, { name: 'Rubber Parts', stackSize: 50, quantity: 3 } ], salvageInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 3 } ],
+    id: "a-c3a", name: "Combat Mk. 3 (Aggressive)", rarity: "EPIC", icon: "shield_with_heart", category: "AUGMENT", stackSize: 1,
+    imageUrl: "https://arcraiders.wiki/w/images/a/a4/Combat_Mk._3_%28Aggressive%29.png",
+    description: "Built for frontline assault. High shield integrity and optimized for offensive resource deployment.",
+    perks: "+2 slots de granada e regen de 2 HP a cada 5 s (pausa 30 s ao tomar dano).",
+    maxWeight: "64–65", backpackSlots: 18, quickUseSlots: 4, safePocketSlots: 1, shieldCompat: "Light / Medium / Heavy",
+    craftInfo: { station: "Refiner 3", quantityProduced: 1, materials: [{ name: "Adv Electrical Components", quantity: 2 }, { name: "Processor", quantity: 3 }] },
+    recycleInfo: [{ name: "Adv Electrical Components", quantity: 1 }, { name: "Processor", quantity: 1 }],
+    salvageInfo: [{ name: "Electrical Components", quantity: 2 }]
+  },
+  {
+    id: "a-c3f", name: "Combat Mk. 3 (Flanking)", rarity: "EPIC", icon: "shield_with_heart", category: "AUGMENT", stackSize: 1,
+    imageUrl: "https://arcraiders.wiki/w/images/7/73/Combat_Mk._3_%28Flanking%29.png",
+    description: "Highly mobile frame designed for rapid equipment swapping and maneuvering in close quarters.",
+    perks: "+3 slots de Utility e pistolas/hand cannons equipam ~33% mais rápido.",
+    maxWeight: "60", backpackSlots: 20, quickUseSlots: 5, safePocketSlots: 2, shieldCompat: "Light",
+    craftInfo: { station: "Refiner 3", quantityProduced: 1, materials: [{ name: "Adv Electrical Components", quantity: 2 }, { name: "Processor", quantity: 3 }] },
+    recycleInfo: [{ name: "Adv Electrical Components", quantity: 1 }, { name: "Processor", quantity: 1 }],
+    salvageInfo: [{ name: "Electrical Components", quantity: 2 }]
+  },
+  {
+    id: "a-l2", name: "Looting Mk. 2", rarity: "RARE", icon: "shopping_bag", category: "AUGMENT", stackSize: 1,
+    imageUrl: "https://arcraiders.wiki/w/images/7/7c/Looting_Mk._2.png",
+    description: "Scavenger's best friend. Lightweight with increased storage capacity for Trinkets.",
+    perks: "+3 slots de Trinket e joga fora Ticks presos em você após ~1 s.",
+    maxWeight: "60", backpackSlots: 22, quickUseSlots: 4, safePocketSlots: 2, shieldCompat: "Light",
+    craftInfo: { station: "Refiner 2", quantityProduced: 1, materials: [{ name: "Magnet", quantity: 2 }] },
+    recycleInfo: [{ name: "Electrical Components", quantity: 1 }],
+    salvageInfo: [{ name: "Plastic Parts", quantity: 4 }]
+  },
+  {
+    id: "a-l3c", name: "Looting Mk. 3 (Cautious)", rarity: "EPIC", icon: "shopping_bag", category: "AUGMENT", stackSize: 1,
+    imageUrl: "https://arcraiders.wiki/w/images/6/68/Looting_Mk._3_%28Cautious%29.png",
+    description: "Recon-optimized frame that prioritizes situational awareness and early warning systems.",
+    perks: "Adrenaline Shot automático ao quebrar o escudo, com cooldown.",
+    maxWeight: "70", backpackSlots: 24, quickUseSlots: 5, safePocketSlots: 2, shieldCompat: "Light",
+    craftInfo: { station: "Refiner 3", quantityProduced: 1, materials: [{ name: "Adv Electrical Components", quantity: 2 }, { name: "Processor", quantity: 3 }] },
+    recycleInfo: [{ name: "Adv Electrical Components", quantity: 1 }, { name: "Processor", quantity: 1 }],
+    salvageInfo: [{ name: "Electrical Components", quantity: 2 }]
+  },
+  {
+    id: "a-l3sa", name: "Looting Mk. 3 (Safekeeper)", rarity: "EPIC", icon: "shopping_bag", category: "AUGMENT", stackSize: 1,
+    imageUrl: "https://arcraiders.wiki/w/images/c/c6/Looting_Mk._3_%28Safekeeper%29.png",
+    description: "The ultimate extractor. Features experimental safe pocket technology for high-value assets.",
+    perks: "Safe Pocket aceita qualquer item (incluindo armas), protegendo-os da perda.",
+    maxWeight: "65", backpackSlots: 18, quickUseSlots: 4, safePocketSlots: 1, shieldCompat: "Light / Medium / Heavy",
+    craftInfo: { station: "Refiner 3", quantityProduced: 1, materials: [{ name: "Adv Electrical Components", quantity: 2 }, { name: "Processor", quantity: 3 }] },
+    recycleInfo: [{ name: "Adv Electrical Components", quantity: 1 }, { name: "Processor", quantity: 1 }],
+    salvageInfo: [{ name: "Electrical Components", quantity: 2 }]
+  },
+  {
+    id: "a-l3su", name: "Looting Mk. 3 (Survivor)", rarity: "EPIC", icon: "shopping_bag", category: "AUGMENT", stackSize: 1,
+    imageUrl: "https://arcraiders.wiki/w/images/7/74/Looting_Mk._3_%28Survivor%29.png",
+    description: "Exceptional solo frame designed for survival in hostile environments without support.",
+    perks: "Altíssimo peso + mochila, +1 Utility; 'mula' máxima, sem perk ativável.",
+    maxWeight: "80", backpackSlots: 20, quickUseSlots: 5, safePocketSlots: 3, shieldCompat: "Light / Medium",
+    craftInfo: { station: "Refiner 3", quantityProduced: 1, materials: [{ name: "Adv Electrical Components", quantity: 2 }, { name: "Processor", quantity: 3 }] },
+    recycleInfo: [{ name: "Adv Electrical Components", quantity: 1 }, { name: "Processor", quantity: 1 }],
+    salvageInfo: [{ name: "Electrical Components", quantity: 2 }]
+  },
+  {
+    id: "a-t2", name: "Tactical Mk. 2", rarity: "RARE", icon: "tactic", category: "AUGMENT", stackSize: 1,
+    imageUrl: "https://arcraiders.wiki/w/images/6/6c/Tactical_Mk._2.png",
+    description: "Utility frame focused on defensive deployment and area denial strategies.",
+    perks: "+1 slot de Utility e fumaça automática ao quebrar o escudo (CD fixo).",
+    maxWeight: "45", backpackSlots: 17, quickUseSlots: 5, safePocketSlots: 1, shieldCompat: "Light / Medium",
+    craftInfo: { station: "Refiner 2", quantityProduced: 1, materials: [{ name: "Magnet", quantity: 2 }] },
+    recycleInfo: [{ name: "Electrical Components", quantity: 1 }],
+    salvageInfo: [{ name: "Plastic Parts", quantity: 4 }]
+  },
+  {
+    id: "a-t3d", name: "Tactical Mk. 3 (Defensive)", rarity: "EPIC", icon: "tactic", category: "AUGMENT", stackSize: 1,
+    imageUrl: "https://arcraiders.wiki/w/images/a/a9/Tactical_Mk._3_%28Defensive%29.png",
+    description: "Frontline tank frame designed for maximum durability and energy redirection.",
+    perks: "Integrated Shield Recharger para recarregar escudo com cooldown.",
+    maxWeight: "60", backpackSlots: 20, quickUseSlots: 5, safePocketSlots: 1, shieldCompat: "Light / Medium / Heavy",
+    craftInfo: { station: "Refiner 3", quantityProduced: 1, materials: [{ name: "Adv Electrical Components", quantity: 2 }, { name: "Processor", quantity: 3 }] },
+    recycleInfo: [{ name: "Adv Electrical Components", quantity: 1 }, { name: "Processor", quantity: 1 }],
+    salvageInfo: [{ name: "Electrical Components", quantity: 2 }]
+  },
+  {
+    id: "a-t3h", name: "Tactical Mk. 3 (Healing)", rarity: "EPIC", icon: "tactic", category: "AUGMENT", stackSize: 1,
+    imageUrl: "https://arcraiders.wiki/w/images/1/12/Tactical_Mk._3_%28Healing%29.png",
+    description: "Specialized combat medic frame with integrated healing dispersal systems.",
+    perks: "+3 slots de cura e nuvem de cura (~20 HP em 10 s) ao ser revivido.",
+    maxWeight: "55", backpackSlots: 16, quickUseSlots: 4, safePocketSlots: 3, shieldCompat: "Light / Medium",
+    craftInfo: { station: "Refiner 3", quantityProduced: 1, materials: [{ name: "Adv Electrical Components", quantity: 2 }, { name: "Processor", quantity: 3 }] },
+    recycleInfo: [{ name: "Adv Electrical Components", quantity: 1 }, { name: "Processor", quantity: 1 }],
+    salvageInfo: [{ name: "Electrical Components", quantity: 2 }]
+  },
+  {
+    id: "a-t3r", name: "Tactical Mk. 3 (Revival)", rarity: "EPIC", icon: "tactic", category: "AUGMENT", stackSize: 1,
+    imageUrl: "https://arcraiders.wiki/w/images/e/e0/Tactical_Mk._3_%28Revival%29.png",
+    description: "Support-heavy frame built for emergency squads and squad recovery operations.",
+    perks: "Integrated Defibrillator (revive grátis com cooldown) e regen leve de HP.",
+    maxWeight: "65", backpackSlots: 16, quickUseSlots: 5, safePocketSlots: 2, shieldCompat: "Light",
+    craftInfo: { station: "Refiner 3", quantityProduced: 1, materials: [{ name: "Adv Electrical Components", quantity: 2 }, { name: "Processor", quantity: 3 }] },
+    recycleInfo: [{ name: "Adv Electrical Components", quantity: 1 }, { name: "Processor", quantity: 1 }],
+    salvageInfo: [{ name: "Electrical Components", quantity: 2 }]
+  },
+  {
+    id: 'a1', name: 'Combat Mk. 1', rarity: 'UNCOMMON', icon: 'shield_with_heart', category: 'AUGMENT',
     imageUrl: 'https://arcraiders.wiki/w/images/thumb/1/14/Combat_Mk._1.png/50px-Combat_Mk._1.png.webp',
-    description: 'Offers Raiders the choice to equip a Medium Shield, but limited backpack capacity.',
-    craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Rubber Parts', quantity: 6 }, { name: 'Plastic Parts', quantity: 10 }] }
+    description: 'Basic armor that supports Medium Shields.',
+    perks: 'Suporta Medium Shield, pouca mochila, sem perk.',
+    maxWeight: "45", backpackSlots: 16, quickUseSlots: 4, safePocketSlots: 1, shieldCompat: "Light / Medium",
+    craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Rubber Parts', quantity: 6 }, { name: 'Plastic Parts', quantity: 10 }] },
+    recycleInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 3 }, { name: 'Rubber Parts', stackSize: 50, quantity: 3 } ],
+    salvageInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 3 } ]
   },
   {
-    id: 'a2', name: 'Combat Mk. 2', rarity: 'RARE', icon: 'shield_with_heart', recycleInfo: [ { name: 'Electrical Components', stackSize: 10, quantity: 1 }, { name: 'Magnet', stackSize: 15, quantity: 1 } ], salvageInfo: [ { name: 'Electrical Components', stackSize: 10, quantity: 1 } ],
+    id: 'a2', name: 'Combat Mk. 2', rarity: 'RARE', icon: 'shield_with_heart', category: 'AUGMENT',
     imageUrl: 'https://arcraiders.wiki/w/images/thumb/5/54/Combat_Mk._2.png/50px-Combat_Mk._2.png.webp',
-    description: 'Allows equipping Heavy Shields and provides improved combat capacity.',
-    craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Magnet', quantity: 2 }, { name: 'Adv Mechanical Components', quantity: 2 }] }
+    description: 'Advanced frame with integrated medical systems.',
+    perks: '+1 slot de granada e regen de 1 HP a cada 5 s (pausa 30 s após dano).',
+    maxWeight: "55", backpackSlots: 18, quickUseSlots: 4, safePocketSlots: 1, shieldCompat: "Light / Medium / Heavy",
+    craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Magnet', quantity: 2 }, { name: 'Adv Mechanical Components', quantity: 2 }] },
+    recycleInfo: [ { name: 'Electrical Components', stackSize: 10, quantity: 1 }, { name: 'Magnet', stackSize: 15, quantity: 1 } ],
+    salvageInfo: [ { name: 'Electrical Components', stackSize: 10, quantity: 1 } ]
   },
   {
-    id: 'a3', name: 'Looting Mk. 1', rarity: 'UNCOMMON', icon: 'shopping_bag', recycleInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 3 }, { name: 'Rubber Parts', stackSize: 50, quantity: 3 } ], salvageInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 3 } ],
+    id: 'a3', name: 'Looting Mk. 1', rarity: 'UNCOMMON', icon: 'shopping_bag', category: 'AUGMENT',
     imageUrl: 'https://arcraiders.wiki/w/images/thumb/2/27/Looting_Mk._1.png/50px-Looting_Mk._1.png.webp',
-    description: 'Increases carrying weight and backpack slots for better exploration.',
-    craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Fabric', quantity: 12 }, { name: 'Plastic Parts', quantity: 8 }] }
+    description: 'Increases carrying weight and backpack slots.',
+    perks: 'Mais slots de mochila e peso, sem perk ativo extra.',
+    maxWeight: "50", backpackSlots: 18, quickUseSlots: 4, safePocketSlots: 1, shieldCompat: "Light",
+    craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Fabric', quantity: 12 }, { name: 'Plastic Parts', quantity: 8 }] },
+    recycleInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 3 }, { name: 'Rubber Parts', stackSize: 50, quantity: 3 } ],
+    salvageInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 3 } ]
   },
   {
-    id: 'a4', name: 'Tactical Mk. 1', rarity: 'UNCOMMON', icon: 'tactic', recycleInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 3 }, { name: 'Rubber Parts', stackSize: 50, quantity: 3 } ], salvageInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 3 } ],
+    id: 'a4', name: 'Tactical Mk. 1', rarity: 'UNCOMMON', icon: 'tactic', category: 'AUGMENT',
     imageUrl: 'https://arcraiders.wiki/w/images/thumb/1/18/Tactical_Mk._1.png/50px-Tactical_Mk._1.png.webp',
     description: 'Provides additional Quick Use slots for tactical items.',
-    craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Wires', quantity: 8 }, { name: 'Plastic Parts', quantity: 10 }] }
+    perks: 'Mais Quick Use, mochila menor, sem perk.',
+    maxWeight: "40", backpackSlots: 15, quickUseSlots: 5, safePocketSlots: 1, shieldCompat: "Light / Medium",
+    craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Wires', quantity: 8 }, { name: 'Plastic Parts', quantity: 10 }] },
+    recycleInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 3 }, { name: 'Rubber Parts', stackSize: 50, quantity: 3 } ],
+    salvageInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 3 } ]
   }
 ];
 

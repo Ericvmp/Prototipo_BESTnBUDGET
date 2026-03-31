@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Throwable, Augment } from '../types';
-import { getRarityGlowStyles, getRarityIconColor, getRarityStyles, getRarityHoverStyles } from '../utils';
+import { getRarityGlowStyles, getRarityIconColor, getRarityStyles, getRarityHoverStyles, getRarityBorderColor } from '../utils';
 import { generateItemTooltip } from './tooltipHelper';
 import RichTooltip from './RichTooltip';
 
@@ -17,7 +17,7 @@ const TacticalCard: React.FC<{ item: Throwable | Augment; onClick: (item: Throwa
     <RichTooltip item={item}>
     <button
       onClick={() => onClick(item)}
-      className={`relative bg-card-dark border-2 border-slate-800 hover:ring-8 hover:ring-inset rounded-xl overflow-hidden transition-all duration-300 group flex flex-col h-full active:scale-[0.98] shadow-lg ${getRarityHoverStyles(item.rarity)}`}
+      className={`relative bg-card-dark border ${getRarityBorderColor(item.rarity)} hover:ring-8 hover:ring-inset rounded-xl overflow-hidden transition-all duration-300 group flex flex-col h-full active:scale-[0.98] shadow-lg ${getRarityHoverStyles(item.rarity)}`}
     >
       <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(item.rarity)} to-transparent opacity-0 group-hover:opacity-25 transition-opacity duration-500 pointer-events-none`}></div>
 
@@ -64,7 +64,7 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
           <span className="material-symbols-outlined text-2xl">arrow_back</span>
         </button>
         <div>
-          <h2 className="text-3xl font-black tracking-[0.3em] text-white drop-shadow-glow">Tactical Gear</h2>
+          <h2 className="text-3xl font-black tracking-[0.3em] text-white drop-shadow-glow uppercase">TACTICAL</h2>
           <p className="text-[10px] text-primary font-bold tracking-[0.4em] uppercase mt-1 opacity-70">Support & Tactical Inventory</p>
         </div>
       </div>
@@ -80,7 +80,7 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
                  <div className="flex items-center gap-3 shrink-0">
                     <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(19,91,236,1)] animate-pulse"></span>
                     <h3 className="text-sm font-black tracking-[0.4em] text-white/90">
-                      {section.charAt(0).toUpperCase() + section.slice(1).toLowerCase()}
+                      {section}
                     </h3>
                  </div>
                  <div className="h-px flex-1 bg-gradient-to-r from-primary/40 via-primary/10 to-transparent"></div>
@@ -102,7 +102,7 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
                <div className="flex items-center gap-3 shrink-0">
                   <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(19,91,236,1)] animate-pulse"></span>
                   <h3 className="text-sm font-black tracking-[0.4em] text-white/90">
-                    Augments
+                    AUGMENTS
                   </h3>
                </div>
                <div className="h-px flex-1 bg-gradient-to-r from-primary/40 via-primary/10 to-transparent"></div>

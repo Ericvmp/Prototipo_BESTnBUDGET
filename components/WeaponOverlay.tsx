@@ -4,6 +4,7 @@ import { Weapon, Modification, Material } from '../types';
 import { WEAPONS_DATA, MATERIALS_DATA } from '../data';
 import { generateItemTooltip } from './tooltipHelper';
 import RichTooltip from './RichTooltip';
+import { getRarityBorderColor } from '../utils';
 
 interface WeaponOverlayProps {
   weapon: Weapon;
@@ -45,7 +46,7 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
       <RichTooltip item={mat}>
         <button
           onClick={onClick}
-          className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 transition-all hover:bg-white/10 group/mat text-left w-full mb-2"
+          className={`flex items-center justify-between p-3 bg-white/5 rounded-xl border ${getRarityBorderColor(mat.rarity)} hover:border-white/20 transition-all hover:bg-white/10 group/mat text-left w-full mb-2`}
         >
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0">

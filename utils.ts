@@ -70,6 +70,17 @@ export const getRarityHoverStyles = (rarity: Rarity): string => {
     }
 };
 
+export const getRarityBorderColor = (rarity: Rarity): string => {
+    switch (rarity) {
+        case 'COMMON': return 'border-slate-500/30';
+        case 'UNCOMMON': return 'border-emerald-500/30';
+        case 'RARE': return 'border-blue-500/30';
+        case 'EPIC': return 'border-fuchsia-500/30';
+        case 'LEGENDARY': return 'border-amber-500/30';
+        default: return 'border-slate-500/30';
+    }
+};
+
 // ─── Entity-linking helpers (shared by overlays) ───
 
 export type EntityMatch =

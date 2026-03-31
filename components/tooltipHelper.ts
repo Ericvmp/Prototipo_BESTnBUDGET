@@ -6,12 +6,14 @@ export const generateItemTooltip = (item: any): string => {
 
    let tooltip = item.name;
 
-   // 1. Description
-   if (item.description) {
+   // 1. Description (Skip for Materials and Augments)
+   if (item.description && (item.category || item.weaponType) && item.category !== 'AUGMENT') {
       tooltip += `\n\n${item.description}`;
-   } else if (item.perks) {
-      // Small fallback for cases where perks exist instead of description
-      tooltip += `\n\n${item.perks}`;
+   }
+
+   // 2. PERKS
+   if (item.perks) {
+      tooltip += `\n\nPERKS:\n${item.perks}`;
    }
 
    // 2. CRAFTING
@@ -34,23 +36,25 @@ export const generateItemTooltip = (item: any): string => {
    // 3. RECYCLING
    if (item.recycleInfo && Array.isArray(item.recycleInfo) && item.recycleInfo.length > 0) {
       tooltip += `\n\nRECYCLING`;
-      item.recycleInfo.forEach((req: ModRequirement) => {
+      const rows = 'materials' in item.recycleInfo[0] ? item.recycleInfo[0].materials : item.recycleInfo;
+      rows.forEach((req: any) => {
          tooltip += `\n- ${req.quantity}x ${req.name}`;
       });
    }
-
+ 
    // 4. SALVAGING
    if (item.salvageInfo && Array.isArray(item.salvageInfo) && item.salvageInfo.length > 0) {
       tooltip += `\n\nSALVAGING`;
-      item.salvageInfo.forEach((req: ModRequirement) => {
+      const rows = 'materials' in item.salvageInfo[0] ? item.salvageInfo[0].materials : item.salvageInfo;
+      rows.forEach((req: any) => {
          tooltip += `\n- ${req.quantity}x ${req.name}`;
       });
    }
 
-   // 5. LOOTING
+   // 5. OBTAINED FROM
    const lootEntry = LOOT_DATA.find(loot => loot.material === item.name);
    if (lootEntry && lootEntry.sources && lootEntry.sources.length > 0) {
-      tooltip += `\n\nLOOTING`;
+      tooltip += `\n\nOBTAINED FROM`;
       lootEntry.sources.forEach(src => {
          tooltip += `\n- ${src.name} (${src.quantity}x)`;
       });

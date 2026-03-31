@@ -58,8 +58,16 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
     [];
 
   // Recycling / Salvaging
-  const recycleReqs: { name: string; quantity: number }[] = item.recycleInfo || [];
-  const salvageReqs: { name: string; quantity: number }[] = item.salvageInfo || [];
+  let recycleReqs: { name: string; quantity: number }[] = item.recycleInfo || [];
+  let salvageReqs: { name: string; quantity: number }[] = item.salvageInfo || [];
+
+  // If we have specialized tiered info (like in Weapons), pick the first tier (Tier I) materials
+  if (Array.isArray(item.recycleInfo) && item.recycleInfo.length > 0 && 'materials' in item.recycleInfo[0]) {
+    recycleReqs = item.recycleInfo[0].materials || [];
+  }
+  if (Array.isArray(item.salvageInfo) && item.salvageInfo.length > 0 && 'materials' in item.salvageInfo[0]) {
+    salvageReqs = item.salvageInfo[0].materials || [];
+  }
 
   // Looting sources
   const lootEntry = LOOT_DATA.find(l => l.material === item.name);
@@ -105,7 +113,7 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
         <div className="p-1 rounded bg-black/40 border border-white/5">
           <span className="material-symbols-outlined text-[16px] block text-violet-400">travel_explore</span>
         </div>
-        <span className="text-[11px] font-black tracking-[0.25em] uppercase text-violet-400">LOOTING</span>
+        <span className="text-[11px] font-black tracking-[0.25em] uppercase text-violet-400">OBTAINED FROM</span>
       </div>
       <div className="space-y-1.5">
         {sources.map((s, i) => (
@@ -171,11 +179,69 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
 
       {/* Body */}
       <div className="p-3">
-        {item.description && (
+        {(item.description && (item.category || item.weaponType) && item.category !== 'AUGMENT') && (
           <p className="text-[12px] text-slate-400 leading-relaxed mb-1">{item.description}</p>
         )}
 
-        {hasInfo && <div className="h-px w-full bg-white/5 my-2" />}
+        {/* AUGMENT STATS GRID */}
+        {item.category === 'AUGMENT' && (item.maxWeight || item.backpackSlots) && (
+          <div className="mb-4 space-y-2">
+            <div className="grid grid-cols-2 gap-2">
+              <div className="flex items-center gap-2 bg-white/5 border border-white/5 p-2 rounded-lg">
+                <img src="https://arcraiders.wiki/w/images/thumb/e/e8/Icon_Weight.png/22px-Icon_Weight.png.webp" className="w-5 h-5 object-contain opacity-70" alt="Weight" />
+                <div className="flex flex-col">
+                  <span className="text-[9px] text-slate-500 font-black uppercase tracking-widest leading-none">WEIGHT</span>
+                  <span className="text-[13px] text-white font-black leading-none mt-1">{item.maxWeight} KG</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 bg-white/5 border border-white/5 p-2 rounded-lg">
+                <img src="https://arcraiders.wiki/w/images/thumb/7/7f/Icon_AllItems.png/30px-Icon_AllItems.png.webp" className="w-5 h-5 object-contain opacity-70" alt="Backpack" />
+                <div className="flex flex-col">
+                  <span className="text-[9px] text-slate-500 font-black uppercase tracking-widest leading-none">BACKPACK</span>
+                  <span className="text-[13px] text-white font-black leading-none mt-1">{item.backpackSlots} SLOTS</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 bg-white/5 border border-white/5 p-2 rounded-lg">
+                <img src="https://arcraiders.wiki/w/images/thumb/7/71/Icon_QuickUse.png/30px-Icon_QuickUse.png.webp" className="w-5 h-5 object-contain opacity-70" alt="Quick Use" />
+                <div className="flex flex-col">
+                  <span className="text-[9px] text-slate-500 font-black uppercase tracking-widest leading-none">QUICK USE</span>
+                  <span className="text-[13px] text-white font-black leading-none mt-1">{item.quickUseSlots} SLOTS</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 bg-white/5 border border-white/5 p-2 rounded-lg">
+                <img src="https://arcraiders.wiki/w/images/thumb/6/67/Icon_SafePocket.png/30px-Icon_SafePocket.png.webp" className="w-5 h-5 object-contain opacity-70" alt="Safe Pocket" />
+                <div className="flex flex-col">
+                  <span className="text-[9px] text-slate-500 font-black uppercase tracking-widest leading-none">SAFE POCKET</span>
+                  <span className="text-[13px] text-white font-black leading-none mt-1">{item.safePocketSlots} SLOTS</span>
+                </div>
+              </div>
+            </div>
+            {item.shieldCompat && (
+              <div className="flex items-center gap-3 bg-white/5 border border-white/5 p-2 rounded-lg">
+                <img src="https://arcraiders.wiki/w/images/thumb/6/61/Icon_Shield_I.png/25px-Icon_Shield_I.png.webp" className="w-5 h-5 object-contain opacity-70" alt="Shields" />
+                <div className="flex flex-col">
+                  <span className="text-[9px] text-slate-500 font-black uppercase tracking-widest leading-none">SHIELD COMPATIBILITY</span>
+                  <span className="text-[11px] text-violet-300 font-black uppercase tracking-widest mt-1">{item.shieldCompat}</span>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+
+        {item.perks && (
+          <div className="mt-3 first:mt-1">
+            <div className={`flex items-center gap-2 mb-2`}>
+              <div className={`p-1 rounded bg-black/40 border border-white/5`}>
+                <span className={`material-symbols-outlined text-[16px] block text-amber-400`}>bolt</span>
+              </div>
+              <span className={`text-[11px] font-black tracking-[0.25em] uppercase text-amber-400`}>PERKS</span>
+            </div>
+            <p className="text-[12px] text-slate-100 font-bold leading-relaxed">{item.perks}</p>
+          </div>
+        )}
+
+        {(hasInfo && (item.description && (item.category || item.weaponType))) && <div className="h-px w-full bg-white/5 my-2" />}
 
         {craftingReqs.length > 0 && (
           <Section icon="precision_manufacturing" label="CRAFTING" color="text-sky-400" rows={craftingReqs} />
@@ -188,6 +254,23 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
         )}
         {lootSources.length > 0 && (
           <LootSection sources={lootSources} />
+        )}
+        {item.obtainedFrom && item.obtainedFrom.length > 0 && (
+          <div className="mt-4">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="p-1 rounded bg-black/40 border border-white/5">
+                <span className="material-symbols-outlined text-[16px] block text-sky-400">explore</span>
+              </div>
+              <span className="text-[11px] font-black tracking-[0.25em] uppercase text-sky-400">SOURCES</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5 p-2 bg-white/5 border border-white/5 rounded-lg">
+              {item.obtainedFrom.map((src: string, i: number) => (
+                <span key={i} className="text-[10px] font-bold text-slate-300 uppercase tracking-tighter bg-slate-800 px-1.5 py-0.5 rounded border border-white/5">
+                  {src}
+                </span>
+              ))}
+            </div>
+          </div>
         )}
       </div>
     </div>,

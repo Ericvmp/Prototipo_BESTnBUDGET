@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Weapon } from '../types';
-import { getRarityStyles, getRarityGlowStyles, getRarityIconColor, getRarityHoverStyles } from '../utils';
+import { getRarityStyles, getRarityGlowStyles, getRarityIconColor, getRarityHoverStyles, getRarityBorderColor } from '../utils';
 import RichTooltip from './RichTooltip';
 
 interface WeaponCardProps {
@@ -16,7 +16,7 @@ const WeaponCard: React.FC<WeaponCardProps> = ({ weapon, onClick }) => {
     <RichTooltip item={weapon}>
       <button
         onClick={() => onClick?.(weapon)}
-        className={`group relative aspect-square bg-card-dark rounded-xl border-2 border-slate-800 hover:ring-8 hover:ring-inset overflow-hidden flex flex-col items-center justify-center p-2 transition-all duration-300 active:scale-95 shadow-lg ${getRarityHoverStyles(weapon.rarity)}`}
+        className={`group relative aspect-square bg-card-dark rounded-xl border ${getRarityBorderColor(weapon.rarity)} hover:ring-8 hover:ring-inset overflow-hidden flex flex-col items-center justify-center p-2 transition-all duration-300 active:scale-95 shadow-lg ${getRarityHoverStyles(weapon.rarity)}`}
       >
         {/* Background Rarity Glow */}
         <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(weapon.rarity)} to-transparent opacity-0 group-hover:opacity-25 transition-opacity duration-500 pointer-events-none`}></div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modification } from '../types';
-import { getRarityStyles, getRarityIconColor, getRarityGlowStyles, getSourceImageUrl, getRarityHoverStyles } from '../utils';
+import { getRarityStyles, getRarityIconColor, getRarityGlowStyles, getSourceImageUrl, getRarityHoverStyles, getRarityBorderColor } from '../utils';
 import { generateItemTooltip } from './tooltipHelper';
 import RichTooltip from './RichTooltip';
 
@@ -16,7 +16,7 @@ const ModCard: React.FC<ModCardProps> = ({ mod, onClick }) => {
     <RichTooltip item={mod}>
     <button
       onClick={() => onClick?.(mod)}
-      className={`text-left relative bg-card-dark border-2 border-slate-800 hover:ring-8 hover:ring-inset rounded-lg overflow-hidden transition-all duration-300 group flex flex-col h-full shadow-lg active:scale-95 ${getRarityHoverStyles(mod.rarity)}`}
+      className={`text-left relative bg-card-dark border ${getRarityBorderColor(mod.rarity)} hover:ring-8 hover:ring-inset rounded-lg overflow-hidden transition-all duration-300 group flex flex-col h-full shadow-lg active:scale-95 ${getRarityHoverStyles(mod.rarity)}`}
     >
       {/* Background Rarity Glow */}
       <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(mod.rarity)} to-transparent opacity-0 group-hover:opacity-25 transition-opacity duration-500 pointer-events-none`}></div>

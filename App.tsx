@@ -23,7 +23,7 @@ const HomeOption: React.FC<{ label: string; icon: string; delay: string; image?:
       className={`group relative aspect-square w-full bg-card-dark rounded-xl overflow-hidden transition-all duration-300 active:scale-95 flex flex-col items-center justify-center gap-2 md:gap-6 shadow-2xl animate-fade-in`}
       style={{
         animationDelay: delay,
-        border: '2px solid rgb(30 41 59)',
+        border: `4px solid ${hoverColor}40`,
       }}
     >
       {/* Background Image */}
@@ -61,13 +61,23 @@ const HomeOption: React.FC<{ label: string; icon: string; delay: string; image?:
         <div className="h-[2px] w-0 mx-auto mt-2 group-hover:w-full transition-all duration-500" style={{ backgroundColor: hoverColor }}></div>
       </div>
       <div className="absolute top-0 left-0 w-10 h-10 pointer-events-none z-50">
-        <div className="absolute top-4 left-4 w-[1px] h-4 transition-colors" style={{ backgroundColor: hovered ? hoverColor : 'rgb(51 65 85)' }}></div>
-        <div className="absolute top-4 left-4 w-4 h-[1px] transition-colors" style={{ backgroundColor: hovered ? hoverColor : 'rgb(51 65 85)' }}></div>
+        <div className="absolute top-4 left-4 w-[1px] h-4 transition-colors" style={{ backgroundColor: hovered ? hoverColor : `${hoverColor}80` }}></div>
+        <div className="absolute top-4 left-4 w-4 h-[1px] transition-colors" style={{ backgroundColor: hovered ? hoverColor : `${hoverColor}80` }}></div>
       </div>
       <div className="absolute bottom-0 right-0 w-10 h-10 pointer-events-none z-50">
-        <div className="absolute bottom-4 right-4 w-[1px] h-4 transition-colors" style={{ backgroundColor: hovered ? hoverColor : 'rgb(51 65 85)' }}></div>
-        <div className="absolute bottom-4 right-4 w-4 h-[1px] transition-colors" style={{ backgroundColor: hovered ? hoverColor : 'rgb(51 65 85)' }}></div>
+        <div className="absolute bottom-4 right-4 w-[1px] h-4 transition-colors" style={{ backgroundColor: hovered ? hoverColor : `${hoverColor}80` }}></div>
+        <div className="absolute bottom-4 right-4 w-4 h-[1px] transition-colors" style={{ backgroundColor: hovered ? hoverColor : `${hoverColor}80` }}></div>
       </div>
+
+      {/* OVERLAY BORDER - OVER EVERYTHING */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-[60] rounded-xl transition-all duration-300"
+        style={{ 
+          border: `4px solid ${hoverColor}${hovered ? '' : '80'}`,
+          boxShadow: hovered ? `0 0 30px ${hoverColor}40, inset 0 0 20px ${hoverColor}20` : 'none'
+        }}
+      />
+
       <div className="scanline-overlay absolute inset-0 opacity-10 group-hover:opacity-30 z-60 transition-opacity"></div>
     </button>
   );
@@ -132,7 +142,7 @@ const App: React.FC = () => {
           image="https://cdn.metaforge.app/arc-raiders/icons/hideout/ExplosivesStation.webp"
           itemImage="/images/mods/Compensator_II.png"
           itemImageClass="w-24 h-24 md:w-40 md:h-40"
-          hoverColor="#f0ab66"
+          hoverColor="#2df287"
           onClick={() => setCurrentScreen('mods')}
         />
         <HomeOption
@@ -161,15 +171,19 @@ const App: React.FC = () => {
       <div className="w-full max-w-6xl animate-fade-in-up mt-8" style={{ animationDelay: '800ms' }}>
          <button 
            onClick={() => setCurrentScreen('planner')}
-           className="w-full relative group overflow-hidden rounded-2xl border-2 border-primary/30 hover:ring-8 hover:ring-inset hover:ring-primary transition-all p-6 flex flex-col md:flex-row items-center justify-between bg-card-dark"
+           className="w-full relative group overflow-hidden rounded-2xl border-4 border-primary/40 hover:ring-8 hover:ring-inset hover:ring-primary transition-all p-6 flex flex-col md:flex-row items-center justify-between bg-card-dark"
          >
             <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
+            
+            {/* OVERLAY BORDER - OVER EVERYTHING */}
+            <div className="absolute inset-0 pointer-events-none z-50 border-4 border-primary/60 group-hover:border-primary transition-colors rounded-2xl" />
+
             <div className="relative z-10 flex items-center gap-6">
-                <div className="w-16 h-16 rounded-xl bg-background-dark border border-slate-700 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                   <span className="material-symbols-outlined text-4xl text-primary">analytics</span>
+                <div className="w-24 h-24 rounded-2xl bg-background-dark border border-slate-700 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform p-3">
+                   <img src="https://arcraiders.wiki/w/images/thumb/4/49/Workshop.png/360px-Workshop.png.webp" alt="Stash Planner" className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(30,167,253,0.5)]" />
                 </div>
                 <div className="text-left">
-                   <h3 className="text-xl font-black tracking-[0.3em] transform-gpu transition-all text-white group-hover:text-primary uppercase">
+                   <h3 className="text-4xl font-black tracking-[0.3em] transform-gpu transition-all text-white group-hover:text-primary uppercase">
                       STASH PLANNER
                    </h3>
                    <p className="text-sm text-slate-400 mt-1 max-w-lg">
@@ -200,7 +214,7 @@ const App: React.FC = () => {
           <span className="material-symbols-outlined text-3xl">arrow_back</span>
         </button>
         <div>
-          <h2 className="text-2xl font-bold tracking-[0.2em] text-white">Weapons Archive</h2>
+          <h2 className="text-2xl font-black tracking-[0.3em] text-white uppercase">WEAPONS</h2>
           <p className="text-[10px] text-slate-500 tracking-widest uppercase mt-1">Foundry Inventory Access</p>
         </div>
       </div>
@@ -219,7 +233,7 @@ const App: React.FC = () => {
           <span className="material-symbols-outlined text-3xl">arrow_back</span>
         </button>
         <div>
-          <h2 className="text-2xl font-bold tracking-[0.2em] text-white">Mods Library</h2>
+          <h2 className="text-2xl font-black tracking-[0.3em] text-white uppercase">MODS</h2>
           <p className="text-[10px] text-slate-500 tracking-widest uppercase mt-1">Equipment Calibration Node</p>
         </div>
       </div>

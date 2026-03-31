@@ -176,10 +176,68 @@ const TacticalOverlay: React.FC<TacticalOverlayProps> = ({ item, onClose, onNavi
                       {item.category || 'TACTICAL'}
                     </span>
                   </div>
-                  {item.description && (
+                  {item.description && item.category !== 'AUGMENT' && (
                     <p className="text-sm text-slate-300 leading-relaxed italic opacity-80">
                       "{item.description}"
                     </p>
+                  )}
+
+                  {/* AUGMENT STATS GRID */}
+                  {item.category === 'AUGMENT' && (item.maxWeight || item.backpackSlots) && (
+                    <div className="mt-4 space-y-3 pb-2">
+                       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                          <div className="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-2xl shadow-inner group/stat hover:bg-white/10 transition-all">
+                             <img src="https://arcraiders.wiki/w/images/thumb/e/e8/Icon_Weight.png/22px-Icon_Weight.png.webp" className="w-8 h-8 object-contain drop-shadow-glow" alt="Weight" />
+                             <div className="flex flex-col">
+                                <span className="text-[10px] text-slate-500 font-bold tracking-widest uppercase">WEIGHT</span>
+                                <span className="text-base font-black text-white">{item.maxWeight} KG</span>
+                             </div>
+                          </div>
+                          <div className="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-2xl shadow-inner group/stat hover:bg-white/10 transition-all">
+                             <img src="https://arcraiders.wiki/w/images/thumb/7/7f/Icon_AllItems.png/30px-Icon_AllItems.png.webp" className="w-8 h-8 object-contain drop-shadow-glow" alt="Backpack" />
+                             <div className="flex flex-col">
+                                <span className="text-[10px] text-slate-500 font-bold tracking-widest uppercase">BACKPACK</span>
+                                <span className="text-base font-black text-white">{item.backpackSlots}</span>
+                             </div>
+                          </div>
+                          <div className="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-2xl shadow-inner group/stat hover:bg-white/10 transition-all">
+                             <img src="https://arcraiders.wiki/w/images/thumb/7/71/Icon_QuickUse.png/30px-Icon_QuickUse.png.webp" className="w-8 h-8 object-contain drop-shadow-glow" alt="Quick Use" />
+                             <div className="flex flex-col">
+                                <span className="text-[10px] text-slate-500 font-bold tracking-widest uppercase">QUICK USE</span>
+                                <span className="text-base font-black text-white">{item.quickUseSlots}</span>
+                             </div>
+                          </div>
+                          <div className="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-2xl shadow-inner group/stat hover:bg-white/10 transition-all">
+                             <img src="https://arcraiders.wiki/w/images/thumb/6/67/Icon_SafePocket.png/30px-Icon_SafePocket.png.webp" className="w-8 h-8 object-contain drop-shadow-glow" alt="Safe Pocket" />
+                             <div className="flex flex-col">
+                                <span className="text-[10px] text-slate-500 font-bold tracking-widest uppercase">SAFE POCKET</span>
+                                <span className="text-base font-black text-white">{item.safePocketSlots}</span>
+                             </div>
+                          </div>
+                       </div>
+                       
+                       {item.shieldCompat && (
+                          <div className="flex items-center gap-4 bg-white/5 border border-white/10 p-3 rounded-2xl shadow-inner group/stat hover:bg-white/10 transition-all w-full">
+                             <img src="https://arcraiders.wiki/w/images/thumb/6/61/Icon_Shield_I.png/25px-Icon_Shield_I.png.webp" className="w-8 h-8 object-contain drop-shadow-glow" alt="Shields" />
+                             <div className="flex flex-col flex-1">
+                                <span className="text-[10px] text-slate-500 font-bold tracking-widest uppercase">SHIELD COMPATIBILITY</span>
+                                <span className="text-sm font-black text-violet-300 uppercase tracking-widest">{item.shieldCompat}</span>
+                             </div>
+                          </div>
+                       )}
+                    </div>
+                  )}
+
+                  {item.perks && (
+                    <div className="mt-4 p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20 shadow-inner">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="material-symbols-outlined text-amber-400 text-[20px]">bolt</span>
+                        <h4 className="text-[11px] font-black tracking-[0.2em] uppercase text-amber-400">PERKS</h4>
+                      </div>
+                      <p className="text-sm text-white font-black leading-relaxed">
+                        {item.perks}
+                      </p>
+                    </div>
                   )}
                 </div>
               </div>
