@@ -1,9 +1,9 @@
-
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Weapon, Modification, Throwable, Material, Augment, Rarity, PlannerLoadout, MultiLoadoutState, PlannerWeaponSlot, PlannerConsumableSlot } from '../types';
 import { getRarityIconColor, getRarityStyles, getSourceImageUrl, getRarityGlowStyles, getRarityHoverStyles, getModSlotType, getRarityBorderColor } from '../utils';
 import { generateItemTooltip } from './tooltipHelper';
 import RichTooltip from './RichTooltip';
+import SetupTooltip from './SetupTooltip';
 import { WEAPON_MOD_SLOTS, WEAPON_SETUPS_DATA } from '../data';
 
 interface PlannerScreenProps {
@@ -654,18 +654,22 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                      if (!setup) return null;
                      return (
                         <div className="flex gap-2 w-full mt-2">
-                           <button 
-                             onClick={() => applyWeaponSetup(slotKey, 'S')}
-                             className="flex-1 flex flex-col items-center justify-center py-2.5 bg-amber-400/10 hover:bg-amber-400 border-2 border-amber-400/30 hover:border-amber-400 text-amber-400 hover:text-black rounded-xl transition-all shadow-lg active:scale-95"
-                           >
-                              <span className="text-[12px] font-black tracking-[0.2em] uppercase">TIER S</span>
-                           </button>
-                           <button 
-                             onClick={() => applyWeaponSetup(slotKey, 'A')}
-                             className="flex-1 flex flex-col items-center justify-center py-2.5 bg-red-500/10 hover:bg-red-600 border-2 border-red-500/30 hover:border-red-600 text-red-500 hover:text-white rounded-xl transition-all shadow-lg active:scale-95"
-                           >
-                              <span className="text-[12px] font-black tracking-[0.2em] uppercase">TIER A</span>
-                           </button>
+                           <SetupTooltip setup={setup.setups.S} tier="S">
+                              <button 
+                                onClick={() => applyWeaponSetup(slotKey, 'S')}
+                                className="flex-1 flex flex-col items-center justify-center py-2.5 bg-amber-400/10 hover:bg-amber-400 border-2 border-amber-400/30 hover:border-amber-400 text-amber-400 hover:text-black rounded-xl transition-all shadow-lg active:scale-95"
+                              >
+                                 <span className="text-[12px] font-black tracking-[0.2em] uppercase">TIER S</span>
+                              </button>
+                           </SetupTooltip>
+                           <SetupTooltip setup={setup.setups.A} tier="A">
+                              <button 
+                                onClick={() => applyWeaponSetup(slotKey, 'A')}
+                                className="flex-1 flex flex-col items-center justify-center py-2.5 bg-fuchsia-500/10 hover:bg-fuchsia-600 border-2 border-fuchsia-500/30 hover:border-fuchsia-600 text-fuchsia-400 hover:text-white rounded-xl transition-all shadow-lg active:scale-95"
+                              >
+                                 <span className="text-[12px] font-black tracking-[0.2em] uppercase">TIER A</span>
+                              </button>
+                           </SetupTooltip>
                         </div>
                      );
                   })()}
@@ -707,8 +711,9 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                        {mod.imageUrl ? <img src={mod.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-[16px] text-slate-500">settings</span>}
                                     </div>
                                     <div>
-                                       <span className="text-[13px] font-bold text-slate-200 block truncate max-w-[120px]">{mod.name}</span>
-                                       <span className={`text-[10px] font-black uppercase tracking-widest ${getRarityStyles(mod.rarity).split(' ').find(c => c.startsWith('text-'))}`}>{mod.rarity}</span>
+                                       <span className="text-[13px] font-black text-slate-100 block uppercase leading-tight truncate mb-0.5">{mod.name.replace('Extended ', '').replace('III', '3').replace('II', '2').replace('I', '1')}</span>
+                                       <span className={`text-[10px] font-black uppercase tracking-widest ${getRarityStyles(mod.rarity).split(' ').find(c => c.startsWith('text-'))} block leading-none mb-1.5`}>{mod.category}</span>
+                                       <p className="text-[11px] text-slate-500 font-bold uppercase tracking-tighter leading-snug break-words max-w-[240px]">{mod.description}</p>
                                     </div>
                                  </div>
                                  <button onClick={() => {
