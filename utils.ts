@@ -1,6 +1,6 @@
 
 import { Rarity, Weapon, Modification, Material } from './types';
-import { WEAPONS_DATA, MODS_DATA, MATERIALS_DATA } from './data';
+import { WEAPONS_DATA, MODS_DATA, MATERIALS_DATA, THROWABLES_DATA, AUGMENTS_DATA, LOOT_DATA } from './data';
 
 // ─── Mod Slot Type helper (used by Planner compatibility filter) ───
 
@@ -126,22 +126,42 @@ export const isTextLinkable = (text: string, excludeMaterialId?: string): boolea
  * Returns undefined if no local image is found (caller should use explicit imageUrl or fallback).
  */
 export const getSourceImageUrl = (sourceName: string): string | undefined => {
-    // Strip tier suffixes like " I", " II", " III", " IV" for weapon matching
+    const lowerName = sourceName.toLowerCase();
+    // Strip tier suffixes like " I", " II", " III", " IV" for matching
     const baseName = sourceName.replace(/\s+(I{1,3}|IV)$/, '');
+    const lowerBase = baseName.toLowerCase();
 
-    // Check weapons (match base name)
-    const weapon = WEAPONS_DATA.find(w => w.name.toLowerCase() === baseName.toLowerCase());
+    // 1. Check Weapons (match base name)
+    const weapon = WEAPONS_DATA.find(w => w.name.toLowerCase() === lowerBase);
     if (weapon?.imageUrl) return weapon.imageUrl;
 
-    // Check mods (exact name match first, then base name)
-    const modExact = MODS_DATA.find(m => m.name.toLowerCase() === sourceName.toLowerCase());
+    // 2. Check Mods (exact name match first, then base name)
+    const modExact = MODS_DATA.find(m => m.name.toLowerCase() === lowerName);
     if (modExact?.imageUrl) return modExact.imageUrl;
-    const modBase = MODS_DATA.find(m => m.name.toLowerCase() === baseName.toLowerCase());
+    const modBase = MODS_DATA.find(m => m.name.toLowerCase() === lowerBase);
     if (modBase?.imageUrl) return modBase.imageUrl;
 
-    // Check materials
-    const material = MATERIALS_DATA.find(m => m.name.toLowerCase() === sourceName.toLowerCase());
+    // 3. Check Materials
+    const material = MATERIALS_DATA.find(m => m.name.toLowerCase() === lowerName);
     if (material?.imageUrl) return material.imageUrl;
+
+    // 4. Check Throwables & Augments
+    const throwable = THROWABLES_DATA.find(t => t.name.toLowerCase() === lowerName || t.name.toLowerCase() === lowerBase);
+    if (throwable?.imageUrl) return throwable.imageUrl;
+
+    const augment = AUGMENTS_DATA.find(a => a.name.toLowerCase() === lowerName || a.name.toLowerCase() === lowerBase);
+    if (augment?.imageUrl) return augment.imageUrl;
+
+    // 5. Check LOOT_DATA for matches within sources of any material
+    for (const category of LOOT_DATA) {
+        if (category.material.toLowerCase() === lowerName) return category.materialImageUrl;
+        
+        const sourceMatch = category.sources.find(s => 
+            s.name.toLowerCase() === lowerName || 
+            s.name.toLowerCase() === lowerBase
+        );
+        if (sourceMatch?.imageUrl) return sourceMatch.imageUrl;
+    }
 
     return undefined;
 };
@@ -164,22 +184,28 @@ export const getItemRarity = (name: string): Rarity => {
     if (mod) return mod.rarity;
 
     // 3. Check Materials
-    const material = MATERIALS_DATA.find(m => m.name.toLowerCase() === name.toLowerCase());
+    const material = MATERIALS_DATA.find(m => m.name.toLowerCase() === lowerName);
     if (material) return material.rarity;
 
-    // 4. Hardcoded fallbacks for ARC parts and specific items
-    if (lowerName.includes('damaged') || lowerName.includes('burned') || lowerName.includes('unusable') || lowerName.includes('ruined')) return 'COMMON';
-
-    const arcRareItems = [
-        'pulse unit', 'driver', 'gyro', 'adv arc powercell',
-        'arc circuitry', 'bastion cell', 'bombardier cell', 'industrial magnet',
-        'high-tech', 'frequency modulation', 'photoelectric', 'power rod'
-    ];
-    if (arcRareItems.some(item => lowerName.includes(item))) return 'RARE';
 
     const arcUncommonItems = ['arc alloy', 'motion core', 'spotter relay', 'snitch scanner', 'sample cleaner', 'rotary encoder', 'hornet driver', 'magnet'];
     if (arcUncommonItems.some(item => lowerName.includes(item))) return 'UNCOMMON';
 
     // 5. Default
     return 'COMMON';
+};
+
+/**
+ * Parses a material data string in the format "Item Name (Qtyx)"
+ * Returns an object with name and quantity, or the original string as name if parsing fails.
+ */
+export const parseMaterialString = (s: string): { name: string; quantity: number } => {
+    const match = s.match(/(.+?)\s*\((\d+)x\)/);
+    if (match) {
+        return {
+            name: match[1].trim(),
+            quantity: parseInt(match[2], 10)
+        };
+    }
+    return { name: s.trim(), quantity: 1 };
 };

@@ -122,6 +122,7 @@ export interface Material {
   salvageInfo?: ModRequirement[];
   stackSize?: number;
   obtainedFrom?: string[];
+  requiredFor?: string[];
 }
 
 export interface LootSource {

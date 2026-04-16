@@ -345,6 +345,7 @@ const App: React.FC = () => {
           onNavigateWeapon={handleWeaponSelect}
           onNavigateMod={handleModSelect}
           onNavigateMaterial={handleMaterialSelect}
+          onNavigateTactical={handleTacticalSelect}
         />
       )}
 

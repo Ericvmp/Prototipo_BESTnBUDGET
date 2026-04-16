@@ -1,9 +1,9 @@
 
 import React, { useEffect } from 'react';
 import { Material, Weapon, Modification } from '../types';
-import { MATERIALS_DATA, LOOT_DATA } from '../data';
+import { MATERIALS_DATA, WEAPONS_DATA, MODS_DATA, THROWABLES_DATA, LOOT_DATA } from '../data';
 import { generateItemTooltip } from './tooltipHelper';
-import { getSourceImageUrl, getItemRarity, getRarityStyles, getRarityGlowStyles, getRarityHoverStyles, getRarityBorderColor } from '../utils';
+import { getSourceImageUrl, getItemRarity, getRarityStyles, getRarityGlowStyles, getRarityHoverStyles, getRarityBorderColor, parseMaterialString } from '../utils';
 import RichTooltip from './RichTooltip';
 
 interface MaterialOverlayProps {
@@ -12,6 +12,7 @@ interface MaterialOverlayProps {
   onNavigateWeapon: (w: Weapon) => void;
   onNavigateMod: (m: Modification) => void;
   onNavigateMaterial: (mat: Material) => void;
+  onNavigateTactical?: (t: import('../types').Throwable | import('../types').Augment) => void;
 }
 
 const getRarityColor = (rarity: string) => {
@@ -26,7 +27,7 @@ const getRarityColor = (rarity: string) => {
 };
 
 const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
-  material, onClose, onNavigateWeapon, onNavigateMod, onNavigateMaterial
+  material, onClose, onNavigateWeapon, onNavigateMod, onNavigateMaterial, onNavigateTactical
 }) => {
   const rarityColor = getRarityColor(material.rarity);
 
@@ -195,6 +196,136 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                 style={{ background: `linear-gradient(to right, transparent, ${rarityColor.hex}60, transparent)` }}
               />
 
+              {/* ── USED IN (TOP PRIORITY) ── */}
+              {material.requiredFor && material.requiredFor.length > 0 && (
+                <section className="mb-8">
+                  <div className="flex items-center gap-3 mb-5">
+                    <span className="material-symbols-outlined text-primary drop-shadow-[0_0_8px_rgba(var(--primary-rgb),0.5)]">assignment_late</span>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white/70">USED IN</h3>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    {material.requiredFor.map((itemStr, idx) => {
+                      const { name, quantity } = parseMaterialString(itemStr);
+                      const targetWeapon = WEAPONS_DATA.find(w => w.name === name);
+                      const targetMod = MODS_DATA.find(m => m.name === name);
+                      const targetMat = MATERIALS_DATA.find(m => m.name === name);
+                      const targetThrowable = THROWABLES_DATA.find(t => t.name === name);
+                      const targetItem = targetWeapon || targetMod || targetMat || targetThrowable;
+
+                      const handleClick = () => {
+                        if (targetWeapon) onNavigateWeapon(targetWeapon);
+                        else if (targetMod) onNavigateMod(targetMod);
+                        else if (targetMat) onNavigateMaterial(targetMat);
+                        else if (targetThrowable && onNavigateTactical) onNavigateTactical(targetThrowable);
+                      };
+
+                      const imageUrl = targetItem?.imageUrl || getSourceImageUrl(name);
+                      const rarity = targetItem?.rarity || getItemRarity(name);
+                      const icon = targetItem && 'icon' in targetItem ? (targetItem as any).icon : (targetWeapon ? 'swords' : targetMod ? 'settings_input_component' : 'inventory_2');
+
+                      return (
+                        <RichTooltip key={idx} item={targetItem || { name, rarity }}>
+                          <button
+                            onClick={targetItem ? handleClick : undefined}
+                            className={`flex items-center justify-between p-3 bg-white/5 rounded-xl border ${getRarityBorderColor(rarity)} hover:border-white/20 hover:bg-white/10 transition-all group/req-item text-left w-full ${!targetItem ? 'cursor-default' : 'cursor-pointer'}`}
+                          >
+                            <div className="flex items-center gap-3">
+                              <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0 border border-white/5 shadow-inner transition-transform group-hover/req-item:scale-110">
+                                {imageUrl ? (
+                                  <img src={imageUrl} alt={name} className="w-full h-full object-contain drop-shadow-md" />
+                                ) : (
+                                  <span className="material-symbols-outlined text-xl text-slate-400 group-hover/req-item:text-primary transition-colors">{icon}</span>
+                                )}
+                              </div>
+                              <div className="flex flex-col">
+                                <span className="text-sm font-bold text-white group-hover/req-item:text-primary transition-colors">
+                                  {name}
+                                </span>
+                                <span className="text-[9px] text-slate-500 uppercase tracking-widest font-semibold">{rarity}</span>
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <div className="flex items-center gap-1.5 bg-black/40 border border-white/5 px-2.5 py-1 rounded-lg">
+                                <span className="text-[13px] font-black text-primary">×{quantity}</span>
+                              </div>
+                              {targetItem && (
+                                <span className="material-symbols-outlined text-primary text-sm opacity-0 group-hover/req-item:opacity-100 transition-all mr-1">chevron_right</span>
+                              )}
+                            </div>
+                          </button>
+                        </RichTooltip>
+                      );
+                    })}
+                  </div>
+                </section>
+              )}
+
+              {/* ── SOURCE ── */}
+              {((material.obtainedFrom && material.obtainedFrom.length > 0) || (materialLootData && materialLootData.sources.length > 0)) && (
+                <section className="mb-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="material-symbols-outlined text-yellow-400 drop-shadow-[0_0_6px_rgba(234,179,8,0.5)]">recycling</span>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-yellow-400">SOURCE</h3>
+                  </div>
+                  <div className="space-y-2">
+                    {(material.obtainedFrom || materialLootData?.sources || []).map((sourceItem, idx) => {
+                      const { name, quantity } = typeof sourceItem === 'string' ? parseMaterialString(sourceItem) : sourceItem;
+                      const sourceImage = getSourceImageUrl(name);
+                      const srcRarity = getItemRarity(name);
+                      const srcRarityStyles = getRarityStyles(srcRarity);
+                      const srcGlow = getRarityGlowStyles(srcRarity);
+                      
+                      const targetWeapon = WEAPONS_DATA.find(w => w.name === name);
+                      const targetMod = MODS_DATA.find(m => m.name === name);
+                      const targetMat = MATERIALS_DATA.find(m => m.name === name);
+                      const targetItem = targetWeapon || targetMod || targetMat;
+
+                      const handleClick = () => {
+                        if (targetWeapon) onNavigateWeapon(targetWeapon);
+                        else if (targetMod) onNavigateMod(targetMod);
+                        else if (targetMat) onNavigateMaterial(targetMat);
+                      };
+
+                      return (
+                        <RichTooltip key={idx} item={targetItem || { name, rarity: srcRarity }}>
+                           <button
+                              onClick={targetItem ? handleClick : undefined}
+                              className={`relative w-full flex items-center justify-between p-3 rounded-xl bg-slate-800/60 border transition-all group/src ${srcRarityStyles} ${targetItem ? 'hover:bg-slate-700/60 cursor-pointer' : 'cursor-default'}`}
+                           >
+                              <div className={`absolute inset-0 opacity-0 group-hover/src:opacity-20 bg-gradient-to-r ${srcGlow} to-transparent transition-opacity rounded-xl`} />
+                              <div className="flex items-center gap-3 relative z-10">
+                                 <div className="w-10 h-10 rounded-lg bg-black/30 flex items-center justify-center p-1.5 border border-white/5 transition-transform group-hover/src:scale-110 shrink-0">
+                                 {sourceImage ? (
+                                    <img src={sourceImage} alt={name} className="w-full h-full object-contain drop-shadow-md" />
+                                 ) : (
+                                    <span className="material-symbols-outlined text-lg text-slate-500">inventory_2</span>
+                                 )}
+                                 </div>
+                                 <div className="flex flex-col text-left">
+                                 <span className="text-[12px] font-black text-slate-100 tracking-wider">
+                                    {name}
+                                 </span>
+                                 <span className={`text-[9px] font-bold mt-0.5 px-1.5 py-0.5 rounded border-[0.5px] uppercase tracking-[0.15em] self-start ${srcRarityStyles}`}>
+                                    {srcRarity}
+                                 </span>
+                                 </div>
+                              </div>
+                              <div className="flex items-center gap-2 relative z-10">
+                                 <div className="flex items-center gap-1.5 bg-black/40 border border-white/5 px-2.5 py-1 rounded-lg">
+                                    <span className="text-[13px] font-black text-primary">×{quantity}</span>
+                                 </div>
+                                 {targetItem && (
+                                   <span className="material-symbols-outlined text-primary text-sm opacity-0 group-hover/src:opacity-100 transition-all">chevron_right</span>
+                                 )}
+                              </div>
+                           </button>
+                        </RichTooltip>
+                      );
+                    })}
+                  </div>
+                </section>
+              )}
+
               {/* ── CRAFT SECTION ── */}
               <section className="mb-8">
                 <div className="flex items-center gap-3 mb-4">
@@ -228,11 +359,11 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                                 className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all group/req text-left w-full"
                               >
                               <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0">
+                                <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0 border border-white/5">
                                   {targetMat?.imageUrl ? (
                                     <img src={targetMat.imageUrl} alt={req.name} className="w-full h-full object-contain" />
                                   ) : (
-                                    <span className="material-symbols-outlined text-xl text-slate-400">{targetMat?.icon || 'inventory_2'}</span>
+                                    <span className="material-symbols-outlined text-xl text-slate-400 group-hover/req:text-primary transition-colors">{targetMat?.icon || 'inventory_2'}</span>
                                   )}
                                 </div>
                                 <span className="text-sm font-bold text-white group-hover/req:text-primary transition-colors">
@@ -249,80 +380,6 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                   </div>
                 )}
               </section>
-
-              {/* ── OBTAINED FROM SECTION ── */}
-              {material.obtainedFrom && material.obtainedFrom.length > 0 && (
-                <section className="mb-8 p-5 bg-sky-500/5 border border-sky-500/10 rounded-2xl relative overflow-hidden group/obtained">
-                  <div className="absolute top-0 left-0 w-1 h-full bg-sky-500/30" />
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-1.5 rounded-lg bg-sky-500/10 border border-sky-500/20">
-                      <span className="material-symbols-outlined text-[20px] block text-sky-400">explore</span>
-                    </div>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-sky-400">OBTAINED FROM</h3>
-                  </div>
-                  <div className="flex flex-wrap gap-2.5">
-                    {material.obtainedFrom.map((source, idx) => (
-                      <div 
-                        key={idx} 
-                        className="flex items-center gap-2 px-3 py-1.5 bg-slate-900/60 border border-white/5 rounded-xl transition-all hover:border-sky-500/30 hover:bg-slate-800 group/source"
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-sky-500/50" />
-                        <span className="text-[12px] font-bold text-slate-300 group-hover/source:text-sky-300 transition-colors uppercase tracking-wider">
-                          {source}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </section>
-              )}
-
-              {/* ── RECYCLING SOURCES ── */}
-              {materialLootData && materialLootData.sources.length > 0 && (
-                <section className="mb-8">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="material-symbols-outlined text-yellow-400 drop-shadow-[0_0_6px_rgba(234,179,8,0.5)]">recycling</span>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-yellow-400">RECYCLING SOURCES</h3>
-                    <span className="ml-auto text-[10px] font-bold text-slate-600 tracking-widest">TOP {materialLootData.sources.length}</span>
-                  </div>
-                  <div className="space-y-2">
-                    {materialLootData.sources.map((source, idx) => {
-                      const sourceImage = source.imageUrl || getSourceImageUrl(source.name);
-                      const srcRarity = getItemRarity(source.name);
-                      const srcRarityStyles = getRarityStyles(srcRarity);
-                      const srcGlow = getRarityGlowStyles(srcRarity);
-                      return (
-                        <RichTooltip key={idx} item={MATERIALS_DATA.find(m => m.name === source.name) || { name: source.name, rarity: srcRarity }}>
-                           <div
-                              className={`relative flex items-center justify-between p-3 rounded-xl bg-slate-800/60 border transition-all group/src ${srcRarityStyles}`}
-                           >
-                              <div className={`absolute inset-0 opacity-0 group-hover/src:opacity-20 bg-gradient-to-r ${srcGlow} to-transparent transition-opacity rounded-xl`} />
-                              <div className="flex items-center gap-3 relative z-10">
-                                 <div className="w-10 h-10 rounded-lg bg-black/30 flex items-center justify-center p-1.5 border border-white/5 transition-transform group-hover/src:scale-110 shrink-0">
-                                 {sourceImage ? (
-                                    <img src={sourceImage} alt={source.name} className="w-full h-full object-contain drop-shadow-md" />
-                                 ) : (
-                                    <span className="material-symbols-outlined text-lg text-slate-500">inventory_2</span>
-                                 )}
-                                 </div>
-                                 <div className="flex flex-col">
-                                 <span className="text-[12px] font-black text-slate-100 tracking-wider">
-                                    {source.name}
-                                 </span>
-                                 <span className={`text-[9px] font-bold mt-0.5 px-1.5 py-0.5 rounded border-[0.5px] uppercase tracking-[0.15em] self-start ${srcRarityStyles}`}>
-                                    {srcRarity}
-                                 </span>
-                                 </div>
-                              </div>
-                              <div className="flex items-center gap-1.5 bg-black/40 border border-white/5 px-2.5 py-1 rounded-lg relative z-10">
-                                 <span className="text-[13px] font-black text-primary">×{source.quantity}</span>
-                              </div>
-                           </div>
-                        </RichTooltip>
-                      );
-                    })}
-                  </div>
-                </section>
-              )}
 
               {/* ── RECYCLING RESULTS ── */}
               {recycleResults.length > 0 && (
@@ -343,7 +400,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
 
               {/* ── SALVAGING RESULTS ── */}
               {salvageResults.length > 0 && (
-                <section>
+                <section className="mb-8">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="material-symbols-outlined text-amber-400">build_circle</span>
                     <h3 className="text-xs font-black tracking-[0.4em] uppercase text-amber-400">SALVAGING</h3>

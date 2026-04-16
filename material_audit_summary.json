@@ -1,0 +1,863 @@
+{
+  "Metal Parts": {
+    "sources": [
+      "Rattler (8x)",
+      "Damaged Heat Sink (6x)",
+      "Compensator I (5x)",
+      "Muzzle Brake I (5x)",
+      "Shotgun Choke I (5x)",
+      "Industrial Charger (5x)",
+      "Blaze Grenade (4x)",
+      "Industrial Magnet (4x)",
+      "Unusable Weapon (4x)",
+      "Acoustic Guitar (4x)",
+      "Water Pump (4x)",
+      "Mechanical Components (3x)",
+      "Stitcher (3x)",
+      "Kettle (3x)",
+      "Steel Spring (2x)",
+      "Simple Gun Parts (2x)",
+      "Magnet (2x)",
+      "ARC Alloy (2x)",
+      "Battery (2x)",
+      "Hairpin (2x)",
+      "Ferro (2x)",
+      "Sensors (1x)",
+      "Shrapnel Grenade (1x)",
+      "Zipline (1x)"
+    ],
+    "usedIn": [
+      "Rattler (16x)",
+      "Stitcher (8x)",
+      "Mechanical Components (7x)",
+      "Compensator I (6x)",
+      "Muzzle Brake I (6x)",
+      "Shotgun Choke I (6x)",
+      "Kettle (6x)",
+      "Ferro (5x)",
+      "Hairpin (2x)"
+    ]
+  },
+  "Rubber Parts": {
+    "sources": [
+      "Rubber Pad (18x)",
+      "Ruined Accordion (18x)",
+      "ARC Flex Rubber (16x)",
+      "Diving Goggles (12x)",
+      "Degraded ARC Rubber (11x)",
+      "Deflated Football (9x)",
+      "Expired Respirator (8x)",
+      "Headphones (7x)",
+      "Thermostat (7x)",
+      "Stable Stock I (6x)",
+      "Ruined Riot Shield (6x)",
+      "Shield Recharger (4x)",
+      "Electrical Components (3x)",
+      "Speaker Component (3x)",
+      "Combat Mk. 1 (3x)",
+      "Looting Mk. 1 (3x)",
+      "Tactical Mk. 1 (3x)",
+      "Mechanical Components (2x)",
+      "Wires (2x)",
+      "Stitcher (2x)",
+      "Kettle (2x)",
+      "Heavy Fuze Grenade (2x)",
+      "Voltage Converter (1x)",
+      "Hairpin (1x)",
+      "Ferro (1x)"
+    ],
+    "usedIn": [
+      "Rattler (12x)",
+      "Kettle (8x)",
+      "Stable Stock I (6x)",
+      "Combat Mk. 1 (6x)",
+      "Looting Mk. 1 (6x)",
+      "Tactical Mk. 1 (6x)",
+      "Shield Recharger (5x)",
+      "Electrical Components (4x)",
+      "Stitcher (4x)",
+      "Mechanical Components (3x)",
+      "Ferro (2x)"
+    ]
+  },
+  "Plastic Parts": {
+    "sources": [
+      "ARC Synthetic Resin (14x)",
+      "Cooling Fan (14x)",
+      "Recorder (10x)",
+      "Ruined Riot Shield (10x)",
+      "Shaker (10x)",
+      "Dried-Out ARC Resin (9x)",
+      "Camera Lens (8x)",
+      "Remote Control (7x)",
+      "Extended Light Mag I (6x)",
+      "Extended Medium Mag I (6x)",
+      "Extended Shotgun Mag I (6x)",
+      "Angled Grip I (6x)",
+      "Vertical Grip I (6x)",
+      "Alarm Clock (6x)",
+      "Toaster (5x)",
+      "Fried Motherboard (5x)",
+      "Light Shield (4x)",
+      "Electrical Components (3x)",
+      "Canister (3x)",
+      "Syringe (3x)",
+      "Combat Mk. 1 (3x)",
+      "Looting Mk. 1 (3x)",
+      "Tactical Mk. 1 (3x)",
+      "Speaker Component (2x)",
+      "Jolt Mine (2x)",
+      "Processor (1x)",
+      "Synthesized Fuel (1x)",
+      "Light Impact Grenade (1x)",
+      "Defibrillator (1x)"
+    ],
+    "usedIn": [
+      "Defibrillator (9x)",
+      "Electrical Components (8x)",
+      "Extended Light Mag I (6x)",
+      "Extended Medium Mag I (6x)",
+      "Extended Shotgun Mag I (6x)",
+      "Angled Grip I (6x)",
+      "Vertical Grip I (6x)",
+      "Combat Mk. 1 (6x)",
+      "Looting Mk. 1 (6x)",
+      "Tactical Mk. 1 (6x)",
+      "Hairpin (5x)",
+      "Light Shield (4x)",
+      "Light Impact Grenade (2x)",
+      "Noisemaker (2x)"
+    ]
+  },
+  "Mechanical Components": {
+    "sources": [
+      "Vertical Grip III (2x)",
+      "Arpeggio (2x)",
+      "Il Toro (2x)",
+      "Anvil (2x)",
+      "Motor (2x)",
+      "Mod Components (1x)",
+      "Advanced Mechanical Components (1x)",
+      "Compensator II (1x)",
+      "Muzzle Brake II (1x)",
+      "Shotgun Choke II (1x)",
+      "Silencer I (1x)",
+      "Extended Light Mag II (1x)",
+      "Extended Medium Mag II (1x)",
+      "Extended Shotgun Mag II (1x)",
+      "Angled Grip II (1x)",
+      "Vertical Grip II (1x)",
+      "Stable Stock II (1x)",
+      "Burletta (1x)",
+      "Turbo Pump (1x)"
+    ],
+    "usedIn": [
+      "Arpeggio (6x)",
+      "Il Toro (5x)",
+      "Anvil (5x)",
+      "Burletta (3x)",
+      "Mod Components (2x)",
+      "Advanced Mechanical Components (2x)",
+      "Compensator II (2x)",
+      "Muzzle Brake II (2x)",
+      "Shotgun Choke II (2x)",
+      "Silencer I (2x)",
+      "Extended Light Mag II (2x)",
+      "Extended Medium Mag II (2x)",
+      "Extended Shotgun Mag II (2x)",
+      "Angled Grip II (2x)",
+      "Vertical Grip II (2x)",
+      "Stable Stock II (2x)",
+      "Zipline (1x)"
+    ]
+  },
+  "Mod Components": {
+    "sources": [
+      "Compensator III (1x)",
+      "Muzzle Brake III (1x)",
+      "Shotgun Choke III (1x)",
+      "Silencer II (1x)",
+      "Silencer III (1x)",
+      "Extended Barrel (1x)",
+      "Extended Light Mag III (1x)",
+      "Extended Medium Mag III (1x)",
+      "Extended Shotgun Mag III (1x)",
+      "Angled Grip III (1x)",
+      "Horizontal Grip (1x)",
+      "Stable Stock III (1x)",
+      "Lightweight Stock (1x)",
+      "Kinetic Converter (1x)",
+      "Anvil Splitter (1x)"
+    ],
+    "usedIn": [
+      "Compensator III (2x)",
+      "Muzzle Brake III (2x)",
+      "Shotgun Choke III (2x)",
+      "Silencer II (2x)",
+      "Extended Barrel (2x)",
+      "Extended Light Mag III (2x)",
+      "Extended Medium Mag III (2x)",
+      "Extended Shotgun Mag III (2x)",
+      "Angled Grip III (2x)",
+      "Vertical Grip III (2x)",
+      "Stable Stock III (2x)",
+      "Lightweight Stock (2x)"
+    ]
+  },
+  "Steel Spring": {
+    "sources": [
+      "Ruined Accordion (3x)",
+      "Extended Light Mag III (2x)",
+      "Extended Medium Mag III (2x)",
+      "Extended Shotgun Mag III (2x)",
+      "Cooling Coil (2x)",
+      "Spring Cushion (2x)",
+      "Mod Components (1x)",
+      "Advanced Mechanical Components (1x)",
+      "Extended Light Mag II (1x)",
+      "Extended Medium Mag II (1x)",
+      "Extended Shotgun Mag II (1x)",
+      "Magnetron (1x)"
+    ],
+    "usedIn": [
+      "Torrente (6x)",
+      "Extended Light Mag III (5x)",
+      "Extended Medium Mag III (5x)",
+      "Extended Shotgun Mag III (5x)",
+      "Extended Light Mag II (3x)",
+      "Extended Medium Mag II (3x)",
+      "Extended Shotgun Mag II (3x)",
+      "Mod Components (2x)",
+      "Advanced Mechanical Components (2x)",
+      "Shrapnel Grenade (2x)",
+      "Extended Light Mag I (1x)",
+      "Extended Medium Mag I (1x)",
+      "Extended Shotgun Mag I (1x)"
+    ]
+  },
+  "Wires": {
+    "sources": [
+      "Portable TV (6x)",
+      "Acoustic Guitar (6x)",
+      "Cooling Fan (4x)",
+      "Power Cable (4x)",
+      "Silencer III (3x)",
+      "Toaster (3x)",
+      "Compensator III (2x)",
+      "Muzzle Brake III (2x)",
+      "Shotgun Choke III (2x)",
+      "Silencer II (2x)",
+      "Broken Handheld Radio (2x)",
+      "Broken Taser (2x)",
+      "Damaged Heat Sink (2x)",
+      "Power Bank (2x)",
+      "Humidifier (2x)",
+      "Advanced Electrical Components (1x)",
+      "Voltage Converter (1x)",
+      "Processor (1x)",
+      "Sensors (1x)",
+      "Compensator II (1x)",
+      "Muzzle Brake II (1x)",
+      "Shotgun Choke II (1x)",
+      "Silencer I (1x)",
+      "Extended Barrel (1x)"
+    ],
+    "usedIn": [
+      "Compensator III (8x)",
+      "Muzzle Brake III (8x)",
+      "Shotgun Choke III (8x)",
+      "Silencer II (8x)",
+      "Extended Barrel (8x)",
+      "Osprey (7x)",
+      "Compensator II (4x)",
+      "Muzzle Brake II (4x)",
+      "Shotgun Choke II (4x)",
+      "Silencer I (4x)",
+      "Advanced Electrical Components (3x)",
+      "Compensator I (1x)",
+      "Muzzle Brake I (1x)",
+      "Shotgun Choke I (1x)"
+    ]
+  },
+  "Duct Tape": {
+    "sources": [
+      "Angled Grip III (2x)",
+      "Vertical Grip III (2x)",
+      "Horizontal Grip (2x)",
+      "Stable Stock III (2x)",
+      "Kinetic Converter (2x)",
+      "Angled Grip II (1x)",
+      "Vertical Grip II (1x)",
+      "Stable Stock II (1x)",
+      "Lightweight Stock (1x)"
+    ],
+    "usedIn": [
+      "Angled Grip III (5x)",
+      "Vertical Grip III (5x)",
+      "Stable Stock III (5x)",
+      "Lightweight Stock (5x)",
+      "Angled Grip II (3x)",
+      "Vertical Grip II (3x)",
+      "Stable Stock II (3x)",
+      "Angled Grip I (1x)",
+      "Vertical Grip I (1x)",
+      "Stable Stock I (1x)"
+    ]
+  },
+  "Simple Gun Parts": {
+    "sources": [
+      "Unusable Weapon (5x)",
+      "Complex Gun Parts (3x)",
+      "Light Gun Parts (2x)",
+      "Medium Gun Parts (2x)",
+      "Heavy Gun Parts (2x)",
+      "Arpeggio (2x)",
+      "Il Toro (2x)",
+      "Anvil (2x)",
+      "Burletta (2x)"
+    ],
+    "usedIn": [
+      "Arpeggio (6x)",
+      "Il Toro (6x)",
+      "Anvil (6x)",
+      "Light Gun Parts (4x)",
+      "Medium Gun Parts (4x)",
+      "Heavy Gun Parts (4x)",
+      "Burletta (3x)"
+    ]
+  },
+  "Light Gun Parts": {
+    "sources": [
+      "Bobcat (2x)"
+    ],
+    "usedIn": [
+      "Bobcat (3x)",
+      "Complex Gun Parts (2x)"
+    ]
+  },
+  "Medium Gun Parts": {
+    "sources": [
+      "Tempest (2x)",
+      "Renegade (2x)",
+      "Venator (2x)",
+      "Osprey (2x)",
+      "Torrente (2x)"
+    ],
+    "usedIn": [
+      "Tempest (3x)",
+      "Renegade (3x)",
+      "Venator (3x)",
+      "Osprey (3x)",
+      "Torrente (3x)",
+      "Complex Gun Parts (2x)"
+    ]
+  },
+  "Heavy Gun Parts": {
+    "sources": [
+      "Bettina (2x)",
+      "Vulcano (2x)",
+      "Hullcracker (2x)"
+    ],
+    "usedIn": [
+      "Bettina (3x)",
+      "Vulcano (3x)",
+      "Hullcracker (3x)",
+      "Complex Gun Parts (2x)"
+    ]
+  },
+  "Adv Mechanical Components": {
+    "sources": [
+      "Tempest (2x)",
+      "Bobcat (2x)",
+      "Vulcano (2x)",
+      "Hullcracker (2x)",
+      "Magnetic Accelerator (1x)",
+      "Bettina (1x)",
+      "Renegade (1x)",
+      "Venator (1x)",
+      "Osprey (1x)",
+      "Torrente (1x)",
+      "Bastion Cell (1x)",
+      "Bombardier Cell (1x)",
+      "Leaper Pulse Unit (1x)",
+      "Microscope (1x)"
+    ],
+    "usedIn": [
+      "Bettina (3x)",
+      "Magnetic Accelerator (2x)",
+      "Renegade (2x)",
+      "Venator (2x)",
+      "Osprey (2x)",
+      "Torrente (2x)"
+    ]
+  },
+  "Magnet": {
+    "sources": [
+      "Microscope (3x)",
+      "Exodus Modules (2x)",
+      "Industrial Magnet (2x)",
+      "Snap Blast Grenade (1x)",
+      "Combat Mk. 2 (1x)",
+      "Looting Mk. 2 (1x)",
+      "Ripped Safety Vest (1x)",
+      "Ruined Tactical Vest (1x)",
+      "Tactical Mk. 2 (1x)"
+    ],
+    "usedIn": [
+      "Venator (5x)",
+      "Combat Mk. 2 (3x)",
+      "Looting Mk. 2 (3x)",
+      "Tactical Mk. 2 (3x)",
+      "Snap Blast Grenade (1x)"
+    ]
+  },
+  "ARC Alloy": {
+    "sources": [
+      "Rocketeer Driver (3x)",
+      "Damaged Leaper Pulse Unit (3x)",
+      "Damaged Rocketeer Driver (3x)",
+      "Bastion Cell (3x)",
+      "Bombardier Cell (3x)",
+      "Leaper Pulse Unit (3x)",
+      "ARC Circuitry (2x)",
+      "ARC Motion Core (2x)",
+      "Tick Pod (2x)",
+      "Firefly Burner (2x)",
+      "Comet Igniter (2x)",
+      "Hornet Driver (1x)",
+      "Snitch Scanner (1x)",
+      "Spotter Relay (1x)"
+    ],
+    "usedIn": [
+      "ARC Circuitry (8x)",
+      "ARC Motion Core (8x)",
+      "Light Shield (2x)",
+      "Seeker Grenade (2x)"
+    ]
+  },
+  "ARC Powercell": {
+    "sources": [
+      "Advanced ARC Powercell (2x)"
+    ],
+    "usedIn": [
+      "Shield Recharger (1x)"
+    ]
+  },
+  "Adv ARC Powercell": {
+    "sources": [],
+    "usedIn": [
+      "Surge Shield Recharger (1x)"
+    ]
+  },
+  "Electrical Components": {
+    "sources": [
+      "Fried Motherboard (2x)",
+      "Rotary Encoder (2x)",
+      "Sample Cleaner (2x)",
+      "Signal Amplifier (2x)",
+      "Advanced Electrical Components (1x)",
+      "Hornet Driver (1x)",
+      "Showstopper (1x)",
+      "Surge Shield Recharger (1x)",
+      "Combat Mk. 2 (1x)",
+      "Looting Mk. 2 (1x)",
+      "Tactical Mk. 2 (1x)",
+      "Snitch Scanner (1x)",
+      "Spotter Relay (1x)"
+    ],
+    "usedIn": [
+      "Advanced Electrical Components (2x)",
+      "Combat Mk. 2 (2x)",
+      "Looting Mk. 2 (2x)",
+      "Tactical Mk. 2 (2x)",
+      "Showstopper (1x)",
+      "Jolt Mine (1x)",
+      "Surge Shield Recharger (1x)"
+    ]
+  },
+  "Adv Electrical Components": {
+    "sources": [
+      "Rocketeer Driver (2x)",
+      "Power Rod (1x)",
+      "Combat Mk. 3 (Aggressive) (1x)",
+      "Combat Mk. 3 (Flanking) (1x)",
+      "Frequency Modulation Box (1x)",
+      "Looting Mk. 3 (Cautious) (1x)",
+      "Looting Mk. 3 (Safekeeper) (1x)",
+      "Looting Mk. 3 (Survivor) (1x)",
+      "Photoelectric Cloak (1x)",
+      "Tactical Mk. 3 (Defensive) (1x)",
+      "Tactical Mk. 3 (Healing) (1x)"
+    ],
+    "usedIn": [
+      "Power Rod (2x)",
+      "Combat Mk. 3 (Aggressive) (2x)",
+      "Combat Mk. 3 (Flanking) (2x)",
+      "Looting Mk. 3 (Cautious) (2x)",
+      "Looting Mk. 3 (Safekeeper) (2x)",
+      "Looting Mk. 3 (Survivor) (2x)",
+      "Photoelectric Cloak (2x)",
+      "Tactical Mk. 3 (Defensive) (2x)",
+      "Tactical Mk. 3 (Healing) (2x)"
+    ]
+  },
+  "ARC Circuitry": {
+    "sources": [
+      "Heavy Shield (2x)",
+      "Power Rod (1x)",
+      "Medium Shield (1x)",
+      "Deadline (1x)"
+    ],
+    "usedIn": [
+      "Power Rod (2x)",
+      "Deadline (2x)",
+      "Medium Shield (1x)"
+    ]
+  },
+  "ARC Motion Core": {
+    "sources": [
+      "Magnetic Accelerator (1x)",
+      "Wolfpack (1x)"
+    ],
+    "usedIn": [
+      "Magnetic Accelerator (2x)",
+      "Wolfpack (2x)",
+      "Launcher Ammo (1x)"
+    ]
+  },
+  "Chemicals": {
+    "sources": [
+      "Antiseptic (10x)",
+      "Cooling Coil (6x)",
+      "Coolant (5x)",
+      "Vita Shot (4x)",
+      "Crude Explosives (3x)",
+      "Oil (3x)",
+      "Tick Pod (2x)",
+      "Syringe (2x)",
+      "Smoke Grenade (2x)",
+      "Light Impact Grenade (1x)",
+      "Snap Blast Grenade (1x)"
+    ],
+    "usedIn": [
+      "Smoke Grenade (14x)",
+      "Antiseptic (10x)",
+      "Crude Explosives (6x)",
+      "Light Impact Grenade (3x)"
+    ]
+  },
+  "Antiseptic": {
+    "sources": [
+      "Vita Spray (1x)",
+      "Sterilized Bandage (1x)"
+    ],
+    "usedIn": [
+      "Vita Spray (3x)",
+      "Vita Shot (2x)",
+      "Sterilized Bandage (1x)"
+    ]
+  },
+  "Canister": {
+    "sources": [
+      "Humidifier (2x)",
+      "Smoke Grenade (1x)",
+      "Vita Spray (1x)"
+    ],
+    "usedIn": [
+      "Bettina (3x)",
+      "Heavy Fuze Grenade (2x)",
+      "Smoke Grenade (1x)",
+      "Vita Spray (1x)",
+      "Shaker (1x)"
+    ]
+  },
+  "Tick Pod": {
+    "sources": [],
+    "usedIn": [
+      "Vita Spray (1x)"
+    ]
+  },
+  "Fabric": {
+    "sources": [
+      "Deflated Football (9x)",
+      "Durable Cloth (6x)",
+      "Polluted Air Filter (6x)",
+      "Rope (5x)",
+      "Herbal Bandage (5x)",
+      "Ruined Tactical Vest (5x)",
+      "Expired Respirator (4x)",
+      "Duct Tape (3x)",
+      "Sterilized Bandage (1x)"
+    ],
+    "usedIn": [
+      "Durable Cloth (14x)"
+    ]
+  },
+  "Durable Cloth": {
+    "sources": [
+      "Spring Cushion (2x)",
+      "Ripped Safety Vest (1x)"
+    ],
+    "usedIn": [
+      "Sterilized Bandage (2x)",
+      "Herbal Bandage (1x)"
+    ]
+  },
+  "Great Mullein": {
+    "sources": [],
+    "usedIn": [
+      "Antiseptic (2x)",
+      "Herbal Bandage (1x)"
+    ]
+  },
+  "Moss": {
+    "sources": [
+      "Defibrillator (1x)"
+    ],
+    "usedIn": [
+      "Defibrillator (1x)"
+    ]
+  },
+  "Battery": {
+    "sources": [
+      "Broken Taser (2x)",
+      "Portable TV (2x)",
+      "Power Bank (2x)",
+      "Jolt Mine (1x)"
+    ],
+    "usedIn": [
+      "Medium Shield (4x)",
+      "Jolt Mine (1x)"
+    ]
+  },
+  "Power Rod": {
+    "sources": [
+      "Matriarch Reactor (1x)",
+      "Queen Reactor (1x)",
+      "Snap Hook (1x)"
+    ],
+    "usedIn": [
+      "Snap Hook (2x)",
+      "Heavy Shield (1x)"
+    ]
+  },
+  "Syringe": {
+    "sources": [
+      "Vita Shot (1x)"
+    ],
+    "usedIn": [
+      "Vita Shot (1x)"
+    ]
+  },
+  "Voltage Converter": {
+    "sources": [
+      "Ion Sputter (4x)",
+      "Signal Amplifier (2x)",
+      "Heavy Shield (1x)",
+      "Showstopper (1x)",
+      "Industrial Charger (1x)"
+    ],
+    "usedIn": [
+      "Heavy Shield (2x)",
+      "Showstopper (1x)"
+    ]
+  },
+  "Complex Gun Parts": {
+    "sources": [
+      "Aphelion (1x)",
+      "Jupiter (1x)",
+      "Equalizer (1x)"
+    ],
+    "usedIn": [
+      "Aphelion (3x)",
+      "Jupiter (3x)",
+      "Equalizer (3x)"
+    ]
+  },
+  "Magnetic Accelerator": {
+    "sources": [
+      "Aphelion (2x)",
+      "Jupiter (2x)",
+      "Equalizer (2x)",
+      "Matriarch Reactor (1x)",
+      "Queen Reactor (1x)",
+      "Magnetron (1x)"
+    ],
+    "usedIn": [
+      "Aphelion (3x)",
+      "Jupiter (3x)",
+      "Equalizer (3x)",
+      "Tempest (1x)",
+      "Bobcat (1x)",
+      "Vulcano (1x)",
+      "Hullcracker (1x)"
+    ]
+  },
+  "Processor": {
+    "sources": [
+      "Exodus Modules (2x)",
+      "Rotary Encoder (2x)",
+      "Anvil Splitter (1x)",
+      "Alarm Clock (1x)",
+      "Combat Mk. 3 (Aggressive) (1x)",
+      "Combat Mk. 3 (Flanking) (1x)",
+      "Looting Mk. 3 (Cautious) (1x)",
+      "Looting Mk. 3 (Safekeeper) (1x)",
+      "Looting Mk. 3 (Survivor) (1x)",
+      "Tactical Mk. 3 (Defensive) (1x)",
+      "Tactical Mk. 3 (Healing) (1x)"
+    ],
+    "usedIn": [
+      "Combat Mk. 3 (Aggressive) (3x)",
+      "Combat Mk. 3 (Flanking) (3x)",
+      "Looting Mk. 3 (Cautious) (3x)",
+      "Looting Mk. 3 (Safekeeper) (3x)",
+      "Looting Mk. 3 (Survivor) (3x)",
+      "Tactical Mk. 3 (Defensive) (3x)",
+      "Tactical Mk. 3 (Healing) (3x)"
+    ]
+  },
+  "Exodus Modules": {
+    "sources": [
+      "Ion Sputter (1x)"
+    ],
+    "usedIn": [
+      "Tempest (2x)",
+      "Bobcat (2x)",
+      "Vulcano (1x)",
+      "Hullcracker (1x)",
+      "Snap Hook (1x)"
+    ]
+  },
+  "Crude Explosives": {
+    "sources": [
+      "Explosive Compound (2x)",
+      "Firefly Burner (2x)",
+      "Comet Igniter (2x)",
+      "Trailblazer (2x)",
+      "Seeker Grenade (1x)",
+      "Shrapnel Grenade (1x)"
+    ],
+    "usedIn": [
+      "Explosive Compound (2x)",
+      "Snap Blast Grenade (2x)",
+      "Trailblazer (2x)",
+      "Launcher Ammo (2x)",
+      "Seeker Grenade (1x)",
+      "Shrapnel Grenade (1x)"
+    ]
+  },
+  "Explosive Compound": {
+    "sources": [
+      "Wolfpack (1x)",
+      "Deadline (1x)"
+    ],
+    "usedIn": [
+      "Deadline (3x)",
+      "Explosive Mine (1x)",
+      "Heavy Fuze Grenade (1x)",
+      "Blaze Grenade (1x)",
+      "Wolfpack (1x)"
+    ]
+  },
+  "Synthesized Fuel": {
+    "sources": [],
+    "usedIn": [
+      "Trailblazer (1x)"
+    ]
+  },
+  "Firefly Burner": {
+    "sources": [],
+    "usedIn": [
+      "Trailblazer (1x)"
+    ]
+  },
+  "Rocketeer Driver": {
+    "sources": [],
+    "usedIn": [
+      "Wolfpack (1x)"
+    ]
+  },
+  "Comet Igniter": {
+    "sources": [],
+    "usedIn": [
+      "Deadline (1x)"
+    ]
+  },
+  "Light Shield": {
+    "sources": [],
+    "usedIn": []
+  },
+  "Medium Shield": {
+    "sources": [],
+    "usedIn": []
+  },
+  "Heavy Shield": {
+    "sources": [],
+    "usedIn": []
+  },
+  "Oil": {
+    "sources": [
+      "Turbo Pump (3x)",
+      "Explosive Mine (2x)",
+      "Blaze Grenade (2x)",
+      "Motor (2x)",
+      "Water Pump (2x)",
+      "Coolant (2x)",
+      "Polluted Air Filter (2x)",
+      "Synthesized Fuel (1x)",
+      "Heavy Fuze Grenade (1x)"
+    ],
+    "usedIn": [
+      "Renegade (5x)",
+      "Explosive Compound (2x)",
+      "Blaze Grenade (2x)"
+    ]
+  },
+  "Rope": {
+    "sources": [
+      "Snap Hook (3x)",
+      "Zipline (1x)"
+    ],
+    "usedIn": [
+      "Snap Hook (3x)",
+      "Zipline (1x)"
+    ]
+  },
+  "Sensors": {
+    "sources": [],
+    "usedIn": []
+  },
+  "Speaker Component": {
+    "sources": [
+      "Headphones (1x)",
+      "Frequency Modulation Box (1x)",
+      "Photoelectric Cloak (1x)",
+      "Radio (1x)",
+      "Noisemaker (1x)"
+    ],
+    "usedIn": [
+      "Photoelectric Cloak (4x)",
+      "Noisemaker (1x)"
+    ]
+  },
+  "Hornet Driver": {
+    "sources": [],
+    "usedIn": [
+      "Showstopper (1x)"
+    ]
+  },
+  "Matriarch Reactor": {
+    "sources": [],
+    "usedIn": [
+      "Aphelion (1x)"
+    ]
+  },
+  "Queen Reactor": {
+    "sources": [],
+    "usedIn": [
+      "Jupiter (1x)",
+      "Equalizer (1x)"
+    ]
+  }
+}

@@ -130,9 +130,8 @@ const PickerModal: React.FC<{
             </div>
             <div className="p-6 flex-1 overflow-y-auto no-scrollbar">
                {(() => {
-                  // Check if items have categories (mod picker) to group them
-                  const hasCategories = items.length > 0 && items[0].category;
-                  if (hasCategories) {
+                  const isWeaponModPicker = items.some(i => ['MUZZLE', 'MAGAZINE', 'UNDERBARREL', 'STOCK'].includes(i.category));
+                  if (isWeaponModPicker) {
                      const categoryOrder = ['MUZZLE', 'MAGAZINE', 'UNDERBARREL', 'STOCK', 'ALL'];
                      const categoryLabels: Record<string, string> = { 'MUZZLE': 'Muzzle', 'MAGAZINE': 'Magazine', 'UNDERBARREL': 'Underbarrel', 'STOCK': 'Stock', 'ALL': 'Special' };
                      const categoryIcons: Record<string, string> = { 
@@ -312,6 +311,54 @@ const FinalReportModal: React.FC<{
 
             {/* Main Report Body - Simplified grid */}
             <div className="space-y-12 mb-32">
+               {/* VITAL RESOURCES SECTION */}
+               {materials.length > 0 && (
+                  <section className="animate-fade-in mb-16">
+                     <div className="flex items-center gap-6 mb-8">
+                        <div className="w-12 h-12 bg-orange-500/10 border-2 border-orange-500/40 rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(249,115,22,0.2)]">
+                           <span className="material-symbols-outlined text-3xl text-orange-500 drop-shadow-[0_0_10px_rgba(249,115,22,0.4)]">priority_high</span>
+                        </div>
+                        <div>
+                           <h3 className="text-xl font-black tracking-[0.5em] uppercase text-orange-500 flex items-center gap-4 whitespace-nowrap">
+                              VITAL RESOURCES
+                           </h3>
+                           <p className="text-[9px] font-black text-slate-500 tracking-[0.4em] uppercase mt-1">High-Quantity Priority Assets</p>
+                        </div>
+                        <div className="h-[1px] flex-1 bg-gradient-to-r from-orange-500/30 to-transparent" />
+                     </div>
+                     
+                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {[...materials].sort((a, b) => b.quantity - a.quantity).slice(0, 10).map((mat: any, idx: number) => (
+                           <RichTooltip key={`vital-${idx}`} item={mat}>
+                              <div 
+                                 className={`flex items-center justify-between p-4 bg-orange-500/5 backdrop-blur-md border-2 border-orange-500/40 rounded-2xl group transition-all duration-300 shadow-[0_0_40px_rgba(249,115,22,0.05)] overflow-hidden relative hover:border-orange-500 hover:bg-orange-500/10 active:scale-95`}
+                              >
+                                 <div className="absolute top-0 right-0 p-1 opacity-20">
+                                    <span className="material-symbols-outlined text-orange-500 text-sm">emergency</span>
+                                 </div>
+                                 <div className="flex items-center gap-4 relative z-10 w-full">
+                                    <div className="w-14 h-14 bg-black/60 rounded-xl border border-orange-500/20 flex items-center justify-center p-2 shrink-0 group-hover:scale-105 transition-transform shadow-[inset_0_0_15px_rgba(249,115,22,0.1)]">
+                                       {mat.imageUrl ? (
+                                          <img src={mat.imageUrl} alt="" className="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(249,115,22,0.2)] scale-[1.3]" />
+                                       ) : (
+                                          <span className="material-symbols-outlined text-orange-500 text-2xl scale-[1.3]">category</span>
+                                       )}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                       <span className="text-[14px] font-black uppercase tracking-wider block text-white pr-1 leading-tight break-words">{mat.name}</span>
+                                       <span className="text-[9px] font-black tracking-[0.2em] uppercase text-orange-500/60 block mt-1">{mat.rarity}</span>
+                                    </div>
+                                    <div className="text-3xl font-black text-orange-500 font-mono shrink-0 pl-4 border-l border-orange-500/20 group-hover:scale-110 transition-transform">
+                                       {mat.quantity}
+                                    </div>
+                                 </div>
+                              </div>
+                           </RichTooltip>
+                        ))}
+                     </div>
+                  </section>
+               )}
+
                <section className="animate-fade-in">
                   <div className="flex items-center gap-6 mb-8">
                      <h3 className="text-xl font-black tracking-[0.5em] uppercase text-slate-100 flex items-center gap-4 whitespace-nowrap">
@@ -336,7 +383,7 @@ const FinalReportModal: React.FC<{
                                     {mat.imageUrl ? <img src={mat.imageUrl} alt="" className="w-full h-full object-contain filter drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] scale-[1.4]" /> : <span className="material-symbols-outlined text-slate-700 text-xl scale-[1.4]">category</span>}
                                  </div>
                                  <div className="flex-1 min-w-0">
-                                    <span className="text-[12px] font-black uppercase tracking-wider block text-slate-100 truncate pr-1 leading-tight group-hover:text-white">{mat.name}</span>
+                                    <span className="text-[12px] font-black uppercase tracking-wider block text-slate-100 pr-1 leading-tight group-hover:text-white break-words">{mat.name}</span>
                                     <span className="text-[8px] font-black tracking-[0.1em] uppercase opacity-60 block mt-0.5">{mat.rarity}</span>
                                  </div>
                                  <div className="text-2xl font-black text-white font-mono shrink-0 pl-3 border-l border-white/10 group-hover:text-primary transition-colors">
@@ -947,7 +994,8 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                     items: augments,
                                     pickerType: 'augments'
                                  })} className="text-[11px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
-                                    <span className="material-symbols-outlined text-sm">add</span> EDIT
+                                    <span className="material-symbols-outlined text-sm">{currentLoadout.augments.length === 0 ? 'add' : 'edit'}</span>
+                                    {currentLoadout.augments.length === 0 ? 'ADD' : 'EDIT'}
                                  </button>
                               </div>
                               <div className="grid grid-cols-1 gap-2">
@@ -967,7 +1015,15 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                        </RichTooltip>
                                  );
                               })}
-                                 {currentLoadout.augments.length === 0 && <p className="text-[12px] text-slate-600 italic px-1">No augments equipped</p>}
+                                 {currentLoadout.augments.length === 0 && (
+                                    <div 
+                                       onClick={() => setPickerConfig({ isOpen: true, title: 'Equip Augments', items: augments, pickerType: 'augments' })}
+                                       className="py-4 border-2 border-dashed border-slate-800/40 rounded-xl flex flex-col items-center justify-center gap-2 group/empty hover:border-primary/40 hover:bg-primary/5 transition-all cursor-pointer"
+                                    >
+                                       <span className="material-symbols-outlined text-slate-600 group-hover/empty:text-primary transition-colors">add_circle</span>
+                                       <p className="text-[11px] text-slate-500 font-black uppercase tracking-widest group-hover/empty:text-primary transition-colors">No augments equipped</p>
+                                    </div>
+                                 )}
                               </div>
                            </div>
 
@@ -984,7 +1040,8 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                     items: throwables.filter(t => t.category === 'SHIELDS'),
                                     pickerType: 'shields'
                                  })} className="text-[11px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
-                                    <span className="material-symbols-outlined text-sm">add</span> EDIT
+                                    <span className="material-symbols-outlined text-sm">{currentLoadout.shields.length === 0 ? 'add' : 'edit'}</span>
+                                    {currentLoadout.shields.length === 0 ? 'ADD' : 'EDIT'}
                                  </button>
                               </div>
                               <div className="grid grid-cols-1 gap-2">
@@ -1004,7 +1061,15 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                        </RichTooltip>
                                  );
                               })}
-                                 {currentLoadout.shields.length === 0 && <p className="text-[12px] text-slate-600 italic px-1">No shields equipped</p>}
+                                 {currentLoadout.shields.length === 0 && (
+                                    <div 
+                                       onClick={() => setPickerConfig({ isOpen: true, title: 'Equip Shields', items: throwables.filter(t => t.category === 'SHIELDS'), pickerType: 'shields' })}
+                                       className="py-4 border-2 border-dashed border-slate-800/40 rounded-xl flex flex-col items-center justify-center gap-2 group/empty hover:border-primary/40 hover:bg-primary/5 transition-all cursor-pointer"
+                                    >
+                                       <span className="material-symbols-outlined text-slate-600 group-hover/empty:text-primary transition-colors">add_circle</span>
+                                       <p className="text-[11px] text-slate-500 font-black uppercase tracking-widest group-hover/empty:text-primary transition-colors">No shields equipped</p>
+                                    </div>
+                                 )}
                               </div>
                            </div>
 
@@ -1021,7 +1086,8 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                     items: throwables.filter(t => (t.category === 'THROWABLES' || t.category === 'DEFENSIVE')),
                                     pickerType: 'quickUse'
                                  })} className="text-[11px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
-                                    <span className="material-symbols-outlined text-sm">add</span> EDIT
+                                    <span className="material-symbols-outlined text-sm">{currentLoadout.quickUse.length === 0 ? 'add' : 'edit'}</span>
+                                    {currentLoadout.quickUse.length === 0 ? 'ADD' : 'EDIT'}
                                  </button>
                               </div>
                               <div className="space-y-2">
@@ -1055,7 +1121,15 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                        </RichTooltip>
                                  );
                               })}
-                                 {currentLoadout.quickUse.length === 0 && <p className="text-[12px] text-slate-600 italic px-1">No tactical gear selected</p>}
+                                 {currentLoadout.quickUse.length === 0 && (
+                                    <div 
+                                       onClick={() => setPickerConfig({ isOpen: true, title: 'Manage Quick Use Cache', items: throwables.filter(t => (t.category === 'THROWABLES' || t.category === 'DEFENSIVE')), pickerType: 'quickUse' })}
+                                       className="py-4 border-2 border-dashed border-slate-800/40 rounded-xl flex flex-col items-center justify-center gap-2 group/empty hover:border-primary/40 hover:bg-primary/5 transition-all cursor-pointer"
+                                    >
+                                       <span className="material-symbols-outlined text-slate-600 group-hover/empty:text-primary transition-colors">add_circle</span>
+                                       <p className="text-[11px] text-slate-500 font-black uppercase tracking-widest group-hover/empty:text-primary transition-colors">No tactical gear selected</p>
+                                    </div>
+                                 )}
                               </div>
                            </div>
 

@@ -22,23 +22,37 @@ const SetupTooltip: React.FC<SetupTooltipProps> = ({ setup, tier, children }) =>
   const style = TIER_STYLES[tier];
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => { if (e.key === 'Shift') setIsShiftDown(true); };
-    const handleKeyUp = (e: KeyboardEvent) => { if (e.key === 'Shift') setIsShiftDown(false); };
+    const handleKeyDown = (e: KeyboardEvent) => { 
+      if (e.key === 'Shift' && visible) {
+        setIsShiftDown(prev => !prev); 
+      }
+      if (e.key === 'Escape') {
+        setIsShiftDown(false);
+        setVisible(false);
+      }
+    };
     window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('keyup', handleKeyUp);
     };
-  }, []);
+  }, [visible]);
+
+  const closeTooltip = () => {
+    setIsShiftDown(false);
+    setVisible(false);
+  };
 
   const handleMouseEnter = () => setVisible(true);
   const handleMouseLeave = () => { if (!isShiftDown) setVisible(false); };
 
   const tooltip = visible ? ReactDOM.createPortal(
-    <div className="fixed inset-0 z-[999999] flex items-center justify-center pointer-events-none p-4">
+    <div 
+      className={`fixed inset-0 z-[999999] flex items-center justify-center p-4 ${isShiftDown ? 'pointer-events-auto bg-black/40' : 'pointer-events-none'}`}
+      onClick={closeTooltip}
+    >
       <div
         ref={tooltipRef}
+        onClick={(e) => e.stopPropagation()}
         style={{
           width: 440,
           maxHeight: '85vh',
@@ -52,13 +66,19 @@ const SetupTooltip: React.FC<SetupTooltipProps> = ({ setup, tier, children }) =>
         <div className={`p-6 border-b border-white/5 ${style.bg} shrink-0 relative`}>
           {!isShiftDown && (
             <div className="absolute top-2 right-6 flex items-center gap-2">
-                 <span className="text-[9px] font-black tracking-[0.2em] text-white/40 uppercase">Hold [SHIFT] to Inspect</span>
+                 <span className="text-[9px] font-black tracking-[0.2em] text-white/40 uppercase">Press [SHIFT] to Lock & Inspect</span>
                  <div className="w-1.5 h-1.5 rounded-full bg-white/20 animate-pulse" />
             </div>
           )}
           {isShiftDown && (
              <div className="absolute top-2 right-6 flex items-center gap-2">
-                 <span className={`text-[9px] font-black tracking-[0.2em] uppercase animate-bounce ${style.text}`}>Inspecting Loadout</span>
+                 <span className={`text-[9px] font-black tracking-[0.2em] uppercase animate-bounce ${style.text}`}>Inspection Locked</span>
+                 <button 
+                  onClick={(e) => { e.stopPropagation(); closeTooltip(); }}
+                  className="w-5 h-5 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+                 >
+                   <span className="material-symbols-outlined text-[14px] text-white">close</span>
+                 </button>
             </div>
           )}
           <div className="flex items-center justify-between mb-2">
@@ -69,7 +89,18 @@ const SetupTooltip: React.FC<SetupTooltipProps> = ({ setup, tier, children }) =>
         </div>
 
         {/* Body - Scrollable */}
-        <div className="p-6 space-y-6 overflow-y-auto custom-scrollbar flex-1" style={{ scrollbarWidth: 'thin', scrollbarColor: `${tier === 'S' ? '#fbbf24' : '#d946ef'}40 transparent` }}>
+        <div 
+          className="p-6 space-y-6 overflow-y-auto custom-scrollbar flex-1" 
+          style={{ scrollbarWidth: 'thin', scrollbarColor: `${tier === 'S' ? '#fbbf24' : '#d946ef'}40 transparent` }}
+          onWheel={(e) => {
+            if (isShiftDown) {
+              const container = e.currentTarget;
+              if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                container.scrollTop += e.deltaX;
+              }
+            }
+          }}
+        >
           <p className="text-[15px] text-slate-300 font-bold leading-relaxed border-l-4 border-white/10 pl-5 py-1 italic">
             {setup.description}
           </p>

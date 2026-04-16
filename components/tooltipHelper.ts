@@ -1,5 +1,6 @@
 import { LOOT_DATA } from '../data';
 import { ModRequirement } from '../types';
+import { parseMaterialString } from '../utils';
 
 export const generateItemTooltip = (item: any): string => {
    if (!item) return '';
@@ -16,7 +17,27 @@ export const generateItemTooltip = (item: any): string => {
       tooltip += `\n\nPERKS:\n${item.perks}`;
    }
 
-   // 2. CRAFTING
+   // 1. USED IN (TOP PRIORITY)
+   if (item.requiredFor && item.requiredFor.length > 0) {
+      tooltip += `\n\nUSED IN`;
+      item.requiredFor.forEach((used: string) => {
+         const { name, quantity } = parseMaterialString(used);
+         tooltip += `\n- ${name} (${quantity}x)`;
+      });
+   }
+
+   // 2. SOURCE
+   const lootEntry = LOOT_DATA.find(loot => loot.material === item.name);
+   const sources = item.obtainedFrom || lootEntry?.sources || [];
+   if (sources.length > 0) {
+      tooltip += `\n\nSOURCE`;
+      sources.forEach((src: any) => {
+         const { name, quantity } = typeof src === 'string' ? parseMaterialString(src) : src;
+         tooltip += `\n- ${name} (${quantity}x)`;
+      });
+   }
+
+   // 3. CRAFTING
    let craftingReqs: ModRequirement[] = [];
    if (item.craftInfo?.materials && Array.isArray(item.craftInfo.materials)) {
       craftingReqs = item.craftInfo.materials;
@@ -33,7 +54,7 @@ export const generateItemTooltip = (item: any): string => {
       });
    }
 
-   // 3. RECYCLING
+   // 4. RECYCLING
    if (item.recycleInfo && Array.isArray(item.recycleInfo) && item.recycleInfo.length > 0) {
       tooltip += `\n\nRECYCLING`;
       const rows = 'materials' in item.recycleInfo[0] ? item.recycleInfo[0].materials : item.recycleInfo;
@@ -42,21 +63,12 @@ export const generateItemTooltip = (item: any): string => {
       });
    }
  
-   // 4. SALVAGING
+   // 5. SALVAGING
    if (item.salvageInfo && Array.isArray(item.salvageInfo) && item.salvageInfo.length > 0) {
       tooltip += `\n\nSALVAGING`;
       const rows = 'materials' in item.salvageInfo[0] ? item.salvageInfo[0].materials : item.salvageInfo;
       rows.forEach((req: any) => {
          tooltip += `\n- ${req.quantity}x ${req.name}`;
-      });
-   }
-
-   // 5. OBTAINED FROM
-   const lootEntry = LOOT_DATA.find(loot => loot.material === item.name);
-   if (lootEntry && lootEntry.sources && lootEntry.sources.length > 0) {
-      tooltip += `\n\nOBTAINED FROM`;
-      lootEntry.sources.forEach(src => {
-         tooltip += `\n- ${src.name} (${src.quantity}x)`;
       });
    }
 

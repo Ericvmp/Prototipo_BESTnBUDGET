@@ -1,7 +1,8 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { LOOT_DATA, MATERIALS_DATA } from '../data';
+import { LOOT_DATA, MATERIALS_DATA, WEAPONS_DATA, MODS_DATA, THROWABLES_DATA } from '../data';
+import { parseMaterialString, getItemRarity, getSourceImageUrl, getRarityStyles } from '../utils';
 
 interface RichTooltipProps {
   item: any;
@@ -23,15 +24,25 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
   const style = item?.rarity ? RARITY_STYLES[item.rarity] || RARITY_STYLES.COMMON : RARITY_STYLES.COMMON;
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => { if (e.key === 'Shift') setIsShiftDown(true); };
-    const handleKeyUp = (e: KeyboardEvent) => { if (e.key === 'Shift') setIsShiftDown(false); };
+    const handleKeyDown = (e: KeyboardEvent) => { 
+      if (e.key === 'Shift' && visible) {
+        setIsShiftDown(prev => !prev); 
+      }
+      if (e.key === 'Escape') {
+        setIsShiftDown(false);
+        setVisible(false);
+      }
+    };
     window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('keyup', handleKeyUp);
     };
-  }, []);
+  }, [visible]);
+
+  const closeTooltip = () => {
+    setIsShiftDown(false);
+    setVisible(false);
+  };
 
   const handleMouseEnter = () => setVisible(true);
   const handleMouseLeave = () => { if (!isShiftDown) setVisible(false); };
@@ -75,19 +86,22 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
       </div>
       <div className="space-y-2">
         {rows.map((r, i) => {
+          const imageUrl = getSourceImageUrl(r.name);
+          const rarity = getItemRarity(r.name);
           const mat = MATERIALS_DATA.find(m => m.name === r.name);
           return (
             <div key={i} className="flex items-center gap-4 p-2.5 rounded-xl bg-white/[0.04] border border-white/5 transition-colors hover:bg-white/[0.08]">
-              {mat?.imageUrl ? (
-                <div className="w-10 h-10 rounded bg-slate-800 p-1.5 border border-white/10 shrink-0 flex items-center justify-center shadow-inner">
-                  <img src={mat.imageUrl} alt={r.name} className="w-full h-full object-contain opacity-90" />
-                </div>
-              ) : (
-                <div className="w-10 h-10 rounded bg-slate-800 border border-white/10 shrink-0 flex items-center justify-center">
+              <div className="w-10 h-10 rounded bg-slate-800 p-1.5 border border-white/10 shrink-0 flex items-center justify-center shadow-inner">
+                {imageUrl ? (
+                  <img src={imageUrl} alt={r.name} className="w-full h-full object-contain opacity-90" />
+                ) : (
                   <span className="material-symbols-outlined text-[20px] text-slate-500">{mat?.icon || 'category'}</span>
-                </div>
-              )}
-              <span className="text-[14px] text-slate-100 font-bold truncate tracking-wide">{r.name}</span>
+                )}
+              </div>
+              <div className="flex flex-col min-w-0">
+                <span className="text-[14px] text-slate-100 font-bold truncate tracking-wide">{r.name}</span>
+                <span className="text-[9px] uppercase font-black opacity-40 leading-none">{rarity}</span>
+              </div>
               <span className={`ml-auto text-[14px] font-black ${color} shrink-0 bg-black/30 px-2.5 py-1 rounded-lg border border-white/10 shadow-inner`}>×{r.quantity}</span>
             </div>
           );
@@ -102,7 +116,7 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
         <div className="p-1.5 rounded bg-black/40 border border-white/5">
           <span className="material-symbols-outlined text-[18px] block text-violet-400">travel_explore</span>
         </div>
-        <span className="text-[12px] font-black tracking-[0.3em] uppercase text-violet-400">OBTAINED FROM</span>
+        <span className="text-[12px] font-black tracking-[0.3em] uppercase text-violet-400">SOURCE</span>
       </div>
       <div className="space-y-2">
         {sources.map((s, i) => (
@@ -128,12 +142,18 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
     craftingReqs.length > 0 ||
     recycleReqs.length > 0 ||
     salvageReqs.length > 0 ||
-    lootSources.length > 0;
+    (item.obtainedFrom && item.obtainedFrom.length > 0) ||
+    lootSources.length > 0 ||
+    (item.requiredFor && item.requiredFor.length > 0);
 
   const tooltip = visible ? ReactDOM.createPortal(
-    <div className="fixed inset-0 z-[999999] flex items-center justify-center pointer-events-none p-6">
+    <div 
+      className={`fixed inset-0 z-[999999] flex items-center justify-center p-6 ${isShiftDown ? 'pointer-events-auto bg-black/40' : 'pointer-events-none'}`}
+      onClick={closeTooltip}
+    >
       <div
         ref={tooltipRef}
+        onClick={(e) => e.stopPropagation()}
         style={{
           width: 440,
           maxHeight: '85vh',
@@ -147,13 +167,19 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
         <div className="p-6 flex items-center gap-5 border-b border-white/5 bg-white/[0.03] shrink-0 relative">
           {!isShiftDown && (
             <div className="absolute top-2 right-6 flex items-center gap-2">
-                 <span className="text-[9px] font-black tracking-[0.2em] text-white/40 uppercase">Hold [SHIFT] to Inspect</span>
+                 <span className="text-[9px] font-black tracking-[0.2em] text-white/40 uppercase text-right">Press [SHIFT] to Lock & Inspect</span>
                  <div className="w-1.5 h-1.5 rounded-full bg-white/20 animate-pulse" />
             </div>
           )}
           {isShiftDown && (
              <div className="absolute top-2 right-6 flex items-center gap-2">
-                 <span className={`text-[9px] font-black tracking-[0.2em] uppercase animate-bounce ${rs.text}`}>Inspecting Loadout</span>
+                 <span className={`text-[9px] font-black tracking-[0.2em] uppercase animate-bounce ${rs.text}`}>Inspection Locked</span>
+                 <button 
+                  onClick={(e) => { e.stopPropagation(); closeTooltip(); }}
+                  className="w-5 h-5 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+                 >
+                   <span className="material-symbols-outlined text-[14px] text-white">close</span>
+                 </button>
             </div>
           )}
           {item.imageUrl ? (
@@ -181,7 +207,18 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
         </div>
 
         {/* Scrollable Body */}
-        <div className="p-6 overflow-y-auto flex-1 custom-scrollbar" style={{ scrollbarWidth: 'thin', scrollbarColor: `${rs.glow} transparent` }}>
+        <div 
+          className="p-6 overflow-y-auto flex-1 custom-scrollbar" 
+          style={{ scrollbarWidth: 'thin', scrollbarColor: `${rs.glow} transparent` }}
+          onWheel={(e) => {
+            if (isShiftDown) {
+              const container = e.currentTarget;
+              if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                container.scrollTop += e.deltaX;
+              }
+            }
+          }}
+        >
           {(item.description && (item.category || item.weaponType) && item.category !== 'AUGMENT') && (
             <p className="text-[14px] text-slate-300 leading-relaxed font-bold italic border-l-4 border-white/10 pl-5 py-1 mb-5 opacity-80">
               "{item.description}"
@@ -229,6 +266,78 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
             </div>
           )}
 
+          {/* ── USED IN (TOP PRIORITY) ── */}
+          {item.requiredFor && item.requiredFor.length > 0 && (
+            <div className="mt-5 pt-5 border-t border-white/5">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-1.5 rounded bg-black/40 border border-white/5">
+                  <span className="material-symbols-outlined text-[18px] block text-primary">assignment_late</span>
+                </div>
+                <span className="text-[12px] font-black tracking-[0.3em] uppercase text-primary">USED IN</span>
+              </div>
+              <div className="space-y-2">
+                {item.requiredFor.map((itemStr: string, i: number) => {
+                  const { name, quantity } = parseMaterialString(itemStr);
+                  const rarity = getItemRarity(name);
+                  const imageUrl = getSourceImageUrl(name);
+
+                  return (
+                    <div key={i} className="flex items-center gap-4 p-2.5 rounded-xl bg-white/[0.04] border border-white/5 transition-colors hover:bg-white/[0.08]">
+                      <div className="w-10 h-10 rounded bg-slate-800 p-1.5 border border-white/10 shrink-0 flex items-center justify-center shadow-inner">
+                        {imageUrl ? (
+                          <img src={imageUrl} alt={name} className="w-full h-full object-contain opacity-80" />
+                        ) : (
+                          <span className="material-symbols-outlined text-[20px] text-slate-500">category</span>
+                        )}
+                      </div>
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-[13px] text-slate-100 font-bold truncate tracking-wide">{name}</span>
+                        <span className="text-[9px] uppercase font-black opacity-50 leading-none">{rarity}</span>
+                      </div>
+                      <span className="ml-auto text-[14px] font-black text-primary shrink-0 bg-black/30 px-2.5 py-1 rounded-lg border border-white/10 shadow-inner">×{quantity}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* ── SOURCE ── */}
+          {((item.obtainedFrom && item.obtainedFrom.length > 0) || lootSources.length > 0) && (
+            <div className="mt-5">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-1.5 rounded bg-black/40 border border-white/5">
+                  <span className="material-symbols-outlined text-[18px] block text-violet-400">travel_explore</span>
+                </div>
+                <span className="text-[12px] font-black tracking-[0.3em] uppercase text-violet-400">SOURCE</span>
+              </div>
+              <div className="space-y-2">
+                {(item.obtainedFrom || lootSources).map((srcItem: any, i: number) => {
+                  const { name, quantity } = typeof srcItem === 'string' ? parseMaterialString(srcItem) : srcItem;
+                  const imageUrl = getSourceImageUrl(name);
+                  const rarity = getItemRarity(name);
+
+                  return (
+                    <div key={i} className={`flex items-center gap-4 p-2.5 rounded-xl bg-white/[0.04] border border-white/5 transition-colors hover:bg-white/[0.08]`}>
+                      <div className="w-10 h-10 rounded bg-slate-800 p-1.5 border border-white/10 shrink-0 flex items-center justify-center shadow-inner">
+                        {imageUrl ? (
+                          <img src={imageUrl} alt={name} className="w-full h-full object-contain opacity-80" />
+                        ) : (
+                          <span className="material-symbols-outlined text-[20px] text-slate-500">inventory_2</span>
+                        )}
+                      </div>
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-[13px] text-slate-100 font-bold truncate tracking-wide">{name}</span>
+                        <span className="text-[9px] uppercase font-black opacity-50 leading-none">{rarity}</span>
+                      </div>
+                      <span className="ml-auto text-[14px] font-black text-violet-300 shrink-0 bg-black/30 px-2.5 py-1 rounded-lg border border-white/10 shadow-inner">×{quantity}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           {craftingReqs.length > 0 && (
             <Section icon="precision_manufacturing" label="CRAFTING" color="text-sky-400" rows={craftingReqs} />
           )}
@@ -238,27 +347,7 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
           {salvageReqs.length > 0 && (
             <Section icon="build_circle" label="SALVAGING" color="text-amber-400" rows={salvageReqs} />
           )}
-          {lootSources.length > 0 && (
-            <LootSection sources={lootSources} />
-          )}
           
-          {item.obtainedFrom && item.obtainedFrom.length > 0 && (
-            <div className="mt-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="p-1.5 rounded bg-black/40 border border-white/5">
-                  <span className="material-symbols-outlined text-[18px] block text-sky-400">explore</span>
-                </div>
-                <span className="text-[12px] font-black tracking-[0.3em] uppercase text-sky-400">LOCATIONS</span>
-              </div>
-              <div className="flex flex-wrap gap-2 p-3 bg-white/[0.04] border border-white/5 rounded-2xl">
-                {item.obtainedFrom.map((src: string, i: number) => (
-                  <span key={i} className="text-[11px] font-bold text-slate-300 uppercase tracking-tighter bg-slate-800/80 px-3 py-1 rounded-lg border border-white/10 shadow-inner">
-                    {src}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
         
         <div className={`p-4 text-center text-[11px] font-black tracking-[0.4em] uppercase bg-white/5 border-t border-white/5 shrink-0 ${isShiftDown ? rs.text : 'text-slate-500'}`}>

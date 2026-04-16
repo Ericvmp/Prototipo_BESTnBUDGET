@@ -11,7 +11,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/8/89/Metal_Parts.png',
     craftInfo: { isCraftable: false, note: "Material básico" },
     residualInfo: { items: ["Steel Spring → Metal Parts", "Simple Gun Parts → 2× Metal Parts", "Magnet → 3× Metal Parts"] },
-    obtainedFrom: ["Scavenging (Metal Crate, Car Hood, Server Rack, Seed Vault)", "Celeste", "Scrappy", "Mechanical/Industrial/Electrical/Technological zones"]
+    obtainedFrom: ["Rattler (8x)", "Damaged Heat Sink (6x)", "Compensator I (5x)", "Muzzle Brake I (5x)", "Shotgun Choke I (5x)", "Industrial Charger (5x)", "Blaze Grenade (4x)", "Industrial Magnet (4x)", "Unusable Weapon (4x)", "Acoustic Guitar (4x)", "Water Pump (4x)", "Mechanical Components (3x)", "Stitcher (3x)", "Kettle (3x)", "Steel Spring (2x)", "Simple Gun Parts (2x)", "Magnet (2x)", "ARC Alloy (2x)", "Battery (2x)", "Hairpin (2x)", "Ferro (2x)", "Sensors (1x)", "Shrapnel Grenade (1x)", "Zipline (1x)"],
+    requiredFor: ["Rattler (16x)", "Stitcher (8x)", "Mechanical Components (7x)", "Compensator I (6x)", "Muzzle Brake I (6x)", "Shotgun Choke I (6x)", "Kettle (6x)", "Ferro (5x)", "Hairpin (2x)"]
   },
   {
     id: 'mat2',
@@ -22,7 +23,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/9/93/Rubber_Parts.png',
     craftInfo: { isCraftable: false, note: "Material básico" },
     residualInfo: { items: ["Wires → 2× Rubber Parts", "ARC Flex Rubber", "Mechanical Components → 2× Rubber Parts"] },
-    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Scrappy", "Mechanical/Industrial/Electrical zones"]
+    obtainedFrom: ["Rubber Pad (18x)", "Ruined Accordion (18x)", "ARC Flex Rubber (16x)", "Diving Goggles (12x)", "Degraded ARC Rubber (11x)", "Deflated Football (9x)", "Expired Respirator (8x)", "Headphones (7x)", "Thermostat (7x)", "Stable Stock I (6x)", "Ruined Riot Shield (6x)", "Shield Recharger (4x)", "Electrical Components (3x)", "Speaker Component (3x)", "Combat Mk. 1 (3x)", "Looting Mk. 1 (3x)", "Tactical Mk. 1 (3x)", "Mechanical Components (2x)", "Wires (2x)", "Stitcher (2x)", "Kettle (2x)", "Heavy Fuze Grenade (2x)", "Voltage Converter (1x)", "Hairpin (1x)", "Ferro (1x)"],
+    requiredFor: ["Rattler (12x)", "Kettle (8x)", "Stable Stock I (6x)", "Combat Mk. 1 (6x)", "Looting Mk. 1 (6x)", "Tactical Mk. 1 (6x)", "Shield Recharger (5x)", "Electrical Components (4x)", "Stitcher (4x)", "Mechanical Components (3x)", "Ferro (2x)"]
   },
   {
     id: 'mat3',
@@ -33,7 +35,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/c/c9/Plastic_Parts.png',
     craftInfo: { isCraftable: false, note: "Material básico" },
     residualInfo: { items: ["Diversos itens de lixo plástico"] },
-    obtainedFrom: ["Scavenging (Industrial Drawer, Server Rack)", "Recycling", "Celeste", "Scrappy", "Commercial/Residential/Technological zones"]
+    obtainedFrom: ["ARC Synthetic Resin (14x)", "Cooling Fan (14x)", "Recorder (10x)", "Ruined Riot Shield (10x)", "Shaker (10x)", "Dried-Out ARC Resin (9x)", "Camera Lens (8x)", "Remote Control (7x)", "Extended Light Mag I (6x)", "Extended Medium Mag I (6x)", "Extended Shotgun Mag I (6x)", "Angled Grip I (6x)", "Vertical Grip I (6x)", "Alarm Clock (6x)", "Toaster (5x)", "Fried Motherboard (5x)", "Light Shield (4x)", "Electrical Components (3x)", "Canister (3x)", "Syringe (3x)", "Combat Mk. 1 (3x)", "Looting Mk. 1 (3x)", "Tactical Mk. 1 (3x)", "Speaker Component (2x)", "Jolt Mine (2x)", "Processor (1x)", "Synthesized Fuel (1x)", "Light Impact Grenade (1x)", "Defibrillator (1x)"],
+    requiredFor: ["Defibrillator (9x)", "Electrical Components (8x)", "Extended Light Mag I (6x)", "Extended Medium Mag I (6x)", "Extended Shotgun Mag I (6x)", "Angled Grip I (6x)", "Vertical Grip I (6x)", "Combat Mk. 1 (6x)", "Looting Mk. 1 (6x)", "Tactical Mk. 1 (6x)", "Hairpin (5x)", "Light Shield (4x)", "Light Impact Grenade (2x)", "Noisemaker (2x)"]
   },
   {
     id: 'mat4',
@@ -56,7 +59,8 @@ export const MATERIALS_DATA: Material[] = [
         "Anvil III - 4 Mechanical Components (reciclagem)"
       ]
     },
-    obtainedFrom: ["Scavenging: ARC (Bastion, Bombardier, Leaper, Shredder)", "Mechanical zones", "Recycling"]
+    obtainedFrom: ["Vertical Grip III (2x)", "Arpeggio (2x)", "Il Toro (2x)", "Anvil (2x)", "Motor (2x)", "Mod Components (1x)", "Advanced Mechanical Components (1x)", "Compensator II (1x)", "Muzzle Brake II (1x)", "Shotgun Choke II (1x)", "Silencer I (1x)", "Extended Light Mag II (1x)", "Extended Medium Mag II (1x)", "Extended Shotgun Mag II (1x)", "Angled Grip II (1x)", "Vertical Grip II (1x)", "Stable Stock II (1x)", "Burletta (1x)", "Turbo Pump (1x)"],
+    requiredFor: ["Arpeggio (6x)", "Il Toro (5x)", "Anvil (5x)", "Burletta (3x)", "Mod Components (2x)", "Advanced Mechanical Components (2x)", "Compensator II (2x)", "Muzzle Brake II (2x)", "Shotgun Choke II (2x)", "Silencer I (2x)", "Extended Light Mag II (2x)", "Extended Medium Mag II (2x)", "Extended Shotgun Mag II (2x)", "Angled Grip II (2x)", "Vertical Grip II (2x)", "Stable Stock II (2x)", "Zipline (1x)"]
   },
   {
     id: 'mat5',
@@ -79,7 +83,8 @@ export const MATERIALS_DATA: Material[] = [
         "Extended Light Mag III - 1 Mod Component (reciclagem)"
       ]
     },
-    obtainedFrom: ["Scavenging", "Recycling", "Crafting", "Security zones"]
+    obtainedFrom: ["Compensator III (1x)", "Muzzle Brake III (1x)", "Shotgun Choke III (1x)", "Silencer II (1x)", "Silencer III (1x)", "Extended Barrel (1x)", "Extended Light Mag III (1x)", "Extended Medium Mag III (1x)", "Extended Shotgun Mag III (1x)", "Angled Grip III (1x)", "Horizontal Grip (1x)", "Stable Stock III (1x)", "Lightweight Stock (1x)", "Kinetic Converter (1x)", "Anvil Splitter (1x)"],
+    requiredFor: ["Compensator III (2x)", "Muzzle Brake III (2x)", "Shotgun Choke III (2x)", "Silencer II (2x)", "Extended Barrel (2x)", "Extended Light Mag III (2x)", "Extended Medium Mag III (2x)", "Extended Shotgun Mag III (2x)", "Angled Grip III (2x)", "Vertical Grip III (2x)", "Stable Stock III (2x)", "Lightweight Stock (2x)"]
   },
   {
     id: 'mat6',
@@ -98,7 +103,8 @@ export const MATERIALS_DATA: Material[] = [
         "Extended Medium Mag II - 1 Steel Spring (reciclagem)"
       ]
     },
-    obtainedFrom: ["Scavenging (Metal Crate)", "Recycling", "Celeste", "Industrial zones"]
+    obtainedFrom: ["Ruined Accordion (3x)", "Extended Light Mag III (2x)", "Extended Medium Mag III (2x)", "Extended Shotgun Mag III (2x)", "Cooling Coil (2x)", "Spring Cushion (2x)", "Mod Components (1x)", "Advanced Mechanical Components (1x)", "Extended Light Mag II (1x)", "Extended Medium Mag II (1x)", "Extended Shotgun Mag II (1x)", "Magnetron (1x)"],
+    requiredFor: ["Torrente (6x)", "Extended Light Mag III (5x)", "Extended Medium Mag III (5x)", "Extended Shotgun Mag III (5x)", "Extended Light Mag II (3x)", "Extended Medium Mag II (3x)", "Extended Shotgun Mag II (3x)", "Mod Components (2x)", "Advanced Mechanical Components (2x)", "Shrapnel Grenade (2x)", "Extended Light Mag I (1x)", "Extended Medium Mag I (1x)", "Extended Shotgun Mag I (1x)"]
   },
   {
     id: 'mat7',
@@ -117,7 +123,8 @@ export const MATERIALS_DATA: Material[] = [
         "Compensator II - 1 Wire (reciclagem)"
       ]
     },
-    obtainedFrom: ["Scavenging (Server Rack, Power Distribution Box, Generator Fuse Box)", "Recycling", "Celeste", "Electrical/Technological zones"]
+    obtainedFrom: ["Portable TV (6x)", "Acoustic Guitar (6x)", "Cooling Fan (4x)", "Power Cable (4x)", "Silencer III (3x)", "Toaster (3x)", "Compensator III (2x)", "Muzzle Brake III (2x)", "Shotgun Choke III (2x)", "Silencer II (2x)", "Broken Handheld Radio (2x)", "Broken Taser (2x)", "Damaged Heat Sink (2x)", "Power Bank (2x)", "Humidifier (2x)", "Advanced Electrical Components (1x)", "Voltage Converter (1x)", "Processor (1x)", "Sensors (1x)", "Compensator II (1x)", "Muzzle Brake II (1x)", "Shotgun Choke II (1x)", "Silencer I (1x)", "Extended Barrel (1x)"],
+    requiredFor: ["Compensator III (8x)", "Muzzle Brake III (8x)", "Shotgun Choke III (8x)", "Silencer II (8x)", "Extended Barrel (8x)", "Osprey (7x)", "Compensator II (4x)", "Muzzle Brake II (4x)", "Shotgun Choke II (4x)", "Silencer I (4x)", "Advanced Electrical Components (3x)", "Compensator I (1x)", "Muzzle Brake I (1x)", "Shotgun Choke I (1x)"]
   },
   {
     id: 'mat8',
@@ -136,7 +143,8 @@ export const MATERIALS_DATA: Material[] = [
         "Lightweight Stock - 1 Duct Tape (reciclagem)"
       ]
     },
-    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Residential/Commercial zones"]
+    obtainedFrom: ["Angled Grip III (2x)", "Vertical Grip III (2x)", "Horizontal Grip (2x)", "Stable Stock III (2x)", "Kinetic Converter (2x)", "Angled Grip II (1x)", "Vertical Grip II (1x)", "Stable Stock II (1x)", "Lightweight Stock (1x)"],
+    requiredFor: ["Angled Grip III (5x)", "Vertical Grip III (5x)", "Stable Stock III (5x)", "Lightweight Stock (5x)", "Angled Grip II (3x)", "Vertical Grip II (3x)", "Stable Stock II (3x)", "Angled Grip I (1x)", "Vertical Grip I (1x)", "Stable Stock I (1x)"]
   },
   {
     id: 'mat9',
@@ -155,7 +163,8 @@ export const MATERIALS_DATA: Material[] = [
         "Arpeggio I - 2 Simple Gun Parts (reciclagem)"
       ]
     },
-    obtainedFrom: ["Scavenging: ARC (Wasps, Hornets, Turrets, Shredders)", "Recycling", "Celeste", "Raider/Security zones"]
+    obtainedFrom: ["Unusable Weapon (5x)", "Complex Gun Parts (3x)", "Light Gun Parts (2x)", "Medium Gun Parts (2x)", "Heavy Gun Parts (2x)", "Arpeggio (2x)", "Il Toro (2x)", "Anvil (2x)", "Burletta (2x)"],
+    requiredFor: ["Arpeggio (6x)", "Il Toro (6x)", "Anvil (6x)", "Light Gun Parts (4x)", "Medium Gun Parts (4x)", "Heavy Gun Parts (4x)", "Burletta (3x)"]
   },
   {
     id: 'mat10',
@@ -177,7 +186,8 @@ export const MATERIALS_DATA: Material[] = [
         "Bobcat IV - 4 Light Gun Parts (reciclagem)"
       ]
     },
-    obtainedFrom: ["Scavenging", "Crafting", "Recycling", "Celeste", "Raider/Security zones"]
+    obtainedFrom: ["Bobcat (2x)"],
+    requiredFor: ["Bobcat (3x)", "Complex Gun Parts (2x)"]
   },
   {
     id: 'mat11',
@@ -192,7 +202,8 @@ export const MATERIALS_DATA: Material[] = [
       requirements: [ { name: 'Simple Gun Parts', stackSize: 10, quantity: 4 } ],
     },
     residualInfo: { items: ["Armas médias (Renegade, Venator, Torrente)"] },
-    obtainedFrom: ["Scavenging: ARC (Bastion, Sentinel)", "Crafting", "Recycling", "Celeste", "Raider/Security zones"]
+    obtainedFrom: ["Tempest (2x)", "Renegade (2x)", "Venator (2x)", "Osprey (2x)", "Torrente (2x)"],
+    requiredFor: ["Tempest (3x)", "Renegade (3x)", "Venator (3x)", "Osprey (3x)", "Torrente (3x)", "Complex Gun Parts (2x)"]
   },
   {
     id: 'mat12',
@@ -207,7 +218,8 @@ export const MATERIALS_DATA: Material[] = [
       requirements: [ { name: 'Simple Gun Parts', stackSize: 10, quantity: 4 } ],
     },
     residualInfo: { items: ["Armas pesadas (Il Toro, Anvil)"] },
-    obtainedFrom: ["Scavenging: ARC (Bombardier, Rocketeer)", "Crafting", "Recycling", "Celeste", "Security/Raider zones"]
+    obtainedFrom: ["Bettina (2x)", "Vulcano (2x)", "Hullcracker (2x)"],
+    requiredFor: ["Bettina (3x)", "Vulcano (3x)", "Hullcracker (3x)", "Complex Gun Parts (2x)"]
   },
   {
     id: 'mat13',
@@ -230,7 +242,8 @@ export const MATERIALS_DATA: Material[] = [
         "Bettina IV - 3 Adv Mechanical Components (reciclagem)"
       ]
     },
-    obtainedFrom: ["Scavenging: ARC (Matriarch, Queen)", "Crafting", "Recycling", "Mechanical zones"]
+    obtainedFrom: ["Tempest (2x)", "Bobcat (2x)", "Vulcano (2x)", "Hullcracker (2x)", "Magnetic Accelerator (1x)", "Bettina (1x)", "Renegade (1x)", "Venator (1x)", "Osprey (1x)", "Torrente (1x)", "Bastion Cell (1x)", "Bombardier Cell (1x)", "Leaper Pulse Unit (1x)", "Microscope (1x)"],
+    requiredFor: ["Bettina (3x)", "Magnetic Accelerator (2x)", "Renegade (2x)", "Venator (2x)", "Osprey (2x)", "Torrente (2x)"]
   },
   {
     id: 'mat14',
@@ -249,7 +262,8 @@ export const MATERIALS_DATA: Material[] = [
         "Microscope - 3 Magnets (reciclagem)"
       ]
     },
-    obtainedFrom: ["Scavenging", "Celeste", "Exodus zones", "Recycled from: Combat Mk. 2, Exodus Modules"]
+    obtainedFrom: ["Microscope (3x)", "Exodus Modules (2x)", "Industrial Magnet (2x)", "Snap Blast Grenade (1x)", "Combat Mk. 2 (1x)", "Looting Mk. 2 (1x)", "Ripped Safety Vest (1x)", "Ruined Tactical Vest (1x)", "Tactical Mk. 2 (1x)"],
+    requiredFor: ["Venator (5x)", "Combat Mk. 2 (3x)", "Looting Mk. 2 (3x)", "Tactical Mk. 2 (3x)", "Snap Blast Grenade (1x)"]
   },
   {
     id: 'mat15',
@@ -259,7 +273,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/a/a6/ARC_Alloy.png',
     description: 'An Adv specialized alloy of ARC origin, offering exceptional electromagnetic properties and thermal resistance.',
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging: ARC machines", "Recycling", "ARC zones"]
+    obtainedFrom: ["Rocketeer Driver (3x)", "Damaged Leaper Pulse Unit (3x)", "Damaged Rocketeer Driver (3x)", "Bastion Cell (3x)", "Bombardier Cell (3x)", "Leaper Pulse Unit (3x)", "ARC Circuitry (2x)", "ARC Motion Core (2x)", "Tick Pod (2x)", "Firefly Burner (2x)", "Comet Igniter (2x)", "Hornet Driver (1x)", "Snitch Scanner (1x)", "Spotter Relay (1x)"],
+    requiredFor: ["ARC Circuitry (8x)", "ARC Motion Core (8x)", "Light Shield (2x)", "Seeker Grenade (2x)"]
   },
   {
     id: 'mat16',
@@ -271,7 +286,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/d/df/ARC_Powercell.png',
     description: 'A standard energy storage unit for ARC technology. Can be used to recharge portable shield devices.',
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging: ARC (all ARC enemies)", "Recycling", "ARC zones"]
+    obtainedFrom: ["Advanced ARC Powercell (2x)"],
+    requiredFor: ["Shield Recharger (1x)"]
   },
   {
     id: 'mat17',
@@ -281,7 +297,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/3/31/Advanced_ARC_Powercell.png',
     description: 'A high-density energy source found in elite ARC units. Highly efficient and essential for high-tier equipment.',
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging: ARC (Elite units: Comet, Bastion, Queen, Matriarch, etc)", "ARC zones"]
+    obtainedFrom: ["Comet (1x)", "Bastion (1x)", "Queen (1x)", "Matriarch (1x)", "ARC zones"],
+    requiredFor: ["Surge Shield Recharger (2x)", "Augments Tier III (3x)"]
   },
   {
     id: 'mat18',
@@ -295,7 +312,8 @@ export const MATERIALS_DATA: Material[] = [
       location: 'Refiner 1',
       requirements: [ { name: 'Plastic Parts', stackSize: 50, quantity: 8 }, { name: 'Rubber Parts', stackSize: 50, quantity: 4 } ],
     },
-    obtainedFrom: ["Scavenging", "Crafting", "Recycling", "Electrical zones"]
+    obtainedFrom: ["Fried Motherboard (2x)", "Rotary Encoder (2x)", "Sample Cleaner (2x)", "Signal Amplifier (2x)", "Advanced Electrical Components (1x)", "Hornet Driver (1x)", "Showstopper (1x)", "Surge Shield Recharger (1x)", "Combat Mk. 2 (1x)", "Looting Mk. 2 (1x)", "Tactical Mk. 2 (1x)", "Snitch Scanner (1x)", "Spotter Relay (1x)"],
+    requiredFor: ["Advanced Electrical Components (2x)", "Combat Mk. 2 (2x)", "Looting Mk. 2 (2x)", "Tactical Mk. 2 (2x)", "Showstopper (1x)", "Jolt Mine (1x)", "Surge Shield Recharger (1x)", "Surge Coil (1x)", "Tagging Grenade (1x)"]
   },
   {
     id: 'mat19',
@@ -309,7 +327,8 @@ export const MATERIALS_DATA: Material[] = [
       location: 'Refiner 2',
       requirements: [ { name: 'Wires', stackSize: 15, quantity: 3 }, { name: 'Electrical Components', stackSize: 10, quantity: 2 } ],
     },
-    obtainedFrom: ["Scavenging: ARC (Queen)", "Crafting", "Recycling", "Electrical zones"]
+    obtainedFrom: ["Rocketeer Driver (2x)", "Power Rod (1x)", "Combat Mk. 3 (Aggressive) (1x)", "Combat Mk. 3 (Flanking) (1x)", "Frequency Modulation Box (1x)", "Looting Mk. 3 (Cautious) (1x)", "Looting Mk. 3 (Safekeeper) (1x)", "Looting Mk. 3 (Survivor) (1x)", "Photoelectric Cloak (1x)", "Tactical Mk. 3 (Defensive) (1x)", "Tactical Mk. 3 (Healing) (1x)"],
+    requiredFor: ["Power Rod (2x)", "Combat Mk. 3 (Aggressive) (2x)", "Combat Mk. 3 (Flanking) (2x)", "Looting Mk. 3 (Cautious) (2x)", "Looting Mk. 3 (Safekeeper) (2x)", "Looting Mk. 3 (Survivor) (2x)", "Photoelectric Cloak (2x)", "Tactical Mk. 3 (Defensive) (2x)", "Tactical Mk. 3 (Healing) (2x)", "Raider Hatch Key (1x)"]
   },
   {
     id: 'mat20',
@@ -323,7 +342,8 @@ export const MATERIALS_DATA: Material[] = [
       location: 'Refiner 2',
       requirements: [ { name: 'ARC Alloy', stackSize: 15, quantity: 8 } ],
     },
-    obtainedFrom: ["Scavenging: ARC (Baron, Bastion, Matriarch, Queen, Rocketeer)", "Recycling"]
+    obtainedFrom: ["Heavy Shield (2x)", "Power Rod (1x)", "Medium Shield (1x)", "Deadline (1x)"],
+    requiredFor: ["Power Rod (2x)", "Deadline (2x)", "Medium Shield (1x)"]
   },
   {
     id: 'mat21',
@@ -337,7 +357,8 @@ export const MATERIALS_DATA: Material[] = [
       location: "Refiner 2",
       requirements: [ { name: 'ARC Alloy', stackSize: 15, quantity: 8 } ],
     },
-    obtainedFrom: ["Scavenging: ARC (Bastion, Courier, Leaper, Matriarch, Probe, Queen, Rocketeer, Sentinel, Surveyor)"]
+    obtainedFrom: ["Magnetic Accelerator (1x)", "Wolfpack (1x)"],
+    requiredFor: ["Magnetic Accelerator (2x)", "Wolfpack (2x)", "Launcher Ammo (1x)"]
   },
   {
     id: 'mat22',
@@ -347,7 +368,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/9/92/Chemicals.png',
     description: 'A variety of reactive substances used in the production of explosives and medical supplies.',
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Scrappy", "Mechanical/Residential/Medical zones"]
+    obtainedFrom: ["Antiseptic (10x)", "Cooling Coil (6x)", "Coolant (5x)", "Vita Shot (4x)", "Crude Explosives (3x)", "Oil (3x)", "Tick Pod (2x)", "Syringe (2x)", "Smoke Grenade (2x)", "Light Impact Grenade (1x)", "Snap Blast Grenade (1x)"],
+    requiredFor: ["Smoke Grenade (14x)", "Antiseptic (10x)", "Crude Explosives (6x)", "Light Impact Grenade (3x)"]
   },
   {
     id: 'mat23',
@@ -361,7 +383,8 @@ export const MATERIALS_DATA: Material[] = [
       location: "Refiner 2",
       requirements: [ { name: 'Chemicals', stackSize: 50, quantity: 10 }, { name: 'Great Mullein', stackSize: 15, quantity: 2 } ],
     },
-    obtainedFrom: ["Scavenging (Medical sector)", "Crafting", "Recycling"]
+    obtainedFrom: ["Vita Spray (1x)", "Sterilized Bandage (1x)"],
+    requiredFor: ["Vita Spray (3x)", "Vita Shot (2x)", "Sterilized Bandage (1x)"]
   },
   {
     id: 'mat24',
@@ -371,7 +394,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/5/5f/Canister.png',
     description: 'A pressurized metal container suitable for storing gases or liquids.',
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Commercial zones"]
+    obtainedFrom: ["Broken Taser (2x)", "Portable TV (2x)", "Power Bank (2x)", "Jolt Mine (1x)", "Scavenging (Commercial)"],
+    requiredFor: ["Smoke Grenade (1x)", "Heavy Fuze Grenade (1x)", "Blaze Grenade (1x)", "Vita Spray (1x)"]
   },
   {
     id: 'mat25',
@@ -381,7 +405,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/9/95/Tick_Pod.png',
     description: 'Biological component harvested from ARC Ticks. Contains enzymes used in high-end medical gear.',
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging: Destroyed Ticks (ARC)"]
+    obtainedFrom: ["Tick (1x)", "Elite Tick (1x)", "ARC zones"],
+    requiredFor: ["Vita Spray (2x)"]
   },
   {
     id: 'mat26',
@@ -391,7 +416,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/2/2b/Fabric.png',
     description: 'Basic cloth remnants that can be repurposed for simple bandages or clothing repairs.',
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Scrappy", "Commercial/Medical/Residential zones"]
+    obtainedFrom: ["Deflated Football (9x)", "Durable Cloth (6x)", "Polluted Air Filter (6x)", "Rope (5x)", "Herbal Bandage (5x)", "Ruined Tactical Vest (5x)", "Expired Respirator (4x)", "Duct Tape (3x)", "Sterilized Bandage (1x)"],
+    requiredFor: ["Durable Cloth (14x)"]
   },
   {
     id: 'mat27',
@@ -405,7 +431,8 @@ export const MATERIALS_DATA: Material[] = [
       location: 'Refiner 1',
       requirements: [ { name: 'Fabric', stackSize: 50, quantity: 14 } ],
     },
-    obtainedFrom: ["Scavenging (Industrial Drawer, Blue Multi Drawers)", "Recycling", "Crafting", "Medical/Commercial zones"]
+    obtainedFrom: ["Spring Cushion (2x)", "Ripped Safety Vest (1x)"],
+    requiredFor: ["Sterilized Bandage (2x)", "Herbal Bandage (1x)"]
   },
   {
     id: 'mat28',
@@ -415,7 +442,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/0/0d/Great_Mullein.png',
     description: 'A hardy plant with medicinal properties, often used in traditional healing.',
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Harvesting", "Scavenging (Backpack, Wicker Basket)", "Celeste", "Nature"]
+    obtainedFrom: ["Harvesting", "Scavenging (Backpack, Wicker Basket)", "Celeste", "Nature"],
+    requiredFor: ["Antiseptic (2x)", "Herbal Bandage (1x)"]
   },
   {
     id: 'mat29',
@@ -425,7 +453,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/6/64/Moss.png',
     description: 'A simple biological material that can be used as a stabilizer in some chemical reactions.',
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging (Wicker Basket, Hydroponic Domes)", "Celeste", "Nature"]
+    obtainedFrom: ["Defibrillator (1x)", "Hydroponic Domes (1x)", "Nature", "Celeste"],
+    requiredFor: ["Defibrillator (1x)"]
   },
   {
     id: 'mat30',
@@ -435,7 +464,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/6/6d/Battery.png',
     description: 'A standard portable power source for civilian and military electronics.',
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging (Recording Panel, Computer, Terminal, Metal Crate)", "Celeste", "Technological/Electrical zones"]
+    obtainedFrom: ["Broken Taser (2x)", "Portable TV (2x)", "Power Bank (2x)", "Jolt Mine (1x)"],
+    requiredFor: ["Medium Shield (4x)", "Jolt Mine (1x)"]
   },
   {
     id: 'mat31',
@@ -449,7 +479,8 @@ export const MATERIALS_DATA: Material[] = [
       location: "Refiner 3",
       requirements: [ { name: 'Adv Electrical Components', stackSize: 5, quantity: 2 }, { name: 'ARC Circuitry', stackSize: 5, quantity: 2 } ],
     },
-    obtainedFrom: ["Scavenging", "Crafting", "Recycling", "Exodus zones"]
+    obtainedFrom: ["Matriarch Reactor (1x)", "Queen Reactor (1x)", "Snap Hook (1x)"],
+    requiredFor: ["Snap Hook (2x)", "Heavy Shield (1x)"]
   },
   {
     id: 'mat32',
@@ -459,7 +490,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/1/17/Syringe.png',
     description: 'A standard medical tool for injecting fluids or extracting samples.',
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging", "Recycling (Medical Kit, Vita Shot)", "Celeste", "Medical zones"]
+    obtainedFrom: ["Vita Shot (1x)", "Scavenging (Medical Cabinet)"],
+    requiredFor: ["Vita Shot (1x)"]
   },
   {
     id: 'mat33',
@@ -469,7 +501,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/c/c7/Voltage_Converter.png',
     description: 'An Adv transformer designed to handle high-power ARC energy systems.',
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Electrical zones"]
+    obtainedFrom: ["Ion Sputter (4x)", "Signal Amplifier (2x)", "Heavy Shield (1x)", "Showstopper (1x)", "Industrial Charger (1x)"],
+    requiredFor: ["Heavy Shield (2x)", "Showstopper (1x)"]
   },
   {
     id: 'mat34',
@@ -479,7 +512,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: '/images/loot/Complex_Gun_Parts.png',
     description: 'Highly intricate weapon parts required for crafting state-of-the-art ballistic firearms.',
     craftInfo: { isCraftable: true, location: 'Refiner 3', requirements: [ { name: 'Light Gun Parts', stackSize: 5, quantity: 2 }, { name: 'Medium Gun Parts', stackSize: 5, quantity: 2 }, { name: 'Heavy Gun Parts', stackSize: 5, quantity: 2 } ], },
-    obtainedFrom: ["Scavenging: ARC (Queen, Matriarch)", "Recycling", "Celeste", "Security zones"]
+    obtainedFrom: ["Aphelion (1x)", "Jupiter (1x)", "Equalizer (1x)"],
+    requiredFor: ["Aphelion (3x)", "Jupiter (3x)", "Equalizer (3x)"]
   },
   {
     id: 'mat35',
@@ -489,7 +523,8 @@ export const MATERIALS_DATA: Material[] = [
     imageUrl: 'https://arcraiders.wiki/w/images/thumb/5/5e/Magnetic_Accelerator.png/348px-Magnetic_Accelerator.png.webp',
     description: 'An extremely powerful electromagnetic module used in experimental and high-energy weapons.',
     craftInfo: { isCraftable: true, location: 'Refiner 3', requirements: [ { name: 'Adv Mechanical Components', stackSize: 5, quantity: 2 }, { name: 'ARC Motion Core', stackSize: 5, quantity: 2 } ], },
-    obtainedFrom: ["Scavenging: ARC (Matriarch, Queen)", "Exodus zones"]
+    obtainedFrom: ["Aphelion (2x)", "Jupiter (2x)", "Equalizer (2x)", "Matriarch Reactor (1x)", "Queen Reactor (1x)", "Magnetron (1x)"],
+    requiredFor: ["Aphelion (3x)", "Jupiter (3x)", "Equalizer (3x)", "Tempest (1x)", "Bobcat (1x)", "Vulcano (1x)", "Hullcracker (1x)"]
   },
   {
     id: 'mat36',
@@ -501,7 +536,8 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'Wires', stackSize: 15, quantity: 1 }, { name: 'Plastic Parts', stackSize: 50, quantity: 1 } ],
     salvageInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 2 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging (Server Rack, Recording Panel, Computer)", "Recycling", "Celeste", "Technological zones"]
+    obtainedFrom: ["Exodus Modules (2x)", "Rotary Encoder (2x)", "Anvil Splitter (1x)", "Alarm Clock (1x)", "Combat Mk. 3 (Aggressive) (1x)", "Combat Mk. 3 (Flanking) (1x)", "Looting Mk. 3 (Cautious) (1x)", "Looting Mk. 3 (Safekeeper) (1x)", "Looting Mk. 3 (Survivor) (1x)", "Tactical Mk. 3 (Defensive) (1x)", "Tactical Mk. 3 (Healing) (1x)"],
+    requiredFor: ["Combat Mk. 3 (Aggressive) (3x)", "Combat Mk. 3 (Flanking) (3x)", "Looting Mk. 3 (Cautious) (3x)", "Looting Mk. 3 (Safekeeper) (3x)", "Looting Mk. 3 (Survivor) (3x)", "Tactical Mk. 3 (Defensive) (3x)", "Tactical Mk. 3 (Healing) (3x)"]
   },
   {
     id: 'mat37',
@@ -513,7 +549,8 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'Magnet', stackSize: 15, quantity: 2 }, { name: 'Processor', stackSize: 5, quantity: 2 } ],
     salvageInfo: [ { name: 'Processor', stackSize: 5, quantity: 2 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Exodus zones"]
+    obtainedFrom: ["Ion Sputter (1x)"],
+    requiredFor: ["Tempest (2x)", "Bobcat (2x)", "Vulcano (1x)", "Hullcracker (1x)", "Snap Hook (1x)"]
   },
   {
     id: 'mat38',
@@ -529,7 +566,8 @@ export const MATERIALS_DATA: Material[] = [
       location: "Refiner 1",
       requirements: [ { name: 'Chemicals', stackSize: 50, quantity: 6 } ],
     },
-    obtainedFrom: ["Scavenging (Metal Crates)", "Pop and Fireball ARC", "Industrial zones", "Security zones"]
+    obtainedFrom: ["Explosive Compound (2x)", "Firefly Burner (2x)", "Comet Igniter (2x)", "Trailblazer (2x)", "Seeker Grenade (1x)", "Shrapnel Grenade (1x)"],
+    requiredFor: ["Explosive Compound (2x)", "Snap Blast Grenade (2x)", "Trailblazer (2x)", "Launcher Ammo (2x)", "Seeker Grenade (1x)", "Shrapnel Grenade (1x)"]
   },
   {
     id: 'mat39',
@@ -545,7 +583,8 @@ export const MATERIALS_DATA: Material[] = [
       location: "Refiner 2",
       requirements: [ { name: 'Crude Explosives', stackSize: 10, quantity: 2 }, { name: 'Oil', stackSize: 15, quantity: 2 } ],
     },
-    obtainedFrom: ["Scavenging: Comet", "Metal Crate", "Industrial zones", "Security zones"]
+    obtainedFrom: ["Wolfpack (1x)", "Deadline (1x)"],
+    requiredFor: ["Deadline (3x)", "Explosive Mine (1x)", "Heavy Fuze Grenade (1x)", "Blaze Grenade (1x)", "Wolfpack (1x)"]
   },
   {
     id: 'mat40',
@@ -557,7 +596,8 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'Oil', stackSize: 15, quantity: 1 }, { name: 'Plastic Parts', stackSize: 50, quantity: 1 } ],
     salvageInfo: [ { name: 'Oil', stackSize: 15, quantity: 1 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Exodus zones"]
+    obtainedFrom: [],
+    requiredFor: ["Trailblazer (1x)"]
   },
   {
     id: 'mat41',
@@ -569,7 +609,8 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'ARC Alloy', stackSize: 15, quantity: 2 }, { name: 'Crude Explosives', stackSize: 10, quantity: 2 } ],
     salvageInfo: [ { name: 'Crude Explosives', stackSize: 10, quantity: 2 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging: Destroyed Fireflies (ARC)", "ARC zones"]
+    obtainedFrom: ["Scavenging: Destroyed Fireflies (1x)", "ARC technology", "Industrial zones"],
+    requiredFor: ["Trailblazer (1x)"]
   },
   {
     id: 'mat42',
@@ -581,7 +622,8 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'ARC Alloy', stackSize: 15, quantity: 3 }, { name: 'Adv Electrical Components', stackSize: 5, quantity: 2 } ],
     salvageInfo: [ { name: 'ARC Circuitry', stackSize: 5, quantity: 2 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging: Rocketeers / Rocketeer Husks", "ARC zones"]
+    obtainedFrom: ["Rocketeer (1x)", "Damaged Rocketeer Driver (1x)", "ARC zones"],
+    requiredFor: ["Wolfpack (1x)"]
   },
   {
     id: 'mat43',
@@ -593,7 +635,8 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'ARC Alloy', stackSize: 15, quantity: 2 }, { name: 'Crude Explosives', stackSize: 10, quantity: 2 } ],
     salvageInfo: [ { name: 'Crude Explosives', stackSize: 10, quantity: 2 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging: Non-exploded Comets", "ARC zones"]
+    obtainedFrom: ["Comet (1x)", "ARC technology", "Security zones"],
+    requiredFor: ["Deadline (1x)"]
   },
   {
     id: 'mat44',
@@ -605,7 +648,8 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 4 } ],
     salvageInfo: [ { name: 'ARC Alloy', stackSize: 15, quantity: 1 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging: Salvaged Parts"]
+    obtainedFrom: ["Scavenging (Salvaged Parts)", "Industrial Crate (1x)"],
+    requiredFor: ["Medium Shield (1x)", "Plastic Parts (4x)", "ARC Alloy (1x)"]
   },
   {
     id: 'mat45',
@@ -617,7 +661,8 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'ARC Circuitry', stackSize: 5, quantity: 1 } ],
     salvageInfo: [ { name: 'ARC Alloy', stackSize: 15, quantity: 2 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging: ARC technology"]
+    obtainedFrom: ["Light Shield (1x)", "ARC Circuitry (1x)", "ARC tech"],
+    requiredFor: ["Heavy Shield (1x)", "ARC Circuitry (1x)", "ARC Alloy (2x)"]
   },
   {
     id: 'mat46',
@@ -629,7 +674,8 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'ARC Circuitry', stackSize: 5, quantity: 2 }, { name: 'Voltage Converter', stackSize: 5, quantity: 1 } ],
     salvageInfo: [ { name: 'ARC Alloy', stackSize: 15, quantity: 4 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging: Elite ARC technology"]
+    obtainedFrom: ["Medium Shield (1x)", "Power Rod (1x)", "ARC tech"],
+    requiredFor: ["Final Tier Protection (1x)", "ARC Circuitry (2x)", "Voltage Converter (1x)", "ARC Alloy (4x)"]
   },
   {
     id: 'mat47',
@@ -641,7 +687,8 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'Chemicals', stackSize: 50, quantity: 3 } ],
     salvageInfo: [ { name: 'Chemicals', stackSize: 50, quantity: 1 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Mechanical zones"]
+    obtainedFrom: ["Turbo Pump (3x)", "Explosive Mine (2x)", "Blaze Grenade (2x)", "Motor (2x)", "Water Pump (2x)", "Coolant (2x)", "Polluted Air Filter (2x)", "Synthesized Fuel (1x)", "Heavy Fuze Grenade (1x)"],
+    requiredFor: ["Renegade (5x)", "Explosive Compound (2x)", "Blaze Grenade (2x)"]
   },
   {
     id: 'mat48',
@@ -653,7 +700,8 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'Fabric', stackSize: 50, quantity: 5 } ],
     salvageInfo: [ { name: 'Fabric', stackSize: 50, quantity: 2 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Residential/Commercial zones"]
+    obtainedFrom: ["Snap Hook (3x)", "Zipline (1x)"],
+    requiredFor: ["Snap Hook (3x)", "Zipline (1x)"]
   },
   {
     id: 'mat49',
@@ -665,7 +713,8 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'Wires', stackSize: 15, quantity: 1 }, { name: 'Metal Parts', stackSize: 50, quantity: 1 } ],
     salvageInfo: [ { name: 'Wires', stackSize: 15, quantity: 1 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging: ARC (Snitch, Surveyor)", "Androids", "Server Racks", "Recycling", "Celeste", "Security/Technological zones"]
+    obtainedFrom: ["Broken Handheld Radio (3x)", "Explosive Mine (1x)", "Remote Control (1x)", "Thermostat (1x)", "Radio (1x)", "Flow Controller (1x)", "Radio Relay (1x)", "Spectrometer (1x)", "Spectrum Analyzer (1x)", "Android (1x)", "Server Rack (1x)", "Snitch (1x)", "Surveyor (1x)", "Surge Coil (1x)", "Tagging Grenade (1x)"],
+    requiredFor: ["Explosive Mine (1x)", "Raider Hatch Key (3x)", "Surge Coil (1x)", "Tagging Grenade (1x)"]
   },
   {
     id: 'mat50',
@@ -677,7 +726,8 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 2 }, { name: 'Rubber Parts', stackSize: 50, quantity: 3 } ],
     salvageInfo: [ { name: 'Plastic Parts', stackSize: 50, quantity: 2 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging", "Recycling", "Celeste", "Commercial zones"]
+    obtainedFrom: ["Headphones (1x)", "Frequency Modulation Box (1x)", "Photoelectric Cloak (1x)", "Radio (1x)", "Noisemaker (1x)"],
+    requiredFor: ["Photoelectric Cloak (4x)", "Noisemaker (1x)"]
   },
   {
     id: 'mat51',
@@ -689,7 +739,8 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'Electrical Components', stackSize: 10, quantity: 1 }, { name: 'ARC Alloy', stackSize: 15, quantity: 1 } ],
     salvageInfo: [ { name: 'Electrical Components', stackSize: 10, quantity: 1 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging: ARC (Courier, Hornet)", "ARC zones"]
+    obtainedFrom: ["Hornet (1x)", "Courier (1x)"],
+    requiredFor: ["Showstopper (1x)", "Surge Coil (1x)"]
   },
   {
     id: 'mat52',
@@ -701,7 +752,8 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'Power Rod', stackSize: 3, quantity: 1 }, { name: 'Magnetic Accelerator', stackSize: 3, quantity: 1 } ],
     salvageInfo: [ { name: 'Magnetic Accelerator', stackSize: 3, quantity: 1 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging: Destroyed Matriarchs", "ARC zones"]
+    obtainedFrom: ["Matriarch (1x)", "ARC zones"],
+    requiredFor: ["Aphelion (1x)"]
   },
   {
     id: 'mat53',
@@ -713,8 +765,9 @@ export const MATERIALS_DATA: Material[] = [
     recycleInfo: [ { name: 'Power Rod', stackSize: 3, quantity: 1 }, { name: 'Magnetic Accelerator', stackSize: 3, quantity: 1 } ],
     salvageInfo: [ { name: 'Power Rod', stackSize: 3, quantity: 1 } ],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Scavenging: Destroyed Queens", "ARC zones"]
-  }
+    obtainedFrom: ["Queen (1x)", "ARC zones"],
+    requiredFor: ["Jupiter (1x)", "Equalizer (1x)"]
+  },
 ];
 
 export const MODS_DATA: Modification[] = [
@@ -1323,6 +1376,9 @@ export const THROWABLES_DATA: Throwable[] = [
   {"id":"t-cloak","name":"Photoelectric Cloak","imageUrl":"https://arcraiders.wiki/w/images/0/06/Photoelectric_Cloak.png","rarity":"EPIC","icon":"visibility_off","category":"QUICK USE","description":"Briefly invisible to ARC.","craftInfo":{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Adv Mechanical Components","quantity":1}]}},
   {"id":"t-snaphook","name":"Snap Hook","imageUrl":"https://arcraiders.wiki/w/images/5/56/Snap_Hook.png","rarity":"UNCOMMON","icon":"link","category":"QUICK USE","description":"Quick traversal across gaps.","craftInfo":{"station":"Refiner 1","quantityProduced":1,"materials":[{"name":"Metal Parts","quantity":4}]}},
   {"id":"t-zipline","name":"Zipline","imageUrl":"https://arcraiders.wiki/w/images/f/f9/Zipline.png","rarity":"RARE","icon":"route","category":"QUICK USE","description":"Bidirectional zipline for squad.","craftInfo":{"station":"Refiner 2","quantityProduced":1,"materials":[{"name":"Rope","quantity":4},{"name":"Mechanical Components","quantity":3}]}},
+  {"id":"t-hatch","name":"Raider Hatch Key","imageUrl":"https://arcraiders.wiki/w/images/0/07/Raider_Hatch_Key.png","rarity":"RARE","icon":"key","category":"QUICK USE","description":"An over-the-counter electronic lock bypass. Unlocks Raider Hatches.","craftInfo":{"station":"Gear Bench 3","quantityProduced":1,"materials":[{"name":"Adv Electrical Components","quantity":1},{"name":"Sensors","quantity":3}]}},
+  {"id":"t-surge","name":"Surge Coil","imageUrl":"https://arcraiders.wiki/w/images/9/90/Surge_Coil.png","rarity":"RARE","icon":"flash_on","category":"QUICK USE","description":"Deploys an electrical field to disable nearby ARC.","craftInfo":{"station":"Explosives Station III","quantityProduced":1,"materials":[{"name":"Electrical Components","quantity":1},{"name":"Sensors","quantity":1},{"name":"Hornet Driver","quantity":1}]}},
+  {"id":"t-tagging","name":"Tagging Grenade","imageUrl":"https://arcraiders.wiki/w/images/3/30/Tagging_Grenade.png","rarity":"RARE","icon":"my_location","category":"THROWABLES","description":"A tactical grenade that tags enemies through walls.","craftInfo":{"station":"Explosives Station II","quantityProduced":1,"materials":[{"name":"Electrical Components","quantity":1},{"name":"Sensors","quantity":1}]}},
   // THROWABLES
   {
     id: 't1', name: 'Light Impact Grenade', recycleInfo: [ { name: 'Chemicals', stackSize: 50, quantity: 1 }, { name: 'Plastic Parts', stackSize: 50, quantity: 1 } ], salvageInfo: [ { name: 'Chemicals', stackSize: 50, quantity: 1 } ], rarity: 'COMMON', icon: 'explosion', imageUrl: 'https://cdn.metaforge.app/arc-raiders/icons/light-impact-grenade.webp', stackSize: 5,
