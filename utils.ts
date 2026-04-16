@@ -187,11 +187,18 @@ export const getItemRarity = (name: string): Rarity => {
     const material = MATERIALS_DATA.find(m => m.name.toLowerCase() === lowerName);
     if (material) return material.rarity;
 
+    // 4. Check Throwables
+    const throwable = THROWABLES_DATA.find(t => t.name.toLowerCase() === name.toLowerCase() || t.name.toLowerCase() === baseName.toLowerCase());
+    if (throwable) return throwable.rarity;
+
+    // 5. Check Augments
+    const augment = AUGMENTS_DATA.find(a => a.name.toLowerCase() === name.toLowerCase() || a.name.toLowerCase() === baseName.toLowerCase());
+    if (augment) return augment.rarity;
 
     const arcUncommonItems = ['arc alloy', 'motion core', 'spotter relay', 'snitch scanner', 'sample cleaner', 'rotary encoder', 'hornet driver', 'magnet'];
     if (arcUncommonItems.some(item => lowerName.includes(item))) return 'UNCOMMON';
 
-    // 5. Default
+    // Default
     return 'COMMON';
 };
 
