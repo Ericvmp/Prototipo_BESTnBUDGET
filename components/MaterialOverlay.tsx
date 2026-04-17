@@ -187,6 +187,14 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                       </span>
                     </div>
                   )}
+                  {material.purchasableFromCeleste && (
+                    <div className="flex items-center gap-3 justify-center">
+                      <span className="material-symbols-outlined text-lg text-cyan-400">storefront</span>
+                      <span className="text-[14px] font-black uppercase tracking-[0.3em] text-cyan-500 drop-shadow-[0_0_5px_rgba(34,211,238,0.5)]">
+                        Trader Celeste
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
 

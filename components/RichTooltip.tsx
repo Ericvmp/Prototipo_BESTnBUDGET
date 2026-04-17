@@ -163,25 +163,28 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
         }}
         className={`bg-[#0d1117]/95 backdrop-blur-2xl border-2 ${rs.border} rounded-[2rem] overflow-hidden animate-fade-in flex flex-col ${!isShiftDown && 'scale-95 opacity-80'}`}
       >
-        {/* Header */}
-        <div className="p-6 flex items-center gap-5 border-b border-white/5 bg-white/[0.03] shrink-0 relative">
-          {!isShiftDown && (
-            <div className="absolute top-2 right-6 flex items-center gap-2">
-                 <span className="text-[9px] font-black tracking-[0.2em] text-white/40 uppercase text-right">Press [SHIFT] to Lock & Inspect</span>
-                 <div className="w-1.5 h-1.5 rounded-full bg-white/20 animate-pulse" />
+        {/* Top Status Bar */}
+        <div className={`p-4 text-center text-[10px] font-black tracking-[0.4em] uppercase bg-white/5 border-b border-white/5 shrink-0 flex items-center justify-center relative ${isShiftDown ? rs.text : 'text-slate-500'}`}>
+          {!isShiftDown ? (
+            <div className="flex items-center gap-2">
+                 <span>Press [SHIFT] to Lock & Inspect</span>
+                 <div className="w-1.5 h-1.5 rounded-full bg-slate-500 animate-pulse" />
             </div>
-          )}
-          {isShiftDown && (
-             <div className="absolute top-2 right-6 flex items-center gap-2">
-                 <span className={`text-[9px] font-black tracking-[0.2em] uppercase animate-bounce ${rs.text}`}>Inspection Locked</span>
+          ) : (
+             <div className="flex items-center gap-2 w-full justify-center">
+                 <span className="animate-bounce">Inspection Locked</span>
                  <button 
                   onClick={(e) => { e.stopPropagation(); closeTooltip(); }}
-                  className="w-5 h-5 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+                  className="absolute right-4 w-6 h-6 flex items-center justify-center bg-white/10 hover:bg-white/20 hover:text-white rounded-full transition-colors text-slate-300"
                  >
-                   <span className="material-symbols-outlined text-[14px] text-white">close</span>
+                   <span className="material-symbols-outlined text-[14px]">close</span>
                  </button>
             </div>
           )}
+        </div>
+
+        {/* Header */}
+        <div className="p-6 flex items-center gap-5 border-b border-white/5 bg-white/[0.03] shrink-0 relative">
           {item.imageUrl ? (
             <div className={`w-16 h-16 rounded-2xl bg-slate-800 p-3 flex items-center justify-center border-2 border-white/10 shadow-2xl`}>
               <img src={item.imageUrl} alt={item.name} className="w-full h-full object-contain drop-shadow-glow" />

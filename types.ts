@@ -123,6 +123,7 @@ export interface Material {
   stackSize?: number;
   obtainedFrom?: string[];
   requiredFor?: string[];
+  purchasableFromCeleste?: boolean;
 }
 
 export interface LootSource {
@@ -138,6 +139,7 @@ export interface LootCategory {
   wikiUrl: string;
   note?: string;
   craftingStation?: string;
+  purchasableFromCeleste?: boolean;
   sources: LootSource[];
 }
 
