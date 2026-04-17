@@ -2820,7 +2820,8 @@ export const LOOT_DATA: LootCategory[] = [
       { name: 'Arpeggio III', quantity: 4 },
       { name: 'Burletta IV', quantity: 4, imageUrl: '/images/weapons/Burletta.png' },
       { name: 'Il Toro III', quantity: 4, imageUrl: '/images/weapons/Il_Toro.png' },
-      { name: 'Complex Gun Parts', quantity: 3, imageUrl: '/images/loot/Complex_Gun_Parts.png' },
+      { name: 'Complex Gun Parts',
+    purchasableFromCeleste: true, quantity: 3, imageUrl: '/images/loot/Complex_Gun_Parts.png' },
       { name: 'Anvil II', quantity: 3, imageUrl: '/images/weapons/Anvil.png' },
     ],
   },
@@ -2841,7 +2842,7 @@ export const LOOT_DATA: LootCategory[] = [
   {
     id: 'loot-arc-circuitry',
     material: 'ARC Circuitry',
-    materialImageUrl: '/images/loot/ARC_Circuitry.png',
+    materialImageUrl: '/images/loot/Complex_Gun_Parts.png',
     wikiUrl: 'https://arcraiders.wiki/wiki/ARC_Circuitry',
     sources: [
       { name: 'Power Rod', quantity: 1, imageUrl: '/images/loot/Power_Rod.png' },

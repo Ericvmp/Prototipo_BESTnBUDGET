@@ -161,7 +161,7 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
           pointerEvents: isShiftDown ? 'auto' : 'none',
           transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         }}
-        className={`bg-[#0d1117]/95 backdrop-blur-2xl border-2 ${rs.border} rounded-[2rem] overflow-hidden animate-fade-in flex flex-col ${!isShiftDown && 'scale-95 opacity-80'}`}
+        className={`bg-[#0d1117]/95 backdrop-blur-2xl border-2 ${rs.border} rounded-[2rem] overflow-hidden animate-fade-in flex flex-col ${!isShiftDown ? 'scale-95 opacity-80' : ''}`}
       >
         {/* Top Status Bar */}
         <div className={`p-4 text-center text-[10px] font-black tracking-[0.4em] uppercase bg-white/5 border-b border-white/5 shrink-0 flex items-center justify-center relative ${isShiftDown ? rs.text : 'text-slate-500'}`}>
@@ -185,7 +185,7 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
 
         {/* Header */}
         <div className="p-6 flex items-center gap-5 border-b border-white/5 bg-white/[0.03] shrink-0 relative">
-          {item.imageUrl ? (
+          {item?.imageUrl ? (
             <div className={`w-16 h-16 rounded-2xl bg-slate-800 p-3 flex items-center justify-center border-2 border-white/10 shadow-2xl`}>
               <img src={item.imageUrl} alt={item.name} className="w-full h-full object-contain drop-shadow-glow" />
             </div>
@@ -363,7 +363,7 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
 
   return (
     <div
-      style={{ display: 'contents' }}
+      className="inline-block w-full h-full"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

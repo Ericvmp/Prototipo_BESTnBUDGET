@@ -47,9 +47,8 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                     const material = MATERIALS_DATA.find(m => m.name === category.material);
 
                     return (
-                        <RichTooltip item={material || { name: category.material, rarity: 'COMMON' }}>
+                        <RichTooltip key={category.id} item={material || { name: category.material, rarity: 'COMMON' }}>
                             <button
-                                key={category.id}
                                 onClick={() => material && onMaterialSelect(material)}
                                 className={`group cursor-pointer relative flex flex-col bg-card-dark rounded-2xl transition-all duration-300 overflow-hidden shadow-lg border hover:ring-8 hover:ring-inset ${getRarityBorderColor(material?.rarity || 'COMMON')} ${getRarityHoverStyles(material?.rarity || 'COMMON')}`}
                             >
@@ -64,9 +63,15 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                                     <div className="flex items-center gap-4 text-left flex-1 min-w-0">
                                         <div className="relative w-12 h-12 rounded-xl flex items-center justify-center bg-background-dark border border-slate-700 shrink-0 relative z-10 transition-transform duration-500 group-hover:scale-105">
                                             <img
-                                                src={category.materialImageUrl || material?.imageUrl || ''}
+                                                src={category.materialImageUrl || material?.imageUrl || '/images/loot/Unusable_Weapon.png'}
                                                 alt={category.material}
                                                 className="w-8 h-8 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-125 transition-all duration-500"
+                                                onError={(e) => {
+                                                    const target = e.target as HTMLImageElement;
+                                                    if (!target.src.includes('/images/loot/Unusable_Weapon.png')) {
+                                                        target.src = '/images/loot/Unusable_Weapon.png';
+                                                    }
+                                                }}
                                             />
                                         </div>
                                         <div className="flex-1 min-w-0">
