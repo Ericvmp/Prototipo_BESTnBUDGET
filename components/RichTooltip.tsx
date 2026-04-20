@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { LOOT_DATA, MATERIALS_DATA, WEAPONS_DATA, MODS_DATA, THROWABLES_DATA } from '../data';
-import { parseMaterialString, getItemRarity, getSourceImageUrl, getRarityStyles } from '../utils';
+import { parseMaterialString, getItemRarity, getSourceImageUrl, getRarityStyles, getRarityBorderColor, getRarityIconColor } from '../utils';
 
 interface RichTooltipProps {
   item: any;
@@ -89,18 +89,23 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
           const imageUrl = getSourceImageUrl(r.name);
           const rarity = getItemRarity(r.name);
           const mat = MATERIALS_DATA.find(m => m.name === r.name);
+          const borderStyle = getRarityBorderColor(rarity);
+          const imgBorderColor = borderStyle.replace('border-[3px]', 'border-2').replace('/30', '/50');
+          
           return (
-            <div key={i} className="flex items-center gap-4 p-2.5 rounded-xl bg-white/[0.04] border border-white/5 transition-colors hover:bg-white/[0.08]">
-              <div className="w-10 h-10 rounded bg-slate-800 p-1.5 border border-white/10 shrink-0 flex items-center justify-center shadow-inner">
+            <div key={i} className={`flex items-center gap-4 p-2.5 rounded-xl bg-white/[0.04] ${borderStyle} transition-colors hover:bg-white/[0.08]`}>
+              <div className={`w-10 h-10 rounded bg-slate-800 p-1.5 ${imgBorderColor} shrink-0 flex items-center justify-center shadow-inner`}>
                 {imageUrl ? (
                   <img src={imageUrl} alt={r.name} className="w-full h-full object-contain opacity-90" />
                 ) : (
-                  <span className="material-symbols-outlined text-[20px] text-slate-500">{mat?.icon || 'category'}</span>
+                  <span className={`material-symbols-outlined text-[20px] ${getRarityIconColor(rarity)}`}>{mat?.icon || 'category'}</span>
                 )}
               </div>
               <div className="flex flex-col min-w-0">
                 <span className="text-[14px] text-slate-100 font-bold truncate tracking-wide">{r.name}</span>
-                <span className="text-[9px] uppercase font-black opacity-40 leading-none">{rarity}</span>
+                <span className={`text-[9px] uppercase font-black leading-none ${getRarityIconColor(rarity)}`}>
+                  {rarity}
+                </span>
               </div>
               <span className={`ml-auto text-[14px] font-black ${color} shrink-0 bg-black/30 px-2.5 py-1 rounded-lg border border-white/10 shadow-inner`}>×{r.quantity}</span>
             </div>
@@ -119,21 +124,32 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
         <span className="text-[12px] font-black tracking-[0.3em] uppercase text-violet-400">SOURCE</span>
       </div>
       <div className="space-y-2">
-        {sources.map((s, i) => (
-          <div key={i} className="flex items-center gap-4 p-2.5 rounded-xl bg-white/[0.04] border border-white/5 transition-colors hover:bg-white/[0.08]">
-            {s.imageUrl ? (
-              <div className="w-10 h-10 rounded bg-slate-800 p-1.5 border border-white/10 shrink-0 flex items-center justify-center shadow-inner">
-                <img src={s.imageUrl} alt={s.name} className="w-full h-full object-contain opacity-80" />
+        {sources.map((s, i) => {
+          const rarity = getItemRarity(s.name);
+          const borderStyle = getRarityBorderColor(rarity);
+          const imgBorderColor = borderStyle.replace('border-[3px]', 'border-2').replace('/30', '/50');
+          
+          return (
+            <div key={i} className={`flex items-center gap-4 p-2.5 rounded-xl bg-white/[0.04] ${borderStyle} transition-colors hover:bg-white/[0.08]`}>
+              <div className={`w-10 h-10 rounded bg-slate-800 p-1.5 ${imgBorderColor} shrink-0 flex items-center justify-center shadow-inner`}>
+                {s.imageUrl ? (
+                  <img src={s.imageUrl} alt={s.name} className="w-full h-full object-contain opacity-80" />
+                ) : (
+                  <div className={`w-10 h-10 rounded bg-slate-800 ${imgBorderColor} shrink-0 flex items-center justify-center`}>
+                    <span className={`material-symbols-outlined text-[20px] ${getRarityIconColor(rarity)}`}>inventory_2</span>
+                  </div>
+                )}
               </div>
-            ) : (
-              <div className="w-10 h-10 rounded bg-slate-800 border border-white/10 shrink-0 flex items-center justify-center">
-                <span className="material-symbols-outlined text-[20px] text-slate-500">inventory_2</span>
+              <div className="flex flex-col min-w-0">
+                <span className="text-[14px] text-slate-100 font-bold truncate tracking-wide">{s.name}</span>
+                <span className={`text-[9px] uppercase font-black leading-none ${getRarityIconColor(rarity)}`}>
+                  {rarity}
+                </span>
               </div>
-            )}
-            <span className="text-[14px] text-slate-100 font-bold truncate tracking-wide">{s.name}</span>
-            <span className="ml-auto text-[14px] font-black text-violet-300 shrink-0 bg-black/30 px-2.5 py-1 rounded-lg border border-white/10 shadow-inner">×{s.quantity}</span>
-          </div>
-        ))}
+              <span className="ml-auto text-[14px] font-black text-violet-300 shrink-0 bg-black/30 px-2.5 py-1 rounded-lg border border-white/10 shadow-inner">×{s.quantity}</span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -186,16 +202,16 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
         {/* Header */}
         <div className="p-6 flex items-center gap-5 border-b border-white/5 bg-white/[0.03] shrink-0 relative">
           {item?.imageUrl ? (
-            <div className={`w-16 h-16 rounded-2xl bg-slate-800 p-3 flex items-center justify-center border-2 border-white/10 shadow-2xl`}>
+            <div className={`w-16 h-16 rounded-2xl bg-slate-800 p-3 flex items-center justify-center border-2 ${rs.border} shadow-2xl`}>
               <img src={item.imageUrl} alt={item.name} className="w-full h-full object-contain drop-shadow-glow" />
             </div>
           ) : (
-            <div className={`w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center border-2 border-white/10 shadow-2xl`}>
+            <div className={`w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center border-2 ${rs.border} shadow-2xl`}>
               <span className={`material-symbols-outlined text-4xl ${rs.text}`}>{item.icon || 'category'}</span>
             </div>
           )}
           <div className="min-w-0 flex-1">
-            <p className="text-[22px] font-black text-white leading-tight uppercase tracking-wider mb-2">{item.name}</p>
+            <p className="text-[22px] font-black text-white leading-tight tracking-wider mb-2">{item.name}</p>
             <div className="flex gap-2 flex-wrap">
               <span className={`text-[11px] font-black tracking-widest uppercase border-2 px-3 py-1 rounded-full leading-none ${rs.text} ${rs.border} bg-black/40 shadow-inner`}>
                 {rarity}
@@ -283,19 +299,23 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
                   const { name, quantity } = parseMaterialString(itemStr);
                   const rarity = getItemRarity(name);
                   const imageUrl = getSourceImageUrl(name);
+                  const borderStyle = getRarityBorderColor(rarity);
+                  const imgBorderColor = borderStyle.replace('border-[3px]', 'border-2').replace('/30', '/50');
 
                   return (
-                    <div key={i} className="flex items-center gap-4 p-2.5 rounded-xl bg-white/[0.04] border border-white/5 transition-colors hover:bg-white/[0.08]">
-                      <div className="w-10 h-10 rounded bg-slate-800 p-1.5 border border-white/10 shrink-0 flex items-center justify-center shadow-inner">
+                    <div key={i} className={`flex items-center gap-4 p-2.5 rounded-xl bg-white/[0.04] ${borderStyle} transition-colors hover:bg-white/[0.08]`}>
+                      <div className={`w-10 h-10 rounded bg-slate-800 p-1.5 ${imgBorderColor} shrink-0 flex items-center justify-center shadow-inner`}>
                         {imageUrl ? (
                           <img src={imageUrl} alt={name} className="w-full h-full object-contain opacity-80" />
                         ) : (
-                          <span className="material-symbols-outlined text-[20px] text-slate-500">category</span>
+                          <span className={`material-symbols-outlined text-[20px] ${getRarityIconColor(rarity)}`}>category</span>
                         )}
                       </div>
                       <div className="flex flex-col min-w-0">
                         <span className="text-[13px] text-slate-100 font-bold truncate tracking-wide">{name}</span>
-                        <span className="text-[9px] uppercase font-black opacity-50 leading-none">{rarity}</span>
+                        <span className={`text-[9px] uppercase font-black leading-none ${getRarityIconColor(rarity)}`}>
+                          {rarity}
+                        </span>
                       </div>
                       <span className="ml-auto text-[14px] font-black text-primary shrink-0 bg-black/30 px-2.5 py-1 rounded-lg border border-white/10 shadow-inner">×{quantity}</span>
                     </div>
@@ -319,19 +339,23 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
                   const { name, quantity } = typeof srcItem === 'string' ? parseMaterialString(srcItem) : srcItem;
                   const imageUrl = getSourceImageUrl(name);
                   const rarity = getItemRarity(name);
+                  const borderStyle = getRarityBorderColor(rarity);
+                  const imgBorderColor = borderStyle.replace('border-[3px]', 'border-2').replace('/30', '/50');
 
                   return (
-                    <div key={i} className={`flex items-center gap-4 p-2.5 rounded-xl bg-white/[0.04] border border-white/5 transition-colors hover:bg-white/[0.08]`}>
-                      <div className="w-10 h-10 rounded bg-slate-800 p-1.5 border border-white/10 shrink-0 flex items-center justify-center shadow-inner">
+                    <div key={i} className={`flex items-center gap-4 p-2.5 rounded-xl bg-white/[0.04] ${borderStyle} transition-colors hover:bg-white/[0.08]`}>
+                      <div className={`w-10 h-10 rounded bg-slate-800 p-1.5 ${imgBorderColor} shrink-0 flex items-center justify-center shadow-inner`}>
                         {imageUrl ? (
                           <img src={imageUrl} alt={name} className="w-full h-full object-contain opacity-80" />
                         ) : (
-                          <span className="material-symbols-outlined text-[20px] text-slate-500">inventory_2</span>
+                          <span className={`material-symbols-outlined text-[20px] ${getRarityIconColor(rarity)}`}>inventory_2</span>
                         )}
                       </div>
                       <div className="flex flex-col min-w-0">
                         <span className="text-[13px] text-slate-100 font-bold truncate tracking-wide">{name}</span>
-                        <span className="text-[9px] uppercase font-black opacity-50 leading-none">{rarity}</span>
+                        <span className={`text-[9px] uppercase font-black leading-none ${getRarityIconColor(rarity)}`}>
+                          {rarity}
+                        </span>
                       </div>
                       <span className="ml-auto text-[14px] font-black text-violet-300 shrink-0 bg-black/30 px-2.5 py-1 rounded-lg border border-white/10 shadow-inner">×{quantity}</span>
                     </div>

@@ -25,24 +25,31 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                     </div>
                 </div>
 
-                <div className="flex items-center gap-6 bg-black/40 border border-slate-800/50 p-3 rounded-2xl">
+                <div className="flex flex-wrap items-center gap-4 md:gap-6 bg-black/40 border border-slate-800/50 p-3 rounded-2xl">
                     <div className="flex items-center gap-2">
                         <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center border-2 border-slate-900 shadow-lg">
                             <span className="material-symbols-outlined text-[12px] text-white">precision_manufacturing</span>
                         </div>
                         <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Craftable</span>
                     </div>
-                    <div className="w-px h-6 bg-slate-800" />
+                    <div className="w-px h-6 bg-slate-800 hidden md:block" />
                     <div className="flex items-center gap-2">
                         <div className="w-6 h-6 rounded-full bg-emerald-700 flex items-center justify-center border-2 border-slate-900 shadow-[0_0_10px_rgba(16,185,129,0.4)]">
                             <span className="material-symbols-outlined text-[12px] text-emerald-100">storefront</span>
                         </div>
                         <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Trader Celeste</span>
                     </div>
+                    <div className="w-px h-6 bg-slate-800 hidden md:block" />
+                    <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full border border-slate-600 bg-slate-900/80 flex items-center justify-center shadow-inner shadow-black/50">
+                            <span className="material-symbols-outlined text-[12px] text-slate-400">layers</span>
+                        </div>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Stack Size</span>
+                    </div>
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-3 mt-6">
                 {data.map((category) => {
                     const material = MATERIALS_DATA.find(m => m.name === category.material);
 
@@ -51,7 +58,7 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                         <RichTooltip item={material || { name: category.material, rarity: 'COMMON' }}>
                             <button
                                 onClick={() => material && onMaterialSelect(material)}
-                                className={`group cursor-pointer relative flex flex-col w-full h-full bg-card-dark rounded-2xl transition-all duration-300 overflow-hidden shadow-lg border hover:ring-8 hover:ring-inset ${getRarityBorderColor(material?.rarity || 'COMMON')} ${getRarityHoverStyles(material?.rarity || 'COMMON')}`}
+                                className={`group cursor-pointer relative flex w-full bg-card-dark rounded-2xl transition-all duration-300 overflow-hidden shadow-lg ${getRarityBorderColor(material?.rarity || 'COMMON')} ${getRarityHoverStyles(material?.rarity || 'COMMON')}`}
                             >
                                 {/* Background Rarity Glow */}
                                 {material && (
@@ -60,52 +67,56 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                                 {/* Scanline */}
                                 <div className="scanline-overlay absolute inset-0 opacity-10 pointer-events-none"></div>
                                 
-                                {/* Header: Item Icon and Name */}
-                                <div className="flex flex-col h-full relative z-10 w-full">
-                                    <div className="flex items-center gap-4 p-4 border-b border-white/5 w-full">
-                                        <div className="relative w-14 h-14 rounded-xl flex items-center justify-center bg-background-dark border border-slate-700 shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner">
-                                            <img
-                                                src={category.materialImageUrl || material?.imageUrl || '/images/items/Unusable_Weapon.png'}
-                                                alt={category.material}
-                                                className="w-10 h-10 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-125 transition-all duration-500"
-                                                onError={(e) => {
-                                                    const target = e.target as HTMLImageElement;
-                                                    if (!target.src.includes('/images/items/Unusable_Weapon.png')) {
-                                                        target.src = '/images/items/Unusable_Weapon.png';
-                                                    }
-                                                }}
-                                            />
-                                        </div>
-                                        <div className="flex-1 min-w-0 text-left">
-                                            <h3 className="text-sm md:text-base font-black text-slate-100 group-hover:text-white transition-colors truncate uppercase tracking-widest block w-full">{category.material}</h3>
-                                            {material && (
-                                                <div className="flex items-center gap-1.5 mt-1.5">
-                                                    <span className={`text-[9px] font-black px-1.5 py-0.5 rounded border uppercase tracking-widest ${getRarityStyles(material.rarity)}`}>
-                                                        {material.rarity}
-                                                    </span>
-                                                </div>
-                                            )}
-                                        </div>
+                                <div className="flex items-center gap-6 p-4 w-full relative z-10">
+                                    {/* Left: Image (20% larger than previous w-14 -> w-18) */}
+                                    <div className={`relative w-20 h-20 rounded-xl flex items-center justify-center bg-background-dark shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner overflow-hidden ${getRarityBorderColor(material?.rarity || 'COMMON')}`}>
+                                        <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(material?.rarity || 'COMMON')} opacity-20`}></div>
+                                        <img
+                                            src={category.materialImageUrl || material?.imageUrl || '/images/items/Unusable_Weapon.png'}
+                                            alt={category.material}
+                                            className="w-14 h-14 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
+                                            onError={(e) => {
+                                                const target = e.target as HTMLImageElement;
+                                                if (!target.src.includes('/images/items/Unusable_Weapon.png')) {
+                                                    target.src = '/images/items/Unusable_Weapon.png';
+                                                }
+                                            }}
+                                        />
                                     </div>
 
-                                    {/* Stats / Info Row */}
-                                    <div className="flex items-center justify-between p-4 bg-slate-900/30 mt-auto w-full">
-                                        <div className="flex items-center gap-2">
-                                            <span className="flex items-center gap-1 text-[11px] font-black px-1.5 py-0.5 rounded border border-slate-600 bg-slate-900/80 text-slate-300 shadow-inner shadow-black/50">
-                                                <span className="material-symbols-outlined text-[13px] text-slate-400 leading-none">layers</span>
+                                    {/* Right: Info */}
+                                    <div className="flex-1 min-w-0 text-left">
+                                        <h3 className="text-base md:text-xl font-black text-slate-100 group-hover:text-white transition-colors truncate tracking-wider mb-2">
+                                            {category.material}
+                                        </h3>
+                                        
+                                        <div className="flex flex-wrap items-center gap-4 mt-1">
+                                            {/* Rarity */}
+                                            {material && (
+                                                <span className={`text-[11px] font-black uppercase tracking-[0.2em] ${getRarityStyles(material.rarity).split(' ').filter(s => !s.startsWith('border') && !s.startsWith('bg') && !s.startsWith('px') && !s.startsWith('py')).join(' ')}`}>
+                                                    {material.rarity}
+                                                </span>
+                                            )}
+                                            
+                                            {/* Stack */}
+                                            <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+                                                <span className="material-symbols-outlined text-[16px] leading-none">layers</span>
                                                 {material?.stackSize || 1}
-                                            </span>
-                                        </div>
+                                            </div>
 
-                                        <div className="flex items-center gap-2 shrink-0">
+                                            {/* Craftable */}
                                             {category.craftingStation && (
-                                                <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center border border-primary/40 shadow-lg group-hover:scale-110 transition-transform" title={category.craftingStation}>
-                                                    <span className="material-symbols-outlined text-[16px] text-primary">precision_manufacturing</span>
+                                                <div className="flex items-center gap-1.5 text-[11px] font-bold text-primary uppercase tracking-widest" title={category.craftingStation}>
+                                                    <span className="material-symbols-outlined text-[16px] leading-none">precision_manufacturing</span>
+                                                    CRAFT
                                                 </div>
                                             )}
+
+                                            {/* Celeste */}
                                             {material?.purchasableFromCeleste && (
-                                                <div className="w-8 h-8 rounded-full bg-emerald-900/20 flex items-center justify-center border border-emerald-500/40 shadow-[0_0_10px_rgba(16,185,129,0.2)] group-hover:scale-110 transition-transform" title="Purchasable from Trader Celeste">
-                                                    <span className="material-symbols-outlined text-[16px] text-emerald-400">storefront</span>
+                                                <div className="flex items-center gap-1.5 text-[11px] font-bold text-emerald-400 uppercase tracking-widest" title="Purchasable from Trader Celeste">
+                                                    <span className="material-symbols-outlined text-[16px] leading-none">storefront</span>
+                                                    CELESTE
                                                 </div>
                                             )}
                                         </div>

@@ -1,5 +1,5 @@
 
-import { Rarity, Weapon, Modification, Material } from './types';
+import { Rarity, Weapon, Modification, Material, Throwable, Augment, LootCategory, WeaponSetup } from './types';
 import { WEAPONS_DATA, MODS_DATA, MATERIALS_DATA, THROWABLES_DATA, AUGMENTS_DATA, LOOT_DATA } from './data';
 
 // ─── Mod Slot Type helper (used by Planner compatibility filter) ───
@@ -61,72 +61,34 @@ export const getRarityGlowStyles = (rarity: Rarity): string => {
 
 export const getRarityHoverStyles = (rarity: Rarity): string => {
     switch (rarity) {
-        case 'COMMON': return 'hover:border-slate-400 hover:ring-slate-400 hover:shadow-[0_0_15px_rgba(148,163,184,0.4)] hover:bg-slate-800/80';
-        case 'UNCOMMON': return 'hover:border-emerald-400 hover:ring-emerald-400 hover:shadow-[0_0_15px_rgba(52,211,153,0.4)] hover:bg-slate-800/80';
-        case 'RARE': return 'hover:border-blue-400 hover:ring-blue-400 hover:shadow-[0_0_15px_rgba(96,165,250,0.4)] hover:bg-slate-800/80';
-        case 'EPIC': return 'hover:border-fuchsia-400 hover:ring-fuchsia-400 hover:shadow-[0_0_15px_rgba(232,121,249,0.4)] hover:bg-slate-800/80';
-        case 'LEGENDARY': return 'hover:border-amber-400 hover:ring-amber-400 hover:shadow-[0_0_15px_rgba(251,191,36,0.4)] hover:bg-slate-800/80';
-        default: return 'hover:border-slate-400 hover:ring-slate-400 hover:shadow-[0_0_15px_rgba(148,163,184,0.4)] hover:bg-slate-800/80';
+        case 'COMMON': return 'hover:ring-slate-500/30 hover:border-slate-400 shadow-slate-900/50';
+        case 'UNCOMMON': return 'hover:ring-emerald-500/30 hover:border-emerald-400 shadow-emerald-900/50';
+        case 'RARE': return 'hover:ring-blue-500/30 hover:border-blue-400 shadow-blue-900/50';
+        case 'EPIC': return 'hover:ring-fuchsia-500/30 hover:border-fuchsia-400 shadow-fuchsia-900/50';
+        case 'LEGENDARY': return 'hover:ring-amber-500/30 hover:border-amber-400 shadow-amber-900/50';
+        default: return 'hover:ring-slate-500/30 hover:border-slate-400';
     }
 };
 
 export const getRarityBorderColor = (rarity: Rarity): string => {
     switch (rarity) {
-        case 'COMMON': return 'border-slate-500/30';
-        case 'UNCOMMON': return 'border-emerald-500/30';
-        case 'RARE': return 'border-blue-500/30';
-        case 'EPIC': return 'border-fuchsia-500/30';
-        case 'LEGENDARY': return 'border-amber-500/30';
-        default: return 'border-slate-500/30';
+        case 'COMMON': return 'border-[3px] border-slate-500/30';
+        case 'UNCOMMON': return 'border-[3px] border-emerald-500/30';
+        case 'RARE': return 'border-[3px] border-blue-500/30';
+        case 'EPIC': return 'border-[3px] border-fuchsia-500/30';
+        case 'LEGENDARY': return 'border-[3px] border-amber-500/30';
+        default: return 'border-[3px] border-slate-500/30';
     }
 };
 
-// ─── Entity-linking helpers (shared by overlays) ───
-
-export type EntityMatch =
-    | { type: 'weapon'; entity: Weapon }
-    | { type: 'mod'; entity: Modification }
-    | { type: 'material'; entity: Material }
-    | null;
-
 /**
- * Finds the first matching entity (Weapon, Mod, or Material) referenced in a text string.
- * Sorts by name length descending to avoid partial matches (e.g. "Anvil" matching before "Anvil I").
+ * Advanced Asset Resolver
+ * Attempts to find the best image for a given source name.
+ * Strips tier suffixes like " I", " II", " III", " IV" for matching
  */
-export const findEntityInText = (text: string, excludeMaterialId?: string): EntityMatch => {
-    const lowerText = text.toLowerCase();
-
-    const weapons = [...WEAPONS_DATA].sort((a, b) => b.name.length - a.name.length);
-    const weaponMatch = weapons.find(w => lowerText.includes(w.name.toLowerCase()));
-    if (weaponMatch) return { type: 'weapon', entity: weaponMatch };
-
-    const mods = [...MODS_DATA].sort((a, b) => b.name.length - a.name.length);
-    const modMatch = mods.find(m => lowerText.includes(m.name.toLowerCase()));
-    if (modMatch) return { type: 'mod', entity: modMatch };
-
-    const mats = [...MATERIALS_DATA].sort((a, b) => b.name.length - a.name.length);
-    const matMatch = mats.find(
-        mat => lowerText.includes(mat.name.toLowerCase()) && mat.id !== excludeMaterialId
-    );
-    if (matMatch) return { type: 'material', entity: matMatch };
-
-    return null;
-};
-
-/**
- * Returns true if the text references any known entity (weapon, mod, or material).
- */
-export const isTextLinkable = (text: string, excludeMaterialId?: string): boolean => {
-    return findEntityInText(text, excludeMaterialId) !== null;
-};
-
-/**
- * Resolves a LOOT source item name to the best available local image URL.
- * Checks weapons (strips tier suffix), mods (exact match), and materials.
- * Returns undefined if no local image is found (caller should use explicit imageUrl or fallback).
- */
-export const getSourceImageUrl = (sourceName: string): string | undefined => {
+export const getSourceImageUrl = (sourceName: string): string | null => {
     const lowerName = sourceName.toLowerCase();
+    
     // Strip tier suffixes like " I", " II", " III", " IV" for matching
     const baseName = sourceName.replace(/\s+(I{1,3}|IV)$/, '');
     const lowerBase = baseName.toLowerCase();
@@ -163,39 +125,48 @@ export const getSourceImageUrl = (sourceName: string): string | undefined => {
         if (sourceMatch?.imageUrl) return sourceMatch.imageUrl;
     }
 
-    return undefined;
+    return null;
 };
+
 /**
- * Resolves a LOOT source item name to its corresponding Rarity.
+ * Universal Rarity Resolver
  * Checks weapons, mods, and materials first, then applies fallbacks for junk/ARC items.
  */
 export const getItemRarity = (name: string): Rarity => {
-    const lowerName = name.toLowerCase();
+    if (!name) return 'COMMON';
+    const trimmedName = name.trim();
+    const lowerName = trimmedName.toLowerCase();
 
     // Strip tier suffixes for weapon matching
-    const baseName = name.replace(/\s+(I{1,3}|IV)$/, '');
+    const baseName = trimmedName.replace(/\s+(I{1,3}|IV)$/, '');
+    const lowerBase = baseName.toLowerCase();
 
-    // 1. Check Weapons (base name match)
-    const weapon = WEAPONS_DATA.find(w => w.name.toLowerCase() === baseName.toLowerCase());
+    // 1. Check Weapons
+    const weapon = WEAPONS_DATA.find(w => w.name.toLowerCase() === lowerName || w.name.toLowerCase() === lowerBase);
     if (weapon) return weapon.rarity;
 
-    // 2. Check Mods (exact or base match)
-    const mod = MODS_DATA.find(m => m.name.toLowerCase() === name.toLowerCase() || m.name.toLowerCase() === baseName.toLowerCase());
+    // 2. Check Mods
+    const mod = MODS_DATA.find(m => m.name.toLowerCase() === lowerName || m.name.toLowerCase() === lowerBase);
     if (mod) return mod.rarity;
 
     // 3. Check Materials
     const material = MATERIALS_DATA.find(m => m.name.toLowerCase() === lowerName);
     if (material) return material.rarity;
 
-    // 4. Check Throwables
-    const throwable = THROWABLES_DATA.find(t => t.name.toLowerCase() === name.toLowerCase() || t.name.toLowerCase() === baseName.toLowerCase());
+    // 4. Check Throwables & Shields
+    const throwable = THROWABLES_DATA.find(t => t.name.toLowerCase() === lowerName || t.name.toLowerCase() === lowerBase);
     if (throwable) return throwable.rarity;
 
     // 5. Check Augments
-    const augment = AUGMENTS_DATA.find(a => a.name.toLowerCase() === name.toLowerCase() || a.name.toLowerCase() === baseName.toLowerCase());
+    const augment = AUGMENTS_DATA.find(a => a.name.toLowerCase() === lowerName || a.name.toLowerCase() === lowerBase);
     if (augment) return augment.rarity;
 
-    const arcUncommonItems = ['arc alloy', 'motion core', 'spotter relay', 'snitch scanner', 'sample cleaner', 'rotary encoder', 'hornet driver', 'magnet'];
+    // Hardcoded fallbacks for items that might be referenced but not in main arrays or have slight name diffs
+    if (lowerName.includes('heavy shield')) return 'EPIC';
+    if (lowerName.includes('medium shield')) return 'RARE';
+    if (lowerName.includes('light shield')) return 'UNCOMMON';
+    
+    const arcUncommonItems = ['arc alloy', 'motion core', 'spotter relay', 'snitch scanner', 'sample cleaner', 'rotary encoder', 'hornet driver', 'magnet', 'arc circuitry'];
     if (arcUncommonItems.some(item => lowerName.includes(item))) return 'UNCOMMON';
 
     // Default
@@ -207,6 +178,7 @@ export const getItemRarity = (name: string): Rarity => {
  * Returns an object with name and quantity, or the original string as name if parsing fails.
  */
 export const parseMaterialString = (s: string): { name: string; quantity: number } => {
+    if (!s) return { name: '', quantity: 1 };
     const match = s.match(/(.+?)\s*\((\d+)x\)/);
     if (match) {
         return {

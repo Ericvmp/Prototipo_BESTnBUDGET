@@ -2127,7 +2127,7 @@ export const THROWABLES_DATA: Throwable[] = [
     id: 't19', name: 'Shield Recharger', recycleInfo: [ { name: 'Rubber Parts',
     purchasableFromCeleste: true, stackSize: 50, quantity: 4 } ], salvageInfo: [ { name: 'Rubber Parts',
     purchasableFromCeleste: true, stackSize: 50, quantity: 3 } ], rarity: 'UNCOMMON', icon: 'battery_charging_full', category: 'DEFENSIVE', stackSize: 5,
-    imageUrl: '/images/items/Rubber_Parts.png',
+    imageUrl: "https://arcraiders.wiki/w/images/thumb/4/44/Shield_Recharger.png/348px-Shield_Recharger.png.webp",
     description: 'Quick Use item that can be used to recharge Shields over time.',
     craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Rubber Parts',
     purchasableFromCeleste: true, quantity: 4 }, { name: 'ARC Powercell', quantity: 1 }] }

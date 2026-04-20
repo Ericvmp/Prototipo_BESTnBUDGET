@@ -345,7 +345,7 @@ const FinalReportModal: React.FC<{
                                        )}
                                     </div>
                                     <div className="flex-1 min-w-0">
-                                       <span className="text-[14px] font-black uppercase tracking-wider block text-white pr-1 leading-tight break-words">{mat.name}</span>
+                                       <span className="text-[14px] font-black tracking-wider block text-white pr-1 leading-tight break-words">{mat.name}</span>
                                        <span className="text-[9px] font-black tracking-[0.2em] uppercase text-orange-500/60 block mt-1">{mat.rarity}</span>
                                     </div>
                                     <div className="text-3xl font-black text-orange-500 font-mono shrink-0 pl-4 border-l border-orange-500/20 group-hover:scale-110 transition-transform">
@@ -383,7 +383,7 @@ const FinalReportModal: React.FC<{
                                     {mat.imageUrl ? <img src={mat.imageUrl} alt="" className="w-full h-full object-contain filter drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] scale-[1.4]" /> : <span className="material-symbols-outlined text-slate-700 text-xl scale-[1.4]">category</span>}
                                  </div>
                                  <div className="flex-1 min-w-0">
-                                    <span className="text-[12px] font-black uppercase tracking-wider block text-slate-100 pr-1 leading-tight group-hover:text-white break-words">{mat.name}</span>
+                                    <span className="text-[12px] font-black tracking-wider block text-slate-100 pr-1 leading-tight group-hover:text-white break-words">{mat.name}</span>
                                     <span className="text-[8px] font-black tracking-[0.1em] uppercase opacity-60 block mt-0.5">{mat.rarity}</span>
                                  </div>
                                  <div className="text-2xl font-black text-white font-mono shrink-0 pl-3 border-l border-white/10 group-hover:text-primary transition-colors">
@@ -689,7 +689,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                            {weapon.imageUrl ? <img src={weapon.imageUrl} alt={weapon.name} className="w-full h-full object-contain drop-shadow-md" /> : <span className="material-symbols-outlined">{weapon.icon}</span>}
                         </div>
                         <div className="flex-1 min-w-0">
-                           <p className="font-bold text-slate-100 uppercase tracking-wider text-base">{weapon.name}</p>
+                           <p className="font-bold text-slate-100 tracking-wider text-base">{weapon.name}</p>
                            <p className={`text-[11px] uppercase font-black tracking-widest mt-0.5 border inline-block px-1.5 py-0.5 rounded leading-none ${getRarityStyles(weapon.rarity)}`}>{weapon.rarity}</p>
                         </div>
                      </div>
@@ -1180,7 +1180,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                               {mat.imageUrl ? <img src={mat.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-lg opacity-40">category</span>}
                                            </div>
                                            <div>
-                                              <span className="text-[12px] font-black uppercase tracking-wider block leading-tight text-slate-100">{mat.name}</span>
+                                              <span className="text-[12px] font-black tracking-wider block leading-tight text-slate-100">{mat.name}</span>
                                               <span className={`text-[8px] font-black uppercase tracking-widest ${rarityStyles.split(' ').find(c => c.startsWith('text-'))}`}>{mat.rarity}</span>
                                            </div>
                                         </div>

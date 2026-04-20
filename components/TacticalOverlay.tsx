@@ -14,12 +14,12 @@ interface TacticalOverlayProps {
 
 const getRarityColor = (rarity: string) => {
   switch (rarity) {
-    case 'COMMON':    return { hex: '#94a3b8', shadow: 'rgba(148,163,184,0.4)', border: 'border-slate-400', text: 'text-slate-300', topBar: 'bg-slate-400' };
-    case 'UNCOMMON':  return { hex: '#34d399', shadow: 'rgba(52,211,153,0.4)', border: 'border-emerald-400', text: 'text-emerald-300', topBar: 'bg-emerald-400' };
-    case 'RARE':      return { hex: '#60a5fa', shadow: 'rgba(96,165,250,0.4)', border: 'border-blue-400', text: 'text-blue-300', topBar: 'bg-blue-400' };
-    case 'EPIC':      return { hex: '#e879f9', shadow: 'rgba(232,121,249,0.4)', border: 'border-fuchsia-400', text: 'text-fuchsia-300', topBar: 'bg-fuchsia-400' };
-    case 'LEGENDARY': return { hex: '#fbbf24', shadow: 'rgba(251,191,36,0.4)', border: 'border-amber-400', text: 'text-amber-300', topBar: 'bg-amber-400' };
-    default:          return { hex: '#94a3b8', shadow: 'rgba(148,163,184,0.4)', border: 'border-slate-400', text: 'text-slate-300', topBar: 'bg-slate-400' };
+    case 'COMMON':    return { hex: '#94a3b8', shadow: 'rgba(148,163,184,0.4)', border: 'border-[3px] border-slate-400', text: 'text-slate-300', topBar: 'bg-slate-400' };
+    case 'UNCOMMON':  return { hex: '#34d399', shadow: 'rgba(52,211,153,0.4)', border: 'border-[3px] border-emerald-400', text: 'text-emerald-300', topBar: 'bg-emerald-400' };
+    case 'RARE':      return { hex: '#60a5fa', shadow: 'rgba(96,165,250,0.4)', border: 'border-[3px] border-blue-400', text: 'text-blue-300', topBar: 'bg-blue-400' };
+    case 'EPIC':      return { hex: '#e879f9', shadow: 'rgba(232,121,249,0.4)', border: 'border-[3px] border-fuchsia-400', text: 'text-fuchsia-300', topBar: 'bg-fuchsia-400' };
+    case 'LEGENDARY': return { hex: '#fbbf24', shadow: 'rgba(251,191,36,0.4)', border: 'border-[3px] border-amber-400', text: 'text-amber-300', topBar: 'bg-amber-400' };
+    default:          return { hex: '#94a3b8', shadow: 'rgba(148,163,184,0.4)', border: 'border-[3px] border-slate-400', text: 'text-slate-300', topBar: 'bg-slate-400' };
   }
 };
 

@@ -217,7 +217,7 @@ const App: React.FC = () => {
           <p className="text-[10px] text-slate-500 tracking-widest uppercase mt-1">Foundry Inventory Access</p>
         </div>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
         {WEAPONS_DATA.map(weapon => (
           <WeaponCard key={weapon.id} weapon={weapon} onClick={handleWeaponSelect} />
         ))}
@@ -261,7 +261,7 @@ const App: React.FC = () => {
                 <div className="h-px flex-1 bg-gradient-to-r from-primary/30 to-transparent" />
                 <span className="text-[10px] font-black text-slate-600 tracking-widest">{catMods.length}</span>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                 {catMods.map(mod => (
                   <ModCard key={mod.id} mod={mod} onClick={handleModSelect} />
                 ))}

@@ -79,7 +79,7 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({
             ref={inputRef}
             type="text"
             placeholder="Type to search weapons, mods, materials..."
-            className="w-full bg-transparent border-none outline-none text-xl font-medium text-white placeholder:text-slate-600 uppercase tracking-wider"
+            className="w-full bg-transparent border-none outline-none text-xl font-medium text-white placeholder:text-slate-600 tracking-wider"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />

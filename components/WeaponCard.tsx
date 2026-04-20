@@ -16,43 +16,52 @@ const WeaponCard: React.FC<WeaponCardProps> = ({ weapon, onClick }) => {
     <RichTooltip item={weapon}>
       <button
         onClick={() => onClick?.(weapon)}
-        className={`group relative w-full h-full min-h-[220px] bg-card-dark rounded-xl border ${getRarityBorderColor(weapon.rarity)} hover:ring-8 hover:ring-inset overflow-hidden flex flex-col items-center p-2 transition-all duration-300 active:scale-95 shadow-lg ${getRarityHoverStyles(weapon.rarity)}`}
+        className={`group relative flex w-full bg-card-dark rounded-2xl transition-all duration-300 overflow-hidden shadow-lg ${getRarityBorderColor(weapon.rarity)} ${getRarityHoverStyles(weapon.rarity)}`}
       >
         {/* Background Rarity Glow */}
         <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(weapon.rarity)} to-transparent opacity-0 group-hover:opacity-25 transition-opacity duration-500 pointer-events-none`}></div>
-
-        {/* Rarity Badge */}
-        <div className="absolute top-2 left-2 z-10">
-          <span className={`text-[10px] font-black px-2 py-0.5 rounded border uppercase tracking-[0.2em] ${getRarityStyles(weapon.rarity)}`}>
-            {weapon.rarity}
-          </span>
-        </div>
-
-        {/* Weapon Content (Image or Icon) */}
-        <div className="relative z-10 flex-1 flex items-center justify-center w-full min-h-[140px] px-2 py-4">
-          {weapon.imageUrl && !imageError ? (
-            <img
-              src={weapon.imageUrl}
-              alt={weapon.name}
-              onError={() => setImageError(true)}
-              className="w-full h-full max-h-[120px] object-contain transform group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_10px_15px_rgba(0,0,0,0.6)]"
-            />
-          ) : (
-            <span className={`material-symbols-outlined text-6xl opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110 ${getRarityIconColor(weapon.rarity)}`}>
-              {weapon.icon}
-            </span>
-          )}
-        </div>
-
-        {/* Name */}
-        <div className="relative z-10 w-full text-center mt-auto border-t border-slate-800/50 pt-3 pb-2 px-3 bg-slate-900/40 min-w-0">
-          <h3 className="text-sm md:text-base font-black text-slate-100 group-hover:text-white transition-colors truncate uppercase tracking-widest block w-full">
-            {weapon.name}
-          </h3>
-        </div>
-
+        
         {/* Scanline */}
         <div className="scanline-overlay absolute inset-0 opacity-10 pointer-events-none"></div>
+
+        <div className="flex items-center gap-6 p-4 w-full relative z-10">
+          {/* Left: Image */}
+          <div className={`relative w-20 h-20 rounded-xl flex items-center justify-center bg-background-dark shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner overflow-hidden ${getRarityBorderColor(weapon.rarity)}`}>
+            <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(weapon.rarity)} opacity-20`}></div>
+            {weapon.imageUrl && !imageError ? (
+              <img
+                src={weapon.imageUrl}
+                alt={weapon.name}
+                onError={() => setImageError(true)}
+                className="w-14 h-14 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
+              />
+            ) : (
+              <span className={`material-symbols-outlined text-4xl relative z-10 ${getRarityIconColor(weapon.rarity)}`}>
+                {weapon.icon || 'swords'}
+              </span>
+            )}
+          </div>
+
+          {/* Right: Info */}
+          <div className="flex-1 min-w-0 text-left">
+            <h3 className="text-base md:text-xl font-black text-slate-100 group-hover:text-white transition-colors truncate tracking-wider mb-2">
+              {weapon.name}
+            </h3>
+            
+            <div className="flex flex-wrap items-center gap-4 mt-1">
+              {/* Rarity */}
+              <span className={`text-[11px] font-black uppercase tracking-[0.2em] ${getRarityStyles(weapon.rarity).split(' ').filter(s => !s.startsWith('border') && !s.startsWith('bg') && !s.startsWith('px') && !s.startsWith('py')).join(' ')}`}>
+                {weapon.rarity}
+              </span>
+              
+              {/* Weapon Type */}
+              <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-widest">
+                <span className="material-symbols-outlined text-[16px] leading-none">settings_input_component</span>
+                {weapon.weaponType}
+              </div>
+            </div>
+          </div>
+        </div>
       </button>
     </RichTooltip>
   );
