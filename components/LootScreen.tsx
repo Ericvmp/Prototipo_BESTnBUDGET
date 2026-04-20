@@ -65,13 +65,13 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                                     <div className="flex items-center gap-4 p-4 border-b border-white/5 w-full">
                                         <div className="relative w-14 h-14 rounded-xl flex items-center justify-center bg-background-dark border border-slate-700 shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner">
                                             <img
-                                                src={category.materialImageUrl || material?.imageUrl || '/images/loot/Unusable_Weapon.png'}
+                                                src={category.materialImageUrl || material?.imageUrl || '/images/items/Unusable_Weapon.png'}
                                                 alt={category.material}
                                                 className="w-10 h-10 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-125 transition-all duration-500"
                                                 onError={(e) => {
                                                     const target = e.target as HTMLImageElement;
-                                                    if (!target.src.includes('/images/loot/Unusable_Weapon.png')) {
-                                                        target.src = '/images/loot/Unusable_Weapon.png';
+                                                    if (!target.src.includes('/images/items/Unusable_Weapon.png')) {
+                                                        target.src = '/images/items/Unusable_Weapon.png';
                                                     }
                                                 }}
                                             />

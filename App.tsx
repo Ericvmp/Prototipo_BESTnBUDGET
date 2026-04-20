@@ -129,7 +129,7 @@ const App: React.FC = () => {
           icon="military_tech"
           delay="200ms"
           image="https://cdn.metaforge.app/arc-raiders/icons/hideout/Gunsmith.webp"
-          itemImage="/images/weapons/Stitcher.png"
+          itemImage="/images/items/Stitcher.png"
           itemImageClass="w-32 h-32 md:w-52 md:h-52"
           hoverColor="#85f2e9"
           onClick={() => setCurrentScreen('weapons')}
@@ -139,7 +139,7 @@ const App: React.FC = () => {
           icon="settings_input_component"
           delay="350ms"
           image="https://cdn.metaforge.app/arc-raiders/icons/hideout/ExplosivesStation.webp"
-          itemImage="/images/mods/Compensator_II.png"
+          itemImage="/images/items/Compensator_II.png"
           itemImageClass="w-24 h-24 md:w-40 md:h-40"
           hoverColor="#2df287"
           onClick={() => setCurrentScreen('mods')}
@@ -149,7 +149,7 @@ const App: React.FC = () => {
           icon="inventory_2"
           delay="500ms"
           image="/images/Refiner.webp"
-          itemImage="https://arcraiders.wiki/w/images/8/89/Metal_Parts.png"
+          itemImage="/images/items/Metal_Parts.png"
           itemImageClass="w-24 h-24 md:w-44 md:h-44"
           hoverColor="#fbd008"
           onClick={() => setCurrentScreen('materials')}
@@ -159,7 +159,7 @@ const App: React.FC = () => {
           icon="shield_with_heart"
           delay="650ms"
           image="/images/GearBench.webp"
-          itemImage="https://cdn.metaforge.app/arc-raiders/icons/snap-blast-grenade.webp"
+          itemImage="/images/items/Snap_Blast_Grenade.png"
           itemImageClass="w-16 h-16 md:w-32 md:h-32"
           hoverColor="#fb090b"
           onClick={() => setCurrentScreen('throwables')}

@@ -1075,7 +1075,7 @@ export const WEAPON_MOD_SLOTS: Record<string, string[]> = {
 
 export const WEAPONS_DATA: Weapon[] = [
   {
-    id: 'w-rattler', name: 'Rattler', rarity: 'COMMON', icon: 'my_location', imageUrl: "/images/weapons/Rattler.png",
+    id: 'w-rattler', name: 'Rattler', rarity: 'COMMON', icon: 'my_location', imageUrl: "/images/items/Rattler.png",
     craftInfo: { materials: [{ name: 'Metal Parts',
     purchasableFromCeleste: true, quantity: 16 }, { name: 'Rubber Parts',
     purchasableFromCeleste: true, quantity: 12 }], station: 'Gunsmith 1' },
@@ -1121,7 +1121,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ammoType: 'LIGHT', weaponType: 'SMG'
   },
   {
-    id: 'w-arpeggio', name: 'Arpeggio', rarity: 'UNCOMMON', icon: 'my_location', imageUrl: "/images/weapons/Arpeggio.png",
+    id: 'w-arpeggio', name: 'Arpeggio', rarity: 'UNCOMMON', icon: 'my_location', imageUrl: "/images/items/Arpeggio.png",
     craftInfo: { materials: [{ name: 'Mechanical Components', quantity: 6 }, { name: 'Simple Gun Parts',
     purchasableFromCeleste: true, quantity: 6 }], station: 'Gunsmith 2' },
     repairInfo: [
@@ -1165,7 +1165,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ammoType: 'MEDIUM', weaponType: 'AR'
   },
   {
-    id: 'w-tempest', name: 'Tempest', rarity: 'EPIC', icon: 'my_location', imageUrl: "/images/weapons/Tempest.png",
+    id: 'w-tempest', name: 'Tempest', rarity: 'EPIC', icon: 'my_location', imageUrl: "/images/items/Tempest.png",
     craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 1 }, { name: 'Medium Gun Parts',
     purchasableFromCeleste: true, quantity: 3 }, { name: 'Exodus Modules',
     purchasableFromCeleste: true, quantity: 2 }], station: 'Gunsmith 3' },
@@ -1210,7 +1210,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ammoType: 'MEDIUM', weaponType: 'AR'
   },
   {
-    id: 'w-bettina', name: 'Bettina', rarity: 'EPIC', icon: 'my_location', imageUrl: "/images/weapons/Bettina.png",
+    id: 'w-bettina', name: 'Bettina', rarity: 'EPIC', icon: 'my_location', imageUrl: "/images/items/Bettina.png",
     craftInfo: { materials: [{ name: 'Adv Mechanical Components', quantity: 3 }, { name: 'Heavy Gun Parts',
     purchasableFromCeleste: true, quantity: 3 }, { name: 'Canister',
     purchasableFromCeleste: true, quantity: 3 }], station: 'Gunsmith 3' },
@@ -1251,7 +1251,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ammoType: 'HEAVY', weaponType: 'SNIPER'
   },
   {
-    id: 'w-aphelion', name: 'Aphelion', rarity: 'LEGENDARY', icon: 'my_location', imageUrl: "/images/weapons/Aphelion.png",
+    id: 'w-aphelion', name: 'Aphelion', rarity: 'LEGENDARY', icon: 'my_location', imageUrl: "/images/items/Aphelion.png",
     craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 3 }, { name: 'Complex Gun Parts',
     purchasableFromCeleste: true, quantity: 3 }, { name: 'Matriarch Reactor', quantity: 1 }], station: 'Gunsmith 3' },
     repairInfo: [
@@ -1264,7 +1264,7 @@ export const WEAPONS_DATA: Weapon[] = [
     salvageInfo: [ { tier: 'I', materials: [ { name: 'Magnetic Accelerator', quantity: 1 } ] } ],
   },
   {
-    id: 'w-bobcat', name: 'Bobcat', rarity: 'EPIC', icon: 'my_location', imageUrl: "/images/weapons/Bobcat.png",
+    id: 'w-bobcat', name: 'Bobcat', rarity: 'EPIC', icon: 'my_location', imageUrl: "/images/items/Bobcat.png",
     craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 1 }, { name: 'Light Gun Parts',
     purchasableFromCeleste: true, quantity: 3 }, { name: 'Exodus Modules',
     purchasableFromCeleste: true, quantity: 2 }], station: 'Gunsmith 3' },
@@ -1309,7 +1309,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ammoType: 'LIGHT', weaponType: 'SMG'
   },
   {
-    id: 'w-vulcano', name: 'Vulcano', rarity: 'EPIC', icon: 'my_location', imageUrl: "/images/weapons/Vulcano.png",
+    id: 'w-vulcano', name: 'Vulcano', rarity: 'EPIC', icon: 'my_location', imageUrl: "/images/items/Vulcano.png",
     craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 1 }, { name: 'Heavy Gun Parts',
     purchasableFromCeleste: true, quantity: 3 }, { name: 'Exodus Modules',
     purchasableFromCeleste: true, quantity: 1 }], station: 'Gunsmith 3' },
@@ -1353,7 +1353,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ],
   },
   {
-    id: 'w-hairpin', name: 'Hairpin', rarity: 'COMMON', icon: 'my_location', imageUrl: "/images/weapons/Hairpin.png",
+    id: 'w-hairpin', name: 'Hairpin', rarity: 'COMMON', icon: 'my_location', imageUrl: "/images/items/Hairpin.png",
     craftInfo: { materials: [{ name: 'Metal Parts',
     purchasableFromCeleste: true, quantity: 2 }, { name: 'Plastic Parts',
     purchasableFromCeleste: true, quantity: 5 }], station: 'Gunsmith 1' },
@@ -1405,7 +1405,7 @@ repairInfo: [
     ammoType: 'LIGHT', weaponType: 'PISTOL'
   },
   {
-    id: 'w-jupiter', name: 'Jupiter', rarity: 'LEGENDARY', icon: 'my_location', imageUrl: "/images/weapons/Jupiter.png",
+    id: 'w-jupiter', name: 'Jupiter', rarity: 'LEGENDARY', icon: 'my_location', imageUrl: "/images/items/Jupiter.png",
     craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 3 }, { name: 'Complex Gun Parts',
     purchasableFromCeleste: true, quantity: 3 }, { name: 'Queen Reactor', quantity: 1 }], station: 'Gunsmith 3' },
     repairInfo: [
@@ -1418,7 +1418,7 @@ repairInfo: [
     salvageInfo: [ { tier: 'I', materials: [ { name: 'Adv Mechanical Components', quantity: 3 } ] } ],
   },
   {
-    id: 'w-hullcracker', name: 'Hullcracker', rarity: 'EPIC', icon: 'my_location', imageUrl: "/images/weapons/Hullcracker.png",
+    id: 'w-hullcracker', name: 'Hullcracker', rarity: 'EPIC', icon: 'my_location', imageUrl: "/images/items/Hullcracker.png",
     craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 1 }, { name: 'Heavy Gun Parts',
     purchasableFromCeleste: true, quantity: 3 }, { name: 'Exodus Modules',
     purchasableFromCeleste: true, quantity: 1 }], station: 'Gunsmith 3' },
@@ -1462,7 +1462,7 @@ repairInfo: [
     ],
   },
   {
-    id: 'w-equalizer', name: 'Equalizer', rarity: 'LEGENDARY', icon: 'my_location', imageUrl: "/images/weapons/Equalizer.png",
+    id: 'w-equalizer', name: 'Equalizer', rarity: 'LEGENDARY', icon: 'my_location', imageUrl: "/images/items/Equalizer.png",
     craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 3 }, { name: 'Complex Gun Parts',
     purchasableFromCeleste: true, quantity: 3 }, { name: 'Queen Reactor', quantity: 1 }], station: 'Gunsmith 3' },
     repairInfo: [
@@ -1475,7 +1475,7 @@ repairInfo: [
     salvageInfo: [ { tier: 'I', materials: [ { name: 'Magnetic Accelerator', quantity: 1 } ] } ],
   },
   {
-    id: 'w1', name: 'Ferro', rarity: 'COMMON', icon: 'handyman', imageUrl: "/images/weapons/Ferro.png",
+    id: 'w1', name: 'Ferro', rarity: 'COMMON', icon: 'handyman', imageUrl: "/images/items/Ferro.png",
     craftInfo: { materials: [{ name: 'Metal Parts',
     purchasableFromCeleste: true, quantity: 15 }, { name: 'Simple Gun Parts',
     purchasableFromCeleste: true, quantity: 4 }], station: 'Weapon Workbench' },
@@ -1526,7 +1526,7 @@ repairInfo: [
     ],
   },
   {
-    id: 'w2', name: 'Stitcher', rarity: 'COMMON', icon: 'adjust', imageUrl: "/images/weapons/Stitcher.png",
+    id: 'w2', name: 'Stitcher', rarity: 'COMMON', icon: 'adjust', imageUrl: "/images/items/Stitcher.png",
     craftInfo: { materials: [{ name: 'Metal Parts',
     purchasableFromCeleste: true, quantity: 8 }, { name: 'Rubber Parts',
     purchasableFromCeleste: true, quantity: 4 }], station: 'Gunsmith 1' },
@@ -1578,7 +1578,7 @@ repairInfo: [
     ],
   },
   {
-    id: 'w3', name: 'Kettle', rarity: 'COMMON', icon: 'fireplace', imageUrl: "/images/weapons/Kettle.png",
+    id: 'w3', name: 'Kettle', rarity: 'COMMON', icon: 'fireplace', imageUrl: "/images/items/Kettle.png",
     craftInfo: { materials: [{ name: 'Metal Parts',
     purchasableFromCeleste: true, quantity: 6 }, { name: 'Rubber Parts',
     purchasableFromCeleste: true, quantity: 8 }], station: 'Gunsmith 1' },
@@ -1630,7 +1630,7 @@ repairInfo: [
     ],
   },
   {
-    id: 'w4', name: 'Il Toro', rarity: 'UNCOMMON', icon: 'sports_martial_arts', imageUrl: "/images/weapons/Il Toro.png",
+    id: 'w4', name: 'Il Toro', rarity: 'UNCOMMON', icon: 'sports_martial_arts', imageUrl: "/images/items/Il Toro.png",
     craftInfo: { materials: [{ name: 'Mechanical Components', quantity: 5 }, { name: 'Simple Gun Parts',
     purchasableFromCeleste: true, quantity: 6 }], station: 'Gunsmith 1' },
 repairInfo: [
@@ -1673,7 +1673,7 @@ repairInfo: [
     ],
   },
   {
-    id: 'w5', name: 'Anvil', rarity: 'UNCOMMON', icon: 'construction', imageUrl: "/images/weapons/Anvil.png",
+    id: 'w5', name: 'Anvil', rarity: 'UNCOMMON', icon: 'construction', imageUrl: "/images/items/Anvil.png",
     craftInfo: { materials: [{ name: 'Mechanical Components', quantity: 5 }, { name: 'Simple Gun Parts',
     purchasableFromCeleste: true, quantity: 6 }], station: 'Gunsmith 1' },
 repairInfo: [
@@ -1716,7 +1716,7 @@ repairInfo: [
     ],
   },
   {
-    id: 'w6', name: 'Burletta', rarity: 'UNCOMMON', icon: 'speed', imageUrl: "/images/weapons/Burletta.png",
+    id: 'w6', name: 'Burletta', rarity: 'UNCOMMON', icon: 'speed', imageUrl: "/images/items/Burletta.png",
     craftInfo: { materials: [{ name: 'Mechanical Components', quantity: 3 }, { name: 'Simple Gun Parts',
     purchasableFromCeleste: true, quantity: 3 }], station: 'Gunsmith 1' },
 repairInfo: [
@@ -1759,7 +1759,7 @@ repairInfo: [
     ],
   },
   {
-    id: 'w7', name: 'Renegade', rarity: 'RARE', icon: 'dangerous', imageUrl: "/images/weapons/Renegade.png",
+    id: 'w7', name: 'Renegade', rarity: 'RARE', icon: 'dangerous', imageUrl: "/images/items/Renegade.png",
     craftInfo: { materials: [{ name: 'Adv Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts',
     purchasableFromCeleste: true, quantity: 3 }, { name: 'Oil',
     purchasableFromCeleste: true, quantity: 5 }], station: 'Gunsmith 2' },
@@ -1803,7 +1803,7 @@ repairInfo: [
     ],
   },
   {
-    id: 'w8', name: 'Venator', rarity: 'RARE', icon: 'track_changes', imageUrl: "/images/weapons/Venator.png",
+    id: 'w8', name: 'Venator', rarity: 'RARE', icon: 'track_changes', imageUrl: "/images/items/Venator.png",
     craftInfo: { materials: [{ name: 'Adv Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts',
     purchasableFromCeleste: true, quantity: 3 }, { name: 'Magnet',
     purchasableFromCeleste: true, quantity: 5 }], station: 'Gunsmith 2' },
@@ -1847,7 +1847,7 @@ repairInfo: [
     ],
   },
   {
-    id: 'w9', name: 'Osprey', rarity: 'RARE', icon: 'gps_fixed', imageUrl: "/images/weapons/Osprey.png",
+    id: 'w9', name: 'Osprey', rarity: 'RARE', icon: 'gps_fixed', imageUrl: "/images/items/Osprey.png",
     craftInfo: { materials: [{ name: 'Adv Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts',
     purchasableFromCeleste: true, quantity: 3 }, { name: 'Wires',
     purchasableFromCeleste: true, quantity: 7 }], station: 'Gunsmith 2' },
@@ -1891,7 +1891,7 @@ repairInfo: [
     ],
   },
   {
-    id: 'w10', name: 'Torrente', rarity: 'RARE', icon: 'local_fire_department', imageUrl: "/images/weapons/Torrente.png",
+    id: 'w10', name: 'Torrente', rarity: 'RARE', icon: 'local_fire_department', imageUrl: "/images/items/Torrente.png",
     craftInfo: { materials: [{ name: 'Adv Mechanical Components', quantity: 2 }, { name: 'Medium Gun Parts',
     purchasableFromCeleste: true, quantity: 3 }, { name: 'Steel Spring',
     purchasableFromCeleste: true, quantity: 6 }], station: 'Gunsmith 2' },
@@ -1937,7 +1937,7 @@ repairInfo: [
 
   // ─── NEW: Canto (RARE SMG, Medium Ammo) ───────────────────────────────
   {
-    id: 'w-canto', name: 'Canto', rarity: 'RARE', icon: 'mode_fan', imageUrl: "/images/weapons/Canto.png",
+    id: 'w-canto', name: 'Canto', rarity: 'RARE', icon: 'mode_fan', imageUrl: "/images/items/Canto.png",
     ammoType: 'MEDIUM', weaponType: 'SMG',
     craftInfo: { materials: [{ name: 'Adv Mechanical Components', quantity: 1 }, { name: 'Magnet', quantity: 4 }, { name: 'Medium Gun Parts', quantity: 6 }], station: 'Gunsmith 2' },
     upgradeInfo: [
@@ -1954,7 +1954,7 @@ repairInfo: [
   },
   // ─── NEW: Dolabra (LEGENDARY Shotgun, Energy Clip) ────────────────────
   {
-    id: 'w-dolabra', name: 'Dolabra', rarity: 'LEGENDARY', icon: 'bolt', imageUrl: "/images/weapons/Dolabra.png",
+    id: 'w-dolabra', name: 'Dolabra', rarity: 'LEGENDARY', icon: 'bolt', imageUrl: "/images/items/Dolabra.png",
     ammoType: 'ENERGY', weaponType: 'SHOTGUN',
     craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 1 }, { name: 'Shredder Gyro', quantity: 1 }, { name: 'Vaporizer Regulator', quantity: 1 }], station: 'Gunsmith 3' },
     repairInfo: [
@@ -2244,7 +2244,7 @@ export const THROWABLES_DATA: Throwable[] = [
 export const AUGMENTS_DATA: Augment[] = [
   {
     id: "a-c3a", name: "Combat Mk. 3 (Aggressive)", rarity: "EPIC", icon: "shield_with_heart", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/loot/Combat_Mk._3_(Aggressive).png",
+    imageUrl: "/images/items/Combat_Mk._3_(Aggressive).png",
     description: "Built for frontline assault. High shield integrity and optimized for offensive resource deployment.",
     perks: "+2 slots de granada e regen de 2 HP a cada 5 s (pausa 30 s ao tomar dano).",
     maxWeight: "64–65", backpackSlots: 18, quickUseSlots: 4, safePocketSlots: 1, shieldCompat: "Light / Medium / Heavy",
@@ -2256,7 +2256,7 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-c3f", name: "Combat Mk. 3 (Flanking)", rarity: "EPIC", icon: "shield_with_heart", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/loot/Combat_Mk._3_(Flanking).png",
+    imageUrl: "/images/items/Combat_Mk._3_(Flanking).png",
     description: "Highly mobile frame designed for rapid equipment swapping and maneuvering in close quarters.",
     perks: "+3 slots de Utility e pistolas/hand cannons equipam ~33% mais rápido.",
     maxWeight: "60", backpackSlots: 20, quickUseSlots: 5, safePocketSlots: 2, shieldCompat: "Light",
@@ -2268,7 +2268,7 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-l2", name: "Looting Mk. 2", rarity: "RARE", icon: "shopping_bag", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/loot/Looting_Mk._2.png",
+    imageUrl: "/images/items/Looting_Mk._2.png",
     description: "Scavenger's best friend. Lightweight with increased storage capacity for Trinkets.",
     perks: "+3 slots de Trinket e joga fora Ticks presos em você após ~1 s.",
     maxWeight: "60", backpackSlots: 22, quickUseSlots: 4, safePocketSlots: 2, shieldCompat: "Light",
@@ -2280,7 +2280,7 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-l3c", name: "Looting Mk. 3 (Cautious)", rarity: "EPIC", icon: "shopping_bag", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/loot/Looting_Mk._3_(Cautious).png",
+    imageUrl: "/images/items/Looting_Mk._3_(Cautious).png",
     description: "Recon-optimized frame that prioritizes situational awareness and early warning systems.",
     perks: "Adrenaline Shot automático ao quebrar o escudo, com cooldown.",
     maxWeight: "70", backpackSlots: 24, quickUseSlots: 5, safePocketSlots: 2, shieldCompat: "Light",
@@ -2292,7 +2292,7 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-l3sa", name: "Looting Mk. 3 (Safekeeper)", rarity: "EPIC", icon: "shopping_bag", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/loot/Looting_Mk._3_(Safekeeper).png",
+    imageUrl: "/images/items/Looting_Mk._3_(Safekeeper).png",
     description: "The ultimate extractor. Features experimental safe pocket technology for high-value assets.",
     perks: "Safe Pocket aceita qualquer item (incluindo armas), protegendo-os da perda.",
     maxWeight: "65", backpackSlots: 18, quickUseSlots: 4, safePocketSlots: 1, shieldCompat: "Light / Medium / Heavy",
@@ -2304,7 +2304,7 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-l3su", name: "Looting Mk. 3 (Survivor)", rarity: "EPIC", icon: "shopping_bag", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/loot/Looting_Mk._3_(Survivor).png",
+    imageUrl: "/images/items/Looting_Mk._3_(Survivor).png",
     description: "Exceptional solo frame designed for survival in hostile environments without support.",
     perks: "Altíssimo peso + mochila, +1 Utility; 'mula' máxima, sem perk ativável.",
     maxWeight: "80", backpackSlots: 20, quickUseSlots: 5, safePocketSlots: 3, shieldCompat: "Light / Medium",
@@ -2316,7 +2316,7 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-t2", name: "Tactical Mk. 2", rarity: "RARE", icon: "tactic", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/loot/Tactical_Mk._2.png",
+    imageUrl: "/images/items/Tactical_Mk._2.png",
     description: "Utility frame focused on defensive deployment and area denial strategies.",
     perks: "+1 slot de Utility e fumaça automática ao quebrar o escudo (CD fixo).",
     maxWeight: "45", backpackSlots: 17, quickUseSlots: 5, safePocketSlots: 1, shieldCompat: "Light / Medium",
@@ -2328,7 +2328,7 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-t3d", name: "Tactical Mk. 3 (Defensive)", rarity: "EPIC", icon: "tactic", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/loot/Tactical_Mk._3_(Defensive).png",
+    imageUrl: "/images/items/Tactical_Mk._3_(Defensive).png",
     description: "Frontline tank frame designed for maximum durability and energy redirection.",
     perks: "Integrated Shield Recharger para recarregar escudo com cooldown.",
     maxWeight: "60", backpackSlots: 20, quickUseSlots: 5, safePocketSlots: 1, shieldCompat: "Light / Medium / Heavy",
@@ -2379,7 +2379,7 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: 'a2', name: 'Combat Mk. 2', rarity: 'RARE', icon: 'shield_with_heart', category: 'AUGMENT',
-    imageUrl: "/images/loot/Combat_Mk._2.png",
+    imageUrl: "/images/items/Combat_Mk._2.png",
     description: 'Advanced frame with integrated medical systems.',
     perks: '+1 slot de granada e regen de 1 HP a cada 5 s (pausa 30 s após dano).',
     maxWeight: "55", backpackSlots: 18, quickUseSlots: 4, safePocketSlots: 1, shieldCompat: "Light / Medium / Heavy",
@@ -2429,11 +2429,11 @@ export const LOOT_DATA: LootCategory[] = [
     materialImageUrl: "/images/items/ARC_Alloy.png",
     wikiUrl: 'https://arcraiders.wiki/wiki/ARC_Alloy',
     sources: [
-      { name: 'Damaged Leaper Pulse Unit', quantity: 3, imageUrl: "/images/loot/Damaged_Leaper_Pulse_Unit.png" },
-      { name: 'Damaged Rocketeer Driver', quantity: 3, imageUrl: '/images/loot/Damaged_Rocketeer_Driver.png' },
-      { name: 'Bastion Cell', quantity: 3, imageUrl: '/images/loot/Bastion_Cell.png' },
-      { name: 'Bombardier Cell', quantity: 3, imageUrl: '/images/loot/Bombardier_Cell.png' },
-      { name: 'Leaper Pulse Unit', quantity: 3, imageUrl: '/images/loot/Leaper_Pulse_Unit.png' },
+      { name: 'Damaged Leaper Pulse Unit', quantity: 3, imageUrl: "/images/items/Damaged_Leaper_Pulse_Unit.png" },
+      { name: 'Damaged Rocketeer Driver', quantity: 3, imageUrl: "/images/items/Damaged_Rocketeer_Driver.png" },
+      { name: 'Bastion Cell', quantity: 3, imageUrl: "/images/items/Bastion_Cell.png" },
+      { name: 'Bombardier Cell', quantity: 3, imageUrl: "/images/items/Bombardier_Cell.png" },
+      { name: 'Leaper Pulse Unit', quantity: 3, imageUrl: "/images/items/Leaper_Pulse_Unit.png" },
       { name: 'Heavy Shield', quantity: 3, imageUrl: "/images/items/Heavy_Shield.png" },
       { name: 'ARC Circuitry', quantity: 2, imageUrl: "/images/items/ARC_Circuitry.png" },
       { name: 'ARC Motion Core', quantity: 2, imageUrl: "/images/items/ARC_Motion_Core.png" },
@@ -2493,16 +2493,16 @@ export const LOOT_DATA: LootCategory[] = [
       { name: 'Mechanical Components', quantity: 2, imageUrl: "/images/items/Mechanical_Components.png" },
       { name: 'Rattler II', quantity: 2 },
       { name: 'Shield Recharger', quantity: 4 },
-      { name: 'Rubber Pad', quantity: 18, imageUrl: '/images/loot/Rubber_Pad.png' },
-      { name: 'Ruined Accordion', quantity: 18, imageUrl: '/images/loot/Ruined_Accordion.png' },
-      { name: 'ARC Flex Rubber', quantity: 16, imageUrl: '/images/loot/ARC_Flex_Rubber.png' },
-      { name: 'Diving Goggles', quantity: 12, imageUrl: '/images/loot/Diving_Goggles.png' },
-      { name: 'Degraded ARC Rubber', quantity: 11, imageUrl: '/images/loot/Degraded_ARC_Rubber.png' },
-      { name: 'Deflated Football', quantity: 9, imageUrl: '/images/loot/Deflated_Football.png' },
-      { name: 'Expired Respirator', quantity: 8, imageUrl: '/images/loot/Expired_Respirator.png' },
-      { name: 'Headphones', quantity: 7, imageUrl: '/images/loot/Headphones.png' },
-      { name: 'Thermostat', quantity: 7, imageUrl: '/images/loot/Thermostat.png' },
-      { name: 'Ruined Riot Shield', quantity: 6, imageUrl: '/images/loot/Ruined_Riot_Shield.png' },
+      { name: 'Rubber Pad', quantity: 18, imageUrl: "/images/items/Rubber_Pad.png" },
+      { name: 'Ruined Accordion', quantity: 18, imageUrl: "/images/items/Ruined_Accordion.png" },
+      { name: 'ARC Flex Rubber', quantity: 16, imageUrl: "/images/items/ARC_Flex_Rubber.png" },
+      { name: 'Diving Goggles', quantity: 12, imageUrl: "/images/items/Diving_Goggles.png" },
+      { name: 'Degraded ARC Rubber', quantity: 11, imageUrl: "/images/items/Degraded_ARC_Rubber.png" },
+      { name: 'Deflated Football', quantity: 9, imageUrl: "/images/items/Deflated_Football.png" },
+      { name: 'Expired Respirator', quantity: 8, imageUrl: "/images/items/Expired_Respirator.png" },
+      { name: 'Headphones', quantity: 7, imageUrl: "/images/items/Headphones.png" },
+      { name: 'Thermostat', quantity: 7, imageUrl: "/images/items/Thermostat.png" },
+      { name: 'Ruined Riot Shield', quantity: 6, imageUrl: "/images/items/Ruined_Riot_Shield.png" },
     ],
   },
   {
@@ -2512,20 +2512,20 @@ export const LOOT_DATA: LootCategory[] = [
     materialImageUrl: "/images/items/Plastic_Parts.png",
     wikiUrl: 'https://arcraiders.wiki/wiki/Plastic_Parts',
     sources: [
-      { name: 'Toaster', quantity: 5, imageUrl: '/images/loot/Toaster.png' },
+      { name: 'Toaster', quantity: 5, imageUrl: "/images/items/Toaster.png" },
       { name: 'Processor',
     purchasableFromCeleste: true, quantity: 1, imageUrl: "/images/items/Processor.png" },
       { name: 'Vita Shot', quantity: 1, imageUrl: '/images/items/Vita_Shot.png' },
       { name: 'Electrical Components', quantity: 3 },
-      { name: 'ARC Synthetic Resin', quantity: 14, imageUrl: "/images/loot/ARC_Synthetic_Resin.png" },
-      { name: 'Cooling Fan', quantity: 14, imageUrl: '/images/loot/Cooling_Fan.png' },
-      { name: 'Recorder', quantity: 10, imageUrl: '/images/loot/Recorder.png' },
-      { name: 'Ruined Riot Shield', quantity: 10, imageUrl: '/images/loot/Ruined_Riot_Shield.png' },
-      { name: 'Shaker', quantity: 10, imageUrl: '/images/loot/Shaker.png' },
-      { name: 'Dried-Out ARC Resin', quantity: 9, imageUrl: '/images/loot/Dried-Out_ARC_Resin.png' },
-      { name: 'Camera Lens', quantity: 8, imageUrl: '/images/loot/Camera_Lens.png' },
-      { name: 'Remote Control', quantity: 7, imageUrl: '/images/loot/Remote_Control.png' },
-      { name: 'Alarm Clock', quantity: 6, imageUrl: '/images/loot/Alarm_Clock.png' },
+      { name: 'ARC Synthetic Resin', quantity: 14, imageUrl: "/images/items/ARC_Synthetic_Resin.png" },
+      { name: 'Cooling Fan', quantity: 14, imageUrl: "/images/items/Cooling_Fan.png" },
+      { name: 'Recorder', quantity: 10, imageUrl: "/images/items/Recorder.png" },
+      { name: 'Ruined Riot Shield', quantity: 10, imageUrl: "/images/items/Ruined_Riot_Shield.png" },
+      { name: 'Shaker', quantity: 10, imageUrl: "/images/items/Shaker.png" },
+      { name: 'Dried-Out ARC Resin', quantity: 9, imageUrl: "/images/items/Dried-Out_ARC_Resin.png" },
+      { name: 'Camera Lens', quantity: 8, imageUrl: "/images/items/Camera_Lens.png" },
+      { name: 'Remote Control', quantity: 7, imageUrl: "/images/items/Remote_Control.png" },
+      { name: 'Alarm Clock', quantity: 6, imageUrl: "/images/items/Alarm_Clock.png" },
       { name: 'Angled Grip I', quantity: 6, imageUrl: "/images/items/Angled_Grip_I.png" },
     ],
   },
@@ -2537,16 +2537,16 @@ export const LOOT_DATA: LootCategory[] = [
     materialImageUrl: "/images/items/Magnet.png",
     wikiUrl: 'https://arcraiders.wiki/wiki/Magnet',
     sources: [
-      { name: 'Microscope', quantity: 3, imageUrl: '/images/loot/Microscope.png' },
+      { name: 'Microscope', quantity: 3, imageUrl: "/images/items/Microscope.png" },
       { name: 'Exodus Modules',
     purchasableFromCeleste: true, quantity: 2, imageUrl: "/images/items/Exodus_Modules.png" },
-      { name: 'Industrial Magnet', quantity: 2, imageUrl: '/images/loot/Industrial_Magnet.png' },
-      { name: 'Combat Mk. 2', quantity: 1, imageUrl: '/images/loot/Combat_Mk._2.png' },
-      { name: 'Looting Mk. 2', quantity: 1, imageUrl: '/images/loot/Looting_Mk._2.png' },
-      { name: 'Ripped Safety Vest', quantity: 1, imageUrl: '/images/loot/Ripped_Safety_Vest.png' },
-      { name: 'Ruined Tactical Vest', quantity: 1, imageUrl: '/images/loot/Ruined_Tactical_Vest.png' },
+      { name: 'Industrial Magnet', quantity: 2, imageUrl: "/images/items/Industrial_Magnet.png" },
+      { name: 'Combat Mk. 2', quantity: 1, imageUrl: "/images/items/Combat_Mk._2.png" },
+      { name: 'Looting Mk. 2', quantity: 1, imageUrl: "/images/items/Looting_Mk._2.png" },
+      { name: 'Ripped Safety Vest', quantity: 1, imageUrl: "/images/items/Ripped_Safety_Vest.png" },
+      { name: 'Ruined Tactical Vest', quantity: 1, imageUrl: "/images/items/Ruined_Tactical_Vest.png" },
       { name: 'Snap Blast Grenade', quantity: 1, imageUrl: "/images/items/Snap_Blast_Grenade.png" },
-      { name: 'Tactical Mk. 2', quantity: 1, imageUrl: '/images/loot/Tactical_Mk._2.png' },
+      { name: 'Tactical Mk. 2', quantity: 1, imageUrl: "/images/items/Tactical_Mk._2.png" },
     ],
   },
   {
@@ -2556,14 +2556,14 @@ export const LOOT_DATA: LootCategory[] = [
     materialImageUrl: "/images/items/Metal_Parts.png",
     wikiUrl: 'https://arcraiders.wiki/wiki/Metal_Parts',
     sources: [
-      { name: 'Rattler IV', quantity: 12, imageUrl: "/images/weapons/Rattler.png" },
-      { name: 'Il Toro IV', quantity: 8, imageUrl: "/images/weapons/Il Toro.png" },
+      { name: 'Rattler IV', quantity: 12, imageUrl: "/images/items/Rattler.png" },
+      { name: 'Il Toro IV', quantity: 8, imageUrl: "/images/items/Il Toro.png" },
       { name: 'Heavy Shield', quantity: 3, imageUrl: "/images/items/Heavy_Shield.png" },
       { name: 'Magnet',
     purchasableFromCeleste: true, quantity: 3, imageUrl: "/images/items/Magnet.png" },
       { name: 'Mechanical Components', quantity: 3, imageUrl: "/images/items/Mechanical_Components.png" },
-      { name: 'Microscope', quantity: 2, imageUrl: '/images/loot/Microscope.png' },
-      { name: 'Toaster', quantity: 2, imageUrl: '/images/loot/Toaster.png' },
+      { name: 'Microscope', quantity: 2, imageUrl: "/images/items/Microscope.png" },
+      { name: 'Toaster', quantity: 2, imageUrl: "/images/items/Toaster.png" },
       { name: 'Steel Spring',
     purchasableFromCeleste: true, quantity: 2, imageUrl: "/images/items/Steel_Spring.png" },
       { name: 'Simple Gun Parts',
@@ -2599,12 +2599,12 @@ export const LOOT_DATA: LootCategory[] = [
     materialImageUrl: "/images/items/Steel_Spring.png",
     wikiUrl: 'https://arcraiders.wiki/wiki/Steel_Spring',
     sources: [
-      { name: 'Ruined Accordion', quantity: 3, imageUrl: "/images/loot/Ruined_Accordion.png" },
-      { name: 'Cooling Coil', quantity: 2, imageUrl: '/images/loot/Cooling_Coil.png' },
+      { name: 'Ruined Accordion', quantity: 3, imageUrl: "/images/items/Ruined_Accordion.png" },
+      { name: 'Cooling Coil', quantity: 2, imageUrl: "/images/items/Cooling_Coil.png" },
       { name: 'Extended Light Mag III', quantity: 2, imageUrl: "/images/items/Extended_Light_Mag_III.png" },
       { name: 'Extended Medium Mag III', quantity: 2, imageUrl: "/images/items/Extended_Medium_Mag_III.png" },
       { name: 'Extended Shotgun Mag III', quantity: 2, imageUrl: "/images/items/Extended_Shotgun_Mag_III.png" },
-      { name: 'Spring Cushion', quantity: 2, imageUrl: '/images/loot/Spring_Cushion.png' },
+      { name: 'Spring Cushion', quantity: 2, imageUrl: "/images/items/Spring_Cushion.png" },
       { name: 'Adv Mechanical Components', quantity: 1, imageUrl: "/images/items/Advanced_Mechanical_Components.png" },
       { name: 'Mod Components', quantity: 1, imageUrl: "/images/items/Mod_Components.png" },
       { name: 'Extended Light Mag II', quantity: 1, imageUrl: "/images/items/Extended_Light_Mag_II.png" },
@@ -2618,14 +2618,14 @@ export const LOOT_DATA: LootCategory[] = [
     materialImageUrl: "/images/items/Wires.png",
     wikiUrl: 'https://arcraiders.wiki/wiki/Wires',
     sources: [
-      { name: 'Portable TV', quantity: 6, imageUrl: '/images/loot/Portable_TV.png' },
-      { name: 'Acoustic Guitar', quantity: 6, imageUrl: '/images/loot/Acoustic_Guitar.png' },
-      { name: 'Cooling Fan', quantity: 4, imageUrl: '/images/loot/Cooling_Fan.png' },
-      { name: 'Power Cable', quantity: 4, imageUrl: '/images/loot/Power_Cable.png' },
-      { name: 'Toaster', quantity: 3, imageUrl: '/images/loot/Toaster.png' },
-      { name: 'Damaged Heat Sink', quantity: 2, imageUrl: '/images/loot/Damaged_Heat_Sink.png' },
-      { name: 'Power Bank', quantity: 2, imageUrl: '/images/loot/Power_Bank.png' },
-      { name: 'Humidifier', quantity: 2, imageUrl: '/images/loot/Humidifier.png' },
+      { name: 'Portable TV', quantity: 6, imageUrl: "/images/items/Portable_TV.png" },
+      { name: 'Acoustic Guitar', quantity: 6, imageUrl: "/images/items/Acoustic_Guitar.png" },
+      { name: 'Cooling Fan', quantity: 4, imageUrl: "/images/items/Cooling_Fan.png" },
+      { name: 'Power Cable', quantity: 4, imageUrl: "/images/items/Power_Cable.png" },
+      { name: 'Toaster', quantity: 3, imageUrl: "/images/items/Toaster.png" },
+      { name: 'Damaged Heat Sink', quantity: 2, imageUrl: "/images/items/Damaged_Heat_Sink.png" },
+      { name: 'Power Bank', quantity: 2, imageUrl: "/images/items/Power_Bank.png" },
+      { name: 'Humidifier', quantity: 2, imageUrl: "/images/items/Humidifier.png" },
       { name: 'Muzzle Brake III', quantity: 2, imageUrl: "/images/items/Muzzle_Brake_III.png" },
       { name: 'Shotgun Choke III', quantity: 2, imageUrl: "/images/items/Shotgun_Choke_III.png" },
       { name: 'Processor',
@@ -2646,15 +2646,15 @@ export const LOOT_DATA: LootCategory[] = [
     craftingStation: 'Refiner 2',
     sources: [
       { name: 'Rocketeer Driver', quantity: 2, imageUrl: "/images/items/Rocketeer_Driver.png" },
-      { name: 'Combat Mk. 3 (Aggressive)', quantity: 1, imageUrl: '/images/loot/Combat_Mk._3_(Aggressive).png' },
-      { name: 'Combat Mk. 3 (Flanking)', quantity: 1, imageUrl: '/images/loot/Combat_Mk._3_(Flanking).png' },
-      { name: 'Frequency Modulation Box', quantity: 1, imageUrl: '/images/loot/Frequency_Modulation_Box.png' },
-      { name: 'Looting Mk. 3 (Cautious)', quantity: 1, imageUrl: '/images/loot/Looting_Mk._3_(Cautious).png' },
-      { name: 'Looting Mk. 3 (Safekeeper)', quantity: 1, imageUrl: '/images/loot/Looting_Mk._3_(Safekeeper).png' },
-      { name: 'Looting Mk. 3 (Survivor)', quantity: 1, imageUrl: '/images/loot/Looting_Mk._3_(Survivor).png' },
+      { name: 'Combat Mk. 3 (Aggressive)', quantity: 1, imageUrl: "/images/items/Combat_Mk._3_(Aggressive).png" },
+      { name: 'Combat Mk. 3 (Flanking)', quantity: 1, imageUrl: "/images/items/Combat_Mk._3_(Flanking).png" },
+      { name: 'Frequency Modulation Box', quantity: 1, imageUrl: "/images/items/Frequency_Modulation_Box.png" },
+      { name: 'Looting Mk. 3 (Cautious)', quantity: 1, imageUrl: "/images/items/Looting_Mk._3_(Cautious).png" },
+      { name: 'Looting Mk. 3 (Safekeeper)', quantity: 1, imageUrl: "/images/items/Looting_Mk._3_(Safekeeper).png" },
+      { name: 'Looting Mk. 3 (Survivor)', quantity: 1, imageUrl: "/images/items/Looting_Mk._3_(Survivor).png" },
       { name: 'Photoelectric Cloak', quantity: 1, imageUrl: "/images/items/Photoelectric_Cloak.png" },
       { name: 'Power Rod', quantity: 1, imageUrl: "/images/items/Power_Rod.png" },
-      { name: 'Tactical Mk. 3 (Defensive)', quantity: 1, imageUrl: '/images/loot/Tactical_Mk._3_(Defensive).png' },
+      { name: 'Tactical Mk. 3 (Defensive)', quantity: 1, imageUrl: "/images/items/Tactical_Mk._3_(Defensive).png" },
     ],
   },
   {
@@ -2673,7 +2673,7 @@ export const LOOT_DATA: LootCategory[] = [
       { name: 'Bettina IV', quantity: 3 },
       { name: 'Bobcat II', quantity: 3 },
       { name: 'Hullcracker III', quantity: 3 },
-      { name: 'Osprey IV', quantity: 3, imageUrl: "/images/weapons/Osprey.png" },
+      { name: 'Osprey IV', quantity: 3, imageUrl: "/images/items/Osprey.png" },
     ],
   },
   {
@@ -2683,16 +2683,16 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Electrical_Components',
     craftingStation: 'Refiner 1',
     sources: [
-      { name: 'Fried Motherboard', quantity: 2, imageUrl: '/images/loot/Fried_Motherboard.png' },
+      { name: 'Fried Motherboard', quantity: 2, imageUrl: "/images/items/Fried_Motherboard.png" },
       { name: 'Hornet Driver', quantity: 2, imageUrl: "/images/items/Hornet_Driver.png" },
-      { name: 'Rotary Encoder', quantity: 2, imageUrl: '/images/loot/Rotary_Encoder.png' },
-      { name: 'Sample Cleaner', quantity: 2, imageUrl: '/images/loot/Sample_Cleaner.png' },
-      { name: 'Signal Amplifier', quantity: 2, imageUrl: '/images/loot/Signal_Amplifier.png' },
-      { name: 'Snitch Scanner', quantity: 2, imageUrl: '/images/loot/Snitch_Scanner.png' },
-      { name: 'Spotter Relay', quantity: 2, imageUrl: '/images/loot/Spotter_Relay.png' },
+      { name: 'Rotary Encoder', quantity: 2, imageUrl: "/images/items/Rotary_Encoder.png" },
+      { name: 'Sample Cleaner', quantity: 2, imageUrl: "/images/items/Sample_Cleaner.png" },
+      { name: 'Signal Amplifier', quantity: 2, imageUrl: "/images/items/Signal_Amplifier.png" },
+      { name: 'Snitch Scanner', quantity: 2, imageUrl: "/images/items/Snitch_Scanner.png" },
+      { name: 'Spotter Relay', quantity: 2, imageUrl: "/images/items/Spotter_Relay.png" },
       { name: 'Adv Electrical Components', quantity: 1, imageUrl: "/images/items/Advanced_Electrical_Components.png" },
-      { name: 'Combat Mk. 2', quantity: 1, imageUrl: '/images/loot/Combat_Mk._2.png' },
-      { name: 'Looting Mk. 2', quantity: 1, imageUrl: '/images/loot/Looting_Mk._2.png' },
+      { name: 'Combat Mk. 2', quantity: 1, imageUrl: "/images/items/Combat_Mk._2.png" },
+      { name: 'Looting Mk. 2', quantity: 1, imageUrl: "/images/items/Looting_Mk._2.png" },
     ],
   },
   {
@@ -2737,7 +2737,7 @@ export const LOOT_DATA: LootCategory[] = [
     craftingStation: 'Refiner 1',
     sources: [
       { name: 'Arpeggio III', quantity: 4 },
-      { name: 'Burletta IV', quantity: 4, imageUrl: "/images/weapons/Burletta.png" },
+      { name: 'Burletta IV', quantity: 4, imageUrl: "/images/items/Burletta.png" },
       { name: 'Power Drill', quantity: 4, imageUrl: "/images/items/Unusable_Weapon.png" },
       { name: 'Rattler IV', quantity: 4 },
     ],
@@ -2752,14 +2752,14 @@ export const LOOT_DATA: LootCategory[] = [
     sources: [
       { name: 'Tempest III', quantity: 4 },
       { name: 'Tempest IV', quantity: 4 },
-      { name: 'Osprey III', quantity: 3, imageUrl: "/images/weapons/Osprey.png" },
-      { name: 'Osprey IV', quantity: 3, imageUrl: "/images/weapons/Osprey.png" },
-      { name: 'Renegade III', quantity: 3, imageUrl: "/images/weapons/Renegade.png" },
-      { name: 'Renegade IV', quantity: 3, imageUrl: "/images/weapons/Renegade.png" },
+      { name: 'Osprey III', quantity: 3, imageUrl: "/images/items/Osprey.png" },
+      { name: 'Osprey IV', quantity: 3, imageUrl: "/images/items/Osprey.png" },
+      { name: 'Renegade III', quantity: 3, imageUrl: "/images/items/Renegade.png" },
+      { name: 'Renegade IV', quantity: 3, imageUrl: "/images/items/Renegade.png" },
       { name: 'Tempest II', quantity: 3 },
-      { name: 'Torrente III', quantity: 3, imageUrl: "/images/weapons/Torrente.png" },
-      { name: 'Torrente IV', quantity: 3, imageUrl: "/images/weapons/Torrente.png" },
-      { name: 'Venator III', quantity: 3, imageUrl: "/images/weapons/Venator.png" },
+      { name: 'Torrente III', quantity: 3, imageUrl: "/images/items/Torrente.png" },
+      { name: 'Torrente IV', quantity: 3, imageUrl: "/images/items/Torrente.png" },
+      { name: 'Venator III', quantity: 3, imageUrl: "/images/items/Venator.png" },
     ],
   },
   {
@@ -2770,16 +2770,16 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Simple_Gun_Parts',
     craftingStation: 'Refiner 3',
     sources: [
-      { name: 'Anvil IV', quantity: 5, imageUrl: "/images/weapons/Anvil.png" },
+      { name: 'Anvil IV', quantity: 5, imageUrl: "/images/items/Anvil.png" },
       { name: 'Arpeggio IV', quantity: 5 },
-      { name: 'Il Toro IV', quantity: 5, imageUrl: "/images/weapons/Il Toro.png" },
+      { name: 'Il Toro IV', quantity: 5, imageUrl: "/images/items/Il Toro.png" },
       { name: 'Unusable Weapon', quantity: 5, imageUrl: '/images/items/Unusable_Weapon.png' },
-      { name: 'Anvil III', quantity: 4, imageUrl: "/images/weapons/Anvil.png" },
+      { name: 'Anvil III', quantity: 4, imageUrl: "/images/items/Anvil.png" },
       { name: 'Arpeggio III', quantity: 4 },
-      { name: 'Burletta IV', quantity: 4, imageUrl: "/images/weapons/Burletta.png" },
-      { name: 'Il Toro III', quantity: 4, imageUrl: "/images/weapons/Il Toro.png" },
+      { name: 'Burletta IV', quantity: 4, imageUrl: "/images/items/Burletta.png" },
+      { name: 'Il Toro III', quantity: 4, imageUrl: "/images/items/Il Toro.png" },
       { name: 'Complex Gun Parts', quantity: 3, imageUrl: "/images/items/Complex_Gun_Parts.png" },
-      { name: 'Anvil II', quantity: 3, imageUrl: "/images/weapons/Anvil.png" },
+      { name: 'Anvil II', quantity: 3, imageUrl: "/images/items/Anvil.png" },
     ],
   },
   {
@@ -2789,9 +2789,9 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Complex_Gun_Parts',
     craftingStation: 'Refiner 3',
     sources: [
-      { name: 'Jupiter', quantity: 3, imageUrl: "/images/weapons/Jupiter.png" },
-      { name: 'Aphelion', quantity: 2, imageUrl: "/images/weapons/Aphelion.png" },
-      { name: 'Equalizer', quantity: 2, imageUrl: "/images/weapons/Equalizer.png" },
+      { name: 'Jupiter', quantity: 3, imageUrl: "/images/items/Jupiter.png" },
+      { name: 'Aphelion', quantity: 2, imageUrl: "/images/items/Aphelion.png" },
+      { name: 'Equalizer', quantity: 2, imageUrl: "/images/items/Equalizer.png" },
       { name: 'Jupiter (Tier 1)', quantity: 2 },
       { name: 'Aphelion (Tier 1)', quantity: 2 },
     ],
@@ -2877,7 +2877,7 @@ export const LOOT_DATA: LootCategory[] = [
       { name: 'Sentinel Weaponry Core', quantity: 3 },
       { name: 'Surge Shield Recharger', quantity: 2 },
       { name: 'Tactical Mk. 3 (Healing)', quantity: 2, imageUrl: "/images/items/Tactical_Mk._3_Healing.png" },
-      { name: 'Tactical Mk. 3 (Defensive)', quantity: 2, imageUrl: '/images/loot/Tactical_Mk._3_(Defensive).png' },
+      { name: 'Tactical Mk. 3 (Defensive)', quantity: 2, imageUrl: "/images/items/Tactical_Mk._3_(Defensive).png" },
     ],
   },
   {
@@ -2925,8 +2925,8 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Fabric',
     sources: [
       { name: 'Herbal Bandage', quantity: 5, imageUrl: '/images/items/Herbal_Bandage.png' },
-      { name: 'Ripped Safety Vest', quantity: 2, imageUrl: '/images/loot/Ripped_Safety_Vest.png' },
-      { name: 'Ruined Tactical Vest', quantity: 4, imageUrl: '/images/loot/Ruined_Tactical_Vest.png' },
+      { name: 'Ripped Safety Vest', quantity: 2, imageUrl: "/images/items/Ripped_Safety_Vest.png" },
+      { name: 'Ruined Tactical Vest', quantity: 4, imageUrl: "/images/items/Ruined_Tactical_Vest.png" },
       { name: 'Rope',
     purchasableFromCeleste: true, quantity: 2, imageUrl: "/images/items/Rope.png" },
       { name: 'Sterilized Bandage', quantity: 1, imageUrl: '/images/items/Sterilized_Bandage.png' },
@@ -2940,8 +2940,8 @@ export const LOOT_DATA: LootCategory[] = [
     craftingStation: 'Refiner 1',
     sources: [
       { name: 'Sterilized Bandage', quantity: 2, imageUrl: '/images/items/Sterilized_Bandage.png' },
-      { name: 'Ruined Riot Shield', quantity: 2, imageUrl: '/images/loot/Ruined_Riot_Shield.png' },
-      { name: 'Ruined Tactical Vest', quantity: 2, imageUrl: '/images/loot/Ruined_Tactical_Vest.png' },
+      { name: 'Ruined Riot Shield', quantity: 2, imageUrl: "/images/items/Ruined_Riot_Shield.png" },
+      { name: 'Ruined Tactical Vest', quantity: 2, imageUrl: "/images/items/Ruined_Tactical_Vest.png" },
     ],
   },
   {
@@ -2974,9 +2974,9 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Battery',
     sources: [
       { name: 'Jolt Mine', quantity: 1, imageUrl: "/images/items/Jolt_Mine.png" },
-      { name: 'Power Bank', quantity: 2, imageUrl: '/images/loot/Power_Bank.png' },
-      { name: 'Alarm Clock', quantity: 1, imageUrl: '/images/loot/Alarm_Clock.png' },
-      { name: 'Portable TV', quantity: 2, imageUrl: '/images/loot/Portable_TV.png' },
+      { name: 'Power Bank', quantity: 2, imageUrl: "/images/items/Power_Bank.png" },
+      { name: 'Alarm Clock', quantity: 1, imageUrl: "/images/items/Alarm_Clock.png" },
+      { name: 'Portable TV', quantity: 2, imageUrl: "/images/items/Portable_TV.png" },
     ],
   },
   {
@@ -3010,9 +3010,9 @@ export const LOOT_DATA: LootCategory[] = [
     materialImageUrl: "/images/items/Exodus_Modules.png",
     wikiUrl: 'https://arcraiders.wiki/wiki/Exodus_Modules',
     sources: [
-      { name: 'Bombardier Cell', quantity: 2, imageUrl: '/images/loot/Bombardier_Cell.png' },
-      { name: 'Bastion Cell', quantity: 2, imageUrl: '/images/loot/Bastion_Cell.png' },
-      { name: 'Leaper Pulse Unit', quantity: 2, imageUrl: '/images/loot/Leaper_Pulse_Unit.png' },
+      { name: 'Bombardier Cell', quantity: 2, imageUrl: "/images/items/Bombardier_Cell.png" },
+      { name: 'Bastion Cell', quantity: 2, imageUrl: "/images/items/Bastion_Cell.png" },
+      { name: 'Leaper Pulse Unit', quantity: 2, imageUrl: "/images/items/Leaper_Pulse_Unit.png" },
       { name: 'Rocketeer Driver', quantity: 1, imageUrl: "/images/items/Rocketeer_Driver.png" },
     ],
   },
@@ -3060,8 +3060,8 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Firefly_Burner',
     sources: [
       { name: 'Trailblazer', quantity: 1, imageUrl: "/images/items/Trailblazer.png" },
-      { name: 'Damaged Leaper Pulse Unit', quantity: 2, imageUrl: '/images/loot/Damaged_Leaper_Pulse_Unit.png' },
-      { name: 'Leaper Pulse Unit', quantity: 1, imageUrl: '/images/loot/Leaper_Pulse_Unit.png' },
+      { name: 'Damaged Leaper Pulse Unit', quantity: 2, imageUrl: "/images/items/Damaged_Leaper_Pulse_Unit.png" },
+      { name: 'Leaper Pulse Unit', quantity: 1, imageUrl: "/images/items/Leaper_Pulse_Unit.png" },
     ],
   },
   {
@@ -3071,7 +3071,7 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Rocketeer_Driver',
     sources: [
       { name: 'Wolfpack', quantity: 1 },
-      { name: 'Damaged Rocketeer Driver', quantity: 3, imageUrl: "/images/loot/Damaged_Rocketeer_Driver.png" },
+      { name: 'Damaged Rocketeer Driver', quantity: 3, imageUrl: "/images/items/Damaged_Rocketeer_Driver.png" },
       { name: 'ARC Rocketeer', quantity: 2 },
     ],
   },
@@ -3082,8 +3082,8 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Comet_Igniter',
     sources: [
       { name: 'Deadline', quantity: 1 },
-      { name: 'Leaper Pulse Unit', quantity: 1, imageUrl: "/images/loot/Leaper_Pulse_Unit.png" },
-      { name: 'Damaged Leaper Pulse Unit', quantity: 2, imageUrl: '/images/loot/Damaged_Leaper_Pulse_Unit.png' },
+      { name: 'Leaper Pulse Unit', quantity: 1, imageUrl: "/images/items/Leaper_Pulse_Unit.png" },
+      { name: 'Damaged Leaper Pulse Unit', quantity: 2, imageUrl: "/images/items/Damaged_Leaper_Pulse_Unit.png" },
     ],
   },
   {
@@ -3093,7 +3093,7 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Light_Shield',
     craftingStation: 'Gear Bench I',
     sources: [
-      { name: 'Ruined Riot Shield', quantity: 3, imageUrl: '/images/loot/Ruined_Riot_Shield.png' },
+      { name: 'Ruined Riot Shield', quantity: 3, imageUrl: "/images/items/Ruined_Riot_Shield.png" },
       { name: 'Medium Shield', quantity: 1, imageUrl: "/images/items/Medium_Shield.png" },
     ],
   },
@@ -3115,7 +3115,7 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Heavy_Shield',
     sources: [
       { name: 'ARC Bastion', quantity: 3 },
-      { name: 'Bastion Cell', quantity: 3, imageUrl: '/images/loot/Bastion_Cell.png' },
+      { name: 'Bastion Cell', quantity: 3, imageUrl: "/images/items/Bastion_Cell.png" },
       { name: 'ARC Tank', quantity: 2 },
     ],
   },
@@ -3168,8 +3168,8 @@ export const LOOT_DATA: LootCategory[] = [
     materialImageUrl: "/images/items/Speaker_Component.png",
     wikiUrl: 'https://arcraiders.wiki/wiki/Speaker_Component',
     sources: [
-      { name: 'Headphones', quantity: 2, imageUrl: '/images/loot/Headphones.png' },
-      { name: 'Frequency Modulation Box', quantity: 1, imageUrl: '/images/loot/Frequency_Modulation_Box.png' },
+      { name: 'Headphones', quantity: 2, imageUrl: "/images/items/Headphones.png" },
+      { name: 'Frequency Modulation Box', quantity: 1, imageUrl: "/images/items/Frequency_Modulation_Box.png" },
       { name: 'Radio', quantity: 2 },
       { name: 'Noisemaker', quantity: 1 },
     ],
