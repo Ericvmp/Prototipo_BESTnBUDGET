@@ -1,8 +1,7 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Throwable, Augment } from '../types';
 import { getRarityGlowStyles, getRarityIconColor, getRarityStyles, getRarityHoverStyles, getRarityBorderColor } from '../utils';
-import { generateItemTooltip } from './tooltipHelper';
 import RichTooltip from './RichTooltip';
 
 interface ThrowablesScreenProps {
@@ -13,45 +12,60 @@ interface ThrowablesScreenProps {
 }
 
 const TacticalCard: React.FC<{ item: Throwable | Augment; onClick: (item: Throwable | Augment) => void }> = ({ item, onClick }) => {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <RichTooltip item={item}>
-    <button
-      onClick={() => onClick(item)}
-      className={`relative bg-card-dark border ${getRarityBorderColor(item.rarity)} hover:ring-8 hover:ring-inset rounded-xl overflow-hidden transition-all duration-300 group flex flex-col h-full active:scale-[0.98] shadow-lg ${getRarityHoverStyles(item.rarity)}`}
-    >
-      <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(item.rarity)} to-transparent opacity-0 group-hover:opacity-25 transition-opacity duration-500 pointer-events-none`}></div>
+      <button
+        onClick={() => onClick(item)}
+        className={`group relative w-full h-full min-h-[220px] bg-card-dark rounded-xl border ${getRarityBorderColor(item.rarity)} hover:ring-8 hover:ring-inset overflow-hidden flex flex-col items-center p-2 transition-all duration-300 active:scale-95 shadow-lg ${getRarityHoverStyles(item.rarity)}`}
+      >
+        {/* Background Rarity Glow */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(item.rarity)} to-transparent opacity-0 group-hover:opacity-25 transition-opacity duration-500 pointer-events-none`}></div>
 
-      {/* Stack Size Badge */}
-      <div className="absolute top-3 right-3 z-20">
-        <span className="flex items-center gap-1 text-[11px] font-black px-2 py-0.5 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest shadow-inner shadow-black/50" title="Stack Size">
-          <span className="material-symbols-outlined text-[12px] text-slate-400">layers</span>
-          {item.stackSize || 1}
-        </span>
-      </div>
-      
-      <div className="p-4 flex items-center gap-4 relative z-10">
-        <div className="w-20 h-20 rounded-xl bg-background-dark border border-slate-700 flex items-center justify-center p-2 shrink-0 group-hover:bg-slate-800 transition-colors">
-          {item.imageUrl ? (
-            <img src={item.imageUrl} alt={item.name} className="w-full h-full object-contain transform group-hover:rotate-3 group-hover:scale-110 transition-all duration-500 drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]" />
-          ) : (
-            <span className={`material-symbols-outlined text-4xl opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110 ${getRarityIconColor(item.rarity)}`}>{item.icon || 'military_tech'}</span>
-          )}
+        {/* Rarity Badge — top left */}
+        <div className="absolute top-2 left-2 z-10">
+          <span className={`text-[10px] font-black px-2 py-0.5 rounded border uppercase tracking-[0.2em] ${getRarityStyles(item.rarity)}`}>
+            {item.rarity}
+          </span>
         </div>
-        <div className="flex-1 min-w-0 text-left">
-          <h3 className="text-lg font-black text-slate-100 group-hover:text-white transition-colors truncate">{item.name}</h3>
-          <div className="flex gap-2 mt-1">
-            <span className={`text-[10px] font-black tracking-widest uppercase px-2 py-0.5 rounded inline-block border ${getRarityStyles(item.rarity)}`}>
-              {item.rarity}
-            </span>
-            <span className="text-[10px] font-bold text-slate-500 tracking-tighter rounded border border-slate-700 px-2 py-0.5 inline-block">
-              {item.category || 'Tactical'}
+
+        {/* Stack Badge — top right (icon + number only) */}
+        {'stackSize' in item && (
+          <div className="absolute top-2 right-2 z-10">
+            <span className="flex items-center gap-1 text-[11px] font-black px-1.5 py-0.5 rounded border border-slate-600 bg-slate-900/80 text-slate-300 shadow-inner shadow-black/50">
+              <span className="material-symbols-outlined text-[13px] text-slate-400">layers</span>
+              {(item as Throwable).stackSize || 1}
             </span>
           </div>
+        )}
+
+        {/* Image / Icon */}
+        <div className="relative z-10 flex-1 flex items-center justify-center w-full min-h-[140px] px-2 py-4">
+          {item.imageUrl && !imageError ? (
+            <img
+              src={item.imageUrl}
+              alt={item.name}
+              onError={() => setImageError(true)}
+              className="w-full h-full max-h-[120px] object-contain transform group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_10px_15px_rgba(0,0,0,0.6)]"
+            />
+          ) : (
+            <span className={`material-symbols-outlined text-6xl opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110 ${getRarityIconColor(item.rarity)}`}>
+              {item.icon || 'military_tech'}
+            </span>
+          )}
         </div>
-      </div>
-      
-      <div className="scanline-overlay absolute inset-0 opacity-10 pointer-events-none"></div>
-    </button>
+
+        {/* Name Footer */}
+        <div className="relative z-10 w-full text-center mt-auto border-t border-slate-800/50 pt-3 pb-2 px-3 bg-slate-900/40 min-w-0">
+          <h3 className="text-sm md:text-base font-black text-slate-100 group-hover:text-white transition-colors truncate uppercase tracking-widest block w-full">
+            {item.name}
+          </h3>
+        </div>
+
+        {/* Scanline */}
+        <div className="scanline-overlay absolute inset-0 opacity-10 pointer-events-none"></div>
+      </button>
     </RichTooltip>
   );
 };
@@ -65,12 +79,12 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
         </button>
         <div>
           <h2 className="text-3xl font-black tracking-[0.3em] text-white drop-shadow-glow uppercase">TACTICAL</h2>
-          <p className="text-[10px] text-primary font-bold tracking-[0.4em] uppercase mt-1 opacity-70">Support & Tactical Inventory</p>
+          <p className="text-[10px] text-primary font-bold tracking-[0.4em] uppercase mt-1 opacity-70">Support &amp; Tactical Inventory</p>
         </div>
       </div>
 
       <div className="space-y-16">
-        {['THROWABLES', 'SHIELDS', 'DEFENSIVE'].map(section => {
+        {['THROWABLES', 'SHIELDS', 'DEFENSIVE', 'QUICK USE'].map(section => {
           const sectionItems = data.filter(item => item.category === section);
           if (sectionItems.length === 0) return null;
 
@@ -86,7 +100,7 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
                  <div className="h-px flex-1 bg-gradient-to-r from-primary/40 via-primary/10 to-transparent"></div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {sectionItems.map(item => (
                   <TacticalCard key={item.id} item={item} onClick={onItemSelect} />
                 ))}
@@ -108,7 +122,7 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
                <div className="h-px flex-1 bg-gradient-to-r from-primary/40 via-primary/10 to-transparent"></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {augmentsData.map(item => (
                 <TacticalCard key={item.id} item={item} onClick={onItemSelect} />
               ))}

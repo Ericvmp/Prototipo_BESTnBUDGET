@@ -42,15 +42,16 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
                 {data.map((category) => {
                     const material = MATERIALS_DATA.find(m => m.name === category.material);
 
                     return (
-                        <RichTooltip key={category.id} item={material || { name: category.material, rarity: 'COMMON' }}>
+                        <div key={category.id} className="min-w-0">
+                        <RichTooltip item={material || { name: category.material, rarity: 'COMMON' }}>
                             <button
                                 onClick={() => material && onMaterialSelect(material)}
-                                className={`group cursor-pointer relative flex flex-col bg-card-dark rounded-2xl transition-all duration-300 overflow-hidden shadow-lg border hover:ring-8 hover:ring-inset ${getRarityBorderColor(material?.rarity || 'COMMON')} ${getRarityHoverStyles(material?.rarity || 'COMMON')}`}
+                                className={`group cursor-pointer relative flex flex-col w-full h-full bg-card-dark rounded-2xl transition-all duration-300 overflow-hidden shadow-lg border hover:ring-8 hover:ring-inset ${getRarityBorderColor(material?.rarity || 'COMMON')} ${getRarityHoverStyles(material?.rarity || 'COMMON')}`}
                             >
                                 {/* Background Rarity Glow */}
                                 {material && (
@@ -58,14 +59,15 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                                 )}
                                 {/* Scanline */}
                                 <div className="scanline-overlay absolute inset-0 opacity-10 pointer-events-none"></div>
+                                
                                 {/* Header: Item Icon and Name */}
-                                <div className="flex items-center justify-between gap-4 p-4 relative min-h-[96px]">
-                                    <div className="flex items-center gap-4 text-left flex-1 min-w-0">
-                                        <div className="relative w-12 h-12 rounded-xl flex items-center justify-center bg-background-dark border border-slate-700 shrink-0 relative z-10 transition-transform duration-500 group-hover:scale-105">
+                                <div className="flex flex-col h-full relative z-10 w-full">
+                                    <div className="flex items-center gap-4 p-4 border-b border-white/5 w-full">
+                                        <div className="relative w-14 h-14 rounded-xl flex items-center justify-center bg-background-dark border border-slate-700 shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner">
                                             <img
                                                 src={category.materialImageUrl || material?.imageUrl || '/images/loot/Unusable_Weapon.png'}
                                                 alt={category.material}
-                                                className="w-8 h-8 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-125 transition-all duration-500"
+                                                className="w-10 h-10 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-125 transition-all duration-500"
                                                 onError={(e) => {
                                                     const target = e.target as HTMLImageElement;
                                                     if (!target.src.includes('/images/loot/Unusable_Weapon.png')) {
@@ -74,40 +76,44 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                                                 }}
                                             />
                                         </div>
-                                        <div className="flex-1 min-w-0">
-                                            <div className="flex flex-col gap-1.5 mb-0.5">
-                                                <h3 className="text-[16px] font-black text-white truncate max-w-full leading-tight">{category.material}</h3>
-                                                {material && (
-                                                    <div className="flex items-center gap-1.5 flex-wrap">
-                                                        <span className={`text-[9px] font-black px-1.5 py-0.5 rounded border uppercase tracking-widest ${getRarityStyles(material.rarity)}`}>
-                                                            {material.rarity}
-                                                        </span>
-                                                        <span className="text-[10px] font-black px-1.5 py-0.5 rounded border border-slate-600 bg-slate-800 text-slate-300 uppercase tracking-widest flex items-center gap-1 shadow-inner shadow-black/50">
-                                                            <span className="material-symbols-outlined text-[13px] text-slate-400 leading-none">layers</span>
-                                                            {material.stackSize || 1}
-                                                        </span>
-                                                    </div>
-                                                )}
-                                            </div>
+                                        <div className="flex-1 min-w-0 text-left">
+                                            <h3 className="text-sm md:text-base font-black text-slate-100 group-hover:text-white transition-colors truncate uppercase tracking-widest block w-full">{category.material}</h3>
+                                            {material && (
+                                                <div className="flex items-center gap-1.5 mt-1.5">
+                                                    <span className={`text-[9px] font-black px-1.5 py-0.5 rounded border uppercase tracking-widest ${getRarityStyles(material.rarity)}`}>
+                                                        {material.rarity}
+                                                    </span>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
 
-                                    {/* Interaction Icons / Stack */}
-                                    <div className="flex flex-col gap-2 shrink-0 border-l border-white/5 pl-4 ml-2 justify-center items-center h-full">
-                                        {category.craftingStation && (
-                                            <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center border-2 border-slate-900 shadow-lg group-hover:scale-110 transition-transform" title={category.craftingStation}>
-                                                <span className="material-symbols-outlined text-[14px] text-white">precision_manufacturing</span>
-                                            </div>
-                                        )}
-                                        {material?.purchasableFromCeleste && (
-                                            <div className="w-7 h-7 rounded-full bg-emerald-700 flex items-center justify-center border-2 border-slate-900 shadow-[0_0_10px_rgba(16,185,129,0.4)] group-hover:scale-110 transition-transform" title="Purchasable from Trader Celeste">
-                                                <span className="material-symbols-outlined text-[14px] text-emerald-100">storefront</span>
-                                            </div>
-                                        )}
+                                    {/* Stats / Info Row */}
+                                    <div className="flex items-center justify-between p-4 bg-slate-900/30 mt-auto w-full">
+                                        <div className="flex items-center gap-2">
+                                            <span className="flex items-center gap-1 text-[11px] font-black px-1.5 py-0.5 rounded border border-slate-600 bg-slate-900/80 text-slate-300 shadow-inner shadow-black/50">
+                                                <span className="material-symbols-outlined text-[13px] text-slate-400 leading-none">layers</span>
+                                                {material?.stackSize || 1}
+                                            </span>
+                                        </div>
+
+                                        <div className="flex items-center gap-2 shrink-0">
+                                            {category.craftingStation && (
+                                                <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center border border-primary/40 shadow-lg group-hover:scale-110 transition-transform" title={category.craftingStation}>
+                                                    <span className="material-symbols-outlined text-[16px] text-primary">precision_manufacturing</span>
+                                                </div>
+                                            )}
+                                            {material?.purchasableFromCeleste && (
+                                                <div className="w-8 h-8 rounded-full bg-emerald-900/20 flex items-center justify-center border border-emerald-500/40 shadow-[0_0_10px_rgba(16,185,129,0.2)] group-hover:scale-110 transition-transform" title="Purchasable from Trader Celeste">
+                                                    <span className="material-symbols-outlined text-[16px] text-emerald-400">storefront</span>
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             </button>
                         </RichTooltip>
+                        </div>
                     );
                 })}
             </div>
