@@ -231,7 +231,7 @@ export const MATERIALS_DATA: Material[] = [
       requirements: [ { name: 'Simple Gun Parts',
     purchasableFromCeleste: true, stackSize: 10, quantity: 4 } ],
     },
-    residualInfo: { items: ["Armas médias (Renegade, Venator, Torrente)"] },
+    residualInfo: { items: ["Renegade", "Venator", "Torrente"] },
     obtainedFrom: ["Tempest (2x)", "Renegade (2x)", "Venator (2x)", "Osprey (2x)", "Torrente (2x)"],
     requiredFor: ["Tempest (3x)", "Renegade (3x)", "Venator (3x)", "Osprey (3x)", "Torrente (3x)", "Complex Gun Parts (2x)"]
   },
@@ -2033,7 +2033,7 @@ export const THROWABLES_DATA: Throwable[] = [
     purchasableFromCeleste: true, quantity: 1 }] }
   },
   {
-    id: 't8', name: 'Trigger\'nade', rarity: 'RARE', icon: 'back_hand', imageUrl: "/images/items/Trigger_'Nade.png", stackSize: 5,
+    id: 't8', name: "Trigger 'Nade", rarity: 'RARE', icon: 'back_hand', imageUrl: "/images/items/Trigger_'Nade.png", stackSize: 5,
     recycleInfo: [ { name: 'Chemicals',
     purchasableFromCeleste: true, quantity: 1 }, { name: 'Processor',
     purchasableFromCeleste: true, quantity: 1 } ],
@@ -2587,7 +2587,7 @@ export const LOOT_DATA: LootCategory[] = [
       { name: 'Stable Stock III', quantity: 1 },
       { name: 'Padded Stock III', quantity: 1 },
       { name: 'Lightweight Stock', quantity: 1 },
-      { name: 'Trigger \'Nade', quantity: 1 },
+      { name: "Trigger 'Nade", quantity: 1 },
     ],
   },
 
@@ -2828,7 +2828,7 @@ export const LOOT_DATA: LootCategory[] = [
       { name: 'Anvil Splitter', quantity: 1 },
       { name: 'Tactical Mk. 3 (Healing)', quantity: 1 },
       { name: 'Tactical Mk. 3 (Defensive)', quantity: 1 },
-      { name: 'Trigger \'Nade', quantity: 1 },
+      { name: "Trigger 'Nade", quantity: 1 },
     ],
   },
   {
@@ -3022,7 +3022,7 @@ export const LOOT_DATA: LootCategory[] = [
     materialImageUrl: "/images/items/Crude_Explosives.png",
     wikiUrl: 'https://arcraiders.wiki/wiki/Crude_Explosives',
     sources: [
-      { name: 'Trigger \'Nade', quantity: 2, imageUrl: "/images/items/Trigger_'Nade.png" },
+      { name: "Trigger 'Nade", quantity: 2, imageUrl: "/images/items/Trigger_'Nade.png" },
       { name: 'Snap Blast Grenade', quantity: 1, imageUrl: "/images/items/Snap_Blast_Grenade.png" },
       { name: 'Trailblazer', quantity: 1, imageUrl: "/images/items/Trailblazer.png" },
       { name: 'Shrapnel Grenade', quantity: 1, imageUrl: "/images/items/Shrapnel_Grenade.png" },
@@ -3224,14 +3224,14 @@ export const WEAPON_SETUPS_DATA: WeaponSetup[] = [
     weaponId: 'w-arpeggio', // Arpeggio
     setups: {
       S: { focus: 'BURST AGRESSIVO', description: 'Minimiza o intervalo entre rajadas com alto DPS.', modIds: ['m3', 'ma3', 'm14', 'm28'] },
-      A: { focus: 'BURST PRECISO', description: 'Garante que todos os tiros da rajada atinjam o alvo.', modIds: ['mb3', 'mv3', 'm14', 'm26'] }
+      A: { focus: 'BURST PRECISO', description: 'Garante que todos os tiros da rajada atinjam o alvo.', modIds: ['mb3', 'm22', 'm14', 'm26'] }
     }
   },
   {
     weaponId: 'w-tempest', // Tempest
     setups: {
       S: { focus: 'META PVP MID-RANGE', description: 'A build definitiva para dominar confrontos diretos.', modIds: ['m3', 'ma3', 'm14'] },
-      A: { focus: 'FULL-AUTO LASER', description: 'Spray constante com recuo quase nulo.', modIds: ['mb3', 'mv3', 'm14'] }
+      A: { focus: 'FULL-AUTO LASER', description: 'Spray constante com recuo quase nulo.', modIds: ['mb3', 'm22', 'm14'] }
     }
   },
   {
@@ -3251,15 +3251,15 @@ export const WEAPON_SETUPS_DATA: WeaponSetup[] = [
   {
     weaponId: 'w-vulcano', // Vulcano
     setups: {
-      S: { focus: 'DPS MÁXIMO', description: 'Spam de shotgun semi-auto com spread fechado.', modIds: ['m6b', 'mv3', 'm17', 'm28'] },
+      S: { focus: 'DPS MÁXIMO', description: 'Spam de shotgun semi-auto com spread fechado.', modIds: ['m6b', 'm22', 'm17', 'm28'] },
       A: { focus: 'VULCANO ESTÁVEL', description: 'Maior controle no recuo entre disparos.', modIds: ['m6', 'ma3', 'm17', 'mp3'] }
     }
   },
   {
     weaponId: 'w1', // Ferro
     setups: {
-      S: { focus: 'PICK RIFLE AGRESSIVO', description: 'ADS instantâneo para punir peeks.', modIds: ['m4', 'mv3', 'm27'] },
-      A: { focus: 'HÍBRIDA PRECISA', description: 'Follow-ups mais limpos e menor recuo.', modIds: ['m3', 'mv3', 'm26'] }
+      S: { focus: 'PICK RIFLE AGRESSIVO', description: 'ADS instantâneo para punir peeks.', modIds: ['m4', 'm22', 'm27'] },
+      A: { focus: 'HÍBRIDA PRECISA', description: 'Follow-ups mais limpos e menor recuo.', modIds: ['m3', 'm22', 'm26'] }
     }
   },
   {
@@ -3272,15 +3272,15 @@ export const WEAPON_SETUPS_DATA: WeaponSetup[] = [
   {
     weaponId: 'w2', // Stitcher
     setups: {
-      S: { focus: 'SMG META PVP', description: 'Equilíbrio perfeito entre DPS e controle.', modIds: ['m3', 'mv3', 'm11', 'm26'] },
+      S: { focus: 'SMG META PVP', description: 'Equilíbrio perfeito entre DPS e controle.', modIds: ['m3', 'm22', 'm11', 'm26'] },
       A: { focus: 'SPRAY CONTROLADO', description: 'Ideal para jogadores que preferem pouco recuo.', modIds: ['mb3', 'ma3', 'm11', 'mp3'] }
     }
   },
   {
     weaponId: 'w4', // Il Toro
     setups: {
-      S: { focus: 'SHOTGUN META DUEL', description: 'Otimizada para finalizar oponentes rapidamente.', modIds: ['m6b', 'mv3', 'm17', 'm27'] },
-      A: { focus: 'CONSISTENTE', description: 'Hits confiáveis a distâncias maiores.', modIds: ['m6', 'mv3', 'm17', 'm26'] }
+      S: { focus: 'SHOTGUN META DUEL', description: 'Otimizada para finalizar oponentes rapidamente.', modIds: ['m6b', 'm22', 'm17', 'm27'] },
+      A: { focus: 'CONSISTENTE', description: 'Hits confiáveis a distâncias maiores.', modIds: ['m6', 'm22', 'm17', 'm26'] }
     }
   },
   {
@@ -3300,8 +3300,8 @@ export const WEAPON_SETUPS_DATA: WeaponSetup[] = [
   {
     weaponId: 'w9', // Osprey
     setups: {
-      S: { focus: 'SNIPER META PICK', description: 'Transição rápida para ADS e alta velocidade de bala.', modIds: ['m4', 'mv3', 'm14', 'm27'] },
-      A: { focus: 'SNIPER STEALTH', description: 'Operações silenciosas com recuo zero.', modIds: ['ms3', 'mv3', 'm14', 'm26'] }
+      S: { focus: 'SNIPER META PICK', description: 'Transição rápida para ADS e alta velocidade de bala.', modIds: ['m4', 'm22', 'm14', 'm27'] },
+      A: { focus: 'SNIPER STEALTH', description: 'Operações silenciosas com recuo zero.', modIds: ['ms3', 'm22', 'm14', 'm26'] }
     }
   },
   {
