@@ -223,7 +223,7 @@ const PickerModal: React.FC<{
                                        <p className="text-[15px] font-black text-slate-100 group-hover:text-white truncate leading-tight mb-1">{item.name}</p>
                                        <div className="flex items-center gap-2">
                                           <p className={`text-[8px] uppercase font-black tracking-[0.1em] border px-1.5 py-0.5 rounded leading-none ${getRarityStyles(item.rarity || 'COMMON')}`}>{item.rarity || 'COMMON'}</p>
-                                          {item.category && <span className="text-[8px] text-slate-500 font-black uppercase tracking-[0.2em]">{item.category}</span>}
+                                          {item.category && <span className="text-[8px] text-slate-500 font-black uppercase tracking-[0.2em]">{item.category || 'EQUIPMENT'}</span>}
                                        </div>
                                     </div>
                                     {isSelected && (
@@ -607,7 +607,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
             shield?.craftInfo?.materials.forEach(m => addMaterial(m.name, m.quantity));
          });
 
-         // Quick Use Items
+         // Utility Items
          loadout.quickUse.forEach(qu => {
             const item = throwables.find(t => t.id === qu.itemId);
             if (!item) return;
@@ -978,7 +978,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                            {renderWeaponSlot('Secondary Weapon', currentLoadout.secondary, 'secondary')}
                         </div>
 
-                        {/* AUGMENTS, SHIELDS, QUICK USE */}
+                        {/* AUGMENTS, SHIELDS, UTILITY */}
                         <div className="space-y-4">
 
                            {/* Augments */}
@@ -1073,17 +1073,17 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                               </div>
                            </div>
 
-                           {/* Quick Use */}
+                           {/* Utility */}
                            <div className="bg-black/20 border border-slate-800 rounded-xl p-4">
                               <div className="flex justify-between items-center mb-3">
                                  <div className="flex items-center gap-2">
                                     <img src="https://arcraiders.wiki/w/images/7/71/Icon_QuickUse.png" className="w-5 h-5 object-contain opacity-60" alt="" />
-                                    <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">QUICK USE</h4>
+                                    <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">UTILITY</h4>
                                  </div>
                                  <button onClick={() => setPickerConfig({
                                     isOpen: true,
-                                    title: 'Manage Quick Use Cache',
-                                    items: throwables.filter(t => (t.category === 'THROWABLES' || t.category === 'DEFENSIVE')),
+                                    title: 'Manage Utility Cache',
+                                    items: throwables.filter(t => (t.category === 'GRENADES' || t.category === 'HEALING' || t.category === 'UTILITY')),
                                     pickerType: 'quickUse'
                                  })} className="text-[11px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
                                     <span className="material-symbols-outlined text-sm">{currentLoadout.quickUse.length === 0 ? 'add' : 'edit'}</span>
@@ -1123,7 +1123,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                               })}
                                  {currentLoadout.quickUse.length === 0 && (
                                     <div 
-                                       onClick={() => setPickerConfig({ isOpen: true, title: 'Manage Quick Use Cache', items: throwables.filter(t => (t.category === 'THROWABLES' || t.category === 'DEFENSIVE')), pickerType: 'quickUse' })}
+                                       onClick={() => setPickerConfig({ isOpen: true, title: 'Manage Utility Cache', items: throwables.filter(t => (t.category === 'GRENADES' || t.category === 'HEALING' || t.category === 'UTILITY')), pickerType: 'quickUse' })}
                                        className="py-4 border-2 border-dashed border-slate-800/40 rounded-xl flex flex-col items-center justify-center gap-2 group/empty hover:border-primary/40 hover:bg-primary/5 transition-all cursor-pointer"
                                     >
                                        <span className="material-symbols-outlined text-slate-600 group-hover/empty:text-primary transition-colors">add_circle</span>

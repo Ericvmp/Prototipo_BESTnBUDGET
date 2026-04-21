@@ -117,7 +117,7 @@ const TacticalOverlay: React.FC<TacticalOverlayProps> = ({ item, onClose, onNavi
 
           <div className="text-center">
             <div className={`text-[11px] font-black tracking-[0.5em] uppercase mb-1 ${rarity.text}`} style={{ textShadow: `0 0 12px ${rarity.hex}` }}>
-              TACTICAL · {rarity.hex === '#fbbf24' ? 'LEGENDARY' : item.rarity}
+              EQUIPMENT · {rarity.hex === '#fbbf24' ? 'LEGENDARY' : item.rarity}
             </div>
             <h2 className="text-3xl md:text-4xl font-black tracking-[0.2em] text-white drop-shadow-lg">{item.name}</h2>
           </div>
@@ -173,7 +173,7 @@ const TacticalOverlay: React.FC<TacticalOverlayProps> = ({ item, onClose, onNavi
                       {item.rarity}
                     </span>
                     <span className="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-widest border border-white/10 bg-white/5 text-slate-300">
-                      {item.category || 'TACTICAL'}
+                      {item.category || 'EQUIPMENT'}
                     </span>
                   </div>
                   {item.description && item.category !== 'AUGMENT' && (

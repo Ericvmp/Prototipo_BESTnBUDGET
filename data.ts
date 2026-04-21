@@ -103,7 +103,7 @@ export const MATERIALS_DATA: Material[] = [
     purchasableFromCeleste: true, stackSize: 50, quantity: 2 } ], salvageInfo: [ { name: 'Metal Parts',
     purchasableFromCeleste: true, stackSize: 50, quantity: 1 } ], stackSize: 15,
     description: "Precision coiled high-tension metal. Critical for the operation of weapon magazines, trigger groups, and any system requiring stored mechanical energy.",
-    rarity: 'COMMON',
+    rarity: 'UNCOMMON',
     icon: 'reorder',
     imageUrl: "/images/items/Steel_Spring.png",
     craftInfo: { isCraftable: false },
@@ -445,7 +445,7 @@ export const MATERIALS_DATA: Material[] = [
     purchasableFromCeleste: true, recycleInfo: [ { name: 'Plastic Parts',
     purchasableFromCeleste: true, stackSize: 50, quantity: 3 } ], salvageInfo: [ { name: 'Plastic Parts',
     purchasableFromCeleste: true, stackSize: 50, quantity: 1 } ], stackSize: 15,
-    rarity: 'COMMON',
+    rarity: 'UNCOMMON',
     icon: 'nest_cam_wired_stand',
     imageUrl: "/images/items/Canister.png",
     description: 'A pressurized metal container suitable for storing gases or liquids.',
@@ -746,7 +746,7 @@ export const MATERIALS_DATA: Material[] = [
     salvageInfo: [ { name: 'ARC Alloy', stackSize: 15, quantity: 1 } ],
     craftInfo: { isCraftable: false },
     obtainedFrom: ["Scavenging (Salvaged Parts)", "Industrial Crate (1x)"],
-    requiredFor: ["Medium Shield (1x)", "Plastic Parts (4x)", "ARC Alloy (1x)"]
+    requiredFor: ["Medium Shield (2x)", "Plastic Parts (4x)", "ARC Alloy (1x)"]
   },
   {
     id: 'mat45',
@@ -1971,19 +1971,19 @@ repairInfo: [
 
 export const THROWABLES_DATA: Throwable[] = [
 
-  {"id":"t-cloak","name":"Photoelectric Cloak","imageUrl":"/images/loot/Photoelectric_Cloak.png","rarity":"EPIC","icon":"visibility_off","category":"QUICK USE","description":"Briefly invisible to ARC.","craftInfo":{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Adv Mechanical Components","quantity":1}]}},
-  {"id":"t-snaphook","name":"Snap Hook","imageUrl":"/images/items/Snap_Hook.png","rarity":"UNCOMMON","icon":"link","category":"QUICK USE","description":"Quick traversal across gaps.","craftInfo":{"station":"Refiner 1","quantityProduced":1,"materials":[{"name":"Metal Parts","quantity":4}]}},
-  {"id":"t-zipline","name":"Zipline","imageUrl":"/images/items/Zipline.png","rarity":"RARE","icon":"route","category":"QUICK USE","description":"Bidirectional zipline for squad.","craftInfo":{"station":"Refiner 2","quantityProduced":1,"materials":[{"name":"Rope","quantity":4},{"name":"Mechanical Components","quantity":3}]}},
-  {"id":"t-hatch","name":"Raider Hatch Key","imageUrl":"/images/items/Raider_Hatch_Key.png","rarity":"RARE","icon":"key","category":"QUICK USE","description":"An over-the-counter electronic lock bypass. Unlocks Raider Hatches.","craftInfo":{"station":"Gear Bench 3","quantityProduced":1,"materials":[{"name":"Adv Electrical Components","quantity":1},{"name":"Sensors","quantity":3}]}},
-  {"id":"t-surge","name":"Surge Coil","imageUrl":"/images/items/Surge_Coil.png","rarity":"RARE","icon":"flash_on","category":"QUICK USE","description":"Deploys an electrical field to disable nearby ARC.","craftInfo":{"station":"Explosives Station III","quantityProduced":1,"materials":[{"name":"Electrical Components","quantity":1},{"name":"Sensors","quantity":1},{"name":"Hornet Driver","quantity":1}]}},
-  {"id":"t-tagging","name":"Tagging Grenade","imageUrl":"/images/items/Tagging_Grenade.png","rarity":"RARE","icon":"my_location","category":"THROWABLES","description":"A tactical grenade that tags enemies through walls.","craftInfo":{"station":"Explosives Station II","quantityProduced":1,"materials":[{"name":"Electrical Components","quantity":1},{"name":"Sensors","quantity":1}]}},
+  {"id":"t-cloak","name":"Photoelectric Cloak","imageUrl":"/images/loot/Photoelectric_Cloak.png","rarity":"EPIC","icon":"visibility_off","category":"UTILITY","description":"Briefly invisible to ARC.","craftInfo":{"station":"Refiner 3","quantityProduced":1,"materials":[{"name":"Adv Mechanical Components","quantity":1}]}},
+  {"id":"t-snaphook","name":"Snap Hook","imageUrl":"/images/items/Snap_Hook.png","rarity":"UNCOMMON","icon":"link","category":"UTILITY","description":"Quick traversal across gaps.","craftInfo":{"station":"Refiner 1","quantityProduced":1,"materials":[{"name":"Metal Parts","quantity":4}]}},
+  {"id":"t-zipline","name":"Zipline","imageUrl":"/images/items/Zipline.png","rarity":"RARE","icon":"route","category":"UTILITY","description":"Bidirectional zipline for squad.","craftInfo":{"station":"Refiner 2","quantityProduced":1,"materials":[{"name":"Rope","quantity":4},{"name":"Mechanical Components","quantity":3}]}},
+  {"id":"t-hatch","name":"Raider Hatch Key","imageUrl":"/images/items/Raider_Hatch_Key.png","rarity":"RARE","icon":"key","category":"UTILITY","description":"An over-the-counter electronic lock bypass. Unlocks Raider Hatches.","craftInfo":{"station":"Gear Bench 3","quantityProduced":1,"materials":[{"name":"Adv Electrical Components","quantity":1},{"name":"Sensors","quantity":3}]}},
+  {"id":"t-surge","name":"Surge Coil","imageUrl":"/images/items/Surge_Coil.png","rarity":"RARE","icon":"flash_on","category":"UTILITY","description":"Deploys an electrical field to disable nearby ARC.","craftInfo":{"station":"Explosives Station III","quantityProduced":1,"materials":[{"name":"Electrical Components","quantity":1},{"name":"Sensors","quantity":1},{"name":"Hornet Driver","quantity":1}]}},
+  {"id":"t-tagging","name":"Tagging Grenade","imageUrl":"/images/items/Tagging_Grenade.png","rarity":"RARE","icon":"my_location","category":"GRENADES","description":"A tactical grenade that tags enemies through walls.","craftInfo":{"station":"Explosives Station II","quantityProduced":1,"materials":[{"name":"Electrical Components","quantity":1},{"name":"Sensors","quantity":1}]}},
   // THROWABLES
   {
     id: 't1', name: 'Light Impact Grenade', recycleInfo: [ { name: 'Chemicals',
     purchasableFromCeleste: true, stackSize: 50, quantity: 1 }, { name: 'Plastic Parts',
     purchasableFromCeleste: true, stackSize: 50, quantity: 1 } ], salvageInfo: [ { name: 'Chemicals',
     purchasableFromCeleste: true, stackSize: 50, quantity: 1 } ], rarity: 'COMMON', icon: 'explosion', imageUrl: "/images/items/Light_Impact_Grenade.png", stackSize: 5,
-    description: '', category: 'THROWABLES',
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Topside (In-Round)', quantityProduced: 1, materials: [{ name: 'Plastic Parts',
     purchasableFromCeleste: true, quantity: 2 }, { name: 'Chemicals',
     purchasableFromCeleste: true, quantity: 3 }] } 
@@ -1993,7 +1993,7 @@ export const THROWABLES_DATA: Throwable[] = [
     purchasableFromCeleste: true, stackSize: 50, quantity: 2 }, { name: 'Canister',
     purchasableFromCeleste: true, stackSize: 15, quantity: 1 } ], salvageInfo: [ { name: 'Chemicals',
     purchasableFromCeleste: true, stackSize: 50, quantity: 3 } ], rarity: 'RARE', icon: 'cloud', imageUrl: "/images/items/Smoke_Grenade.png", stackSize: 5,
-    description: '', category: 'THROWABLES',
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Chemicals',
     purchasableFromCeleste: true, quantity: 14 }, { name: 'Canister',
     purchasableFromCeleste: true, quantity: 1 }] }
@@ -2001,7 +2001,7 @@ export const THROWABLES_DATA: Throwable[] = [
   {
     id: 't4', name: 'Showstopper', recycleInfo: [ { name: 'Electrical Components', stackSize: 10, quantity: 1 }, { name: 'Voltage Converter',
     purchasableFromCeleste: true, stackSize: 5, quantity: 1 } ], salvageInfo: [ { name: 'Electrical Components', stackSize: 10, quantity: 1 } ], rarity: 'RARE', icon: 'motion_photos_pause', imageUrl: "/images/items/Showstopper.png", stackSize: 5,
-    description: '', category: 'THROWABLES',
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Electrical Components', quantity: 1 }, { name: 'Hornet Driver', quantity: 1 }, { name: 'Voltage Converter',
     purchasableFromCeleste: true, quantity: 1 }] }
   },
@@ -2010,7 +2010,7 @@ export const THROWABLES_DATA: Throwable[] = [
     purchasableFromCeleste: true, stackSize: 15, quantity: 1 }, { name: 'Plastic Parts',
     purchasableFromCeleste: true, stackSize: 50, quantity: 2 } ], salvageInfo: [ { name: 'Battery',
     purchasableFromCeleste: true, stackSize: 15, quantity: 1 } ], rarity: 'RARE', icon: 'settings_input_antenna', imageUrl: "/images/items/Jolt_Mine.png", stackSize: 3,
-    description: '', category: 'THROWABLES',
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Explosives Station II', quantityProduced: 1, materials: [{ name: 'Electrical Components', quantity: 1 }, { name: 'Battery',
     purchasableFromCeleste: true, quantity: 1 }] } 
   },
@@ -2019,7 +2019,7 @@ export const THROWABLES_DATA: Throwable[] = [
     purchasableFromCeleste: true, stackSize: 15, quantity: 2 }, { name: 'Sensors',
     purchasableFromCeleste: true, stackSize: 5, quantity: 1 } ], salvageInfo: [ { name: 'Oil',
     purchasableFromCeleste: true, stackSize: 15, quantity: 2 } ], rarity: 'RARE', icon: 'trip_origin', imageUrl: "/images/items/Explosive_Mine.png", stackSize: 3,
-    description: '', category: 'THROWABLES',
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Explosive Compound', quantity: 1 }, { name: 'Sensors',
     purchasableFromCeleste: true, quantity: 1 }] } 
   },
@@ -2028,7 +2028,7 @@ export const THROWABLES_DATA: Throwable[] = [
     purchasableFromCeleste: true, stackSize: 50, quantity: 1 }, { name: 'Magnet',
     purchasableFromCeleste: true, stackSize: 15, quantity: 1 } ], salvageInfo: [ { name: 'Chemicals',
     purchasableFromCeleste: true, stackSize: 50, quantity: 2 } ], rarity: 'COMMON', icon: 'explosion', imageUrl: "/images/items/Snap_Blast_Grenade.png", stackSize: 3,
-    description: '', category: 'THROWABLES',
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Explosives Station II', quantityProduced: 1, materials: [{ name: 'Crude Explosives', quantity: 2 }, { name: 'Magnet',
     purchasableFromCeleste: true, quantity: 1 }] }
   },
@@ -2039,7 +2039,7 @@ export const THROWABLES_DATA: Throwable[] = [
     purchasableFromCeleste: true, quantity: 1 } ],
     salvageInfo: [ { name: 'Processor',
     purchasableFromCeleste: true, quantity: 1 } ],
-    description: "A remote-detonated Grenade that explodes after being triggered. It can stick to almost any surface when thrown.", category: 'THROWABLES',
+    description: "A remote-detonated Grenade that explodes after being triggered. It can stick to almost any surface when thrown.", category: 'GRENADES',
     craftInfo: { station: 'Explosives Station II', quantityProduced: 1, materials: [{ name: 'Crude Explosives', quantity: 2 }, { name: 'Processor',
     purchasableFromCeleste: true, quantity: 1 }] }
   },
@@ -2047,7 +2047,7 @@ export const THROWABLES_DATA: Throwable[] = [
     id: 't9', name: 'Heavy Fuze Grenade', recycleInfo: [ { name: 'Oil',
     purchasableFromCeleste: true, stackSize: 15, quantity: 1 }, { name: 'Rubber Parts',
     purchasableFromCeleste: true, stackSize: 50, quantity: 2 } ], salvageInfo: [ { name: 'Crude Explosives', stackSize: 10, quantity: 1 } ], rarity: 'RARE', icon: 'bomb', imageUrl: "/images/items/Heavy_Fuze_Grenade.png", stackSize: 3,
-    description: '', category: 'THROWABLES',
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Explosive Compound', quantity: 1 }, { name: 'Canister',
     purchasableFromCeleste: true, quantity: 2 }] }
   },
@@ -2056,40 +2056,40 @@ export const THROWABLES_DATA: Throwable[] = [
     purchasableFromCeleste: true, stackSize: 50, quantity: 4 }, { name: 'Oil',
     purchasableFromCeleste: true, stackSize: 15, quantity: 2 } ], salvageInfo: [ { name: 'Oil',
     purchasableFromCeleste: true, stackSize: 15, quantity: 1 } ], rarity: 'RARE', icon: 'local_fire_department', imageUrl: "/images/items/Blaze_Grenade.png", stackSize: 5,
-    description: '', category: 'THROWABLES',
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Explosive Compound', quantity: 1 }, { name: 'Oil',
     purchasableFromCeleste: true, quantity: 2 }] }
   },
   {
     id: 't11', name: 'Trailblazer', recycleInfo: [ { name: 'Crude Explosives', stackSize: 10, quantity: 2 } ], salvageInfo: [ { name: 'Crude Explosives', stackSize: 10, quantity: 2 } ], rarity: 'EPIC', icon: 'route', imageUrl: "/images/items/Trailblazer.png", stackSize: 3,
-    description: '', category: 'THROWABLES',
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Synthesized Fuel',
     purchasableFromCeleste: true, quantity: 1 }, { name: 'Crude Explosives', quantity: 2 }, { name: 'Firefly Burner', quantity: 1 }] }
   },
   {
     id: 't12', name: 'Wolfpack', recycleInfo: [ { name: 'ARC Motion Core', stackSize: 5, quantity: 1 }, { name: 'Explosive Compound', stackSize: 5, quantity: 1 } ], salvageInfo: [ { name: 'Explosive Compound', stackSize: 5, quantity: 2 } ], rarity: 'EPIC', icon: 'rocket_launch', imageUrl: "/images/items/Wolfpack.png", stackSize: 1,
-    description: '', category: 'THROWABLES',
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Explosive Compound', quantity: 1 }, { name: 'ARC Motion Core', quantity: 2 }, { name: 'Rocketeer Driver', quantity: 1 }] }
   },
   {
     id: 't13', name: 'Seeker Grenade', recycleInfo: [ { name: 'Crude Explosives', stackSize: 10, quantity: 1 } ], salvageInfo: [ { name: 'Chemicals',
     purchasableFromCeleste: true, stackSize: 50, quantity: 3 } ], rarity: 'RARE', icon: 'assistant_navigation', imageUrl: "/images/items/Seeker_Grenade.png", stackSize: 5,
-    description: '', category: 'THROWABLES',
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Explosives Station I', quantityProduced: 1, materials: [{ name: 'Crude Explosives', quantity: 1 }, { name: 'ARC Alloy', quantity: 2 }] }
   },
   {
     id: 't14', name: 'Shrapnel Grenade', recycleInfo: [ { name: 'Crude Explosives', stackSize: 10, quantity: 1 }, { name: 'Metal Parts',
     purchasableFromCeleste: true, stackSize: 50, quantity: 1 } ], salvageInfo: [ { name: 'Crude Explosives', stackSize: 10, quantity: 1 } ], rarity: 'UNCOMMON', icon: 'blur_on', imageUrl: "/images/items/Shrapnel_Grenade.png", stackSize: 5,
-    description: '', category: 'THROWABLES',
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Explosives Station I', quantityProduced: 1, materials: [{ name: 'Crude Explosives', quantity: 1 }, { name: 'Steel Spring',
     purchasableFromCeleste: true, quantity: 2 }] }
   },
   {
     id: 't15', name: 'Deadline', recycleInfo: [ { name: 'Explosive Compound', stackSize: 5, quantity: 1 }, { name: 'ARC Circuitry', stackSize: 5, quantity: 1 } ], salvageInfo: [ { name: 'Explosive Compound', stackSize: 5, quantity: 1 } ], rarity: 'EPIC', icon: 'warning', imageUrl: "/images/items/Deadline.png", stackSize: 1,
-    description: '', category: 'THROWABLES',
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Comet Igniter', quantity: 1 }, { name: 'Explosive Compound', quantity: 3 }, { name: 'ARC Circuitry', quantity: 2 }] }
   },
-  // DEFENSIVE - SHIELDS
+  // HEALING - SHIELDS
   {
     id: 't16', name: 'Light Shield', rarity: 'UNCOMMON', icon: 'shield', category: 'SHIELDS',
     imageUrl: "/images/items/Light_Shield.png",
@@ -2122,11 +2122,11 @@ export const THROWABLES_DATA: Throwable[] = [
     salvageInfo: [{name: 'ARC Alloy', quantity: 4}],
     stackSize: 1
   },
-  // DEFENSIVE - QUICK USE
+  // HEALING - UTILITY
   {
     id: 't19', name: 'Shield Recharger', recycleInfo: [ { name: 'Rubber Parts',
     purchasableFromCeleste: true, stackSize: 50, quantity: 4 } ], salvageInfo: [ { name: 'Rubber Parts',
-    purchasableFromCeleste: true, stackSize: 50, quantity: 3 } ], rarity: 'UNCOMMON', icon: 'battery_charging_full', category: 'DEFENSIVE', stackSize: 5,
+    purchasableFromCeleste: true, stackSize: 50, quantity: 3 } ], rarity: 'UNCOMMON', icon: 'battery_charging_full', category: 'HEALING', stackSize: 5,
     imageUrl: "https://arcraiders.wiki/w/images/thumb/4/44/Shield_Recharger.png/348px-Shield_Recharger.png.webp",
     description: 'Quick Use item that can be used to recharge Shields over time.',
     craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Rubber Parts',
@@ -2134,14 +2134,14 @@ export const THROWABLES_DATA: Throwable[] = [
   },
   {
     id: 't20', name: 'Surge Shield Recharger', recycleInfo: [ { name: 'Electrical Components', stackSize: 10, quantity: 1 } ], salvageInfo: [ { name: 'Plastic Parts',
-    purchasableFromCeleste: true, stackSize: 50, quantity: 5 } ], rarity: 'RARE', icon: 'bolt', category: 'DEFENSIVE', stackSize: 5,
+    purchasableFromCeleste: true, stackSize: 50, quantity: 5 } ], rarity: 'RARE', icon: 'bolt', category: 'HEALING', stackSize: 5,
     imageUrl: "/images/items/Surge_Shield_Recharger.webp",
     description: 'Quick Use item that can be used to recharge Shields instantly.',
     craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Electrical Components', quantity: 4 }, { name: 'Adv ARC Powercell', quantity: 1 }] }
   },
   {
     id: 't21', name: 'Vita Spray', recycleInfo: [ { name: 'Antiseptic', stackSize: 5, quantity: 1 }, { name: 'Canister',
-    purchasableFromCeleste: true, stackSize: 15, quantity: 1 } ], salvageInfo: [ { name: 'Antiseptic', stackSize: 5, quantity: 1 } ], rarity: 'EPIC', icon: 'medication', category: 'DEFENSIVE', stackSize: 1,
+    purchasableFromCeleste: true, stackSize: 15, quantity: 1 } ], salvageInfo: [ { name: 'Antiseptic', stackSize: 5, quantity: 1 } ], rarity: 'EPIC', icon: 'medication', category: 'HEALING', stackSize: 1,
     imageUrl: "/images/items/Vita_Spray.webp",
     description: 'A pressurized healing spray that restores health rapidly over time.',
     craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Antiseptic', quantity: 4 }, { name: 'Canister',
@@ -2151,7 +2151,7 @@ export const THROWABLES_DATA: Throwable[] = [
     id: 't22', name: 'Vita Shot', recycleInfo: [ { name: 'Chemicals',
     purchasableFromCeleste: true, stackSize: 50, quantity: 4 }, { name: 'Syringe',
     purchasableFromCeleste: true, stackSize: 5, quantity: 1 } ], salvageInfo: [ { name: 'Syringe',
-    purchasableFromCeleste: true, stackSize: 5, quantity: 1 } ], rarity: 'RARE', icon: 'vaccines', category: 'DEFENSIVE', stackSize: 3,
+    purchasableFromCeleste: true, stackSize: 5, quantity: 1 } ], rarity: 'RARE', icon: 'vaccines', category: 'HEALING', stackSize: 3,
     imageUrl: "/images/items/Vita_Shot.png",
     description: 'An injectable healing agent that provides an immediate boost to health.',
     craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Antiseptic', quantity: 3 }, { name: 'Syringe',
@@ -2159,7 +2159,7 @@ export const THROWABLES_DATA: Throwable[] = [
   },
   {
     id: 't23', name: 'Sterilized Bandage', recycleInfo: [ { name: 'Fabric',
-    purchasableFromCeleste: true, stackSize: 50, quantity: 1 }, { name: 'Antiseptic', stackSize: 5, quantity: 1 } ], salvageInfo: [ { name: 'Durable Cloth', stackSize: 10, quantity: 1 } ], rarity: 'RARE', icon: 'healing', category: 'DEFENSIVE', stackSize: 3,
+    purchasableFromCeleste: true, stackSize: 50, quantity: 1 }, { name: 'Antiseptic', stackSize: 5, quantity: 1 } ], salvageInfo: [ { name: 'Durable Cloth', stackSize: 10, quantity: 1 } ], rarity: 'RARE', icon: 'healing', category: 'HEALING', stackSize: 3,
     imageUrl: "/images/items/Sterilized_Bandage.png",
     description: 'Clean medical wrap treated with antiseptic to heal wounds.',
     craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Durable Cloth', quantity: 2 }, { name: 'Antiseptic', quantity: 1 }] }
@@ -2167,7 +2167,7 @@ export const THROWABLES_DATA: Throwable[] = [
   {
     id: 't24', name: 'Herbal Bandage', recycleInfo: [ { name: 'Assorted Seeds', stackSize: 100, quantity: 2 }, { name: 'Fabric',
     purchasableFromCeleste: true, stackSize: 50, quantity: 5 } ], salvageInfo: [ { name: 'Fabric',
-    purchasableFromCeleste: true, stackSize: 50, quantity: 8 } ], rarity: 'UNCOMMON', icon: 'healing', category: 'DEFENSIVE', stackSize: 5,
+    purchasableFromCeleste: true, stackSize: 50, quantity: 8 } ], rarity: 'UNCOMMON', icon: 'healing', category: 'HEALING', stackSize: 5,
     imageUrl: "/images/items/Herbal_Bandage.png",
     description: 'A traditional bandage using medicinal plants for natural healing.',
     craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Fabric',
@@ -2178,7 +2178,7 @@ export const THROWABLES_DATA: Throwable[] = [
     id: 't25', name: 'Defibrillator', recycleInfo: [ { name: 'Plastic Parts',
     purchasableFromCeleste: true, stackSize: 50, quantity: 1 }, { name: 'Moss',
     purchasableFromCeleste: true, stackSize: 10, quantity: 1 } ], salvageInfo: [ { name: 'Chemicals',
-    purchasableFromCeleste: true, stackSize: 50, quantity: 2 } ], rarity: 'RARE', icon: 'heart_minus', category: 'DEFENSIVE', stackSize: 3,
+    purchasableFromCeleste: true, stackSize: 50, quantity: 2 } ], rarity: 'RARE', icon: 'heart_minus', category: 'HEALING', stackSize: 3,
     imageUrl: "/images/items/Defibrillator.png",
     description: 'A device used to revive downed teammates in the heat of battle.',
     craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Plastic Parts',
@@ -2187,53 +2187,46 @@ export const THROWABLES_DATA: Throwable[] = [
   },
 
   // ─── NEW GRENADES ──────────────────────────────────────────────────────
-  { id: 't-gas-grenade', name: 'Gas Grenade', rarity: 'COMMON', icon: 'blur_circular', imageUrl: "/images/items/Gas_Grenade.png", category: 'THROWABLES', description: 'Detonates to create a lingering toxic gas cloud that drains stamina.', stackSize: 5,
+  { id: 't-gas-grenade', name: 'Gas Grenade', rarity: 'UNCOMMON', icon: 'blur_circular', imageUrl: "/images/items/Gas_Grenade.png", category: 'GRENADES', description: 'Detonates to create a lingering toxic gas cloud that drains stamina.', stackSize: 5,
     craftInfo: { station: 'Explosives Station I', quantityProduced: 2, materials: [{ name: 'Chemicals', quantity: 4 }, { name: 'Rubber Parts', quantity: 2 }] },
     recycleInfo: [{ name: 'Chemicals', quantity: 1 }, { name: 'Rubber Parts', quantity: 1 }],
     salvageInfo: [{ name: 'Chemicals', quantity: 1 }],
   },
-  { id: 't-lure-grenade', name: 'Lure Grenade', rarity: 'COMMON', icon: 'radar', imageUrl: "/images/items/Lure_Grenade.webp", category: 'THROWABLES', description: 'Emits a signal that attracts nearby ARC to its location.', stackSize: 5,
+  { id: 't-lure-grenade', name: 'Lure Grenade', rarity: 'UNCOMMON', icon: 'radar', imageUrl: "/images/items/Lure_Grenade.webp", category: 'GRENADES', description: 'Emits a signal that attracts nearby ARC to its location.', stackSize: 5,
     craftInfo: { station: 'Explosives Station I', quantityProduced: 2, materials: [{ name: 'Electrical Components', quantity: 1 }, { name: 'Plastic Parts', quantity: 2 }] },
     recycleInfo: [{ name: 'Plastic Parts', quantity: 1 }],
     salvageInfo: [{ name: 'Plastic Parts', quantity: 1 }],
   },
-  { id: 't-lil-smoke', name: "Li'l Smoke Grenade", rarity: 'COMMON', icon: 'cloud', imageUrl: '/images/items/Plastic_Parts.png', category: 'THROWABLES', description: 'A smaller smoke grenade that creates a brief, compact smoke screen.', stackSize: 5,
+  { id: 't-lil-smoke', name: "Li'l Smoke Grenade", rarity: 'COMMON', icon: 'cloud', imageUrl: '/images/items/Plastic_Parts.png', category: 'GRENADES', description: 'A smaller smoke grenade that creates a brief, compact smoke screen.', stackSize: 5,
     craftInfo: { station: 'Explosives Station I', quantityProduced: 3, materials: [{ name: 'Chemicals', quantity: 4 }, { name: 'Canister', quantity: 1 }] },
     recycleInfo: [{ name: 'Chemicals', quantity: 1 }],
     salvageInfo: [{ name: 'Chemicals', quantity: 1 }],
   },
   // ─── NEW TRAPS ─────────────────────────────────────────────────────────
-  // ─── NEW TRAPS ─────────────────────────────────────────────────────────
-
-  { id: 't-gas-mine', name: 'Gas Mine', rarity: 'UNCOMMON', icon: 'dangerous', imageUrl: "/images/items/Gas_Mine.png", category: 'THROWABLES', description: 'A proximity mine that releases a cloud of toxic gas when triggered.', stackSize: 3,
+  { id: 't-gas-mine', name: 'Gas Mine', rarity: 'UNCOMMON', icon: 'dangerous', imageUrl: "/images/items/Gas_Mine.png", category: 'GRENADES', description: 'A proximity mine that releases a cloud of toxic gas when triggered.', stackSize: 3,
     craftInfo: { station: 'Explosives Station II', quantityProduced: 1, materials: [{ name: 'Chemicals', quantity: 5 }, { name: 'Rubber Parts', quantity: 3 }] },
     recycleInfo: [{ name: 'Chemicals', quantity: 2 }],
     salvageInfo: [{ name: 'Chemicals', quantity: 1 }],
   },
-  { id: 't-pulse-mine', name: 'Pulse Mine', rarity: 'UNCOMMON', icon: 'flash_on', imageUrl: "/images/items/Pulse_Mine.webp", category: 'THROWABLES', description: 'A proximity mine that releases an EMP pulse, disabling nearby ARC on trigger.', stackSize: 3,
+  { id: 't-pulse-mine', name: 'Pulse Mine', rarity: 'UNCOMMON', icon: 'flash_on', imageUrl: "/images/items/Pulse_Mine.webp", category: 'GRENADES', description: 'A proximity mine that releases an EMP pulse, disabling nearby ARC on trigger.', stackSize: 3,
     craftInfo: { station: 'Explosives Station II', quantityProduced: 1, materials: [{ name: 'Electrical Components', quantity: 2 }, { name: 'Sensors', quantity: 1 }] },
     recycleInfo: [{ name: 'Electrical Components', quantity: 1 }],
     salvageInfo: [{ name: 'Electrical Components', quantity: 1 }],
   },
 
   // ─── NEW QUICK USE / HEALING ────────────────────────────────────────────
-  { id: 't-bandage', name: 'Bandage', rarity: 'COMMON', icon: 'healing', imageUrl: "/images/items/Bandage.png", category: 'QUICK USE', description: 'A basic wound dressing. Stops bleeding and restores a small amount of health over time.', stackSize: 5,
-    craftInfo: { station: 'Refiner 1', quantityProduced: 2, materials: [{ name: 'Fabric', quantity: 2 }] },
-    recycleInfo: [{ name: 'Fabric', quantity: 1 }],
-    salvageInfo: [{ name: 'Fabric', quantity: 1 }],
-  },
-  { id: 't-adrenaline', name: 'Adrenaline Shot', rarity: 'RARE', icon: 'medical_services', imageUrl: "/images/items/Adrenaline_Shot.png", category: 'QUICK USE', description: 'A powerful stimulant that rapidly restores stamina and briefly boosts movement speed.', stackSize: 3,
+  { id: 't-adrenaline', name: 'Adrenaline Shot', rarity: 'RARE', icon: 'medical_services', imageUrl: "/images/items/Adrenaline_Shot.png", category: 'UTILITY', description: 'A powerful stimulant that rapidly restores stamina and briefly boosts movement speed.', stackSize: 3,
     craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Chemicals', quantity: 3 }, { name: 'Syringe', quantity: 1 }] },
     recycleInfo: [{ name: 'Chemicals', quantity: 1 }],
     salvageInfo: [{ name: 'Syringe', quantity: 1 }],
   },
-  // ─── NEW GADGETS / UTILITY ─────────────────────────────────────────────
-  { id: 't-barricade', name: 'Barricade Kit', rarity: 'UNCOMMON', icon: 'fence', imageUrl: "/images/items/Barricade_Kit.png", category: 'QUICK USE', description: 'Deploys a reinforced barricade panel to block doorways and chokepoints.', stackSize: 2,
+  // ─── NEW UTILITY ─────────────────────────────────────────────
+  { id: 't-barricade', name: 'Barricade Kit', rarity: 'UNCOMMON', icon: 'fence', imageUrl: "/images/items/Barricade_Kit.png", category: 'UTILITY', description: 'Deploys a reinforced barricade panel to block doorways and chokepoints.', stackSize: 2,
     craftInfo: { station: 'Gear Bench I', quantityProduced: 1, materials: [{ name: 'Metal Parts', quantity: 4 }, { name: 'Rope', quantity: 2 }] },
     recycleInfo: [{ name: 'Metal Parts', quantity: 2 }],
     salvageInfo: [{ name: 'Metal Parts', quantity: 1 }],
   },
-  { id: 't-zipline-quick', name: 'Zipline', rarity: 'RARE', icon: 'route', imageUrl: "/images/items/Zipline.png", category: 'QUICK USE', description: 'Creates a bidirectional zipline between two anchor points for rapid traversal.', stackSize: 2,
+  { id: 't-zipline-quick', name: 'Zipline', rarity: 'RARE', icon: 'route', imageUrl: "/images/items/Zipline.png", category: 'UTILITY', description: 'Creates a bidirectional zipline between two anchor points for rapid traversal.', stackSize: 2,
     craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Rope', quantity: 4 }, { name: 'Mechanical Components', quantity: 3 }] },
     recycleInfo: [{ name: 'Rope', quantity: 2 }],
     salvageInfo: [{ name: 'Rope', quantity: 1 }],

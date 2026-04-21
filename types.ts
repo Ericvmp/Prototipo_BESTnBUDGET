@@ -66,7 +66,7 @@ export interface Throwable {
   rarity: Rarity;
   icon: string;
   imageUrl?: string;
-  category?: 'THROWABLES' | 'DEFENSIVE' | 'SHIELDS' | 'QUICK USE';
+  category?: 'GRENADES' | 'HEALING' | 'SHIELDS' | 'UTILITY';
   perks?: string;
   craftInfo: {
     materials: ModRequirement[];
@@ -143,7 +143,7 @@ export interface LootCategory {
   sources: LootSource[];
 }
 
-export type Screen = 'home' | 'weapons' | 'mods' | 'materials' | 'throwables' | 'planner';
+export type Screen = 'home' | 'weapons' | 'mods' | 'materials' | 'equipment' | 'planner';
 
 export type WeaponMaintenanceAction = 
   | 'NONE'

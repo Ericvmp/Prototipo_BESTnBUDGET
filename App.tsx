@@ -20,7 +20,7 @@ const HomeOption: React.FC<{ label: string; icon: string; delay: string; image?:
       onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`group relative aspect-square w-full bg-card-dark rounded-xl overflow-hidden transition-all duration-300 active:scale-95 flex flex-col items-center justify-center gap-2 md:gap-6 shadow-2xl animate-fade-in`}
+      className={`group relative aspect-square w-full bg-card-dark rounded-xl overflow-hidden transition-all duration-300 active:scale-95 flex flex-col items-center shadow-2xl animate-fade-in`}
       style={{
         animationDelay: delay,
       }}
@@ -41,19 +41,20 @@ const HomeOption: React.FC<{ label: string; icon: string; delay: string; image?:
         <div className="absolute inset-0 border-[8px]" style={{ borderColor: hoverColor, boxShadow: `0 0 60px ${hoverColor}40, inset 0 0 40px ${hoverColor}30` }}></div>
       </div>
 
-      <div className="relative z-40 transform group-hover:-translate-y-2 transition-transform duration-500">
+      <div className="flex-1 flex items-center justify-center w-full relative z-40 transform group-hover:-translate-y-2 transition-transform duration-500">
         {itemImage ? (
           <img src={itemImage} alt={label} className={`${itemImageClass} object-contain drop-shadow-[0_0_12px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.5)] transition-all duration-300`} />
         ) : (
-          <>
+          <div className="relative">
             <div className="absolute inset-0 bg-primary/30 rounded-full blur-2xl scale-0 group-hover:scale-150 transition-transform duration-700"></div>
             <span className="material-symbols-outlined text-7xl text-slate-300 group-hover:text-primary transition-colors duration-300">
               {icon}
             </span>
-          </>
+          </div>
         )}
       </div>
-      <div className="relative z-20 text-center px-1">
+
+      <div className="relative z-20 text-center px-1 pb-6 md:pb-10">
         <span className="text-xs md:text-base font-bold tracking-[0.15em] md:tracking-[0.4em] uppercase text-slate-100 group-hover:text-white transition-colors">
           {label}
         </span>
@@ -140,7 +141,7 @@ const App: React.FC = () => {
           delay="350ms"
           image="https://cdn.metaforge.app/arc-raiders/icons/hideout/ExplosivesStation.webp"
           itemImage="/images/items/Compensator_II.png"
-          itemImageClass="w-24 h-24 md:w-40 md:h-40"
+          itemImageClass="w-20 h-20 md:w-32 md:h-32"
           hoverColor="#2df287"
           onClick={() => setCurrentScreen('mods')}
         />
@@ -155,14 +156,14 @@ const App: React.FC = () => {
           onClick={() => setCurrentScreen('materials')}
         />
         <HomeOption
-          label="Tacticals"
+          label="Equipment"
           icon="shield_with_heart"
           delay="650ms"
           image="/images/GearBench.webp"
-          itemImage="/images/items/Snap_Blast_Grenade.png"
-          itemImageClass="w-16 h-16 md:w-32 md:h-32"
+          itemImage="/images/items/Combat_Mk._3_(Flanking).png"
+          itemImageClass="w-20 h-20 md:w-36 md:h-36"
           hoverColor="#fb090b"
-          onClick={() => setCurrentScreen('throwables')}
+          onClick={() => setCurrentScreen('equipment')}
         />
       </div>
 
@@ -300,7 +301,7 @@ const App: React.FC = () => {
           onMaterialSelect={handleMaterialSelect}
         />
       )}
-      {currentScreen === 'throwables' && (
+      {currentScreen === 'equipment' && (
         <ThrowablesScreen 
           data={THROWABLES_DATA} 
           augmentsData={AUGMENTS_DATA} 

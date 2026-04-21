@@ -85,13 +85,13 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
           <span className="material-symbols-outlined text-2xl">arrow_back</span>
         </button>
         <div>
-          <h2 className="text-3xl font-black tracking-[0.3em] text-white drop-shadow-glow uppercase">TACTICAL</h2>
-          <p className="text-[10px] text-primary font-bold tracking-[0.4em] uppercase mt-1 opacity-70">Support &amp; Tactical Inventory</p>
+          <h2 className="text-3xl font-black tracking-[0.3em] text-white drop-shadow-glow uppercase">EQUIPMENT</h2>
+          <p className="text-[10px] text-primary font-bold tracking-[0.4em] uppercase mt-1 opacity-70">Support &amp; Equipment Inventory</p>
         </div>
       </div>
 
       <div className="space-y-16">
-        {['THROWABLES', 'SHIELDS', 'DEFENSIVE', 'QUICK USE'].map(section => {
+        {['GRENADES', 'SHIELDS', 'HEALING', 'UTILITY'].map(section => {
           const sectionItems = data.filter(item => item.category === section);
           if (sectionItems.length === 0) return null;
 
