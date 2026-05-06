@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { Material, Weapon, Modification } from '../types';
-import { MATERIALS_DATA, WEAPONS_DATA, MODS_DATA, THROWABLES_DATA, LOOT_DATA } from '../data';
+import { MATERIALS_DATA, WEAPONS_DATA, MODS_DATA, THROWABLES_DATA, LOOT_DATA, AUGMENTS_DATA } from '../data';
 import { generateItemTooltip } from './tooltipHelper';
 import { getSourceImageUrl, getItemRarity, getRarityStyles, getRarityGlowStyles, getRarityHoverStyles, getRarityBorderColor, parseMaterialString } from '../utils';
 import RichTooltip from './RichTooltip';
@@ -188,11 +188,17 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                     </div>
                   )}
                   {material.purchasableFromCeleste && (
-                    <div className="flex items-center gap-3 justify-center">
-                      <span className="material-symbols-outlined text-lg text-cyan-400">storefront</span>
-                      <span className="text-[14px] font-black uppercase tracking-[0.3em] text-cyan-500 drop-shadow-[0_0_5px_rgba(34,211,238,0.5)]">
-                        Trader Celeste
-                      </span>
+                    <div className="flex items-center gap-3 justify-center bg-emerald-500/10 px-4 py-2 rounded-2xl border border-emerald-500/20 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
+                      <div className="flex items-center gap-2 pr-3 border-r border-emerald-500/30">
+                        <img src="https://arcraiders.wiki/w/images/5/54/Icon_Nature.png" alt="Seeds" className="w-5 h-5 object-contain drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                        <span className="text-white font-black font-mono text-lg">{material.celesteSeedCost}</span>
+                      </div>
+                      <div className="flex items-center gap-2 pl-1">
+                        <span className="material-symbols-outlined text-lg text-emerald-400">storefront</span>
+                        <span className="text-[14px] font-black uppercase tracking-[0.3em] text-emerald-500 drop-shadow-[0_0_5px_rgba(16,185,129,0.5)]">
+                          Trader Celeste
+                        </span>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -218,13 +224,15 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                       const targetMod = MODS_DATA.find(m => m.name === name);
                       const targetMat = MATERIALS_DATA.find(m => m.name === name);
                       const targetThrowable = THROWABLES_DATA.find(t => t.name === name);
-                      const targetItem = targetWeapon || targetMod || targetMat || targetThrowable;
+                      const targetAugment = AUGMENTS_DATA.find(a => a.name === name);
+                      const targetItem = targetWeapon || targetMod || targetMat || targetThrowable || targetAugment;
 
                       const handleClick = () => {
                         if (targetWeapon) onNavigateWeapon(targetWeapon);
                         else if (targetMod) onNavigateMod(targetMod);
                         else if (targetMat) onNavigateMaterial(targetMat);
                         else if (targetThrowable && onNavigateTactical) onNavigateTactical(targetThrowable);
+                        else if (targetAugment && onNavigateTactical) onNavigateTactical(targetAugment);
                       };
 
                       const imageUrl = targetItem?.imageUrl || getSourceImageUrl(name);
@@ -286,12 +294,16 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                       const targetWeapon = WEAPONS_DATA.find(w => w.name === name);
                       const targetMod = MODS_DATA.find(m => m.name === name);
                       const targetMat = MATERIALS_DATA.find(m => m.name === name);
-                      const targetItem = targetWeapon || targetMod || targetMat;
+                      const targetThrowable = THROWABLES_DATA.find(t => t.name === name);
+                      const targetAugment = AUGMENTS_DATA.find(a => a.name === name);
+                      const targetItem = targetWeapon || targetMod || targetMat || targetThrowable || targetAugment;
 
                       const handleClick = () => {
                         if (targetWeapon) onNavigateWeapon(targetWeapon);
                         else if (targetMod) onNavigateMod(targetMod);
                         else if (targetMat) onNavigateMaterial(targetMat);
+                        else if (targetThrowable && onNavigateTactical) onNavigateTactical(targetThrowable);
+                        else if (targetAugment && onNavigateTactical) onNavigateTactical(targetAugment);
                       };
 
                       return (

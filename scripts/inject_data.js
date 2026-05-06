@@ -38,7 +38,6 @@ const MODS_TO_ADD = [
 const AUGMENTS_TO_ADD = [
   { id: 'a-c3a', name: 'Combat Mk. 3 (Aggressive)', rarity: 'EPIC', icon: 'shield_with_heart', craftInfo: { station: 'Refiner 3', quantityProduced: 1, materials: [{name: 'Advanced Mechanical Components', quantity: 4}] } },
   { id: 'a-c3f', name: 'Combat Mk. 3 (Flanking)', rarity: 'EPIC', icon: 'shield_with_heart', craftInfo: { station: 'Refiner 3', quantityProduced: 1, materials: [{name: 'Advanced Mechanical Components', quantity: 4}] } },
-  { id: 'a-freeload', name: 'Free Loadout Augment', rarity: 'LEGENDARY', icon: 'star', craftInfo: { station: 'Refiner 4', quantityProduced: 1, materials: [{name: 'ARC Core', quantity: 1}] } },
   { id: 'a-l2', name: 'Looting Mk. 2', rarity: 'RARE', icon: 'shopping_bag', craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{name: 'Magnet', quantity: 2}] } },
   { id: 'a-l3c', name: 'Looting Mk. 3 (Cautious)', rarity: 'EPIC', icon: 'shopping_bag', craftInfo: { station: 'Refiner 3', quantityProduced: 1, materials: [{name: 'Advanced Mechanical Components', quantity: 4}] } },
   { id: 'a-l3sa', name: 'Looting Mk. 3 (Safekeeper)', rarity: 'EPIC', icon: 'shopping_bag', craftInfo: { station: 'Refiner 3', quantityProduced: 1, materials: [{name: 'Advanced Mechanical Components', quantity: 4}] } },

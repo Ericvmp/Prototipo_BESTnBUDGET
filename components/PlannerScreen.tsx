@@ -345,11 +345,19 @@ const FinalReportModal: React.FC<{
                                        )}
                                     </div>
                                     <div className="flex-1 min-w-0">
-                                       <span className="text-[14px] font-black tracking-wider block text-white pr-1 leading-tight break-words">{mat.name}</span>
-                                       <span className="text-[9px] font-black tracking-[0.2em] uppercase text-orange-500/60 block mt-1">{mat.rarity}</span>
+                                       <span className="text-[16px] font-black tracking-wider block text-white pr-1 leading-tight break-words">{mat.name}</span>
+                                       <span className="text-[11px] font-black tracking-[0.2em] uppercase text-orange-500/60 block mt-1">{mat.rarity}</span>
                                     </div>
-                                    <div className="text-3xl font-black text-orange-500 font-mono shrink-0 pl-4 border-l border-orange-500/20 group-hover:scale-110 transition-transform">
-                                       {mat.quantity}
+                                    <div className="flex flex-col items-end gap-1 shrink-0 pl-4 border-l border-orange-500/20 group-hover:scale-105 transition-transform">
+                                       <div className="text-3xl font-black text-orange-500 font-mono leading-none">
+                                          {mat.quantity}
+                                       </div>
+                                       {mat.purchasableFromCeleste && (
+                                          <div className="flex items-center gap-1 mt-1 bg-emerald-500/20 px-1.5 py-0.5 rounded border border-emerald-500/30" title={`Trader Celeste: ${mat.celesteSeedCost} Seeds`}>
+                                             <img src="https://arcraiders.wiki/w/images/5/54/Icon_Nature.png" alt="" className="w-2.5 h-2.5 object-contain" />
+                                             <span className="text-white font-black font-mono text-[10px]">{mat.celesteSeedCost}</span>
+                                          </div>
+                                       )}
                                     </div>
                                  </div>
                               </div>
@@ -383,11 +391,19 @@ const FinalReportModal: React.FC<{
                                     {mat.imageUrl ? <img src={mat.imageUrl} alt="" className="w-full h-full object-contain filter drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] scale-[1.4]" /> : <span className="material-symbols-outlined text-slate-700 text-xl scale-[1.4]">category</span>}
                                  </div>
                                  <div className="flex-1 min-w-0">
-                                    <span className="text-[12px] font-black tracking-wider block text-slate-100 pr-1 leading-tight group-hover:text-white break-words">{mat.name}</span>
-                                    <span className="text-[8px] font-black tracking-[0.1em] uppercase opacity-60 block mt-0.5">{mat.rarity}</span>
+                                    <span className="text-[14px] font-black tracking-wider block text-slate-100 pr-1 leading-tight group-hover:text-white break-words">{mat.name}</span>
+                                    <span className="text-[10px] font-black tracking-[0.1em] uppercase opacity-60 block mt-0.5">{mat.rarity}</span>
                                  </div>
-                                 <div className="text-2xl font-black text-white font-mono shrink-0 pl-3 border-l border-white/10 group-hover:text-primary transition-colors">
-                                    {mat.quantity}
+                                 <div className="flex flex-col items-end gap-1 shrink-0 pl-3 border-l border-white/10">
+                                    <div className="text-2xl font-black text-white font-mono leading-none group-hover:text-primary transition-colors">
+                                       {mat.quantity}
+                                    </div>
+                                    {mat.purchasableFromCeleste && (
+                                       <div className="flex items-center gap-1 mt-1 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20" title={`Trader Celeste: ${mat.celesteSeedCost} Seeds`}>
+                                          <img src="https://arcraiders.wiki/w/images/5/54/Icon_Nature.png" alt="" className="w-2.5 h-2.5 object-contain" />
+                                          <span className="text-white font-black font-mono text-[9px]">{mat.celesteSeedCost}</span>
+                                       </div>
+                                    )}
                                  </div>
                               </div>
                            </div>
@@ -626,7 +642,9 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
             quantity: quantity * (state.multiplier || 1),
             rarity: matData?.rarity || 'COMMON',
             icon: matData?.icon || 'category',
-            imageUrl: matData?.imageUrl
+            imageUrl: matData?.imageUrl,
+            purchasableFromCeleste: matData?.purchasableFromCeleste,
+            celesteSeedCost: matData?.celesteSeedCost
          };
       }).sort((a, b) => rarityOrder[a.rarity as keyof typeof rarityOrder] - rarityOrder[b.rarity as keyof typeof rarityOrder]);
 
@@ -645,7 +663,14 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
 
       const maintenanceMaterials = Array.from(maintenanceSet).map(name => {
          const matData = materialsData.find(m => m.name === name);
-         return { name, rarity: matData?.rarity || 'COMMON', icon: matData?.icon || 'category', imageUrl: matData?.imageUrl };
+         return { 
+            name, 
+            rarity: matData?.rarity || 'COMMON', 
+            icon: matData?.icon || 'category', 
+            imageUrl: matData?.imageUrl,
+            purchasableFromCeleste: matData?.purchasableFromCeleste,
+            celesteSeedCost: matData?.celesteSeedCost
+         };
       }).sort((a, b) => rarityOrder[a.rarity as keyof typeof rarityOrder] - rarityOrder[b.rarity as keyof typeof rarityOrder]);
 
       return { craftingMaterials, maintenanceMaterials };
@@ -1180,11 +1205,17 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                               {mat.imageUrl ? <img src={mat.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-lg opacity-40">category</span>}
                                            </div>
                                            <div>
-                                              <span className="text-[12px] font-black tracking-wider block leading-tight text-slate-100">{mat.name}</span>
-                                              <span className={`text-[8px] font-black uppercase tracking-widest ${rarityStyles.split(' ').find(c => c.startsWith('text-'))}`}>{mat.rarity}</span>
+                                              <span className="text-[14px] font-black tracking-wider block leading-tight text-slate-100">{mat.name}</span>
+                                              <span className={`text-[10px] font-black uppercase tracking-widest ${rarityStyles.split(' ').find(c => c.startsWith('text-'))}`}>{mat.rarity}</span>
                                            </div>
                                         </div>
                                         <div className="flex items-center gap-4 relative z-10">
+                                            {mat.purchasableFromCeleste && (
+                                               <div className="flex items-center gap-1.5 bg-emerald-500/10 px-2 py-1 rounded-lg border border-emerald-500/20 mr-2" title={`Trader Celeste: ${mat.celesteSeedCost} Seeds`}>
+                                                  <img src="https://arcraiders.wiki/w/images/5/54/Icon_Nature.png" alt="" className="w-3.5 h-3.5 object-contain" />
+                                                  <span className="text-white font-mono text-[13px]">{mat.celesteSeedCost}</span>
+                                               </div>
+                                            )}
                                            <div className="text-xl font-black font-mono text-primary">
                                               {mat.quantity}
                                            </div>

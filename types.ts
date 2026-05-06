@@ -124,6 +124,7 @@ export interface Material {
   obtainedFrom?: string[];
   requiredFor?: string[];
   purchasableFromCeleste?: boolean;
+  celesteSeedCost?: number;
 }
 
 export interface LootSource {

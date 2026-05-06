@@ -72,7 +72,7 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                                     <div className={`relative w-20 h-20 rounded-xl flex items-center justify-center bg-background-dark shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner overflow-hidden ${getRarityBorderColor(material?.rarity || 'COMMON')}`}>
                                         <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(material?.rarity || 'COMMON')} opacity-20`}></div>
                                         <img
-                                            src={category.materialImageUrl || material?.imageUrl || '/images/items/Unusable_Weapon.png'}
+                                            src={material?.imageUrl || '/images/items/Unusable_Weapon.png'}
                                             alt={category.material}
                                             className="w-14 h-14 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
                                             onError={(e) => {
@@ -114,7 +114,11 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
 
                                             {/* Celeste */}
                                             {material?.purchasableFromCeleste && (
-                                                <div className="flex items-center gap-1.5 text-[11px] font-bold text-emerald-400 uppercase tracking-widest" title="Purchasable from Trader Celeste">
+                                                <div className="flex items-center gap-1.5 text-[11px] font-bold text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-2 py-0.5 rounded-lg border border-emerald-500/20" title={`Purchasable from Trader Celeste for ${material.celesteSeedCost} Seeds`}>
+                                                    <div className="flex items-center gap-1 mr-1 pr-1 border-r border-emerald-500/30">
+                                                        <img src="https://arcraiders.wiki/w/images/5/54/Icon_Nature.png" alt="Seeds" className="w-3 h-3 object-contain" />
+                                                        <span className="text-white font-mono text-[12px]">{material.celesteSeedCost}</span>
+                                                    </div>
                                                     <span className="material-symbols-outlined text-[16px] leading-none">storefront</span>
                                                     CELESTE
                                                 </div>

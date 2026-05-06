@@ -216,6 +216,14 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
               <span className={`text-[11px] font-black tracking-widest uppercase border-2 px-3 py-1 rounded-full leading-none ${rs.text} ${rs.border} bg-black/40 shadow-inner`}>
                 {rarity}
               </span>
+              {item.purchasableFromCeleste && (
+                <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+                  <img src="https://arcraiders.wiki/w/images/5/54/Icon_Nature.png" alt="Seeds" className="w-3.5 h-3.5 object-contain drop-shadow-[0_0_5px_rgba(16,185,129,0.4)]" />
+                  <span className="text-white font-black font-mono text-[13px]">{item.celesteSeedCost}</span>
+                  <span className="w-px h-3 bg-emerald-500/20 mx-1" />
+                  <span className="material-symbols-outlined text-[14px] text-emerald-400">storefront</span>
+                </div>
+              )}
               {item.category && (
                 <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest border border-slate-700 bg-slate-800/50 px-3 py-1 rounded-full leading-none">
                   {item.category}
