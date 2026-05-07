@@ -40,7 +40,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat4',
-    name: 'Mechanical Components', purchasableFromCeleste: true, celesteSeedCost: 4, recycleInfo: [{
+    name: 'Mechanical Components', recycleInfo: [{
       name: 'Rubber Parts',
       stackSize: 50, quantity: 2
     }, {
@@ -79,7 +79,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat5',
-    name: 'Mod Components', purchasableFromCeleste: true, celesteSeedCost: 8, recycleInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }, {
+    name: 'Mod Components', recycleInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }, {
       name: 'Steel Spring',
       stackSize: 15, quantity: 1
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }], stackSize: 5,
@@ -295,7 +295,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat13',
-    name: 'Adv Mechanical Components', purchasableFromCeleste: true, celesteSeedCost: 12, recycleInfo: [{
+    name: 'Adv Mechanical Components', recycleInfo: [{
       name: 'Steel Spring',
       stackSize: 15, quantity: 1
     }, { name: 'Mechanical Components', stackSize: 10, quantity: 1 }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }], stackSize: 5,
@@ -351,7 +351,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat15',
-    name: 'ARC Alloy', purchasableFromCeleste: true, celesteSeedCost: 6, recycleInfo: [{
+    name: 'ARC Alloy', recycleInfo: [{
       name: 'Metal Parts',
       stackSize: 50, quantity: 2
     }], salvageInfo: [{
@@ -368,7 +368,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat16',
-    name: 'ARC Powercell', purchasableFromCeleste: true, celesteSeedCost: 4, stackSize: 5,
+    name: 'ARC Powercell', stackSize: 5,
     recycleInfo: [],
     salvageInfo: [],
     rarity: 'COMMON',
@@ -381,7 +381,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat17',
-    name: 'Adv ARC Powercell', purchasableFromCeleste: true, celesteSeedCost: 12, recycleInfo: [{ name: 'ARC Powercell', stackSize: 5, quantity: 2 }], salvageInfo: [{ name: 'ARC Powercell', stackSize: 5, quantity: 1 }], stackSize: 5,
+    name: 'Adv ARC Powercell', recycleInfo: [{ name: 'ARC Powercell', stackSize: 5, quantity: 2 }], salvageInfo: [{ name: 'ARC Powercell', stackSize: 5, quantity: 1 }], stackSize: 5,
     rarity: 'RARE',
     icon: 'battery_saver',
     imageUrl: '/images/items/Advanced_ARC_Powercell.png',
@@ -392,7 +392,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat18',
-    name: 'Electrical Components', purchasableFromCeleste: true, celesteSeedCost: 4, recycleInfo: [{
+    name: 'Electrical Components', recycleInfo: [{
       name: 'Plastic Parts',
       stackSize: 50, quantity: 3
     }, {
@@ -422,7 +422,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat19',
-    name: 'Adv Electrical Components', purchasableFromCeleste: true, celesteSeedCost: 12, recycleInfo: [{
+    name: 'Adv Electrical Components', recycleInfo: [{
       name: 'Wires',
       stackSize: 15, quantity: 1
     }, { name: 'Electrical Components', stackSize: 10, quantity: 1 }], salvageInfo: [{ name: 'Electrical Components', stackSize: 10, quantity: 1 }], stackSize: 5,
@@ -443,7 +443,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat20',
-    name: 'ARC Circuitry', purchasableFromCeleste: true, celesteSeedCost: 15, recycleInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 2 }], salvageInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 1 }], stackSize: 5,
+    name: 'ARC Circuitry', recycleInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 2 }], salvageInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 1 }], stackSize: 5,
     rarity: 'RARE',
     icon: 'circuit',
     imageUrl: "/images/items/ARC_Circuitry.png",
@@ -458,7 +458,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat21',
-    name: 'ARC Motion Core', purchasableFromCeleste: true, celesteSeedCost: 15, recycleInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 2 }], salvageInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 1 }], stackSize: 5,
+    name: 'ARC Motion Core', recycleInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 2 }], salvageInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 1 }], stackSize: 5,
     rarity: 'RARE',
     icon: 'motion_sensor_active',
     imageUrl: "/images/items/ARC_Motion_Core.png",
@@ -484,7 +484,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat23',
-    name: 'Antiseptic', purchasableFromCeleste: true, celesteSeedCost: 6, recycleInfo: [{
+    name: 'Antiseptic', recycleInfo: [{
       name: 'Chemicals',
       stackSize: 50, quantity: 10
     }], salvageInfo: [{
@@ -528,7 +528,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat25',
-    name: 'Tick Pod', purchasableFromCeleste: true, celesteSeedCost: 10, recycleInfo: [{
+    name: 'Tick Pod', recycleInfo: [{
       name: 'Chemicals',
       stackSize: 50, quantity: 2
     }, { name: 'ARC Alloy', stackSize: 15, quantity: 2 }], salvageInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 1 }], stackSize: 3,
@@ -553,7 +553,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat27',
-    name: 'Durable Cloth', purchasableFromCeleste: true, celesteSeedCost: 3, recycleInfo: [{
+    name: 'Durable Cloth', recycleInfo: [{
       name: 'Fabric',
       stackSize: 50, quantity: 6
     }], salvageInfo: [{
@@ -616,7 +616,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat31',
-    name: 'Power Rod', purchasableFromCeleste: true, celesteSeedCost: 20, recycleInfo: [{ name: 'Adv Electrical Components', stackSize: 5, quantity: 1 }, { name: 'ARC Circuitry', stackSize: 5, quantity: 1 }], salvageInfo: [{ name: 'Adv Electrical Components', stackSize: 5, quantity: 1 }], stackSize: 3,
+    name: 'Power Rod', recycleInfo: [{ name: 'Adv Electrical Components', stackSize: 5, quantity: 1 }, { name: 'ARC Circuitry', stackSize: 5, quantity: 1 }], salvageInfo: [{ name: 'Adv Electrical Components', stackSize: 5, quantity: 1 }], stackSize: 3,
     rarity: 'RARE',
     icon: 'vertical_align_center',
     imageUrl: '/images/items/Power_Rod.png',
@@ -699,7 +699,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat35',
-    name: 'Magnetic Accelerator', purchasableFromCeleste: true, celesteSeedCost: 30, recycleInfo: [{ name: 'Adv Mechanical Components', stackSize: 5, quantity: 1 }, { name: 'ARC Motion Core', stackSize: 5, quantity: 1 }], salvageInfo: [{ name: 'Adv Mechanical Components', stackSize: 5, quantity: 1 }], stackSize: 3,
+    name: 'Magnetic Accelerator', recycleInfo: [{ name: 'Adv Mechanical Components', stackSize: 5, quantity: 1 }, { name: 'ARC Motion Core', stackSize: 5, quantity: 1 }], salvageInfo: [{ name: 'Adv Mechanical Components', stackSize: 5, quantity: 1 }], stackSize: 3,
     rarity: 'EPIC',
     icon: 'all_inclusive',
     imageUrl: '/images/items/Magnetic_Accelerator.png',
@@ -754,7 +754,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat38',
-    name: 'Crude Explosives', purchasableFromCeleste: true, celesteSeedCost: 4, stackSize: 10,
+    name: 'Crude Explosives', stackSize: 10,
     rarity: 'UNCOMMON',
     icon: 'bomb',
     imageUrl: "/images/items/Crude_Explosives.png",
@@ -780,7 +780,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat39',
-    name: 'Explosive Compound', purchasableFromCeleste: true, celesteSeedCost: 8, stackSize: 5,
+    name: 'Explosive Compound', stackSize: 5,
     rarity: 'RARE',
     icon: 'volcano',
     imageUrl: "/images/items/Explosive_Compound.png",
@@ -822,7 +822,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat41',
-    name: 'Firefly Burner', purchasableFromCeleste: true, celesteSeedCost: 15, stackSize: 3,
+    name: 'Firefly Burner', stackSize: 3,
     rarity: 'RARE',
     icon: 'fireplace',
     imageUrl: "/images/items/Firefly_Burner.png",
@@ -835,7 +835,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat42',
-    name: 'Rocketeer Driver', purchasableFromCeleste: true, celesteSeedCost: 25, stackSize: 3,
+    name: 'Rocketeer Driver', stackSize: 3,
     rarity: 'EPIC',
     icon: 'rocket_launch',
     imageUrl: "/images/items/Rocketeer_Driver.png",
@@ -848,7 +848,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat43',
-    name: 'Comet Igniter', purchasableFromCeleste: true, celesteSeedCost: 20, stackSize: 3,
+    name: 'Comet Igniter', stackSize: 3,
     rarity: 'RARE',
     icon: 'wb_sunny',
     imageUrl: "/images/items/Comet_Igniter.png",
@@ -861,7 +861,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat44',
-    name: 'Light Shield', purchasableFromCeleste: true, celesteSeedCost: 10, rarity: 'UNCOMMON',
+    name: 'Light Shield', rarity: 'UNCOMMON',
     icon: 'shield',
     imageUrl: "/images/items/Light_Shield.png",
     description: 'Basic protection made from salvaged parts.',
@@ -876,7 +876,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat45',
-    name: 'Medium Shield', purchasableFromCeleste: true, celesteSeedCost: 20, rarity: 'RARE',
+    name: 'Medium Shield', rarity: 'RARE',
     icon: 'shield',
     imageUrl: "/images/items/Medium_Shield.png",
     description: 'Standard Shield that offers Raiders fair protection.',
@@ -888,7 +888,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat46',
-    name: 'Heavy Shield', purchasableFromCeleste: true, celesteSeedCost: 40, rarity: 'EPIC',
+    name: 'Heavy Shield', rarity: 'EPIC',
     icon: 'shield',
     imageUrl: "/images/items/Heavy_Shield.png",
     description: 'Heavy Shield offering maximum protection.',
@@ -964,7 +964,7 @@ export const MATERIALS_DATA: Material[] = [
   },
   {
     id: 'mat50',
-    name: 'Speaker Component',
+    name: 'Speaker Component', purchasableFromCeleste: true, celesteSeedCost: 10,
     stackSize: 5,
     rarity: 'RARE',
     icon: 'volume_up',
