@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { MODS_DATA } from '../data';
 import { SetupDetail } from '../types';
 import { getRarityBorderColor, getRarityIconColor } from '../utils';
+import SmartItemIcon from './SmartItemIcon';
 
 interface SetupTooltipProps {
   setup: SetupDetail;
@@ -107,7 +108,7 @@ const SetupTooltip: React.FC<SetupTooltipProps> = ({ setup, tier, children }) =>
               return (
                   <div key={modId} className={`flex items-center gap-5 p-4 bg-white/[0.04] border-2 rounded-2xl transition-all group/item shadow-inner ${borderStyle} hover:bg-white/[0.08]`}>
                       <div className={`w-14 h-14 rounded-2xl bg-slate-800 p-2.5 flex items-center justify-center shrink-0 border-2 shadow-inner group-hover/item:border-white/30 transition-colors ${imgBorderColor}`}>
-                          <img src={mod.imageUrl} alt={mod.name} className="w-full h-full object-contain drop-shadow-glow" />
+                          <SmartItemIcon itemName={mod.name} icon="settings" rarity={mod.rarity} imageClassName="w-full h-full object-contain drop-shadow-glow" iconClassName="text-xl text-slate-400" />
                       </div>
                       <div className="flex flex-col min-w-0">
                           <span className="text-[15px] font-black text-slate-100 truncate uppercase tracking-wide leading-tight mb-1">{mod.name.replace('Extended ', '').replace('III', '3').replace('II', '2').replace('I', '1')}</span>

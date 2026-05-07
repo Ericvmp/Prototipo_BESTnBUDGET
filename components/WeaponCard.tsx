@@ -1,8 +1,9 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Weapon } from '../types';
 import { getRarityStyles, getRarityGlowStyles, getRarityIconColor, getRarityHoverStyles, getRarityBorderColor } from '../utils';
 import RichTooltip from './RichTooltip';
+import SmartItemIcon from './SmartItemIcon';
 
 interface WeaponCardProps {
   weapon: Weapon;
@@ -10,7 +11,6 @@ interface WeaponCardProps {
 }
 
 const WeaponCard: React.FC<WeaponCardProps> = ({ weapon, onClick }) => {
-  const [imageError, setImageError] = useState(false);
 
   return (
     <RichTooltip item={weapon}>
@@ -28,18 +28,13 @@ const WeaponCard: React.FC<WeaponCardProps> = ({ weapon, onClick }) => {
           {/* Left: Image */}
           <div className={`relative w-20 h-20 rounded-xl flex items-center justify-center bg-background-dark shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner overflow-hidden ${getRarityBorderColor(weapon.rarity)}`}>
             <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(weapon.rarity)} opacity-20`}></div>
-            {weapon.imageUrl && !imageError ? (
-              <img
-                src={weapon.imageUrl}
-                alt={weapon.name}
-                onError={() => setImageError(true)}
-                className="w-14 h-14 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
-              />
-            ) : (
-              <span className={`material-symbols-outlined text-4xl relative z-10 ${getRarityIconColor(weapon.rarity)}`}>
-                {weapon.icon || 'swords'}
-              </span>
-            )}
+            <SmartItemIcon
+              itemName={weapon.name}
+              icon={weapon.icon || 'swords'}
+              rarity={weapon.rarity}
+              imageClassName="w-14 h-14 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
+              iconClassName="text-4xl relative z-10"
+            />
           </div>
 
           {/* Right: Info */}

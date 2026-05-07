@@ -5,6 +5,7 @@ import { MATERIALS_DATA, MODS_DATA } from '../data';
 import { generateItemTooltip } from './tooltipHelper';
 import RichTooltip from './RichTooltip';
 import { getRarityBorderColor } from '../utils';
+import SmartItemIcon from './SmartItemIcon';
 
 interface ModOverlayProps {
   mod: Modification;
@@ -56,11 +57,7 @@ const ModOverlay: React.FC<ModOverlayProps> = ({ mod, onClose, onNavigateMateria
       >
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0">
-            {mat.imageUrl ? (
-              <img src={mat.imageUrl} alt={mat.name} className="w-full h-full object-contain" />
-            ) : (
-              <span className="material-symbols-outlined text-xl text-slate-400">{mat.icon}</span>
-            )}
+            <SmartItemIcon itemName={mat.name} icon={mat.icon || 'category'} rarity={mat.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-xl text-slate-400" />
           </div>
           <div className="flex flex-col">
             <span className="text-sm font-bold text-white group-hover/mat:text-primary transition-colors">{mat.name}</span>
@@ -156,11 +153,7 @@ const ModOverlay: React.FC<ModOverlayProps> = ({ mod, onClose, onNavigateMateria
                   className={`w-36 h-36 rounded-2xl bg-slate-800/80 border flex items-center justify-center shadow-inner overflow-hidden p-4 shrink-0 ${rarity.border}`}
                   style={{ boxShadow: `inset 0 0 20px ${rarity.shadow}` }}
                 >
-                  {mod.imageUrl ? (
-                    <img src={mod.imageUrl} alt={mod.name} className="w-full h-full object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]" />
-                  ) : (
-                    <span className="material-symbols-outlined text-6xl" style={{ color: rarity.hex }}>{mod.icon}</span>
-                  )}
+                  <SmartItemIcon itemName={mod.name} icon={mod.icon || 'settings_input_component'} rarity={mod.rarity} imageClassName="w-full h-full object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]" iconClassName="text-6xl" style={{ color: rarity.hex }} />
                 </div>
 
                 <div className="flex-1 space-y-3 text-center sm:text-left">

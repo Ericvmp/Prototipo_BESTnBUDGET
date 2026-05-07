@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { LootCategory, Material } from '../types';
-import { getSourceImageUrl, getRarityStyles, getItemRarity, getRarityGlowStyles, getRarityHoverStyles, getRarityBorderColor } from '../utils';
+import { getRarityStyles, getItemRarity, getRarityGlowStyles, getRarityHoverStyles, getRarityBorderColor } from '../utils';
 import { MATERIALS_DATA } from '../data';
 import { generateItemTooltip } from './tooltipHelper';
 import RichTooltip from './RichTooltip';
+import SmartItemIcon from './SmartItemIcon';
 
 interface LootScreenProps {
     data: LootCategory[];
@@ -71,16 +72,12 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                                     {/* Left: Image (20% larger than previous w-14 -> w-18) */}
                                     <div className={`relative w-20 h-20 rounded-xl flex items-center justify-center bg-background-dark shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner overflow-hidden ${getRarityBorderColor(material?.rarity || 'COMMON')}`}>
                                         <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(material?.rarity || 'COMMON')} opacity-20`}></div>
-                                        <img
-                                            src={material?.imageUrl || '/images/items/Unusable_Weapon.png'}
-                                            alt={category.material}
-                                            className="w-14 h-14 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
-                                            onError={(e) => {
-                                                const target = e.target as HTMLImageElement;
-                                                if (!target.src.includes('/images/items/Unusable_Weapon.png')) {
-                                                    target.src = '/images/items/Unusable_Weapon.png';
-                                                }
-                                            }}
+                                        <SmartItemIcon
+                                            itemName={category.material}
+                                            icon="category"
+                                            rarity={material?.rarity || 'COMMON'}
+                                            imageClassName="w-14 h-14 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
+                                            iconClassName="text-4xl relative z-10"
                                         />
                                     </div>
 

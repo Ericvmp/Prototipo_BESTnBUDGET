@@ -1,9 +1,10 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Weapon, Modification, Throwable, Material, Augment, Rarity, PlannerLoadout, MultiLoadoutState, PlannerWeaponSlot, PlannerConsumableSlot } from '../types';
-import { getRarityIconColor, getRarityStyles, getSourceImageUrl, getRarityGlowStyles, getRarityHoverStyles, getModSlotType, getRarityBorderColor } from '../utils';
+import { getRarityIconColor, getRarityStyles, getRarityGlowStyles, getRarityHoverStyles, getModSlotType, getRarityBorderColor } from '../utils';
 import { generateItemTooltip } from './tooltipHelper';
 import RichTooltip from './RichTooltip';
 import SetupTooltip from './SetupTooltip';
+import SmartItemIcon from './SmartItemIcon';
 import { WEAPON_MOD_SLOTS, WEAPON_SETUPS_DATA } from '../data';
 
 interface PlannerScreenProps {
@@ -176,7 +177,7 @@ const PickerModal: React.FC<{
                                           className={`flex items-center gap-5 py-5 px-5 bg-[#0a0d14] border-2 rounded-2xl cursor-pointer transition-all group relative overflow-hidden ${isSelected ? 'border-primary ring-4 ring-primary/10 shadow-[0_0_30px_rgba(19,91,236,0.3)] bg-slate-900/40' : 'border-slate-800/60 hover:border-slate-500'} ${getRarityHoverStyles(item.rarity || 'COMMON')}`}
                                        >
                                           <div className={`w-14 h-14 bg-black/60 rounded-xl flex items-center justify-center p-2 shrink-0 border-2 transition-all ${isSelected ? 'border-primary' : 'border-white/5'} group-hover:scale-105 shadow-inner`}>
-                                             {item.imageUrl ? <img src={item.imageUrl} alt={item.name} className="w-full h-full object-contain drop-shadow-lg" /> : <span className={`material-symbols-outlined text-2xl ${getRarityIconColor(item.rarity || 'COMMON')}`}>{item.icon || 'military_tech'}</span>}
+                                             <SmartItemIcon itemName={item.name} icon={item.icon || 'military_tech'} rarity={item.rarity} imageClassName="w-full h-full object-contain drop-shadow-lg" iconClassName="text-2xl" />
                                           </div>
                                           <div className="flex-1 min-w-0 flex flex-col justify-center">
                                              <p className="text-[15px] font-black text-slate-100 group-hover:text-white truncate leading-tight mb-1">{item.name}</p>
@@ -217,7 +218,7 @@ const PickerModal: React.FC<{
                                     className={`flex items-center gap-5 py-5 px-5 bg-[#0a0d14] border-2 rounded-2xl cursor-pointer transition-all group relative overflow-hidden ${isSelected ? 'border-primary ring-4 ring-primary/10 shadow-[0_0_30px_rgba(19,91,236,0.3)] bg-slate-900/40' : 'border-slate-800/60 hover:border-slate-500'} ${getRarityHoverStyles(item.rarity || 'COMMON')}`}
                                  >
                                     <div className={`w-14 h-14 bg-black/60 rounded-xl flex items-center justify-center p-2 shrink-0 border-2 transition-all ${isSelected ? 'border-primary' : 'border-white/5'} group-hover:scale-105 shadow-inner`}>
-                                       {item.imageUrl ? <img src={item.imageUrl} alt={item.name} className="w-full h-full object-contain drop-shadow-lg" /> : <span className={`material-symbols-outlined text-2xl ${getRarityIconColor(item.rarity || 'COMMON')}`}>{item.icon || 'military_tech'}</span>}
+                                       <SmartItemIcon itemName={item.name} icon={item.icon || 'military_tech'} rarity={item.rarity} imageClassName="w-full h-full object-contain drop-shadow-lg" iconClassName="text-2xl" />
                                     </div>
                                     <div className="flex-1 min-w-0 flex flex-col justify-center">
                                        <p className="text-[15px] font-black text-slate-100 group-hover:text-white truncate leading-tight mb-1">{item.name}</p>
@@ -338,11 +339,7 @@ const FinalReportModal: React.FC<{
                                  </div>
                                  <div className="flex items-center gap-4 relative z-10 w-full">
                                     <div className="w-14 h-14 bg-black/60 rounded-xl border border-orange-500/20 flex items-center justify-center p-2 shrink-0 group-hover:scale-105 transition-transform shadow-[inset_0_0_15px_rgba(249,115,22,0.1)]">
-                                       {mat.imageUrl ? (
-                                          <img src={mat.imageUrl} alt="" className="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(249,115,22,0.2)] scale-[1.3]" />
-                                       ) : (
-                                          <span className="material-symbols-outlined text-orange-500 text-2xl scale-[1.3]">category</span>
-                                       )}
+                                       <SmartItemIcon itemName={mat.name} icon="category" rarity={mat.rarity} imageClassName="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(249,115,22,0.2)] scale-[1.3]" iconClassName="text-orange-500 text-2xl scale-[1.3]" />
                                     </div>
                                     <div className="flex-1 min-w-0">
                                        <span className="text-[16px] font-black tracking-wider block text-white pr-1 leading-tight break-words">{mat.name}</span>
@@ -388,7 +385,7 @@ const FinalReportModal: React.FC<{
                               {/* Internal High-Density Card */}
                               <div className="flex items-center gap-3 relative z-10 w-full">
                                  <div className="w-11 h-11 bg-black/60 rounded-xl border border-white/5 flex items-center justify-center p-1.5 shrink-0 group-hover:scale-105 transition-transform shadow-[inset_0_0_10px_rgba(255,255,255,0.05)]">
-                                    {mat.imageUrl ? <img src={mat.imageUrl} alt="" className="w-full h-full object-contain filter drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] scale-[1.4]" /> : <span className="material-symbols-outlined text-slate-700 text-xl scale-[1.4]">category</span>}
+                                    <SmartItemIcon itemName={mat.name} icon="category" rarity={mat.rarity} imageClassName="w-full h-full object-contain filter drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] scale-[1.4]" iconClassName="text-slate-700 text-xl scale-[1.4]" />
                                  </div>
                                  <div className="flex-1 min-w-0">
                                     <span className="text-[14px] font-black tracking-wider block text-slate-100 pr-1 leading-tight group-hover:text-white break-words">{mat.name}</span>
@@ -642,7 +639,6 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
             quantity: quantity * (state.multiplier || 1),
             rarity: matData?.rarity || 'COMMON',
             icon: matData?.icon || 'category',
-            imageUrl: matData?.imageUrl,
             purchasableFromCeleste: matData?.purchasableFromCeleste,
             celesteSeedCost: matData?.celesteSeedCost
          };
@@ -667,7 +663,6 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
             name, 
             rarity: matData?.rarity || 'COMMON', 
             icon: matData?.icon || 'category', 
-            imageUrl: matData?.imageUrl,
             purchasableFromCeleste: matData?.purchasableFromCeleste,
             celesteSeedCost: matData?.celesteSeedCost
          };
@@ -711,7 +706,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                   <RichTooltip item={weapon}>
                      <div className="flex items-center gap-3">
                         <div className="w-14 h-14 rounded bg-black/50 p-1 shrink-0 border border-white/5 shadow-inner">
-                           {weapon.imageUrl ? <img src={weapon.imageUrl} alt={weapon.name} className="w-full h-full object-contain drop-shadow-md" /> : <span className="material-symbols-outlined">{weapon.icon}</span>}
+                           <SmartItemIcon itemName={weapon.name} icon={weapon.icon} rarity={weapon.rarity} imageClassName="w-full h-full object-contain drop-shadow-md" iconClassName="text-2xl" />
                         </div>
                         <div className="flex-1 min-w-0">
                            <p className="font-bold text-slate-100 tracking-wider text-base">{weapon.name}</p>
@@ -780,7 +775,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                    className={`flex justify-between items-center bg-black/40 border ${getRarityBorderColor(mod.rarity)} p-2 rounded-lg group/mod hover:border-white transition-colors`}>
                                  <div className="flex items-center gap-3">
                                     <div className="w-8 h-8 rounded bg-black/20 flex items-center justify-center p-0.5 border border-white/5">
-                                       {mod.imageUrl ? <img src={mod.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-[16px] text-slate-500">settings</span>}
+                                       <SmartItemIcon itemName={mod.name} icon="settings" rarity={mod.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-[16px] text-slate-500" />
                                     </div>
                                     <div>
                                        <span className="text-[13px] font-black text-slate-100 block uppercase leading-tight truncate mb-0.5">{mod.name.replace('Extended ', '').replace('III', '3').replace('II', '2').replace('I', '1')}</span>
@@ -1032,7 +1027,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                           <div className={`flex justify-between items-center bg-black/40 border ${getRarityBorderColor(aug.rarity)} p-2 rounded-lg group hover:border-white transition-colors`}>
                                              <div className="flex items-center gap-3">
                                                 <div className="w-8 h-8 rounded bg-black/20 border border-white/5 flex items-center justify-center p-1 shrink-0">
-                                                   {aug.imageUrl ? <img src={aug.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-sm text-slate-500">memory</span>}
+                                                   <SmartItemIcon itemName={aug.name} icon="memory" rarity={aug.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-sm text-slate-500" />
                                                 </div>
                                                 <span className="text-[13px] font-bold text-slate-200 truncate max-w-[120px]">{aug.name}</span>
                                              </div>
@@ -1078,7 +1073,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                           <div className={`flex justify-between items-center bg-black/40 border ${getRarityBorderColor(item.rarity)} p-2 rounded-lg group hover:border-white transition-colors`}>
                                              <div className="flex items-center gap-3">
                                                 <div className="w-8 h-8 rounded bg-black/20 border border-white/5 flex items-center justify-center p-1 shrink-0">
-                                                   {item.imageUrl ? <img src={item.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-sm text-slate-500">shield</span>}
+                                                   <SmartItemIcon itemName={item.name} icon="shield" rarity={item.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-sm text-slate-500" />
                                                 </div>
                                                 <span className="text-[13px] font-bold text-slate-200 truncate max-w-[120px]">{item.name}</span>
                                              </div>
@@ -1124,7 +1119,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                           <div className={`flex justify-between items-center bg-black/40 border ${getRarityBorderColor(item.rarity as Rarity)} p-2 rounded-lg group hover:border-white transition-colors`}>
                                              <div className="flex items-center gap-3">
                                                 <div className="w-8 h-8 rounded bg-black/20 border border-white/5 flex items-center justify-center p-1 shrink-0">
-                                                   {item.imageUrl ? <img src={item.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-sm text-slate-500">explosion</span>}
+                                                   <SmartItemIcon itemName={item.name} icon="explosion" rarity={item.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-sm text-slate-500" />
                                                 </div>
                                                 <span className="text-[13px] font-bold text-slate-200 truncate max-w-[80px]">{item.name}</span>
                                              </div>
@@ -1202,7 +1197,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                      >
                                         <div className="flex items-center gap-3 relative z-10 shrink-0">
                                            <div className="w-10 h-10 rounded-xl bg-black/60 border border-white/5 p-1.5 flex items-center justify-center transition-transform group-hover/mat:scale-110">
-                                              {mat.imageUrl ? <img src={mat.imageUrl} alt="" className="w-full h-full object-contain" /> : <span className="material-symbols-outlined text-lg opacity-40">category</span>}
+                                              <SmartItemIcon itemName={mat.name} icon="category" rarity={mat.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-lg opacity-40" />
                                            </div>
                                            <div>
                                               <span className="text-[14px] font-black tracking-wider block leading-tight text-slate-100">{mat.name}</span>

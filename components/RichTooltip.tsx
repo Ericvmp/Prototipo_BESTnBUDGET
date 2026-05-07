@@ -2,7 +2,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { LOOT_DATA, MATERIALS_DATA, WEAPONS_DATA, MODS_DATA, THROWABLES_DATA } from '../data';
-import { parseMaterialString, getItemRarity, getSourceImageUrl, getRarityStyles, getRarityBorderColor, getRarityIconColor } from '../utils';
+import { parseMaterialString, getItemRarity, getRarityStyles, getRarityBorderColor, getRarityIconColor } from '../utils';
+import SmartItemIcon from './SmartItemIcon';
 
 interface RichTooltipProps {
   item: any;
@@ -86,7 +87,6 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
       </div>
       <div className="space-y-2">
         {rows.map((r, i) => {
-          const imageUrl = getSourceImageUrl(r.name);
           const rarity = getItemRarity(r.name);
           const mat = MATERIALS_DATA.find(m => m.name === r.name);
           const borderStyle = getRarityBorderColor(rarity);
@@ -95,11 +95,7 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
           return (
             <div key={i} className={`flex items-center gap-4 p-2.5 rounded-xl bg-white/[0.04] ${borderStyle} transition-colors hover:bg-white/[0.08]`}>
               <div className={`w-10 h-10 rounded bg-slate-800 p-1.5 ${imgBorderColor} shrink-0 flex items-center justify-center shadow-inner`}>
-                {imageUrl ? (
-                  <img src={imageUrl} alt={r.name} className="w-full h-full object-contain opacity-90" />
-                ) : (
-                  <span className={`material-symbols-outlined text-[20px] ${getRarityIconColor(rarity)}`}>{mat?.icon || 'category'}</span>
-                )}
+                <SmartItemIcon itemName={r.name} icon={mat?.icon || 'category'} rarity={rarity} imageClassName="w-full h-full object-contain opacity-90" iconClassName={`text-[20px] ${getRarityIconColor(rarity)}`} />
               </div>
               <div className="flex flex-col min-w-0">
                 <span className="text-[14px] text-slate-100 font-bold truncate tracking-wide">{r.name}</span>
@@ -132,13 +128,7 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
           return (
             <div key={i} className={`flex items-center gap-4 p-2.5 rounded-xl bg-white/[0.04] ${borderStyle} transition-colors hover:bg-white/[0.08]`}>
               <div className={`w-10 h-10 rounded bg-slate-800 p-1.5 ${imgBorderColor} shrink-0 flex items-center justify-center shadow-inner`}>
-                {s.imageUrl ? (
-                  <img src={s.imageUrl} alt={s.name} className="w-full h-full object-contain opacity-80" />
-                ) : (
-                  <div className={`w-10 h-10 rounded bg-slate-800 ${imgBorderColor} shrink-0 flex items-center justify-center`}>
-                    <span className={`material-symbols-outlined text-[20px] ${getRarityIconColor(rarity)}`}>inventory_2</span>
-                  </div>
-                )}
+                <SmartItemIcon itemName={s.name} icon="inventory_2" rarity={rarity} imageClassName="w-full h-full object-contain opacity-80" iconClassName={`text-[20px] ${getRarityIconColor(rarity)}`} />
               </div>
               <div className="flex flex-col min-w-0">
                 <span className="text-[14px] text-slate-100 font-bold truncate tracking-wide">{s.name}</span>
@@ -201,15 +191,9 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
 
         {/* Header */}
         <div className="p-6 flex items-center gap-5 border-b border-white/5 bg-white/[0.03] shrink-0 relative">
-          {item?.imageUrl ? (
-            <div className={`w-16 h-16 rounded-2xl bg-slate-800 p-3 flex items-center justify-center border-2 ${rs.border} shadow-2xl`}>
-              <img src={item.imageUrl} alt={item.name} className="w-full h-full object-contain drop-shadow-glow" />
-            </div>
-          ) : (
-            <div className={`w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center border-2 ${rs.border} shadow-2xl`}>
-              <span className={`material-symbols-outlined text-4xl ${rs.text}`}>{item.icon || 'category'}</span>
-            </div>
-          )}
+          <div className={`w-16 h-16 rounded-2xl bg-slate-800 ${item?.imageUrl ? 'p-3' : ''} flex items-center justify-center border-2 ${rs.border} shadow-2xl`}>
+            <SmartItemIcon itemName={item.name} icon={item.icon || 'category'} rarity={item.rarity} imageClassName="w-full h-full object-contain drop-shadow-glow" iconClassName={`text-4xl ${rs.text}`} />
+          </div>
           <div className="min-w-0 flex-1">
             <p className="text-[22px] font-black text-white leading-tight tracking-wider mb-2">{item.name}</p>
             <div className="flex gap-2 flex-wrap">
@@ -306,18 +290,13 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
                 {item.requiredFor.map((itemStr: string, i: number) => {
                   const { name, quantity } = parseMaterialString(itemStr);
                   const rarity = getItemRarity(name);
-                  const imageUrl = getSourceImageUrl(name);
                   const borderStyle = getRarityBorderColor(rarity);
                   const imgBorderColor = borderStyle.replace('border-[3px]', 'border-2').replace('/30', '/50');
 
                   return (
                     <div key={i} className={`flex items-center gap-4 p-2.5 rounded-xl bg-white/[0.04] ${borderStyle} transition-colors hover:bg-white/[0.08]`}>
                       <div className={`w-10 h-10 rounded bg-slate-800 p-1.5 ${imgBorderColor} shrink-0 flex items-center justify-center shadow-inner`}>
-                        {imageUrl ? (
-                          <img src={imageUrl} alt={name} className="w-full h-full object-contain opacity-80" />
-                        ) : (
-                          <span className={`material-symbols-outlined text-[20px] ${getRarityIconColor(rarity)}`}>category</span>
-                        )}
+                        <SmartItemIcon itemName={name} icon="category" rarity={rarity} imageClassName="w-full h-full object-contain opacity-80" iconClassName={`text-[20px] ${getRarityIconColor(rarity)}`} />
                       </div>
                       <div className="flex flex-col min-w-0">
                         <span className="text-[13px] text-slate-100 font-bold truncate tracking-wide">{name}</span>
@@ -345,7 +324,6 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
               <div className="space-y-2">
                 {(item.obtainedFrom || lootSources).map((srcItem: any, i: number) => {
                   const { name, quantity } = typeof srcItem === 'string' ? parseMaterialString(srcItem) : srcItem;
-                  const imageUrl = getSourceImageUrl(name);
                   const rarity = getItemRarity(name);
                   const borderStyle = getRarityBorderColor(rarity);
                   const imgBorderColor = borderStyle.replace('border-[3px]', 'border-2').replace('/30', '/50');
@@ -353,11 +331,7 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
                   return (
                     <div key={i} className={`flex items-center gap-4 p-2.5 rounded-xl bg-white/[0.04] ${borderStyle} transition-colors hover:bg-white/[0.08]`}>
                       <div className={`w-10 h-10 rounded bg-slate-800 p-1.5 ${imgBorderColor} shrink-0 flex items-center justify-center shadow-inner`}>
-                        {imageUrl ? (
-                          <img src={imageUrl} alt={name} className="w-full h-full object-contain opacity-80" />
-                        ) : (
-                          <span className={`material-symbols-outlined text-[20px] ${getRarityIconColor(rarity)}`}>inventory_2</span>
-                        )}
+                        <SmartItemIcon itemName={name} icon="inventory_2" rarity={rarity} imageClassName="w-full h-full object-contain opacity-80" iconClassName={`text-[20px] ${getRarityIconColor(rarity)}`} />
                       </div>
                       <div className="flex flex-col min-w-0">
                         <span className="text-[13px] text-slate-100 font-bold truncate tracking-wide">{name}</span>

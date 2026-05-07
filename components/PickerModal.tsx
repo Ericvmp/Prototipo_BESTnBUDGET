@@ -1,6 +1,7 @@
 import React from 'react';
 import RichTooltip from './RichTooltip';
 import { getRarityHoverStyles, getRarityIconColor, getRarityStyles } from '../utils';
+import SmartItemIcon from './SmartItemIcon';
 
 interface PickerModalProps {
    isOpen: boolean;
@@ -87,7 +88,7 @@ const PickerModal: React.FC<PickerModalProps> = ({ isOpen, title, items, onSelec
                                           className={`flex items-center gap-5 py-5 px-5 bg-[#0a0d14] border-2 rounded-2xl cursor-pointer transition-all group relative overflow-hidden ${isSelected ? 'border-primary ring-4 ring-primary/10 shadow-[0_0_30px_rgba(19,91,236,0.3)] bg-slate-900/40' : 'border-slate-800/60 hover:border-slate-500'} ${getRarityHoverStyles(item.rarity || 'COMMON')}`}
                                        >
                                           <div className={`w-14 h-14 bg-black/60 rounded-xl flex items-center justify-center p-2 shrink-0 border-2 transition-all ${isSelected ? 'border-primary' : 'border-white/5'} group-hover:scale-105 shadow-inner`}>
-                                             {item.imageUrl ? <img src={item.imageUrl} alt={item.name} className="w-full h-full object-contain drop-shadow-lg" /> : <span className={`material-symbols-outlined text-2xl ${getRarityIconColor(item.rarity || 'COMMON')}`}>{item.icon || 'military_tech'}</span>}
+                                             <SmartItemIcon itemName={item.name} icon={item.icon || 'military_tech'} rarity={item.rarity} imageClassName="w-full h-full object-contain drop-shadow-lg" iconClassName="text-2xl" />
                                           </div>
                                           <div className="flex-1 min-w-0 flex flex-col justify-center">
                                              <p className="text-[15px] font-black text-slate-100 group-hover:text-white truncate leading-tight mb-1">{item.name}</p>
@@ -128,7 +129,7 @@ const PickerModal: React.FC<PickerModalProps> = ({ isOpen, title, items, onSelec
                                     className={`flex items-center gap-5 py-5 px-5 bg-[#0a0d14] border-2 rounded-2xl cursor-pointer transition-all group relative overflow-hidden ${isSelected ? 'border-primary ring-4 ring-primary/10 shadow-[0_0_30px_rgba(19,91,236,0.3)] bg-slate-900/40' : 'border-slate-800/60 hover:border-slate-500'} ${getRarityHoverStyles(item.rarity || 'COMMON')}`}
                                  >
                                     <div className={`w-14 h-14 bg-black/60 rounded-xl flex items-center justify-center p-2 shrink-0 border-2 transition-all ${isSelected ? 'border-primary' : 'border-white/5'} group-hover:scale-105 shadow-inner`}>
-                                       {item.imageUrl ? <img src={item.imageUrl} alt={item.name} className="w-full h-full object-contain drop-shadow-lg" /> : <span className={`material-symbols-outlined text-2xl ${getRarityIconColor(item.rarity || 'COMMON')}`}>{item.icon || 'military_tech'}</span>}
+                                       <SmartItemIcon itemName={item.name} icon={item.icon || 'military_tech'} rarity={item.rarity} imageClassName="w-full h-full object-contain drop-shadow-lg" iconClassName="text-2xl" />
                                     </div>
                                     <div className="flex-1 min-w-0 flex flex-col justify-center">
                                        <p className="text-[15px] font-black text-slate-100 group-hover:text-white truncate leading-tight mb-1">{item.name}</p>

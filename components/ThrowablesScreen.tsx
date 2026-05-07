@@ -1,8 +1,9 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Throwable, Augment } from '../types';
 import { getRarityGlowStyles, getRarityIconColor, getRarityStyles, getRarityHoverStyles, getRarityBorderColor } from '../utils';
 import RichTooltip from './RichTooltip';
+import SmartItemIcon from './SmartItemIcon';
 
 interface ThrowablesScreenProps {
   data: Throwable[];
@@ -12,7 +13,6 @@ interface ThrowablesScreenProps {
 }
 
 const TacticalCard: React.FC<{ item: Throwable | Augment; onClick: (item: Throwable | Augment) => void }> = ({ item, onClick }) => {
-  const [imageError, setImageError] = useState(false);
 
   return (
     <RichTooltip item={item}>
@@ -30,18 +30,13 @@ const TacticalCard: React.FC<{ item: Throwable | Augment; onClick: (item: Throwa
           {/* Left: Image */}
           <div className={`relative w-20 h-20 rounded-xl flex items-center justify-center bg-background-dark shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner overflow-hidden ${getRarityBorderColor(item.rarity)}`}>
             <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(item.rarity)} opacity-20`}></div>
-            {item.imageUrl && !imageError ? (
-              <img
-                src={item.imageUrl}
-                alt={item.name}
-                onError={() => setImageError(true)}
-                className="w-14 h-14 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
-              />
-            ) : (
-              <span className={`material-symbols-outlined text-4xl relative z-10 ${getRarityIconColor(item.rarity)}`}>
-                {item.icon || 'military_tech'}
-              </span>
-            )}
+            <SmartItemIcon
+              itemName={item.name}
+              icon={item.icon}
+              rarity={item.rarity}
+              imageClassName="w-14 h-14 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
+              iconClassName="text-4xl relative z-10"
+            />
           </div>
 
           {/* Right: Info */}

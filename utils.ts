@@ -81,51 +81,62 @@ export const getRarityBorderColor = (rarity: Rarity): string => {
     }
 };
 
+// ─── Smart Asset Dictionary ───
+
 /**
- * Advanced Asset Resolver
- * Attempts to find the best image for a given source name.
- * Strips tier suffixes like " I", " II", " III", " IV" for matching
+ * Maps UI names to their exact image file base names to resolve discrepancies.
+ * This is the definitive solution for abbreviations or punctuation differences.
  */
-export const getSourceImageUrl = (sourceName: string): string | null => {
-    const lowerName = sourceName.toLowerCase();
+const ASSET_ALIASES: Record<string, string> = {
+    "Adv Electrical Components": "Advanced Electrical Components",
+    "Adv Mechanical Components": "Advanced Mechanical Components",
+    "Adv ARC Powercell": "Advanced ARC Powercell",
+    "Trigger'nade": "Trigger_'Nade",
+    "Trigger 'Nade": "Trigger_'Nade",
+    "Tactical Mk. 3 (Healing)": "Tactical Mk. 3 Healing",
+    "Tactical Mk. 3 (Revival)": "Tactical Mk. 3 Revival",
+    "Li'l Smoke Grenade": "Lil_Smoke_Grenade" // Just in case
+};
+
+/**
+ * Advanced Asset Resolver (Smart Asset Architecture)
+ * Returns a list of possible URLs for an item image in order of priority.
+ */
+export const getSourceImageUrls = (sourceName: string): string[] => {
+    if (!sourceName) return [];
     
-    // Strip tier suffixes like " I", " II", " III", " IV" for matching
-    const baseName = sourceName.replace(/\s+(I{1,3}|IV)$/, '');
-    const lowerBase = baseName.toLowerCase();
-
-    // 1. Check Weapons (match base name)
-    const weapon = WEAPONS_DATA.find(w => w.name.toLowerCase() === lowerBase);
-    if (weapon?.imageUrl) return weapon.imageUrl;
-
-    // 2. Check Mods (exact name match first, then base name)
-    const modExact = MODS_DATA.find(m => m.name.toLowerCase() === lowerName);
-    if (modExact?.imageUrl) return modExact.imageUrl;
-    const modBase = MODS_DATA.find(m => m.name.toLowerCase() === lowerBase);
-    if (modBase?.imageUrl) return modBase.imageUrl;
-
-    // 3. Check Materials
-    const material = MATERIALS_DATA.find(m => m.name.toLowerCase() === lowerName);
-    if (material?.imageUrl) return material.imageUrl;
-
-    // 4. Check Throwables & Augments
-    const throwable = THROWABLES_DATA.find(t => t.name.toLowerCase() === lowerName || t.name.toLowerCase() === lowerBase);
-    if (throwable?.imageUrl) return throwable.imageUrl;
-
-    const augment = AUGMENTS_DATA.find(a => a.name.toLowerCase() === lowerName || a.name.toLowerCase() === lowerBase);
-    if (augment?.imageUrl) return augment.imageUrl;
-
-    // 5. Check LOOT_DATA for matches within sources of any material
-    for (const category of LOOT_DATA) {
-        if (category.material.toLowerCase() === lowerName) return category.materialImageUrl;
+    // Resolve alias if one exists
+    const resolvedName = ASSET_ALIASES[sourceName] || sourceName;
+    
+    // Exact name with spaces replaced by underscores (e.g., "Muzzle Brake I" -> "Muzzle_Brake_I")
+    const exactFormatted = resolvedName.replace(/ /g, '_');
+    
+    // Strip tier suffixes like " I", " II", " III", " IV" for a base fallback
+    const baseNameStr = resolvedName.replace(/\s+(I{1,3}|IV)$/, '').trim();
+    const baseFormatted = baseNameStr.replace(/ /g, '_');
+    
+    const extensions = ['.png', '.webp', '.jpg', '.jpeg'];
+    const urls: string[] = [];
+    
+    for (const ext of extensions) {
+        // Try exact formatted name first (Muzzle_Brake_I.png)
+        urls.push(`/images/items/${exactFormatted}${ext}`);
         
-        const sourceMatch = category.sources.find(s => 
-            s.name.toLowerCase() === lowerName || 
-            s.name.toLowerCase() === lowerBase
-        );
-        if (sourceMatch?.imageUrl) return sourceMatch.imageUrl;
+        // Try exact unformatted name (Muzzle Brake I.png)
+        if (resolvedName !== exactFormatted) {
+            urls.push(`/images/items/${resolvedName}${ext}`);
+        }
+        
+        // If it has a tier suffix, also try the base name (Muzzle_Brake.png)
+        if (baseNameStr !== resolvedName) {
+            urls.push(`/images/items/${baseFormatted}${ext}`);
+            if (baseNameStr !== baseFormatted) {
+                urls.push(`/images/items/${baseNameStr}${ext}`);
+            }
+        }
     }
 
-    return null;
+    return urls;
 };
 
 /**
@@ -188,3 +199,4 @@ export const parseMaterialString = (s: string): { name: string; quantity: number
     }
     return { name: s.trim(), quantity: 1 };
 };
+

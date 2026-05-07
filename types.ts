@@ -21,7 +21,7 @@ export interface Modification {
   category: ModCategory;
   rarity: Rarity;
   icon: string;
-  imageUrl?: string;
+
   description?: string;
   stat?: string;
   tier: Tier;
@@ -45,7 +45,7 @@ export interface Weapon {
   name: string;
   rarity: Rarity;
   icon: string;
-  imageUrl?: string;
+
   craftInfo?: {
     materials: ModRequirement[];
     station?: string;
@@ -65,7 +65,7 @@ export interface Throwable {
   description: string;
   rarity: Rarity;
   icon: string;
-  imageUrl?: string;
+
   category?: 'GRENADES' | 'HEALING' | 'SHIELDS' | 'UTILITY';
   perks?: string;
   craftInfo: {
@@ -83,7 +83,7 @@ export interface Augment {
   name: string;
   rarity: Rarity;
   icon: string;
-  imageUrl?: string;
+
   description?: string;
   category?: 'AUGMENT';
   perks?: string;
@@ -108,7 +108,7 @@ export interface Material {
   description?: string;
   rarity: Rarity;
   icon: string;
-  imageUrl?: string;
+
   craftInfo?: {
     isCraftable: boolean;
     location?: string;
@@ -130,13 +130,13 @@ export interface Material {
 export interface LootSource {
   name: string;
   quantity: number;
-  imageUrl?: string;
+
 }
 
 export interface LootCategory {
   id: string;
   material: string;
-  materialImageUrl?: string;
+
   wikiUrl: string;
   note?: string;
   craftingStation?: string;

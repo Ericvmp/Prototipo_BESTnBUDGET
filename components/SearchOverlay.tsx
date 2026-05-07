@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Weapon, Modification, Material, Throwable, Augment, Rarity } from '../types';
 import { getRarityBorderColor } from '../utils';
+import SmartItemIcon from './SmartItemIcon';
 
 interface SearchOverlayProps {
   onClose: () => void;
@@ -101,11 +102,7 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({
                   className={`flex items-center gap-4 p-3 rounded-xl hover:bg-primary/10 cursor-pointer transition-all group border ${getRarityBorderColor(result.item.rarity as Rarity)} hover:border-white/40`}
                 >
                   <div className="w-12 h-12 rounded-lg bg-black/50 border border-slate-800 flex items-center justify-center p-2 shrink-0 group-hover:scale-110 transition-transform">
-                    {result.item.imageUrl ? (
-                      <img src={result.item.imageUrl} alt="" className="w-full h-full object-contain" />
-                    ) : (
-                      <span className="material-symbols-outlined text-slate-500 group-hover:text-primary">{result.item.icon || 'category'}</span>
-                    )}
+                    <SmartItemIcon itemName={result.item.name} icon={result.item.icon || 'category'} rarity={result.item.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-slate-500 group-hover:text-primary" />
                   </div>
                   <div className="flex-1">
                     <h4 className="text-lg font-black text-slate-200 group-hover:text-white truncate">{result.item.name}</h4>

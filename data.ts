@@ -8,7 +8,6 @@ export const MATERIALS_DATA: Material[] = [
     description: "A very common material used to craft almost anything. It is the backbone of the Foundry's manufacturing process, found in almost all loot containers and discarded machinery.",
     rarity: 'COMMON',
     icon: 'construction',
-    imageUrl: "/images/items/Metal_Parts.png",
     craftInfo: { isCraftable: false, note: "Material básico" },
     residualInfo: { items: ["Steel Spring → Metal Parts", "Simple Gun Parts → 2× Metal Parts", "Magnet → 3× Metal Parts"] },
     obtainedFrom: ["Rattler (8x)", "Damaged Heat Sink (6x)", "Compensator I (5x)", "Muzzle Brake I (5x)", "Shotgun Choke I (5x)", "Industrial Charger (5x)", "Blaze Grenade (4x)", "Industrial Magnet (4x)", "Unusable Weapon (4x)", "Acoustic Guitar (4x)", "Water Pump (4x)", "Mechanical Components (3x)", "Stitcher (3x)", "Kettle (3x)", "Steel Spring (2x)", "Simple Gun Parts (2x)", "Magnet (2x)", "ARC Alloy (2x)", "Battery (2x)", "Hairpin (2x)", "Ferro (2x)", "Sensors (1x)", "Shrapnel Grenade (1x)", "Zipline (1x)"],
@@ -20,7 +19,6 @@ export const MATERIALS_DATA: Material[] = [
     description: "A common material used for flexible components, seals, and ergonomic grips. Essential for recoil management systems and airtight equipment seals.",
     rarity: 'COMMON',
     icon: 'settings_input_hdmi',
-    imageUrl: "/images/items/Rubber_Parts.png",
     craftInfo: { isCraftable: false, note: "Material básico" },
     residualInfo: { items: ["Wires → 2× Rubber Parts", "ARC Flex Rubber", "Mechanical Components → 2× Rubber Parts"] },
     obtainedFrom: ["Rubber Pad (18x)", "Ruined Accordion (18x)", "ARC Flex Rubber (16x)", "Diving Goggles (12x)", "Degraded ARC Rubber (11x)", "Deflated Football (9x)", "Expired Respirator (8x)", "Headphones (7x)", "Thermostat (7x)", "Stable Stock I (6x)", "Ruined Riot Shield (6x)", "Shield Recharger (4x)", "Electrical Components (3x)", "Speaker Component (3x)", "Combat Mk. 1 (3x)", "Looting Mk. 1 (3x)", "Tactical Mk. 1 (3x)", "Mechanical Components (2x)", "Wires (2x)", "Stitcher (2x)", "Kettle (2x)", "Heavy Fuze Grenade (2x)", "Voltage Converter (1x)", "Hairpin (1x)", "Ferro (1x)"],
@@ -32,7 +30,6 @@ export const MATERIALS_DATA: Material[] = [
     description: "Lightweight synthetic material used in a wide variety of basic gear, structural weapon parts, and civilian salvage. Extremely versatile and easy to process.",
     rarity: 'COMMON',
     icon: 'inventory_2',
-    imageUrl: "/images/items/Plastic_Parts.png",
     craftInfo: { isCraftable: false, note: "Material básico" },
     residualInfo: { items: ["Diversos itens de lixo plástico"] },
     obtainedFrom: ["ARC Synthetic Resin (14x)", "Cooling Fan (14x)", "Recorder (10x)", "Ruined Riot Shield (10x)", "Shaker (10x)", "Dried-Out ARC Resin (9x)", "Camera Lens (8x)", "Remote Control (7x)", "Extended Light Mag I (6x)", "Extended Medium Mag I (6x)", "Extended Shotgun Mag I (6x)", "Angled Grip I (6x)", "Vertical Grip I (6x)", "Alarm Clock (6x)", "Toaster (5x)", "Fried Motherboard (5x)", "Light Shield (4x)", "Electrical Components (3x)", "Canister (3x)", "Syringe (3x)", "Combat Mk. 1 (3x)", "Looting Mk. 1 (3x)", "Tactical Mk. 1 (3x)", "Speaker Component (2x)", "Jolt Mine (2x)", "Processor (1x)", "Synthesized Fuel (1x)", "Light Impact Grenade (1x)", "Defibrillator (1x)"],
@@ -53,7 +50,6 @@ export const MATERIALS_DATA: Material[] = [
     description: "Precision-engineered parts used for moving mechanisms in weapons and modules. These are frequently recovered from complex toolboxes and industrial crates.",
     rarity: 'UNCOMMON',
     icon: 'settings',
-    imageUrl: '/images/items/Mechanical_Components.png',
     craftInfo: {
       isCraftable: true,
       location: "Refiner 1",
@@ -86,7 +82,6 @@ export const MATERIALS_DATA: Material[] = [
     description: "Sophisticated mechanical and electronic sub-assemblies specifically required for Adv weapon modifications. Found in high-tech industrial areas.",
     rarity: 'RARE',
     icon: 'extension',
-    imageUrl: '/images/items/Mod_Components.png',
     craftInfo: {
       isCraftable: true,
       location: "Refiner 2",
@@ -119,7 +114,6 @@ export const MATERIALS_DATA: Material[] = [
     description: "Precision coiled high-tension metal. Critical for the operation of weapon magazines, trigger groups, and any system requiring stored mechanical energy.",
     rarity: 'COMMON',
     icon: 'reorder',
-    imageUrl: '/images/items/Steel_Spring.png',
     craftInfo: { isCraftable: false },
     residualInfo: {
       items: [
@@ -145,7 +139,6 @@ export const MATERIALS_DATA: Material[] = [
     description: "Conductive wiring used for electrical paths in weapon electronics and automated modules. Can be recovered from broken circuit boards and power stations.",
     rarity: 'UNCOMMON',
     icon: 'cable',
-    imageUrl: '/images/items/Wires.png',
     craftInfo: { isCraftable: false },
     residualInfo: {
       items: [
@@ -171,7 +164,6 @@ export const MATERIALS_DATA: Material[] = [
     description: "Universal adhesive of the wasteland. Used for everything from field repairs to securing underbarrel attachments. A Raiders' best friend for improvised fixes.",
     rarity: 'UNCOMMON',
     icon: 'view_agenda',
-    imageUrl: '/images/items/Duct_Tape.png',
     craftInfo: { isCraftable: false },
     residualInfo: {
       items: [
@@ -197,7 +189,6 @@ export const MATERIALS_DATA: Material[] = [
     description: "Basic firearm components like receivers and slides. These are the fundamental building blocks for common-tier weapon construction and repair.",
     rarity: 'UNCOMMON',
     icon: 'hardware',
-    imageUrl: '/images/items/Simple_Gun_Parts.png',
     craftInfo: { isCraftable: false },
     residualInfo: {
       items: [
@@ -223,7 +214,6 @@ export const MATERIALS_DATA: Material[] = [
     description: "Lightweight, precision-machined internal parts optimized for high-rate-of-fire weapons like SMGs and small-caliber handguns.",
     rarity: 'RARE',
     icon: 'precision_manufacturing',
-    imageUrl: '/images/items/Light_Gun_Parts.png',
     craftInfo: {
       isCraftable: true,
       location: "Refiner 2",
@@ -255,7 +245,6 @@ export const MATERIALS_DATA: Material[] = [
     description: "Standard durability weapon components designed for assault rifles and battle rifles. Balanced for weight and heat dissipation under sustained fire.",
     rarity: 'RARE',
     icon: 'precision_manufacturing',
-    imageUrl: '/images/items/Medium_Gun_Parts.png',
     craftInfo: {
       isCraftable: true,
       location: "Refiner 2",
@@ -280,7 +269,6 @@ export const MATERIALS_DATA: Material[] = [
     description: "Reinforced, heavy-duty components capable of withstanding the extreme pressure and recoil of high-caliber sniper rifles and light machine guns.",
     rarity: 'RARE',
     icon: 'precision_manufacturing',
-    imageUrl: '/images/items/Heavy_Gun_Parts.png',
     craftInfo: {
       isCraftable: true,
       location: "Refiner 2",
@@ -302,7 +290,6 @@ export const MATERIALS_DATA: Material[] = [
     description: "High-tier precision parts requiring expert craftsmanship. These are essential for the construction of elite weapons and experimental tactical gear.",
     rarity: 'RARE',
     icon: 'home_repair_service',
-    imageUrl: '/images/items/Advanced_Mechanical_Components.png',
     craftInfo: {
       isCraftable: true,
       location: "Refiner 2",
@@ -335,7 +322,6 @@ export const MATERIALS_DATA: Material[] = [
     description: "Specialized industrial-grade magnet used in the fabrication of railgun components and Adv electromagnetic stabilization for precision scopes.",
     rarity: 'UNCOMMON',
     icon: 'u_turn_right',
-    imageUrl: '/images/items/Magnet.png',
     craftInfo: { isCraftable: false },
     residualInfo: {
       items: [
@@ -360,7 +346,6 @@ export const MATERIALS_DATA: Material[] = [
     }], stackSize: 15,
     rarity: 'UNCOMMON',
     icon: 'token',
-    imageUrl: '/images/items/ARC_Alloy.png',
     description: 'An Adv specialized alloy of ARC origin, offering exceptional electromagnetic properties and thermal resistance.',
     craftInfo: { isCraftable: false },
     obtainedFrom: ["Rocketeer Driver (3x)", "Damaged Leaper Pulse Unit (3x)", "Damaged Rocketeer Driver (3x)", "Bastion Cell (3x)", "Bombardier Cell (3x)", "Leaper Pulse Unit (3x)", "ARC Circuitry (2x)", "ARC Motion Core (2x)", "Tick Pod (2x)", "Firefly Burner (2x)", "Comet Igniter (2x)", "Hornet Driver (1x)", "Snitch Scanner (1x)", "Spotter Relay (1x)"],
@@ -373,7 +358,6 @@ export const MATERIALS_DATA: Material[] = [
     salvageInfo: [],
     rarity: 'COMMON',
     icon: 'battery_charging_full',
-    imageUrl: "/images/items/ARC_Powercell.png",
     description: 'A standard energy storage unit for ARC technology. Can be used to recharge portable shield devices.',
     craftInfo: { isCraftable: false },
     obtainedFrom: ["Advanced ARC Powercell (2x)"],
@@ -384,7 +368,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Adv ARC Powercell', recycleInfo: [{ name: 'ARC Powercell', stackSize: 5, quantity: 2 }], salvageInfo: [{ name: 'ARC Powercell', stackSize: 5, quantity: 1 }], stackSize: 5,
     rarity: 'RARE',
     icon: 'battery_saver',
-    imageUrl: '/images/items/Advanced_ARC_Powercell.png',
     description: 'A high-density energy source found in elite ARC units. Highly efficient and essential for high-tier equipment.',
     craftInfo: { isCraftable: false },
     obtainedFrom: ["Comet (1x)", "Bastion (1x)", "Queen (1x)", "Matriarch (1x)", "ARC zones"],
@@ -404,7 +387,6 @@ export const MATERIALS_DATA: Material[] = [
     }], stackSize: 10,
     rarity: 'UNCOMMON',
     icon: 'memory',
-    imageUrl: "/images/items/Electrical_Components.png",
     description: 'Refined circuitry and electrical hardware used in most electronic gear and weapon systems.',
     craftInfo: {
       isCraftable: true,
@@ -428,7 +410,6 @@ export const MATERIALS_DATA: Material[] = [
     }, { name: 'Electrical Components', stackSize: 10, quantity: 1 }], salvageInfo: [{ name: 'Electrical Components', stackSize: 10, quantity: 1 }], stackSize: 5,
     rarity: 'RARE',
     icon: 'developer_board',
-    imageUrl: "/images/items/Advanced_Electrical_Components.png",
     description: 'State-of-the-art microprocessors and high-frequency hardware required for Adv utility upgrades.',
     craftInfo: {
       isCraftable: true,
@@ -446,7 +427,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'ARC Circuitry', recycleInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 2 }], salvageInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 1 }], stackSize: 5,
     rarity: 'RARE',
     icon: 'circuit',
-    imageUrl: "/images/items/ARC_Circuitry.png",
     description: 'Complex neural-like processing arrays recovered from Adv ARC units. Intricate and extremely valuable.',
     craftInfo: {
       isCraftable: true,
@@ -461,7 +441,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'ARC Motion Core', recycleInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 2 }], salvageInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 1 }], stackSize: 5,
     rarity: 'RARE',
     icon: 'motion_sensor_active',
-    imageUrl: "/images/items/ARC_Motion_Core.png",
     description: 'A critical mechanical unit that manages high-speed motion and stabilization in ARC drones.',
     craftInfo: {
       isCraftable: true,
@@ -476,7 +455,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Chemicals', purchasableFromCeleste: true, celesteSeedCost: 1, recycleInfo: [], salvageInfo: [], stackSize: 50,
     rarity: 'COMMON',
     icon: 'science',
-    imageUrl: "/images/items/Chemicals.png",
     description: 'A variety of reactive substances used in the production of explosives and medical supplies.',
     craftInfo: { isCraftable: false },
     obtainedFrom: ["Antiseptic (10x)", "Cooling Coil (6x)", "Coolant (5x)", "Vita Shot (4x)", "Crude Explosives (3x)", "Oil (3x)", "Tick Pod (2x)", "Syringe (2x)", "Smoke Grenade (2x)", "Light Impact Grenade (1x)", "Snap Blast Grenade (1x)"],
@@ -493,7 +471,6 @@ export const MATERIALS_DATA: Material[] = [
     }], stackSize: 5,
     rarity: 'UNCOMMON',
     icon: 'sanitizer',
-    imageUrl: '/images/items/Antiseptic.png',
     description: 'Medical-grade cleaning solution, essential for preventing infection and crafting Adv healing items.',
     craftInfo: {
       isCraftable: true,
@@ -520,7 +497,6 @@ export const MATERIALS_DATA: Material[] = [
     }], stackSize: 15,
     rarity: 'COMMON',
     icon: 'nest_cam_wired_stand',
-    imageUrl: '/images/items/Canister.png',
     description: 'A pressurized metal container suitable for storing gases or liquids.',
     craftInfo: { isCraftable: false },
     obtainedFrom: ["Broken Taser (2x)", "Portable TV (2x)", "Power Bank (2x)", "Jolt Mine (1x)", "Scavenging (Commercial)"],
@@ -534,7 +510,6 @@ export const MATERIALS_DATA: Material[] = [
     }, { name: 'ARC Alloy', stackSize: 15, quantity: 2 }], salvageInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 1 }], stackSize: 3,
     rarity: 'RARE',
     icon: 'pest_control',
-    imageUrl: '/images/items/Tick_Pod.png',
     description: 'Biological component harvested from ARC Ticks. Contains enzymes used in high-end medical gear.',
     craftInfo: { isCraftable: false },
     obtainedFrom: ["Tick (1x)", "Elite Tick (1x)", "ARC zones"],
@@ -545,7 +520,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Fabric', purchasableFromCeleste: true, celesteSeedCost: 1, recycleInfo: [], salvageInfo: [], stackSize: 50,
     rarity: 'COMMON',
     icon: 'texture',
-    imageUrl: "/images/items/Fabric.png",
     description: 'Basic cloth remnants that can be repurposed for simple bandages or clothing repairs.',
     craftInfo: { isCraftable: false },
     obtainedFrom: ["Deflated Football (9x)", "Durable Cloth (6x)", "Polluted Air Filter (6x)", "Rope (5x)", "Herbal Bandage (5x)", "Ruined Tactical Vest (5x)", "Expired Respirator (4x)", "Duct Tape (3x)", "Sterilized Bandage (1x)"],
@@ -562,7 +536,6 @@ export const MATERIALS_DATA: Material[] = [
     }], stackSize: 10,
     rarity: 'UNCOMMON',
     icon: 'layers',
-    imageUrl: '/images/items/Durable_Cloth.png',
     description: 'Reinforced textile material, much stronger than standard fabric.',
     craftInfo: {
       isCraftable: true,
@@ -580,7 +553,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Great Mullein', purchasableFromCeleste: true, celesteSeedCost: 2, recycleInfo: [{ name: 'Assorted Seeds', stackSize: 100, quantity: 2 }], salvageInfo: [{ name: 'Assorted Seeds', stackSize: 100, quantity: 1 }], stackSize: 15,
     rarity: 'UNCOMMON',
     icon: 'eco',
-    imageUrl: '/images/items/Great_Mullein.png',
     description: 'A hardy plant with medicinal properties, often used in traditional healing.',
     craftInfo: { isCraftable: false },
     obtainedFrom: ["Harvesting", "Scavenging (Backpack, Wicker Basket)", "Celeste", "Nature"],
@@ -591,7 +563,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Moss', purchasableFromCeleste: true, celesteSeedCost: 5, recycleInfo: [{ name: 'Assorted Seeds', stackSize: 100, quantity: 3 }], salvageInfo: [{ name: 'Assorted Seeds', stackSize: 100, quantity: 2 }], stackSize: 10,
     rarity: 'RARE',
     icon: 'grass',
-    imageUrl: '/images/items/Moss.png',
     description: 'A simple biological material that can be used as a stabilizer in some chemical reactions.',
     craftInfo: { isCraftable: false },
     obtainedFrom: ["Defibrillator (1x)", "Hydroponic Domes (1x)", "Nature", "Celeste"],
@@ -608,7 +579,6 @@ export const MATERIALS_DATA: Material[] = [
     }], stackSize: 15,
     rarity: 'UNCOMMON',
     icon: 'battery_full',
-    imageUrl: '/images/items/Battery.png',
     description: 'A standard portable power source for civilian and military electronics.',
     craftInfo: { isCraftable: false },
     obtainedFrom: ["Broken Taser (2x)", "Portable TV (2x)", "Power Bank (2x)", "Jolt Mine (1x)"],
@@ -619,7 +589,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Power Rod', recycleInfo: [{ name: 'Adv Electrical Components', stackSize: 5, quantity: 1 }, { name: 'ARC Circuitry', stackSize: 5, quantity: 1 }], salvageInfo: [{ name: 'Adv Electrical Components', stackSize: 5, quantity: 1 }], stackSize: 3,
     rarity: 'RARE',
     icon: 'vertical_align_center',
-    imageUrl: '/images/items/Power_Rod.png',
     description: 'A high-capacity energy conductor used in heavy-duty electronic equipment.',
     craftInfo: {
       isCraftable: true,
@@ -643,7 +612,6 @@ export const MATERIALS_DATA: Material[] = [
     }], stackSize: 5,
     rarity: 'RARE',
     icon: 'vaccines',
-    imageUrl: '/images/items/Syringe.png',
     description: 'A standard medical tool for injecting fluids or extracting samples.',
     craftInfo: { isCraftable: false },
     obtainedFrom: ["Vita Shot (1x)", "Scavenging (Medical Cabinet)"],
@@ -663,7 +631,6 @@ export const MATERIALS_DATA: Material[] = [
     }], stackSize: 5,
     rarity: 'RARE',
     icon: 'electrical_services',
-    imageUrl: '/images/items/Voltage_Converter.png',
     description: 'An Adv transformer designed to handle high-power ARC energy systems.',
     craftInfo: { isCraftable: false },
     obtainedFrom: ["Ion Sputter (4x)", "Signal Amplifier (2x)", "Heavy Shield (1x)", "Showstopper (1x)", "Industrial Charger (1x)"],
@@ -680,7 +647,6 @@ export const MATERIALS_DATA: Material[] = [
     }], stackSize: 3,
     rarity: 'RARE',
     icon: 'extension',
-    imageUrl: "/images/items/Complex_Gun_Parts.png",
     description: 'Highly intricate weapon parts required for crafting state-of-the-art ballistic firearms.',
     craftInfo: {
       isCraftable: true, location: 'Refiner 3', requirements: [{
@@ -702,7 +668,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Magnetic Accelerator', recycleInfo: [{ name: 'Adv Mechanical Components', stackSize: 5, quantity: 1 }, { name: 'ARC Motion Core', stackSize: 5, quantity: 1 }], salvageInfo: [{ name: 'Adv Mechanical Components', stackSize: 5, quantity: 1 }], stackSize: 3,
     rarity: 'EPIC',
     icon: 'all_inclusive',
-    imageUrl: '/images/items/Magnetic_Accelerator.png',
     description: 'An extremely powerful electromagnetic module used in experimental and high-energy weapons.',
     craftInfo: { isCraftable: true, location: 'Refiner 3', requirements: [{ name: 'Adv Mechanical Components', stackSize: 5, quantity: 2 }, { name: 'ARC Motion Core', stackSize: 5, quantity: 2 }] },
     obtainedFrom: ["Aphelion (2x)", "Jupiter (2x)", "Equalizer (2x)", "Matriarch Reactor (1x)", "Queen Reactor (1x)", "Magnetron (1x)"],
@@ -713,7 +678,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Processor', purchasableFromCeleste: true, celesteSeedCost: 10, stackSize: 5,
     rarity: 'RARE',
     icon: 'memory',
-    imageUrl: "/images/items/Processor.png",
     description: 'A high-performance processing unit recovered from Adv ARC technology or rare weapon modifications.',
     recycleInfo: [{
       name: 'Wires',
@@ -735,7 +699,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Exodus Modules', purchasableFromCeleste: true, celesteSeedCost: 55, stackSize: 3,
     rarity: 'EPIC',
     icon: 'settings_input_component',
-    imageUrl: "/images/items/Exodus_Modules.png",
     description: 'Adv coordination modules recovered from high-tier ARC units. Critical for experimental weapon synchronization.',
     recycleInfo: [{
       name: 'Magnet',
@@ -757,7 +720,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Crude Explosives', stackSize: 10,
     rarity: 'UNCOMMON',
     icon: 'bomb',
-    imageUrl: "/images/items/Crude_Explosives.png",
     description: 'Volatile chemicals packed into an improvised container. The basic building block for Raider explosives.',
     recycleInfo: [{
       name: 'Chemicals',
@@ -783,7 +745,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Explosive Compound', stackSize: 5,
     rarity: 'RARE',
     icon: 'volcano',
-    imageUrl: "/images/items/Explosive_Compound.png",
     description: 'Refined explosive material capable of delivering high-yield kinetic energy. Found in military-grade caches.',
     recycleInfo: [{ name: 'Crude Explosives', stackSize: 10, quantity: 2 }],
     salvageInfo: [{ name: 'Crude Explosives', stackSize: 10, quantity: 1 }],
@@ -803,7 +764,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Synthesized Fuel', purchasableFromCeleste: true, celesteSeedCost: 10, stackSize: 5,
     rarity: 'RARE',
     icon: 'local_fire_department',
-    imageUrl: "/images/items/Synthesized_Fuel.png",
     description: 'High-energy liquid fuel synthesized for propulsion and incendiary devices. Extremely flammable.',
     recycleInfo: [{
       name: 'Oil',
@@ -825,7 +785,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Firefly Burner', stackSize: 3,
     rarity: 'RARE',
     icon: 'fireplace',
-    imageUrl: "/images/items/Firefly_Burner.png",
     description: 'A precision combustion unit used in high-end incendiary tactical gear.',
     recycleInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 2 }, { name: 'Crude Explosives', stackSize: 10, quantity: 2 }],
     salvageInfo: [{ name: 'Crude Explosives', stackSize: 10, quantity: 2 }],
@@ -838,7 +797,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Rocketeer Driver', stackSize: 3,
     rarity: 'EPIC',
     icon: 'rocket_launch',
-    imageUrl: "/images/items/Rocketeer_Driver.png",
     description: 'Propulsion management system for guided rocket ordinance. Recovered from major ARC threats.',
     recycleInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 3 }, { name: 'Adv Electrical Components', stackSize: 5, quantity: 2 }],
     salvageInfo: [{ name: 'ARC Circuitry', stackSize: 5, quantity: 2 }],
@@ -851,7 +809,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Comet Igniter', stackSize: 3,
     rarity: 'RARE',
     icon: 'wb_sunny',
-    imageUrl: "/images/items/Comet_Igniter.png",
     description: 'High-intensity ignition core used to trigger vacuum-level thermal reactions.',
     recycleInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 2 }, { name: 'Crude Explosives', stackSize: 10, quantity: 2 }],
     salvageInfo: [{ name: 'Crude Explosives', stackSize: 10, quantity: 2 }],
@@ -863,7 +820,6 @@ export const MATERIALS_DATA: Material[] = [
     id: 'mat44',
     name: 'Light Shield', rarity: 'UNCOMMON',
     icon: 'shield',
-    imageUrl: "/images/items/Light_Shield.png",
     description: 'Basic protection made from salvaged parts.',
     recycleInfo: [{
       name: 'Plastic Parts',
@@ -878,7 +834,6 @@ export const MATERIALS_DATA: Material[] = [
     id: 'mat45',
     name: 'Medium Shield', rarity: 'RARE',
     icon: 'shield',
-    imageUrl: "/images/items/Medium_Shield.png",
     description: 'Standard Shield that offers Raiders fair protection.',
     recycleInfo: [{ name: 'ARC Circuitry', stackSize: 5, quantity: 1 }],
     salvageInfo: [{ name: 'ARC Alloy', stackSize: 15, quantity: 2 }],
@@ -890,7 +845,6 @@ export const MATERIALS_DATA: Material[] = [
     id: 'mat46',
     name: 'Heavy Shield', rarity: 'EPIC',
     icon: 'shield',
-    imageUrl: "/images/items/Heavy_Shield.png",
     description: 'Heavy Shield offering maximum protection.',
     recycleInfo: [{ name: 'ARC Circuitry', stackSize: 5, quantity: 2 }, {
       name: 'Voltage Converter',
@@ -906,7 +860,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Oil', purchasableFromCeleste: true, celesteSeedCost: 2, stackSize: 15,
     rarity: 'UNCOMMON',
     icon: 'opacity',
-    imageUrl: "/images/items/Oil.png",
     description: 'A viscous lubricant and fuel source used in weapon maintenance and explosive manufacturing. Recycled from motors, pumps, and coolant systems.',
     recycleInfo: [{
       name: 'Chemicals',
@@ -925,7 +878,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Rope', purchasableFromCeleste: true, celesteSeedCost: 5, stackSize: 5,
     rarity: 'RARE',
     icon: 'linear_scale',
-    imageUrl: "/images/items/Rope.png",
     description: 'Durable synthetic rope found in residential and commercial zones. Used for traversal gear like Ziplines and Snap Hooks.',
     recycleInfo: [{
       name: 'Fabric',
@@ -945,7 +897,6 @@ export const MATERIALS_DATA: Material[] = [
     stackSize: 5,
     rarity: 'RARE',
     icon: 'sensors',
-    imageUrl: "/images/items/Sensors.png",
     description: 'Electronic motion detectors salvaged from ARC drones and security infrastructure. Used in trap construction and tracking devices.',
     recycleInfo: [{
       name: 'Wires',
@@ -968,7 +919,6 @@ export const MATERIALS_DATA: Material[] = [
     stackSize: 5,
     rarity: 'RARE',
     icon: 'volume_up',
-    imageUrl: "/images/items/Speaker_Component.png",
     description: 'An audio amplification unit salvaged from electronic devices. Used in sound-based tactical gear like lures and noisemakers.',
     recycleInfo: [{
       name: 'Plastic Parts',
@@ -990,7 +940,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Hornet Driver', stackSize: 3,
     rarity: 'RARE',
     icon: 'bolt',
-    imageUrl: "/images/items/Hornet_Driver.png",
     description: 'A high-voltage discharge unit recovered from destroyed ARC Hornets. Can be thrown to stun nearby ARC units and Raiders, or used in the construction of EMP devices.',
     recycleInfo: [{ name: 'Electrical Components', stackSize: 10, quantity: 1 }, { name: 'ARC Alloy', stackSize: 15, quantity: 1 }],
     salvageInfo: [{ name: 'Electrical Components', stackSize: 10, quantity: 1 }],
@@ -1003,7 +952,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Matriarch Reactor', stackSize: 1,
     rarity: 'LEGENDARY',
     icon: 'reactor',
-    imageUrl: "/images/items/Matriarch_Reactor.png",
     description: 'A high-power reactor core found by scavenging destroyed Matriarchs. Extremely rare and required to craft the legendary Aphelion battle rifle.',
     recycleInfo: [{ name: 'Power Rod', stackSize: 3, quantity: 1 }, { name: 'Magnetic Accelerator', stackSize: 3, quantity: 1 }],
     salvageInfo: [{ name: 'Magnetic Accelerator', stackSize: 3, quantity: 1 }],
@@ -1016,7 +964,6 @@ export const MATERIALS_DATA: Material[] = [
     name: 'Queen Reactor', stackSize: 1,
     rarity: 'LEGENDARY',
     icon: 'reactor',
-    imageUrl: "/images/items/Queen_Reactor.png",
     description: 'Recovered from destroyed Queens or their blown-off leg armor segments. Required to craft the legendary Jupiter and Equalizer weapons.',
     recycleInfo: [{ name: 'Power Rod', stackSize: 3, quantity: 1 }, { name: 'Magnetic Accelerator', stackSize: 3, quantity: 1 }],
     salvageInfo: [{ name: 'Power Rod', stackSize: 3, quantity: 1 }],
@@ -1041,7 +988,7 @@ export const MODS_DATA: Modification[] = [
     }, {
       name: 'Wires',
       quantity: 2
-    }], imageUrl: '/images/items/Compensator_I.png'
+    }]
   },
   {
     id: 'm2', name: 'Compensator II', recycleInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }, {
@@ -1050,7 +997,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }], category: 'MUZZLE', rarity: 'UNCOMMON', icon: 'settings_input_component', tier: 2, description: '40% Reduced Per-Shot Dispersion', materials: [{ name: "Mechanical Components", quantity: 2 }, {
       name: 'Wires',
       quantity: 4
-    }], imageUrl: '/images/items/Compensator_II.png'
+    }]
   },
   {
     id: 'm3', name: 'Compensator III', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
@@ -1059,7 +1006,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }], category: 'MUZZLE', rarity: 'RARE', icon: 'settings_input_component', tier: 3, description: '60% Reduced Per-Shot Dispersion, 20% Increased Durability Burn Rate', materials: [{ name: "Mod Components", quantity: 2 }, {
       name: 'Wires',
       quantity: 6
-    }], imageUrl: '/images/items/Compensator_III.png'
+    }]
   },
   {
     id: 'mb1', name: 'Muzzle Brake I', recycleInfo: [{
@@ -1074,7 +1021,7 @@ export const MODS_DATA: Modification[] = [
     }, {
       name: 'Wires',
       quantity: 3
-    }], imageUrl: '/images/items/Shotgun_Choke_I.png'
+    }]
   },
   {
     id: 'mb2', name: 'Muzzle Brake II', recycleInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }, {
@@ -1083,7 +1030,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }], category: 'MUZZLE', rarity: 'UNCOMMON', icon: 'filter_tilt_shift', tier: 2, description: '30% Reduced Horizontal Recoil, 20% Reduced Vertical Recoil', materials: [{ name: "Mechanical Components", quantity: 3 }, {
       name: 'Wires',
       quantity: 5
-    }], imageUrl: '/images/items/Shotgun_Choke_II.png'
+    }]
   },
   {
     id: 'mb3', name: 'Muzzle Brake III', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
@@ -1092,7 +1039,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'MUZZLE', rarity: 'RARE', icon: 'filter_tilt_shift', tier: 3, description: '45% Reduced Horizontal Recoil, 35% Reduced Vertical Recoil', materials: [{ name: "Mod Components", quantity: 2 }, {
       name: 'Wires',
       quantity: 6
-    }], imageUrl: '/images/items/Shotgun_Choke_II.png'
+    }]
   },
   {
     id: 'm5', name: 'Shotgun Choke I', recycleInfo: [{
@@ -1107,7 +1054,7 @@ export const MODS_DATA: Modification[] = [
     }, {
       name: 'Wires',
       quantity: 2
-    }], imageUrl: '/images/items/Shotgun_Choke_I.png', weaponTypeCompatibility: ['SHOTGUN']
+    }], weaponTypeCompatibility: ['SHOTGUN']
   },
   {
     id: 'm6', name: 'Shotgun Choke II', recycleInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }, {
@@ -1116,7 +1063,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }], category: 'MUZZLE', rarity: 'UNCOMMON', icon: 'filter_tilt_shift', tier: 2, description: '20% Reduced Base Dispersion', materials: [{ name: "Mechanical Components", quantity: 4 }, {
       name: 'Wires',
       quantity: 4
-    }], imageUrl: '/images/items/Shotgun_Choke_II.png', weaponTypeCompatibility: ['SHOTGUN']
+    }], weaponTypeCompatibility: ['SHOTGUN']
   },
   {
     id: 'm6b', name: 'Shotgun Choke III', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
@@ -1125,7 +1072,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'MUZZLE', rarity: 'RARE', icon: 'filter_tilt_shift', tier: 3, description: '30% Reduced Base Dispersion', materials: [{ name: "Mod Components", quantity: 2 }, {
       name: 'Wires',
       quantity: 6
-    }], imageUrl: '/images/items/Shotgun_Choke_II.png', weaponTypeCompatibility: ['SHOTGUN']
+    }], weaponTypeCompatibility: ['SHOTGUN']
   },
   {
     id: 'ms1', name: 'Silencer I', recycleInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }, {
@@ -1137,7 +1084,7 @@ export const MODS_DATA: Modification[] = [
     }, {
       name: 'Duct Tape',
       quantity: 2
-    }], imageUrl: '/images/items/Silencer_II.png'
+    }]
   },
   {
     id: 'm7', name: 'Silencer II', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
@@ -1146,7 +1093,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'MUZZLE', rarity: 'UNCOMMON', icon: 'volume_off', tier: 2, description: '40% Reduced Noise', materials: [{ name: "Mechanical Components", quantity: 2 }, {
       name: 'Duct Tape',
       quantity: 4
-    }], imageUrl: '/images/items/Silencer_II.png'
+    }]
   },
   {
     id: 'ms3', name: 'Silencer III', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
@@ -1155,7 +1102,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 2 }], category: 'MUZZLE', rarity: 'RARE', icon: 'volume_off', tier: 3, description: '60% Reduced Noise', materials: [{ name: "Mod Components", quantity: 3 }, {
       name: 'Duct Tape',
       quantity: 6
-    }], imageUrl: '/images/items/Silencer_II.png'
+    }]
   },
   {
     id: 'm4', name: 'Extended Barrel', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
@@ -1164,7 +1111,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'MUZZLE', rarity: 'EPIC', icon: 'straighten', tier: 3, description: '25% Increased Bullet Velocity, 15% Increased Vertical Recoil', materials: [{ name: "Mod Components", quantity: 2 }, {
       name: 'Wires',
       quantity: 8
-    }], imageUrl: '/images/items/Extended_Barrel.png'
+    }]
   },
 
 
@@ -1182,7 +1129,7 @@ export const MODS_DATA: Modification[] = [
     }, {
       name: 'Steel Spring',
       quantity: 2
-    }], imageUrl: '/images/items/Extended_Light_Mag_I.png', ammoCompatibility: 'LIGHT'
+    }], ammoCompatibility: 'LIGHT'
   },
   {
     id: 'm10b', name: 'Extended Light Mag II', recycleInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }, {
@@ -1191,7 +1138,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }], category: 'MAGAZINE', rarity: 'UNCOMMON', icon: 'view_day', tier: 2, description: '+10 Magazine Size', materials: [{ name: "Mechanical Components", quantity: 2 }, {
       name: 'Steel Spring',
       quantity: 4
-    }], imageUrl: '/images/items/Extended_Light_Mag_II.png', ammoCompatibility: 'LIGHT'
+    }], ammoCompatibility: 'LIGHT'
   },
   {
     id: 'm11', name: 'Extended Light Mag III', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
@@ -1200,7 +1147,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'MAGAZINE', rarity: 'RARE', icon: 'view_day', tier: 3, description: '+15 Magazine Size', materials: [{ name: "Mod Components", quantity: 2 }, {
       name: 'Steel Spring',
       quantity: 5
-    }], imageUrl: '/images/items/Extended_Light_Mag_III.png', ammoCompatibility: 'LIGHT'
+    }], ammoCompatibility: 'LIGHT'
   },
   {
     id: 'm12', name: 'Extended Medium Mag I', recycleInfo: [{
@@ -1215,7 +1162,7 @@ export const MODS_DATA: Modification[] = [
     }, {
       name: 'Steel Spring',
       quantity: 2
-    }], imageUrl: '/images/items/Extended_Medium_Mag_I.png', ammoCompatibility: 'MEDIUM'
+    }], ammoCompatibility: 'MEDIUM'
   },
   {
     id: 'mm2', name: 'Extended Medium Mag II', recycleInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }, {
@@ -1224,7 +1171,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }], category: 'MAGAZINE', rarity: 'UNCOMMON', icon: 'view_day', tier: 2, description: '+8 Magazine Size', materials: [{ name: "Mechanical Components", quantity: 3 }, {
       name: 'Steel Spring',
       quantity: 3
-    }], imageUrl: '/images/items/Extended_Medium_Mag_I.png', ammoCompatibility: 'MEDIUM'
+    }], ammoCompatibility: 'MEDIUM'
   },
   {
     id: 'm14', name: 'Extended Medium Mag III', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
@@ -1233,7 +1180,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'MAGAZINE', rarity: 'RARE', icon: 'view_day', tier: 3, description: '+12 Magazine Size', materials: [{ name: "Mod Components", quantity: 2 }, {
       name: 'Steel Spring',
       quantity: 4
-    }], imageUrl: '/images/items/Extended_Medium_Mag_III.png', ammoCompatibility: 'MEDIUM'
+    }], ammoCompatibility: 'MEDIUM'
   },
   {
     id: 'msm1', name: 'Extended Shotgun Mag I', recycleInfo: [{
@@ -1248,7 +1195,7 @@ export const MODS_DATA: Modification[] = [
     }, {
       name: 'Steel Spring',
       quantity: 1
-    }], imageUrl: '/images/items/Extended_Shotgun_Mag_III.png', ammoCompatibility: 'SHOTGUN'
+    }], ammoCompatibility: 'SHOTGUN'
   },
   {
     id: 'msm2', name: 'Extended Shotgun Mag II', recycleInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }, {
@@ -1257,7 +1204,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }], category: 'MAGAZINE', rarity: 'UNCOMMON', icon: 'view_day', tier: 2, description: '+4 Magazine Size', materials: [{ name: "Mechanical Components", quantity: 2 }, {
       name: 'Steel Spring',
       quantity: 2
-    }], imageUrl: '/images/items/Extended_Shotgun_Mag_III.png', ammoCompatibility: 'SHOTGUN'
+    }], ammoCompatibility: 'SHOTGUN'
   },
   {
     id: 'm17', name: 'Extended Shotgun Mag III', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
@@ -1266,7 +1213,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'MAGAZINE', rarity: 'RARE', icon: 'view_day', tier: 3, description: '+6 Magazine Size', materials: [{ name: "Mod Components", quantity: 2 }, {
       name: 'Steel Spring',
       quantity: 4
-    }], imageUrl: '/images/items/Extended_Shotgun_Mag_III.png', ammoCompatibility: 'SHOTGUN'
+    }], ammoCompatibility: 'SHOTGUN'
   },
 
   // UNDERBARREL
@@ -1283,7 +1230,7 @@ export const MODS_DATA: Modification[] = [
     }, {
       name: 'Duct Tape',
       quantity: 2
-    }], imageUrl: '/images/items/Angled_Grip_I.png'
+    }]
   },
   {
     id: 'm19', name: 'Angled Grip II', recycleInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }, {
@@ -1292,7 +1239,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }], category: 'UNDERBARREL', rarity: 'UNCOMMON', icon: 'pan_tool_alt', tier: 2, description: '30% Reduced Horizontal Recoil', materials: [{ name: "Mechanical Components", quantity: 4 }, {
       name: 'Duct Tape',
       quantity: 4
-    }], imageUrl: '/images/items/Angled_Grip_II.png'
+    }]
   },
   {
     id: 'ma3', name: 'Angled Grip III', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
@@ -1301,7 +1248,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'UNDERBARREL', rarity: 'RARE', icon: 'pan_tool_alt', tier: 3, description: '40% Reduced Horizontal Recoil, 20% Reduced ADS Speed', materials: [{ name: "Mod Components", quantity: 2 }, {
       name: 'Duct Tape',
       quantity: 5
-    }], imageUrl: '/images/items/Angled_Grip_II.png'
+    }]
   },
   {
     id: 'mv1', name: 'Vertical Grip I', recycleInfo: [{
@@ -1316,7 +1263,7 @@ export const MODS_DATA: Modification[] = [
     }, {
       name: 'Duct Tape',
       quantity: 2
-    }], imageUrl: '/images/items/Vertical_Grip_III.png'
+    }]
   },
   {
     id: 'mv2', name: 'Vertical Grip II', recycleInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }, {
@@ -1325,7 +1272,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }], category: 'UNDERBARREL', rarity: 'UNCOMMON', icon: 'pan_tool_alt', tier: 2, description: '30% Reduced Vertical Recoil', materials: [{ name: "Mechanical Components", quantity: 4 }, {
       name: 'Duct Tape',
       quantity: 4
-    }], imageUrl: '/images/items/Vertical_Grip_III.png'
+    }]
   },
   {
     id: 'm22', name: 'Vertical Grip III', recycleInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }, {
@@ -1334,13 +1281,13 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'UNDERBARREL', rarity: 'RARE', icon: 'pan_tool_alt', tier: 3, description: '40% Reduced Vertical Recoil, 30% Reduced ADS Speed', materials: [{ name: "Mod Components", quantity: 3 }, {
       name: 'Duct Tape',
       quantity: 6
-    }], imageUrl: '/images/items/Vertical_Grip_III.png'
+    }]
   },
   {
     id: 'm23', name: 'Horizontal Grip', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
       name: 'Duct Tape',
       stackSize: 15, quantity: 2
-    }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'UNDERBARREL', rarity: 'EPIC', icon: 'pan_tool_alt', tier: 3, description: '30% Reduced Horizontal Recoil, 30% Reduced Vertical Recoil, 30% Reduced ADS Speed', materials: [], imageUrl: '/images/items/Horizontal_Grip.png'
+    }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'UNDERBARREL', rarity: 'EPIC', icon: 'pan_tool_alt', tier: 3, description: '30% Reduced Horizontal Recoil, 30% Reduced Vertical Recoil, 30% Reduced ADS Speed', materials: []
   },
 
   // STOCK
@@ -1357,7 +1304,7 @@ export const MODS_DATA: Modification[] = [
     }, {
       name: 'Steel Spring',
       quantity: 2
-    }], imageUrl: '/images/items/Stable_Stock_I.png'
+    }]
   },
   {
     id: 'm25', name: 'Stable Stock II', recycleInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }, {
@@ -1366,7 +1313,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }], category: 'STOCK', rarity: 'UNCOMMON', icon: 'format_underlined', tier: 2, description: '30% Reduced Vertical Recoil', materials: [{ name: "Mechanical Components", quantity: 3 }, {
       name: 'Steel Spring',
       quantity: 4
-    }], imageUrl: '/images/items/Stable_Stock_II.png'
+    }]
   },
   {
     id: 'm26', name: 'Stable Stock III', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
@@ -1375,13 +1322,13 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'STOCK', rarity: 'RARE', icon: 'format_underlined', tier: 3, description: '45% Reduced Vertical Recoil, 20% Increased Equip/Unequip Time', materials: [{ name: "Mod Components", quantity: 2 }, {
       name: 'Steel Spring',
       quantity: 5
-    }], imageUrl: '/images/items/Stable_Stock_III.png'
+    }]
   },
   {
     id: 'mp3', name: 'Padded Stock III', recycleInfo: [{ name: 'Mod Components', quantity: 1 }], salvageInfo: [{ name: 'Mechanical Components', quantity: 1 }], category: 'STOCK', rarity: 'RARE', icon: 'format_underlined', tier: 3, description: '20% Reduced Base Dispersion, 20% Reduced Vertical/Horizontal Recoil, 50% Reduced ADS Speed', materials: [{ name: "Mod Components", quantity: 2 }, {
       name: 'Duct Tape',
       quantity: 6
-    }], imageUrl: '/images/items/Stable_Stock_III.png'
+    }]
   },
   {
     id: 'm27', name: 'Lightweight Stock', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
@@ -1390,19 +1337,19 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'STOCK', rarity: 'EPIC', icon: 'format_underlined', tier: 3, description: '200% Increased ADS Speed, 30% Reduced Equip/Unequip Time, 50% Increased Vertical Recoil', materials: [{ name: "Mod Components", quantity: 2 }, {
       name: 'Duct Tape',
       quantity: 5
-    }], imageUrl: '/images/items/Lightweight_Stock.png'
+    }]
   },
   {
     id: 'm28', name: 'Kinetic Converter', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
       name: 'Duct Tape',
       stackSize: 15, quantity: 2
-    }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'STOCK', rarity: 'LEGENDARY', icon: 'bolt', tier: 'LEGENDARY', description: '15% Increased Fire Rate, 20% Increased Horizontal Recoil, 20% Increased Vertical Recoil', materials: [], imageUrl: '/images/items/Kinetic_Converter.png'
+    }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'STOCK', rarity: 'LEGENDARY', icon: 'bolt', tier: 'LEGENDARY', description: '15% Increased Fire Rate, 20% Increased Horizontal Recoil, 20% Increased Vertical Recoil', materials: []
   },
   {
     id: 'm-anvilsplitter', name: 'Anvil Splitter', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
       name: 'Processor',
       stackSize: 5, quantity: 1
-    }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'ALL', rarity: 'LEGENDARY', icon: 'bolt', tier: 'LEGENDARY', description: '+3 Projectiles Per Shot, 70% Reduced Projectile Damage', materials: [], imageUrl: '/images/items/Anvil_Splitter.png'
+    }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 2 }], category: 'ALL', rarity: 'LEGENDARY', icon: 'bolt', tier: 'LEGENDARY', description: '+3 Projectiles Per Shot, 70% Reduced Projectile Damage', materials: []
   },
   {
     id: 'm-shotgunsilencer', name: 'Shotgun Silencer', recycleInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }, {
@@ -1411,7 +1358,7 @@ export const MODS_DATA: Modification[] = [
     }], salvageInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 1 }], category: 'MUZZLE', rarity: 'EPIC', icon: 'volume_off', tier: 3, description: '50% Reduced Noise', materials: [{ name: "Mod Components", quantity: 2 }, {
       name: 'Wires',
       quantity: 8
-    }], imageUrl: '/images/items/Silencer_II.png', weaponTypeCompatibility: ['SHOTGUN']
+    }], weaponTypeCompatibility: ['SHOTGUN']
   }];
 
 // ─── Weapon ↔ Mod Slot Compatibility Map ───
@@ -1443,7 +1390,7 @@ export const WEAPON_MOD_SLOTS: Record<string, string[]> = {
 
 export const WEAPONS_DATA: Weapon[] = [
   {
-    id: 'w-rattler', name: 'Rattler', rarity: 'COMMON', icon: 'my_location', imageUrl: "/images/items/Rattler.webp",
+    id: 'w-rattler', name: 'Rattler', rarity: 'COMMON', icon: 'my_location',
     craftInfo: {
       materials: [{
         name: 'Metal Parts',
@@ -1555,7 +1502,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ammoType: 'LIGHT', weaponType: 'SMG'
   },
   {
-    id: 'w-arpeggio', name: 'Arpeggio', rarity: 'UNCOMMON', icon: 'my_location', imageUrl: "/images/items/Arpeggio.webp",
+    id: 'w-arpeggio', name: 'Arpeggio', rarity: 'UNCOMMON', icon: 'my_location',
     craftInfo: {
       materials: [{ name: 'Mechanical Components', quantity: 6 }, {
         name: 'Simple Gun Parts',
@@ -1661,7 +1608,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ammoType: 'MEDIUM', weaponType: 'AR'
   },
   {
-    id: 'w-tempest', name: 'Tempest', rarity: 'EPIC', icon: 'my_location', imageUrl: "/images/items/Tempest.webp",
+    id: 'w-tempest', name: 'Tempest', rarity: 'EPIC', icon: 'my_location',
     craftInfo: {
       materials: [{ name: 'Magnetic Accelerator', quantity: 1 }, {
         name: 'Medium Gun Parts',
@@ -1770,7 +1717,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ammoType: 'MEDIUM', weaponType: 'AR'
   },
   {
-    id: 'w-bettina', name: 'Bettina', rarity: 'EPIC', icon: 'my_location', imageUrl: "/images/items/Bettina.png",
+    id: 'w-bettina', name: 'Bettina', rarity: 'EPIC', icon: 'my_location',
     craftInfo: {
       materials: [{ name: 'Adv Mechanical Components', quantity: 3 }, {
         name: 'Heavy Gun Parts',
@@ -1859,7 +1806,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ammoType: 'HEAVY', weaponType: 'SNIPER'
   },
   {
-    id: 'w-aphelion', name: 'Aphelion', rarity: 'LEGENDARY', icon: 'my_location', imageUrl: "/images/items/Aphelion.png",
+    id: 'w-aphelion', name: 'Aphelion', rarity: 'LEGENDARY', icon: 'my_location',
     craftInfo: {
       materials: [{ name: 'Magnetic Accelerator', quantity: 3 }, {
         name: 'Complex Gun Parts',
@@ -1883,7 +1830,7 @@ export const WEAPONS_DATA: Weapon[] = [
     salvageInfo: [{ tier: 'I', materials: [{ name: 'Magnetic Accelerator', quantity: 1 }] }]
   },
   {
-    id: 'w-bobcat', name: 'Bobcat', rarity: 'EPIC', icon: 'my_location', imageUrl: "/images/items/Bobcat.webp",
+    id: 'w-bobcat', name: 'Bobcat', rarity: 'EPIC', icon: 'my_location',
     craftInfo: {
       materials: [{ name: 'Magnetic Accelerator', quantity: 1 }, {
         name: 'Light Gun Parts',
@@ -1992,7 +1939,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ammoType: 'LIGHT', weaponType: 'SMG'
   },
   {
-    id: 'w-vulcano', name: 'Vulcano', rarity: 'EPIC', icon: 'my_location', imageUrl: "/images/items/Vulcano.webp",
+    id: 'w-vulcano', name: 'Vulcano', rarity: 'EPIC', icon: 'my_location',
     craftInfo: {
       materials: [{ name: 'Magnetic Accelerator', quantity: 1 }, {
         name: 'Heavy Gun Parts',
@@ -2100,7 +2047,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ]
   },
   {
-    id: 'w-hairpin', name: 'Hairpin', rarity: 'COMMON', icon: 'my_location', imageUrl: "/images/items/Hairpin.webp",
+    id: 'w-hairpin', name: 'Hairpin', rarity: 'COMMON', icon: 'my_location',
     craftInfo: {
       materials: [{
         name: 'Metal Parts',
@@ -2230,7 +2177,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ammoType: 'LIGHT', weaponType: 'PISTOL'
   },
   {
-    id: 'w-jupiter', name: 'Jupiter', rarity: 'LEGENDARY', icon: 'my_location', imageUrl: "/images/items/Jupiter.png",
+    id: 'w-jupiter', name: 'Jupiter', rarity: 'LEGENDARY', icon: 'my_location',
     craftInfo: {
       materials: [{ name: 'Magnetic Accelerator', quantity: 3 }, {
         name: 'Complex Gun Parts',
@@ -2254,7 +2201,7 @@ export const WEAPONS_DATA: Weapon[] = [
     salvageInfo: [{ tier: 'I', materials: [{ name: 'Adv Mechanical Components', quantity: 3 }] }]
   },
   {
-    id: 'w-hullcracker', name: 'Hullcracker', rarity: 'EPIC', icon: 'my_location', imageUrl: "/images/items/Hullcracker.webp",
+    id: 'w-hullcracker', name: 'Hullcracker', rarity: 'EPIC', icon: 'my_location',
     craftInfo: {
       materials: [{ name: 'Magnetic Accelerator', quantity: 1 }, {
         name: 'Heavy Gun Parts',
@@ -2362,7 +2309,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ]
   },
   {
-    id: 'w-equalizer', name: 'Equalizer', rarity: 'LEGENDARY', icon: 'my_location', imageUrl: "/images/items/Equalizer.png",
+    id: 'w-equalizer', name: 'Equalizer', rarity: 'LEGENDARY', icon: 'my_location',
     craftInfo: {
       materials: [{ name: 'Magnetic Accelerator', quantity: 3 }, {
         name: 'Complex Gun Parts',
@@ -2386,7 +2333,7 @@ export const WEAPONS_DATA: Weapon[] = [
     salvageInfo: [{ tier: 'I', materials: [{ name: 'Magnetic Accelerator', quantity: 1 }] }]
   },
   {
-    id: 'w1', name: 'Ferro', rarity: 'COMMON', icon: 'handyman', imageUrl: "/images/items/Ferro.png",
+    id: 'w1', name: 'Ferro', rarity: 'COMMON', icon: 'handyman',
     craftInfo: {
       materials: [{
         name: 'Metal Parts',
@@ -2515,7 +2462,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ]
   },
   {
-    id: 'w2', name: 'Stitcher', rarity: 'COMMON', icon: 'adjust', imageUrl: "/images/items/Stitcher.png",
+    id: 'w2', name: 'Stitcher', rarity: 'COMMON', icon: 'adjust',
     craftInfo: {
       materials: [{
         name: 'Metal Parts',
@@ -2647,7 +2594,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ]
   },
   {
-    id: 'w3', name: 'Kettle', rarity: 'COMMON', icon: 'fireplace', imageUrl: "/images/items/Kettle.png",
+    id: 'w3', name: 'Kettle', rarity: 'COMMON', icon: 'fireplace',
     craftInfo: {
       materials: [{
         name: 'Metal Parts',
@@ -2779,7 +2726,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ]
   },
   {
-    id: 'w4', name: 'Il Toro', rarity: 'UNCOMMON', icon: 'sports_martial_arts', imageUrl: "/images/items/Il Toro.png",
+    id: 'w4', name: 'Il Toro', rarity: 'UNCOMMON', icon: 'sports_martial_arts',
     craftInfo: {
       materials: [{ name: 'Mechanical Components', quantity: 5 }, {
         name: 'Simple Gun Parts',
@@ -2884,7 +2831,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ]
   },
   {
-    id: 'w5', name: 'Anvil', rarity: 'UNCOMMON', icon: 'construction', imageUrl: "/images/items/Anvil.png",
+    id: 'w5', name: 'Anvil', rarity: 'UNCOMMON', icon: 'construction',
     craftInfo: {
       materials: [{ name: 'Mechanical Components', quantity: 5 }, {
         name: 'Simple Gun Parts',
@@ -2989,7 +2936,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ]
   },
   {
-    id: 'w6', name: 'Burletta', rarity: 'UNCOMMON', icon: 'speed', imageUrl: "/images/items/Burletta.png",
+    id: 'w6', name: 'Burletta', rarity: 'UNCOMMON', icon: 'speed',
     craftInfo: {
       materials: [{ name: 'Mechanical Components', quantity: 3 }, {
         name: 'Simple Gun Parts',
@@ -3094,7 +3041,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ]
   },
   {
-    id: 'w7', name: 'Renegade', rarity: 'RARE', icon: 'dangerous', imageUrl: "/images/items/Renegade.png",
+    id: 'w7', name: 'Renegade', rarity: 'RARE', icon: 'dangerous',
     craftInfo: {
       materials: [{ name: 'Adv Mechanical Components', quantity: 2 }, {
         name: 'Medium Gun Parts',
@@ -3202,7 +3149,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ]
   },
   {
-    id: 'w8', name: 'Venator', rarity: 'RARE', icon: 'track_changes', imageUrl: "/images/items/Venator.png",
+    id: 'w8', name: 'Venator', rarity: 'RARE', icon: 'track_changes',
     craftInfo: {
       materials: [{ name: 'Adv Mechanical Components', quantity: 2 }, {
         name: 'Medium Gun Parts',
@@ -3310,7 +3257,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ]
   },
   {
-    id: 'w9', name: 'Osprey', rarity: 'RARE', icon: 'gps_fixed', imageUrl: "/images/items/Osprey.png",
+    id: 'w9', name: 'Osprey', rarity: 'RARE', icon: 'gps_fixed',
     craftInfo: {
       materials: [{ name: 'Adv Mechanical Components', quantity: 2 }, {
         name: 'Medium Gun Parts',
@@ -3418,7 +3365,7 @@ export const WEAPONS_DATA: Weapon[] = [
     ]
   },
   {
-    id: 'w10', name: 'Torrente', rarity: 'RARE', icon: 'local_fire_department', imageUrl: "/images/items/Torrente.png",
+    id: 'w10', name: 'Torrente', rarity: 'RARE', icon: 'local_fire_department',
     craftInfo: {
       materials: [{ name: 'Adv Mechanical Components', quantity: 2 }, {
         name: 'Medium Gun Parts',
@@ -3528,7 +3475,7 @@ export const WEAPONS_DATA: Weapon[] = [
 
   // ─── NEW: Canto (RARE SMG, Medium Ammo) ───────────────────────────────
   {
-    id: 'w-canto', name: 'Canto', rarity: 'RARE', icon: 'mode_fan', imageUrl: "/images/items/Canto.png",
+    id: 'w-canto', name: 'Canto', rarity: 'RARE', icon: 'mode_fan',
     ammoType: 'MEDIUM', weaponType: 'SMG',
     craftInfo: { materials: [{ name: 'Adv Mechanical Components', quantity: 1 }, { name: 'Magnet', quantity: 4 }, { name: 'Medium Gun Parts', quantity: 6 }], station: 'Gunsmith 2' },
     upgradeInfo: [
@@ -3542,7 +3489,7 @@ export const WEAPONS_DATA: Weapon[] = [
   },
   // ─── NEW: Dolabra (LEGENDARY Shotgun, Energy Clip) ────────────────────
   {
-    id: 'w-dolabra', name: 'Dolabra', rarity: 'LEGENDARY', icon: 'bolt', imageUrl: "/images/items/Dolabra.png",
+    id: 'w-dolabra', name: 'Dolabra', rarity: 'LEGENDARY', icon: 'bolt',
     ammoType: 'ENERGY', weaponType: 'SHOTGUN',
     craftInfo: { materials: [{ name: 'Magnetic Accelerator', quantity: 1 }, { name: 'Shredder Gyro', quantity: 1 }, { name: 'Vaporizer Regulator', quantity: 1 }], station: 'Gunsmith 3' },
     repairInfo: [
@@ -3555,12 +3502,12 @@ export const WEAPONS_DATA: Weapon[] = [
 
 export const THROWABLES_DATA: Throwable[] = [
 
-  { "id": "t-cloak", "name": "Photoelectric Cloak", "imageUrl": "https://arcraiders.wiki/w/images/0/06/Photoelectric_Cloak.png", "rarity": "EPIC", "icon": "visibility_off", "category": "QUICK USE", "description": "Briefly invisible to ARC.", "craftInfo": { "station": "Refiner 3", "quantityProduced": 1, "materials": [{ "name": "Adv Mechanical Components", "quantity": 1 }] } },
-  { "id": "t-snaphook", "name": "Snap Hook", "imageUrl": "https://arcraiders.wiki/w/images/5/56/Snap_Hook.png", "rarity": "UNCOMMON", "icon": "link", "category": "QUICK USE", "description": "Quick traversal across gaps.", "craftInfo": { "station": "Refiner 1", "quantityProduced": 1, "materials": [{ "name": "Metal Parts", "quantity": 4 }] } },
-  { "id": "t-zipline", "name": "Zipline", "imageUrl": "https://arcraiders.wiki/w/images/f/f9/Zipline.png", "rarity": "RARE", "icon": "route", "category": "QUICK USE", "description": "Bidirectional zipline for squad.", "craftInfo": { "station": "Refiner 2", "quantityProduced": 1, "materials": [{ "name": "Rope", "quantity": 4 }, { "name": "Mechanical Components", "quantity": 3 }] } },
-  { "id": "t-hatch", "name": "Raider Hatch Key", "imageUrl": "https://arcraiders.wiki/w/images/0/07/Raider_Hatch_Key.png", "rarity": "RARE", "icon": "key", "category": "QUICK USE", "description": "An over-the-counter electronic lock bypass. Unlocks Raider Hatches.", "craftInfo": { "station": "Gear Bench 3", "quantityProduced": 1, "materials": [{ "name": "Adv Electrical Components", "quantity": 1 }, { "name": "Sensors", "quantity": 3 }] } },
-  { "id": "t-surge", "name": "Surge Coil", "imageUrl": "https://arcraiders.wiki/w/images/9/90/Surge_Coil.png", "rarity": "RARE", "icon": "flash_on", "category": "QUICK USE", "description": "Deploys an electrical field to disable nearby ARC.", "craftInfo": { "station": "Explosives Station III", "quantityProduced": 1, "materials": [{ "name": "Electrical Components", "quantity": 1 }, { "name": "Sensors", "quantity": 1 }, { "name": "Hornet Driver", "quantity": 1 }] } },
-  { "id": "t-tagging", "name": "Tagging Grenade", "imageUrl": "https://arcraiders.wiki/w/images/3/30/Tagging_Grenade.png", "rarity": "RARE", "icon": "my_location", "category": "THROWABLES", "description": "A tactical grenade that tags enemies through walls.", "craftInfo": { "station": "Explosives Station II", "quantityProduced": 1, "materials": [{ "name": "Electrical Components", "quantity": 1 }, { "name": "Sensors", "quantity": 1 }] } },
+  { "id": "t-cloak", "name": "Photoelectric Cloak", "rarity": "EPIC", "icon": "visibility_off", "category": "QUICK USE", "description": "Briefly invisible to ARC.", "craftInfo": { "station": "Refiner 3", "quantityProduced": 1, "materials": [{ "name": "Adv Mechanical Components", "quantity": 1 }] } },
+  { "id": "t-snaphook", "name": "Snap Hook", "rarity": "UNCOMMON", "icon": "link", "category": "QUICK USE", "description": "Quick traversal across gaps.", "craftInfo": { "station": "Refiner 1", "quantityProduced": 1, "materials": [{ "name": "Metal Parts", "quantity": 4 }] } },
+  { "id": "t-zipline", "name": "Zipline", "rarity": "RARE", "icon": "route", "category": "QUICK USE", "description": "Bidirectional zipline for squad.", "craftInfo": { "station": "Refiner 2", "quantityProduced": 1, "materials": [{ "name": "Rope", "quantity": 4 }, { "name": "Mechanical Components", "quantity": 3 }] } },
+  { "id": "t-hatch", "name": "Raider Hatch Key", "rarity": "RARE", "icon": "key", "category": "QUICK USE", "description": "An over-the-counter electronic lock bypass. Unlocks Raider Hatches.", "craftInfo": { "station": "Gear Bench 3", "quantityProduced": 1, "materials": [{ "name": "Adv Electrical Components", "quantity": 1 }, { "name": "Sensors", "quantity": 3 }] } },
+  { "id": "t-surge", "name": "Surge Coil", "rarity": "RARE", "icon": "flash_on", "category": "QUICK USE", "description": "Deploys an electrical field to disable nearby ARC.", "craftInfo": { "station": "Explosives Station III", "quantityProduced": 1, "materials": [{ "name": "Electrical Components", "quantity": 1 }, { "name": "Sensors", "quantity": 1 }, { "name": "Hornet Driver", "quantity": 1 }] } },
+  { "id": "t-tagging", "name": "Tagging Grenade", "rarity": "RARE", "icon": "my_location", "category": "THROWABLES", "description": "A tactical grenade that tags enemies through walls.", "craftInfo": { "station": "Explosives Station II", "quantityProduced": 1, "materials": [{ "name": "Electrical Components", "quantity": 1 }, { "name": "Sensors", "quantity": 1 }] } },
   // THROWABLES
   {
     id: 't1', name: 'Light Impact Grenade', recycleInfo: [{
@@ -3572,8 +3519,8 @@ export const THROWABLES_DATA: Throwable[] = [
     }], salvageInfo: [{
       name: 'Chemicals',
       stackSize: 50, quantity: 1
-    }], rarity: 'COMMON', icon: 'explosion', imageUrl: "/images/items/Light_Impact_Grenade.png", stackSize: 5,
-    description: '', category: 'THROWABLES',
+    }], rarity: 'COMMON', icon: 'explosion', stackSize: 5,
+    description: '', category: 'GRENADES',
     craftInfo: {
       station: 'Topside (In-Round)', quantityProduced: 1, materials: [{
         name: 'Plastic Parts',
@@ -3594,8 +3541,8 @@ export const THROWABLES_DATA: Throwable[] = [
     }], salvageInfo: [{
       name: 'Chemicals',
       stackSize: 50, quantity: 3
-    }], rarity: 'RARE', icon: 'cloud', imageUrl: "/images/items/Smoke_Grenade.png", stackSize: 5,
-    description: '', category: 'THROWABLES',
+    }], rarity: 'RARE', icon: 'cloud', stackSize: 5,
+    description: '', category: 'GRENADES',
     craftInfo: {
       station: 'Refiner 2', quantityProduced: 1, materials: [{
         name: 'Chemicals',
@@ -3610,8 +3557,8 @@ export const THROWABLES_DATA: Throwable[] = [
     id: 't4', name: 'Showstopper', recycleInfo: [{ name: 'Electrical Components', stackSize: 10, quantity: 1 }, {
       name: 'Voltage Converter',
       stackSize: 5, quantity: 1
-    }], salvageInfo: [{ name: 'Electrical Components', stackSize: 10, quantity: 1 }], rarity: 'RARE', icon: 'motion_photos_pause', imageUrl: '/images/items/Showstopper.png', stackSize: 5,
-    description: '', category: 'THROWABLES',
+    }], salvageInfo: [{ name: 'Electrical Components', stackSize: 10, quantity: 1 }], rarity: 'RARE', icon: 'motion_photos_pause', stackSize: 5,
+    description: '', category: 'GRENADES',
     craftInfo: {
       station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Electrical Components', quantity: 1 }, { name: 'Hornet Driver', quantity: 1 }, {
         name: 'Voltage Converter',
@@ -3629,8 +3576,8 @@ export const THROWABLES_DATA: Throwable[] = [
     }], salvageInfo: [{
       name: 'Battery',
       stackSize: 15, quantity: 1
-    }], rarity: 'RARE', icon: 'settings_input_antenna', imageUrl: "/images/items/Jolt_Mine.png", stackSize: 3,
-    description: '', category: 'THROWABLES',
+    }], rarity: 'RARE', icon: 'settings_input_antenna', stackSize: 3,
+    description: '', category: 'GRENADES',
     craftInfo: {
       station: 'Explosives Station II', quantityProduced: 1, materials: [{ name: 'Electrical Components', quantity: 1 }, {
         name: 'Battery',
@@ -3648,8 +3595,8 @@ export const THROWABLES_DATA: Throwable[] = [
     }], salvageInfo: [{
       name: 'Oil',
       stackSize: 15, quantity: 2
-    }], rarity: 'RARE', icon: 'trip_origin', imageUrl: "/images/items/Explosive_Mine.png", stackSize: 3,
-    description: '', category: 'THROWABLES',
+    }], rarity: 'RARE', icon: 'trip_origin', stackSize: 3,
+    description: '', category: 'GRENADES',
     craftInfo: {
       station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Explosive Compound', quantity: 1 }, {
         name: 'Sensors',
@@ -3667,8 +3614,8 @@ export const THROWABLES_DATA: Throwable[] = [
     }], salvageInfo: [{
       name: 'Chemicals',
       stackSize: 50, quantity: 2
-    }], rarity: 'COMMON', icon: 'explosion', imageUrl: "/images/items/Snap_Blast_Grenade.png", stackSize: 3,
-    description: '', category: 'THROWABLES',
+    }], rarity: 'COMMON', icon: 'explosion', stackSize: 3,
+    description: '', category: 'GRENADES',
     craftInfo: {
       station: 'Explosives Station II', quantityProduced: 1, materials: [{ name: 'Crude Explosives', quantity: 2 }, {
         name: 'Magnet',
@@ -3677,7 +3624,7 @@ export const THROWABLES_DATA: Throwable[] = [
     }
   },
   {
-    id: 't8', name: 'Trigger\'nade', rarity: 'RARE', icon: 'back_hand', imageUrl: "/images/items/Trigger_nade.png", stackSize: 5,
+    id: 't8', name: 'Trigger\'nade', rarity: 'RARE', icon: 'back_hand', stackSize: 5,
     recycleInfo: [{
       name: 'Chemicals',
       quantity: 1
@@ -3689,7 +3636,7 @@ export const THROWABLES_DATA: Throwable[] = [
       name: 'Processor',
       quantity: 1
     }],
-    description: "A remote-detonated Grenade that explodes after being triggered. It can stick to almost any surface when thrown.", category: 'THROWABLES',
+    description: "A remote-detonated Grenade that explodes after being triggered. It can stick to almost any surface when thrown.", category: 'GRENADES',
     craftInfo: {
       station: 'Explosives Station II', quantityProduced: 1, materials: [{ name: 'Crude Explosives', quantity: 2 }, {
         name: 'Processor',
@@ -3704,8 +3651,8 @@ export const THROWABLES_DATA: Throwable[] = [
     }, {
       name: 'Rubber Parts',
       stackSize: 50, quantity: 2
-    }], salvageInfo: [{ name: 'Crude Explosives', stackSize: 10, quantity: 1 }], rarity: 'RARE', icon: 'bomb', imageUrl: "/images/items/Heavy_Fuze_Grenade.png", stackSize: 3,
-    description: '', category: 'THROWABLES',
+    }], salvageInfo: [{ name: 'Crude Explosives', stackSize: 10, quantity: 1 }], rarity: 'RARE', icon: 'bomb', stackSize: 3,
+    description: '', category: 'GRENADES',
     craftInfo: {
       station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Explosive Compound', quantity: 1 }, {
         name: 'Canister',
@@ -3723,8 +3670,8 @@ export const THROWABLES_DATA: Throwable[] = [
     }], salvageInfo: [{
       name: 'Oil',
       stackSize: 15, quantity: 1
-    }], rarity: 'RARE', icon: 'local_fire_department', imageUrl: "/images/items/Blaze_Grenade.png", stackSize: 5,
-    description: '', category: 'THROWABLES',
+    }], rarity: 'RARE', icon: 'local_fire_department', stackSize: 5,
+    description: '', category: 'GRENADES',
     craftInfo: {
       station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Explosive Compound', quantity: 1 }, {
         name: 'Oil',
@@ -3733,8 +3680,8 @@ export const THROWABLES_DATA: Throwable[] = [
     }
   },
   {
-    id: 't11', name: 'Trailblazer', recycleInfo: [{ name: 'Crude Explosives', stackSize: 10, quantity: 2 }], salvageInfo: [{ name: 'Crude Explosives', stackSize: 10, quantity: 2 }], rarity: 'EPIC', icon: 'route', imageUrl: '/images/items/Trailblazer_grenade.png', stackSize: 3,
-    description: '', category: 'THROWABLES',
+    id: 't11', name: 'Trailblazer', recycleInfo: [{ name: 'Crude Explosives', stackSize: 10, quantity: 2 }], salvageInfo: [{ name: 'Crude Explosives', stackSize: 10, quantity: 2 }], rarity: 'EPIC', icon: 'route', stackSize: 3,
+    description: '', category: 'GRENADES',
     craftInfo: {
       station: 'Explosives Station III', quantityProduced: 1, materials: [{
         name: 'Synthesized Fuel',
@@ -3743,24 +3690,24 @@ export const THROWABLES_DATA: Throwable[] = [
     }
   },
   {
-    id: 't12', name: 'Wolfpack', recycleInfo: [{ name: 'ARC Motion Core', stackSize: 5, quantity: 1 }, { name: 'Explosive Compound', stackSize: 5, quantity: 1 }], salvageInfo: [{ name: 'Explosive Compound', stackSize: 5, quantity: 2 }], rarity: 'EPIC', icon: 'rocket_launch', imageUrl: '/images/items/Wolfpack.png', stackSize: 1,
-    description: '', category: 'THROWABLES',
+    id: 't12', name: 'Wolfpack', recycleInfo: [{ name: 'ARC Motion Core', stackSize: 5, quantity: 1 }, { name: 'Explosive Compound', stackSize: 5, quantity: 1 }], salvageInfo: [{ name: 'Explosive Compound', stackSize: 5, quantity: 2 }], rarity: 'EPIC', icon: 'rocket_launch', stackSize: 1,
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Explosive Compound', quantity: 1 }, { name: 'ARC Motion Core', quantity: 2 }, { name: 'Rocketeer Driver', quantity: 1 }] }
   },
   {
     id: 't13', name: 'Seeker Grenade', recycleInfo: [{ name: 'Crude Explosives', stackSize: 10, quantity: 1 }], salvageInfo: [{
       name: 'Chemicals',
       stackSize: 50, quantity: 3
-    }], rarity: 'RARE', icon: 'assistant_navigation', imageUrl: "/images/items/Seeker_Grenade.png", stackSize: 5,
-    description: '', category: 'THROWABLES',
+    }], rarity: 'RARE', icon: 'assistant_navigation', stackSize: 5,
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Explosives Station I', quantityProduced: 1, materials: [{ name: 'Crude Explosives', quantity: 1 }, { name: 'ARC Alloy', quantity: 2 }] }
   },
   {
     id: 't14', name: 'Shrapnel Grenade', recycleInfo: [{ name: 'Crude Explosives', stackSize: 10, quantity: 1 }, {
       name: 'Metal Parts',
       stackSize: 50, quantity: 1
-    }], salvageInfo: [{ name: 'Crude Explosives', stackSize: 10, quantity: 1 }], rarity: 'UNCOMMON', icon: 'blur_on', imageUrl: "/images/items/Shrapnel_Grenade.png", stackSize: 5,
-    description: '', category: 'THROWABLES',
+    }], salvageInfo: [{ name: 'Crude Explosives', stackSize: 10, quantity: 1 }], rarity: 'UNCOMMON', icon: 'blur_on', stackSize: 5,
+    description: '', category: 'GRENADES',
     craftInfo: {
       station: 'Explosives Station I', quantityProduced: 1, materials: [{ name: 'Crude Explosives', quantity: 1 }, {
         name: 'Steel Spring',
@@ -3769,14 +3716,13 @@ export const THROWABLES_DATA: Throwable[] = [
     }
   },
   {
-    id: 't15', name: 'Deadline', recycleInfo: [{ name: 'Explosive Compound', stackSize: 5, quantity: 1 }, { name: 'ARC Circuitry', stackSize: 5, quantity: 1 }], salvageInfo: [{ name: 'Explosive Compound', stackSize: 5, quantity: 1 }], rarity: 'EPIC', icon: 'warning', imageUrl: '/images/items/Deadline.png', stackSize: 1,
-    description: '', category: 'THROWABLES',
+    id: 't15', name: 'Deadline', recycleInfo: [{ name: 'Explosive Compound', stackSize: 5, quantity: 1 }, { name: 'ARC Circuitry', stackSize: 5, quantity: 1 }], salvageInfo: [{ name: 'Explosive Compound', stackSize: 5, quantity: 1 }], rarity: 'EPIC', icon: 'warning', stackSize: 1,
+    description: '', category: 'GRENADES',
     craftInfo: { station: 'Explosives Station III', quantityProduced: 1, materials: [{ name: 'Comet Igniter', quantity: 1 }, { name: 'Explosive Compound', quantity: 3 }, { name: 'ARC Circuitry', quantity: 2 }] }
   },
   // DEFENSIVE - SHIELDS
   {
     id: 't16', name: 'Light Shield', rarity: 'UNCOMMON', icon: 'shield', category: 'SHIELDS',
-    imageUrl: "/images/items/Light_Shield.png",
     description: 'Basic protection made from salvaged parts. Lightweight and portable.',
     craftInfo: {
       station: 'Gear Bench 1', quantityProduced: 1, materials: [{ name: 'ARC Alloy', quantity: 2 }, {
@@ -3793,7 +3739,6 @@ export const THROWABLES_DATA: Throwable[] = [
   },
   {
     id: 't17', name: 'Medium Shield', rarity: 'RARE', icon: 'shield', category: 'SHIELDS',
-    imageUrl: "/images/items/Medium_Shield.png",
     description: 'Adv protection with integrated circuitry for better durability.',
     craftInfo: {
       station: 'Gear Bench 2', quantityProduced: 1, materials: [{
@@ -3807,7 +3752,6 @@ export const THROWABLES_DATA: Throwable[] = [
   },
   {
     id: 't18', name: 'Heavy Shield', rarity: 'EPIC', icon: 'shield', category: 'SHIELDS',
-    imageUrl: "/images/items/Heavy_Shield.png",
     description: 'Maximum protection using high-voltage components to deflect impacts.',
     craftInfo: {
       station: 'Gear Bench 3', quantityProduced: 1, materials: [{ name: 'Power Rod', quantity: 1 }, {
@@ -3830,8 +3774,7 @@ export const THROWABLES_DATA: Throwable[] = [
     }], salvageInfo: [{
       name: 'Rubber Parts',
       stackSize: 50, quantity: 3
-    }], rarity: 'UNCOMMON', icon: 'battery_charging_full', category: 'DEFENSIVE', stackSize: 5,
-    imageUrl: '/images/items/Shield_Recharger.png',
+    }], rarity: 'UNCOMMON', icon: 'battery_charging_full', category: 'HEALING', stackSize: 5,
     description: 'Quick Use item that can be used to recharge Shields over time.',
     craftInfo: {
       station: 'Refiner 1', quantityProduced: 1, materials: [{
@@ -3844,8 +3787,7 @@ export const THROWABLES_DATA: Throwable[] = [
     id: 't20', name: 'Surge Shield Recharger', recycleInfo: [{ name: 'Electrical Components', stackSize: 10, quantity: 1 }], salvageInfo: [{
       name: 'Plastic Parts',
       stackSize: 50, quantity: 5
-    }], rarity: 'RARE', icon: 'bolt', category: 'DEFENSIVE', stackSize: 5,
-    imageUrl: "/images/items/Surge_Shield_Recharger.webp",
+    }], rarity: 'RARE', icon: 'bolt', category: 'HEALING', stackSize: 5,
     description: 'Quick Use item that can be used to recharge Shields instantly.',
     craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Electrical Components', quantity: 4 }, { name: 'Adv ARC Powercell', quantity: 1 }] }
   },
@@ -3853,8 +3795,7 @@ export const THROWABLES_DATA: Throwable[] = [
     id: 't21', name: 'Vita Spray', recycleInfo: [{ name: 'Antiseptic', stackSize: 5, quantity: 1 }, {
       name: 'Canister',
       stackSize: 15, quantity: 1
-    }], salvageInfo: [{ name: 'Antiseptic', stackSize: 5, quantity: 1 }], rarity: 'EPIC', icon: 'medication', category: 'DEFENSIVE', stackSize: 1,
-    imageUrl: '/images/items/Vita_Spray.png',
+    }], salvageInfo: [{ name: 'Antiseptic', stackSize: 5, quantity: 1 }], rarity: 'EPIC', icon: 'medication', category: 'HEALING', stackSize: 1,
     description: 'A pressurized healing spray that restores health rapidly over time.',
     craftInfo: {
       station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Antiseptic', quantity: 4 }, {
@@ -3873,8 +3814,7 @@ export const THROWABLES_DATA: Throwable[] = [
     }], salvageInfo: [{
       name: 'Syringe',
       stackSize: 5, quantity: 1
-    }], rarity: 'RARE', icon: 'vaccines', category: 'DEFENSIVE', stackSize: 3,
-    imageUrl: '/images/items/Vita_Shot.png',
+    }], rarity: 'RARE', icon: 'vaccines', category: 'HEALING', stackSize: 3,
     description: 'An injectable healing agent that provides an immediate boost to health.',
     craftInfo: {
       station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Antiseptic', quantity: 3 }, {
@@ -3887,8 +3827,7 @@ export const THROWABLES_DATA: Throwable[] = [
     id: 't23', name: 'Sterilized Bandage', recycleInfo: [{
       name: 'Fabric',
       stackSize: 50, quantity: 1
-    }, { name: 'Antiseptic', stackSize: 5, quantity: 1 }], salvageInfo: [{ name: 'Durable Cloth', stackSize: 10, quantity: 1 }], rarity: 'RARE', icon: 'healing', category: 'DEFENSIVE', stackSize: 3,
-    imageUrl: '/images/items/Sterilized_Bandage.png',
+    }, { name: 'Antiseptic', stackSize: 5, quantity: 1 }], salvageInfo: [{ name: 'Durable Cloth', stackSize: 10, quantity: 1 }], rarity: 'RARE', icon: 'healing', category: 'HEALING', stackSize: 3,
     description: 'Clean medical wrap treated with antiseptic to heal wounds.',
     craftInfo: { station: 'Refiner 1', quantityProduced: 1, materials: [{ name: 'Durable Cloth', quantity: 2 }, { name: 'Antiseptic', quantity: 1 }] }
   },
@@ -3899,8 +3838,7 @@ export const THROWABLES_DATA: Throwable[] = [
     }], salvageInfo: [{
       name: 'Fabric',
       stackSize: 50, quantity: 8
-    }], rarity: 'UNCOMMON', icon: 'healing', category: 'DEFENSIVE', stackSize: 5,
-    imageUrl: '/images/items/Herbal_Bandage.png',
+    }], rarity: 'UNCOMMON', icon: 'healing', category: 'HEALING', stackSize: 5,
     description: 'A traditional bandage using medicinal plants for natural healing.',
     craftInfo: {
       station: 'Refiner 1', quantityProduced: 1, materials: [{
@@ -3922,8 +3860,7 @@ export const THROWABLES_DATA: Throwable[] = [
     }], salvageInfo: [{
       name: 'Chemicals',
       stackSize: 50, quantity: 2
-    }], rarity: 'RARE', icon: 'heart_minus', category: 'DEFENSIVE', stackSize: 3,
-    imageUrl: '/images/items/Defibrillator.png',
+    }], rarity: 'RARE', icon: 'heart_minus', category: 'HEALING', stackSize: 3,
     description: 'A device used to revive downed teammates in the heat of battle.',
     craftInfo: {
       station: 'Refiner 2', quantityProduced: 1, materials: [{
@@ -3938,141 +3875,63 @@ export const THROWABLES_DATA: Throwable[] = [
 
   // ─── NEW GRENADES ──────────────────────────────────────────────────────
   {
-    id: 't-gas-grenade', name: 'Gas Grenade', rarity: 'COMMON', icon: 'blur_circular', imageUrl: "/images/items/Gas_Grenade.png", category: 'THROWABLES', description: 'Detonates to create a lingering toxic gas cloud that drains stamina.', stackSize: 5,
+    id: 't-gas-grenade', name: 'Gas Grenade', rarity: 'COMMON', icon: 'blur_circular', category: 'GRENADES', description: 'Detonates to create a lingering toxic gas cloud that drains stamina.', stackSize: 5,
     craftInfo: { station: 'Explosives Station I', quantityProduced: 2, materials: [{ name: 'Chemicals', quantity: 4 }, { name: 'Rubber Parts', quantity: 2 }] },
     recycleInfo: [{ name: 'Chemicals', quantity: 1 }, { name: 'Rubber Parts', quantity: 1 }],
     salvageInfo: [{ name: 'Chemicals', quantity: 1 }]
   },
   {
-    id: 't-lure-grenade', name: 'Lure Grenade', rarity: 'COMMON', icon: 'radar', imageUrl: "/images/items/Lure_Grenade.webp", category: 'THROWABLES', description: 'Emits a signal that attracts nearby ARC to its location.', stackSize: 5,
+    id: 't-lure-grenade', name: 'Lure Grenade', rarity: 'COMMON', icon: 'radar', category: 'GRENADES', description: 'Emits a signal that attracts nearby ARC to its location.', stackSize: 5,
     craftInfo: { station: 'Explosives Station I', quantityProduced: 2, materials: [{ name: 'Electrical Components', quantity: 1 }, { name: 'Plastic Parts', quantity: 2 }] },
     recycleInfo: [{ name: 'Plastic Parts', quantity: 1 }],
     salvageInfo: [{ name: 'Plastic Parts', quantity: 1 }]
   },
-  {
-    id: 't-lil-smoke', name: "Li'l Smoke Grenade", rarity: 'COMMON', icon: 'cloud', imageUrl: "/images/items/Li%27l_Smoke_Grenade.png", category: 'THROWABLES', description: 'A smaller smoke grenade that creates a brief, compact smoke screen.', stackSize: 5,
-    craftInfo: { station: 'Explosives Station I', quantityProduced: 3, materials: [{ name: 'Chemicals', quantity: 4 }, { name: 'Canister', quantity: 1 }] },
-    recycleInfo: [{ name: 'Chemicals', quantity: 1 }],
-    salvageInfo: [{ name: 'Chemicals', quantity: 1 }]
-  },
   // ─── NEW TRAPS ─────────────────────────────────────────────────────────
   {
-    id: 't-blaze-trap', name: 'Blaze Grenade Trap', rarity: 'UNCOMMON', icon: 'local_fire_department', imageUrl: "/images/items/Blaze_Grenade_Trap.png", category: 'THROWABLES', description: 'A laser tripwire trap that detonates a Blaze Grenade when triggered.', stackSize: 3,
-    craftInfo: { station: 'Explosives Station II', quantityProduced: 1, materials: [{ name: 'Wires', quantity: 2 }, { name: 'Chemicals', quantity: 4 }, { name: 'Oil', quantity: 2 }] },
-    recycleInfo: [{ name: 'Chemicals', quantity: 1 }, { name: 'Wires', quantity: 1 }],
-    salvageInfo: [{ name: 'Wires', quantity: 1 }]
-  },
-  {
-    id: 't-gas-trap', name: 'Gas Grenade Trap', rarity: 'UNCOMMON', icon: 'blur_circular', imageUrl: "/images/items/Gas_Grenade_Trap.png", category: 'THROWABLES', description: 'A laser tripwire trap that releases toxic gas when triggered.', stackSize: 3,
-    craftInfo: { station: 'Explosives Station II', quantityProduced: 1, materials: [{ name: 'Wires', quantity: 2 }, { name: 'Chemicals', quantity: 4 }, { name: 'Rubber Parts', quantity: 2 }] },
-    recycleInfo: [{ name: 'Chemicals', quantity: 1 }, { name: 'Wires', quantity: 1 }],
-    salvageInfo: [{ name: 'Wires', quantity: 1 }]
-  },
-  {
-    id: 't-gas-mine', name: 'Gas Mine', rarity: 'UNCOMMON', icon: 'dangerous', imageUrl: "/images/items/Gas_Mine.png", category: 'THROWABLES', description: 'A proximity mine that releases a cloud of toxic gas when triggered.', stackSize: 3,
+    id: 't-gas-mine', name: 'Gas Mine', rarity: 'UNCOMMON', icon: 'dangerous', category: 'GRENADES', description: 'A proximity mine that releases a cloud of toxic gas when triggered.', stackSize: 3,
     craftInfo: { station: 'Explosives Station II', quantityProduced: 1, materials: [{ name: 'Chemicals', quantity: 5 }, { name: 'Rubber Parts', quantity: 3 }] },
     recycleInfo: [{ name: 'Chemicals', quantity: 2 }],
     salvageInfo: [{ name: 'Chemicals', quantity: 1 }]
   },
   {
-    id: 't-pulse-mine', name: 'Pulse Mine', rarity: 'UNCOMMON', icon: 'flash_on', imageUrl: "/images/items/Pulse_Mine.webp", category: 'THROWABLES', description: 'A proximity mine that releases an EMP pulse, disabling nearby ARC on trigger.', stackSize: 3,
+    id: 't-pulse-mine', name: 'Pulse Mine', rarity: 'UNCOMMON', icon: 'flash_on', category: 'GRENADES', description: 'A proximity mine that releases an EMP pulse, disabling nearby ARC on trigger.', stackSize: 3,
     craftInfo: { station: 'Explosives Station II', quantityProduced: 1, materials: [{ name: 'Electrical Components', quantity: 2 }, { name: 'Sensors', quantity: 1 }] },
     recycleInfo: [{ name: 'Electrical Components', quantity: 1 }],
     salvageInfo: [{ name: 'Electrical Components', quantity: 1 }]
   },
-  {
-    id: 't-lure-trap', name: 'Lure Grenade Trap', rarity: 'COMMON', icon: 'radar', imageUrl: "/images/items/Lure_Grenade_Trap.png", category: 'THROWABLES', description: 'A laser tripwire trap that triggers a lure signal to distract ARC.', stackSize: 3,
-    craftInfo: { station: 'Explosives Station I', quantityProduced: 1, materials: [{ name: 'Wires', quantity: 2 }, { name: 'Electrical Components', quantity: 1 }, { name: 'Plastic Parts', quantity: 2 }] },
-    recycleInfo: [{ name: 'Wires', quantity: 1 }],
-    salvageInfo: [{ name: 'Wires', quantity: 1 }]
-  },
-  {
-    id: 't-smoke-trap', name: 'Smoke Grenade Trap', rarity: 'COMMON', icon: 'cloud', imageUrl: "/images/items/Smoke_Grenade_Trap.png", category: 'THROWABLES', description: 'A laser tripwire trap that deploys a smoke screen when triggered.', stackSize: 3,
-    craftInfo: { station: 'Explosives Station I', quantityProduced: 1, materials: [{ name: 'Wires', quantity: 2 }, { name: 'Chemicals', quantity: 3 }, { name: 'Canister', quantity: 1 }] },
-    recycleInfo: [{ name: 'Chemicals', quantity: 1 }],
-    salvageInfo: [{ name: 'Chemicals', quantity: 1 }]
-  },
   // ─── NEW QUICK USE / HEALING ────────────────────────────────────────────
   {
-    id: 't-bandage', name: 'Bandage', rarity: 'COMMON', icon: 'healing', imageUrl: "/images/items/Bandage.png", category: 'QUICK USE', description: 'A basic wound dressing. Stops bleeding and restores a small amount of health over time.', stackSize: 5,
+    id: 't-bandage', name: 'Bandage', rarity: 'COMMON', icon: 'healing', category: 'UTILITY', description: 'A basic wound dressing. Stops bleeding and restores a small amount of health over time.', stackSize: 5,
     craftInfo: { station: 'Refiner 1', quantityProduced: 2, materials: [{ name: 'Fabric', quantity: 2 }] },
     recycleInfo: [{ name: 'Fabric', quantity: 1 }],
     salvageInfo: [{ name: 'Fabric', quantity: 1 }]
   },
   {
-    id: 't-adrenaline', name: 'Adrenaline Shot', rarity: 'RARE', icon: 'medical_services', imageUrl: "/images/items/Adrenaline_Shot.png", category: 'QUICK USE', description: 'A powerful stimulant that rapidly restores stamina and briefly boosts movement speed.', stackSize: 3,
+    id: 't-adrenaline', name: 'Adrenaline Shot', rarity: 'RARE', icon: 'medical_services', category: 'UTILITY', description: 'A powerful stimulant that rapidly restores stamina and briefly boosts movement speed.', stackSize: 3,
     craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Chemicals', quantity: 3 }, { name: 'Syringe', quantity: 1 }] },
     recycleInfo: [{ name: 'Chemicals', quantity: 1 }],
     salvageInfo: [{ name: 'Syringe', quantity: 1 }]
   },
   // ─── NEW GADGETS / UTILITY ─────────────────────────────────────────────
   {
-    id: 't-barricade', name: 'Barricade Kit', rarity: 'UNCOMMON', icon: 'fence', imageUrl: "/images/items/Barricade_Kit.png", category: 'QUICK USE', description: 'Deploys a reinforced barricade panel to block doorways and chokepoints.', stackSize: 2,
+    id: 't-barricade', name: 'Barricade Kit', rarity: 'UNCOMMON', icon: 'fence', category: 'UTILITY', description: 'Deploys a reinforced barricade panel to block doorways and chokepoints.', stackSize: 2,
     craftInfo: { station: 'Gear Bench I', quantityProduced: 1, materials: [{ name: 'Metal Parts', quantity: 4 }, { name: 'Rope', quantity: 2 }] },
     recycleInfo: [{ name: 'Metal Parts', quantity: 2 }],
     salvageInfo: [{ name: 'Metal Parts', quantity: 1 }]
   },
   {
-    id: 't-door-blocker', name: 'Door Blocker', rarity: 'COMMON', icon: 'door_front', imageUrl: "/images/items/Door_Blocker.png", category: 'QUICK USE', description: 'Jams a door shut so it cannot be opened from either side.', stackSize: 3,
-    craftInfo: { station: 'Gear Bench I', quantityProduced: 1, materials: [{ name: 'Metal Parts', quantity: 2 }, { name: 'Rubber Parts', quantity: 1 }] },
-    recycleInfo: [{ name: 'Metal Parts', quantity: 1 }],
-    salvageInfo: [{ name: 'Metal Parts', quantity: 1 }]
-  },
-  {
-    id: 't-binoculars', name: 'Binoculars', rarity: 'UNCOMMON', icon: 'travel_explore', imageUrl: "/images/items/Binoculars.png", category: 'QUICK USE', description: 'Long-range optical device that lets you scout at great distances.', stackSize: 1,
-    craftInfo: { station: 'Gear Bench I', quantityProduced: 1, materials: [{ name: 'Processor', quantity: 1 }, { name: 'Plastic Parts', quantity: 2 }] },
-    recycleInfo: [{ name: 'Plastic Parts', quantity: 1 }],
-    salvageInfo: [{ name: 'Processor', quantity: 1 }]
-  },
-  {
-    id: 't-zipline-quick', name: 'Zipline', rarity: 'RARE', icon: 'route', imageUrl: "/images/items/Zipline.png", category: 'QUICK USE', description: 'Creates a bidirectional zipline between two anchor points for rapid traversal.', stackSize: 2,
+    id: 't-zipline-quick', name: 'Zipline', rarity: 'RARE', icon: 'route', category: 'UTILITY', description: 'Creates a bidirectional zipline between two anchor points for rapid traversal.', stackSize: 2,
     craftInfo: { station: 'Refiner 2', quantityProduced: 1, materials: [{ name: 'Rope', quantity: 4 }, { name: 'Mechanical Components', quantity: 3 }] },
     recycleInfo: [{ name: 'Rope', quantity: 2 }],
     salvageInfo: [{ name: 'Rope', quantity: 1 }]
   },
-  {
-    id: 't-flame-spray', name: 'Flame Spray', rarity: 'UNCOMMON', icon: 'local_fire_department', imageUrl: "/images/items/Flame_Spray.png", category: 'QUICK USE', description: 'A pressurized canister that sprays a short burst of fire in front of you.', stackSize: 3,
-    craftInfo: { station: 'Explosives Station I', quantityProduced: 1, materials: [{ name: 'Canister', quantity: 1 }, { name: 'Oil', quantity: 3 }] },
-    recycleInfo: [{ name: 'Canister', quantity: 1 }],
-    salvageInfo: [{ name: 'Oil', quantity: 1 }]
-  },
-  {
-    id: 't-fireworks', name: 'Fireworks Box', rarity: 'COMMON', icon: 'celebration', imageUrl: "/images/items/Fireworks_Box.png", category: 'QUICK USE', description: 'A box of colorful pyrotechnics. Create a distraction from a safe distance.', stackSize: 3,
-    craftInfo: { station: 'Explosives Station I', quantityProduced: 1, materials: [{ name: 'Chemicals', quantity: 2 }, { name: 'Plastic Parts', quantity: 1 }] },
-    recycleInfo: [{ name: 'Chemicals', quantity: 1 }],
-    salvageInfo: [{ name: 'Chemicals', quantity: 1 }]
-  },
   // ─── LIGHT STICKS ──────────────────────────────────────────────────────
-  {
-    id: 't-green-lightstick', name: 'Green Light Stick', rarity: 'COMMON', icon: 'flashlight_on', imageUrl: "/images/items/Green_Light_Stick.png", category: 'QUICK USE', description: 'A glowing chemical stick that marks locations and provides ambient light. Color: Green.', stackSize: 10,
-    craftInfo: { station: 'Refiner 1', quantityProduced: 3, materials: [{ name: 'Chemicals', quantity: 2 }, { name: 'Plastic Parts', quantity: 1 }] },
-    recycleInfo: [{ name: 'Chemicals', quantity: 1 }],
-    salvageInfo: [{ name: 'Chemicals', quantity: 1 }]
-  },
-  {
-    id: 't-yellow-lightstick', name: 'Yellow Light Stick', rarity: 'COMMON', icon: 'flashlight_on', imageUrl: "/images/items/Yellow_Light_Stick.png", category: 'QUICK USE', description: 'A glowing chemical stick that marks locations and provides ambient light. Color: Yellow.', stackSize: 10,
-    craftInfo: { station: 'Refiner 1', quantityProduced: 3, materials: [{ name: 'Chemicals', quantity: 2 }, { name: 'Plastic Parts', quantity: 1 }] },
-    recycleInfo: [{ name: 'Chemicals', quantity: 1 }],
-    salvageInfo: [{ name: 'Chemicals', quantity: 1 }]
-  },
-  {
-    id: 't-red-lightstick', name: 'Red Light Stick', rarity: 'COMMON', icon: 'flashlight_on', imageUrl: "/images/items/Red_Light_Stick.png", category: 'QUICK USE', description: 'A glowing chemical stick that marks locations and provides ambient light. Color: Red.', stackSize: 10,
-    craftInfo: { station: 'Refiner 1', quantityProduced: 3, materials: [{ name: 'Chemicals', quantity: 2 }, { name: 'Plastic Parts', quantity: 1 }] },
-    recycleInfo: [{ name: 'Chemicals', quantity: 1 }],
-    salvageInfo: [{ name: 'Chemicals', quantity: 1 }]
-  },
-  {
-    id: 't-blue-lightstick', name: 'Blue Light Stick', rarity: 'COMMON', icon: 'flashlight_on', imageUrl: "/images/items/Blue_Light_Stick.png", category: 'QUICK USE', description: 'A glowing chemical stick that marks locations and provides ambient light. Color: Blue.', stackSize: 10,
-    craftInfo: { station: 'Refiner 1', quantityProduced: 3, materials: [{ name: 'Chemicals', quantity: 2 }, { name: 'Plastic Parts', quantity: 1 }] },
-    recycleInfo: [{ name: 'Chemicals', quantity: 1 }],
-    salvageInfo: [{ name: 'Chemicals', quantity: 1 }]
-  }];
+];
 
 
 export const AUGMENTS_DATA: Augment[] = [
   {
     id: "a-c3a", name: "Combat Mk. 3 (Aggressive)", rarity: "EPIC", icon: "shield_with_heart", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/items/Combat_Mk._3_(Aggressive).png",
     description: "Built for frontline assault. High shield integrity and optimized for offensive resource deployment.",
     perks: "+2 slots de granada e regen de 2 HP a cada 5 s (pausa 30 s ao tomar dano).",
     maxWeight: "64–65", backpackSlots: 18, quickUseSlots: 4, safePocketSlots: 1, shieldCompat: "Light / Medium / Heavy",
@@ -4090,7 +3949,6 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-c3f", name: "Combat Mk. 3 (Flanking)", rarity: "EPIC", icon: "shield_with_heart", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/items/Combat_Mk._3_(Flanking).png",
     description: "Highly mobile frame designed for rapid equipment swapping and maneuvering in close quarters.",
     perks: "+3 slots de Utility e pistolas/hand cannons equipam ~33% mais rápido.",
     maxWeight: "60", backpackSlots: 20, quickUseSlots: 5, safePocketSlots: 2, shieldCompat: "Light",
@@ -4108,7 +3966,6 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-l2", name: "Looting Mk. 2", rarity: "RARE", icon: "shopping_bag", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/items/Looting_Mk._2.png",
     description: "Scavenger's best friend. Lightweight with increased storage capacity for Trinkets.",
     perks: "+3 slots de Trinket e joga fora Ticks presos em você após ~1 s.",
     maxWeight: "60", backpackSlots: 22, quickUseSlots: 4, safePocketSlots: 2, shieldCompat: "Light",
@@ -4126,7 +3983,6 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-l3c", name: "Looting Mk. 3 (Cautious)", rarity: "EPIC", icon: "shopping_bag", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/items/Looting_Mk._3_(Cautious).png",
     description: "Recon-optimized frame that prioritizes situational awareness and early warning systems.",
     perks: "Adrenaline Shot automático ao quebrar o escudo, com cooldown.",
     maxWeight: "70", backpackSlots: 24, quickUseSlots: 5, safePocketSlots: 2, shieldCompat: "Light",
@@ -4144,7 +4000,6 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-l3sa", name: "Looting Mk. 3 (Safekeeper)", rarity: "EPIC", icon: "shopping_bag", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/items/Looting_Mk._3_(Safekeeper).png",
     description: "The ultimate extractor. Features experimental safe pocket technology for high-value assets.",
     perks: "Safe Pocket aceita qualquer item (incluindo armas), protegendo-os da perda.",
     maxWeight: "65", backpackSlots: 18, quickUseSlots: 4, safePocketSlots: 1, shieldCompat: "Light / Medium / Heavy",
@@ -4162,7 +4017,6 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-l3su", name: "Looting Mk. 3 (Survivor)", rarity: "EPIC", icon: "shopping_bag", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/items/Looting_Mk._3_(Survivor).png",
     description: "Exceptional solo frame designed for survival in hostile environments without support.",
     perks: "Altíssimo peso + mochila, +1 Utility; 'mula' máxima, sem perk ativável.",
     maxWeight: "80", backpackSlots: 20, quickUseSlots: 5, safePocketSlots: 3, shieldCompat: "Light / Medium",
@@ -4180,7 +4034,6 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-t2", name: "Tactical Mk. 2", rarity: "RARE", icon: "tactic", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/items/Tactical_Mk._2.png",
     description: "Utility frame focused on defensive deployment and area denial strategies.",
     perks: "+1 slot de Utility e fumaça automática ao quebrar o escudo (CD fixo).",
     maxWeight: "45", backpackSlots: 17, quickUseSlots: 5, safePocketSlots: 1, shieldCompat: "Light / Medium",
@@ -4198,7 +4051,6 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-t3d", name: "Tactical Mk. 3 (Defensive)", rarity: "EPIC", icon: "tactic", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/items/Tactical_Mk._3_(Defensive).png",
     description: "Frontline tank frame designed for maximum durability and energy redirection.",
     perks: "Integrated Shield Recharger para recarregar escudo com cooldown.",
     maxWeight: "60", backpackSlots: 20, quickUseSlots: 5, safePocketSlots: 1, shieldCompat: "Light / Medium / Heavy",
@@ -4216,7 +4068,6 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-t3h", name: "Tactical Mk. 3 (Healing)", rarity: "EPIC", icon: "tactic", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/items/Tactical_Mk._3_Healing.png",
     description: "Specialized combat medic frame with integrated healing dispersal systems.",
     perks: "+3 slots de cura e nuvem de cura (~20 HP em 10 s) ao ser revivido.",
     maxWeight: "55", backpackSlots: 16, quickUseSlots: 4, safePocketSlots: 3, shieldCompat: "Light / Medium",
@@ -4234,7 +4085,6 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: "a-t3r", name: "Tactical Mk. 3 (Revival)", rarity: "EPIC", icon: "tactic", category: "AUGMENT", stackSize: 1,
-    imageUrl: "/images/items/Tactical_Mk._3_Revival.png",
     description: "Support-heavy frame built for emergency squads and squad recovery operations.",
     perks: "Integrated Defibrillator (revive grátis com cooldown) e regen leve de HP.",
     maxWeight: "65", backpackSlots: 16, quickUseSlots: 5, safePocketSlots: 2, shieldCompat: "Light",
@@ -4252,7 +4102,6 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: 'a1', name: 'Combat Mk. 1', rarity: 'UNCOMMON', icon: 'shield_with_heart', category: 'AUGMENT',
-    imageUrl: "/images/items/Combat_Mk._1.webp",
     description: 'Basic armor that supports Medium Shields.',
     perks: 'Suporta Medium Shield, pouca mochila, sem perk.',
     maxWeight: "45", backpackSlots: 16, quickUseSlots: 4, safePocketSlots: 1, shieldCompat: "Light / Medium",
@@ -4279,7 +4128,6 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: 'a2', name: 'Combat Mk. 2', rarity: 'RARE', icon: 'shield_with_heart', category: 'AUGMENT',
-    imageUrl: "/images/items/Combat_Mk._2.png",
     description: 'Advanced frame with integrated medical systems.',
     perks: '+1 slot de granada e regen de 1 HP a cada 5 s (pausa 30 s após dano).',
     maxWeight: "55", backpackSlots: 18, quickUseSlots: 4, safePocketSlots: 1, shieldCompat: "Light / Medium / Heavy",
@@ -4297,7 +4145,6 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: 'a3', name: 'Looting Mk. 1', rarity: 'UNCOMMON', icon: 'shopping_bag', category: 'AUGMENT',
-    imageUrl: "/images/items/Looting_Mk._1.webp",
     description: 'Increases carrying weight and backpack slots.',
     perks: 'Mais slots de mochila e peso, sem perk ativo extra.',
     maxWeight: "50", backpackSlots: 18, quickUseSlots: 4, safePocketSlots: 1, shieldCompat: "Light",
@@ -4324,7 +4171,6 @@ export const AUGMENTS_DATA: Augment[] = [
   },
   {
     id: 'a4', name: 'Tactical Mk. 1', rarity: 'UNCOMMON', icon: 'tactic', category: 'AUGMENT',
-    imageUrl: "/images/items/Tactical_Mk._1.webp",
     description: 'Provides additional Quick Use slots for tactical items.',
     perks: 'Mais Quick Use, mochila menor, sem perk.',
     maxWeight: "40", backpackSlots: 15, quickUseSlots: 5, safePocketSlots: 1, shieldCompat: "Light / Medium",
@@ -4358,33 +4204,33 @@ export const LOOT_DATA: LootCategory[] = [
     material: 'ARC Alloy',
     wikiUrl: 'https://arcraiders.wiki/wiki/ARC_Alloy',
     sources: [
-      { name: 'Damaged Leaper Pulse Unit', quantity: 3, imageUrl: "/images/items/Damaged_Leaper_Pulse_Unit.png" },
-      { name: 'Damaged Rocketeer Driver', quantity: 3, imageUrl: '/images/items/Damaged_Rocketeer_Driver.png' },
-      { name: 'Bastion Cell', quantity: 3, imageUrl: '/images/items/Bastion_Cell.png' },
-      { name: 'Bombardier Cell', quantity: 3, imageUrl: '/images/items/Bombardier_Cell.png' },
-      { name: 'Leaper Pulse Unit', quantity: 3, imageUrl: '/images/items/Leaper_Pulse_Unit.png' },
-      { name: 'Heavy Shield', quantity: 3, imageUrl: '/images/items/Heavy_Shield.png' },
-      { name: 'ARC Circuitry', quantity: 2, imageUrl: "/images/items/ARC_Circuitry.png" },
-      { name: 'ARC Motion Core', quantity: 2, imageUrl: "/images/items/ARC_Motion_Core.png" },
-      { name: 'Rocketeer Driver', quantity: 2, imageUrl: '/images/items/Rocketeer_Driver.png' }]
+      { name: 'Damaged Leaper Pulse Unit', quantity: 3 },
+      { name: 'Damaged Rocketeer Driver', quantity: 3 },
+      { name: 'Bastion Cell', quantity: 3 },
+      { name: 'Bombardier Cell', quantity: 3 },
+      { name: 'Leaper Pulse Unit', quantity: 3 },
+      { name: 'Heavy Shield', quantity: 3 },
+      { name: 'ARC Circuitry', quantity: 2 },
+      { name: 'ARC Motion Core', quantity: 2 },
+      { name: 'Rocketeer Driver', quantity: 2 }]
   },
   {
     id: 'loot-arc-powercell',
     material: 'ARC Powercell',
     wikiUrl: 'https://arcraiders.wiki/wiki/ARC_Powercell',
     sources: [
-      { name: 'Adv ARC Powercell', quantity: 2, imageUrl: "/images/items/Advanced_ARC_Powercell.png" }]
+      { name: 'Adv ARC Powercell', quantity: 2 }]
   },
   {
     id: 'loot-duct-tape',
     material: 'Duct Tape',
     wikiUrl: 'https://arcraiders.wiki/wiki/Duct_Tape',
     sources: [
-      { name: 'Angled Grip III', quantity: 2, imageUrl: "/images/items/Angled_Grip_III.png" },
-      { name: 'Kinetic Converter', quantity: 2, imageUrl: '/images/items/Kinetic_Converter.png' },
-      { name: 'Horizontal Grip', quantity: 2, imageUrl: '/images/items/Horizontal_Grip.png' },
-      { name: 'Stable Stock III', quantity: 2, imageUrl: '/images/items/Stable_Stock_III.png' },
-      { name: 'Vertical Grip III', quantity: 2, imageUrl: '/images/items/Vertical_Grip_III.png' },
+      { name: 'Angled Grip III', quantity: 2 },
+      { name: 'Kinetic Converter', quantity: 2 },
+      { name: 'Horizontal Grip', quantity: 2 },
+      { name: 'Stable Stock III', quantity: 2 },
+      { name: 'Vertical Grip III', quantity: 2 },
       { name: 'Angled Grip II', quantity: 1 },
       { name: 'Lightweight Stock', quantity: 1 },
       { name: 'Padded Stock III', quantity: 1 }]
@@ -4394,13 +4240,13 @@ export const LOOT_DATA: LootCategory[] = [
     material: 'Chemicals',
     wikiUrl: 'https://arcraiders.wiki/wiki/Chemicals',
     sources: [
-      { name: 'Vita Shot', quantity: 4, imageUrl: "/images/items/Vita_Shot.png" },
+      { name: 'Vita Shot', quantity: 4 },
       { name: 'Pulse Mine Blueprint', quantity: 2 },
-      { name: 'Soap', quantity: 1, imageUrl: '/images/items/Soap.png' },
-      { name: 'Bleach', quantity: 1, imageUrl: '/images/items/Bleach.png' },
+      { name: 'Soap', quantity: 1 },
+      { name: 'Bleach', quantity: 1 },
       {
         name: 'Syringe',
-        quantity: 1, imageUrl: '/images/items/Syringe.png'
+        quantity: 1
       }]
   },
   {
@@ -4410,44 +4256,44 @@ export const LOOT_DATA: LootCategory[] = [
     sources: [
       {
         name: 'Wires',
-        quantity: 2, imageUrl: "/images/items/Wires.png"
+        quantity: 2
       },
-      { name: 'Mechanical Components', quantity: 2, imageUrl: '/images/items/Mechanical_Components.png' },
+      { name: 'Mechanical Components', quantity: 2 },
       { name: 'Rattler II', quantity: 2 },
       { name: 'Shield Recharger', quantity: 4 },
-      { name: 'Rubber Pad', quantity: 18, imageUrl: '/images/items/Rubber_Pad.png' },
-      { name: 'Ruined Accordion', quantity: 18, imageUrl: '/images/items/Ruined_Accordion.png' },
-      { name: 'ARC Flex Rubber', quantity: 16, imageUrl: '/images/items/ARC_Flex_Rubber.png' },
-      { name: 'Diving Goggles', quantity: 12, imageUrl: '/images/items/Diving_Goggles.png' },
-      { name: 'Degraded ARC Rubber', quantity: 11, imageUrl: '/images/items/Degraded_ARC_Rubber.png' },
-      { name: 'Deflated Football', quantity: 9, imageUrl: '/images/items/Deflated_Football.png' },
-      { name: 'Expired Respirator', quantity: 8, imageUrl: '/images/items/Expired_Respirator.png' },
-      { name: 'Headphones', quantity: 7, imageUrl: '/images/items/Headphones.png' },
-      { name: 'Thermostat', quantity: 7, imageUrl: '/images/items/Thermostat.png' },
-      { name: 'Ruined Riot Shield', quantity: 6, imageUrl: '/images/items/Ruined_Riot_Shield.png' }]
+      { name: 'Rubber Pad', quantity: 18 },
+      { name: 'Ruined Accordion', quantity: 18 },
+      { name: 'ARC Flex Rubber', quantity: 16 },
+      { name: 'Diving Goggles', quantity: 12 },
+      { name: 'Degraded ARC Rubber', quantity: 11 },
+      { name: 'Deflated Football', quantity: 9 },
+      { name: 'Expired Respirator', quantity: 8 },
+      { name: 'Headphones', quantity: 7 },
+      { name: 'Thermostat', quantity: 7 },
+      { name: 'Ruined Riot Shield', quantity: 6 }]
   },
   {
     id: 'loot-plastic-parts',
     material: 'Plastic Parts',
     wikiUrl: 'https://arcraiders.wiki/wiki/Plastic_Parts',
     sources: [
-      { name: 'Toaster', quantity: 5, imageUrl: "/images/items/Toaster.png" },
+      { name: 'Toaster', quantity: 5 },
       {
         name: 'Processor',
-        quantity: 1, imageUrl: '/images/items/Processor.png'
+        quantity: 1
       },
-      { name: 'Vita Shot', quantity: 1, imageUrl: '/images/items/Vita_Shot.png' },
+      { name: 'Vita Shot', quantity: 1 },
       { name: 'Electrical Components', quantity: 3 },
-      { name: 'ARC Synthetic Resin', quantity: 14, imageUrl: '/images/items/ARC_Synthetic_Resin.png' },
-      { name: 'Cooling Fan', quantity: 14, imageUrl: '/images/items/Cooling_Fan.png' },
-      { name: 'Recorder', quantity: 10, imageUrl: '/images/items/Recorder.png' },
-      { name: 'Ruined Riot Shield', quantity: 10, imageUrl: '/images/items/Ruined_Riot_Shield.png' },
-      { name: 'Shaker', quantity: 10, imageUrl: '/images/items/Shaker.png' },
-      { name: 'Dried-Out ARC Resin', quantity: 9, imageUrl: '/images/items/Dried-Out_ARC_Resin.png' },
-      { name: 'Camera Lens', quantity: 8, imageUrl: '/images/items/Camera_Lens.png' },
-      { name: 'Remote Control', quantity: 7, imageUrl: '/images/items/Remote_Control.png' },
-      { name: 'Alarm Clock', quantity: 6, imageUrl: '/images/items/Alarm_Clock.png' },
-      { name: 'Angled Grip I', quantity: 6, imageUrl: '/images/items/Angled_Grip_I.png' }]
+      { name: 'ARC Synthetic Resin', quantity: 14 },
+      { name: 'Cooling Fan', quantity: 14 },
+      { name: 'Recorder', quantity: 10 },
+      { name: 'Ruined Riot Shield', quantity: 10 },
+      { name: 'Shaker', quantity: 10 },
+      { name: 'Dried-Out ARC Resin', quantity: 9 },
+      { name: 'Camera Lens', quantity: 8 },
+      { name: 'Remote Control', quantity: 7 },
+      { name: 'Alarm Clock', quantity: 6 },
+      { name: 'Angled Grip I', quantity: 6 }]
   },
 
   {
@@ -4455,43 +4301,43 @@ export const LOOT_DATA: LootCategory[] = [
     material: 'Magnet',
     wikiUrl: 'https://arcraiders.wiki/wiki/Magnet',
     sources: [
-      { name: 'Microscope', quantity: 3, imageUrl: "/images/items/Microscope.png" },
+      { name: 'Microscope', quantity: 3 },
       {
         name: 'Exodus Modules',
-        quantity: 2, imageUrl: '/images/items/Exodus_Modules.png'
+        quantity: 2
       },
-      { name: 'Industrial Magnet', quantity: 2, imageUrl: '/images/items/Industrial_Magnet.png' },
-      { name: 'Combat Mk. 2', quantity: 1, imageUrl: '/images/items/Combat_Mk._2.png' },
-      { name: 'Looting Mk. 2', quantity: 1, imageUrl: '/images/items/Looting_Mk._2.png' },
-      { name: 'Ripped Safety Vest', quantity: 1, imageUrl: '/images/items/Ripped_Safety_Vest.png' },
-      { name: 'Ruined Tactical Vest', quantity: 1, imageUrl: '/images/items/Ruined_Tactical_Vest.png' },
-      { name: 'Snap Blast Grenade', quantity: 1, imageUrl: '/images/items/Snap_Blast_Grenade.png' },
-      { name: 'Tactical Mk. 2', quantity: 1, imageUrl: '/images/items/Tactical_Mk._2.png' }]
+      { name: 'Industrial Magnet', quantity: 2 },
+      { name: 'Combat Mk. 2', quantity: 1 },
+      { name: 'Looting Mk. 2', quantity: 1 },
+      { name: 'Ripped Safety Vest', quantity: 1 },
+      { name: 'Ruined Tactical Vest', quantity: 1 },
+      { name: 'Snap Blast Grenade', quantity: 1 },
+      { name: 'Tactical Mk. 2', quantity: 1 }]
   },
   {
     id: 'loot-metal-parts',
     material: 'Metal Parts',
     wikiUrl: 'https://arcraiders.wiki/wiki/Metal_Parts',
     sources: [
-      { name: 'Rattler IV', quantity: 12, imageUrl: "/images/items/Rattler.webp" },
-      { name: 'Il Toro IV', quantity: 8, imageUrl: '/images/items/Il_Toro.png' },
-      { name: 'Heavy Shield', quantity: 3, imageUrl: '/images/items/Heavy_Shield.png' },
+      { name: 'Rattler IV', quantity: 12 },
+      { name: 'Il Toro IV', quantity: 8 },
+      { name: 'Heavy Shield', quantity: 3 },
       {
         name: 'Magnet',
-        quantity: 3, imageUrl: '/images/items/Magnet.png'
+        quantity: 3
       },
-      { name: 'Mechanical Components', quantity: 3, imageUrl: '/images/items/Mechanical_Components.png' },
-      { name: 'Microscope', quantity: 2, imageUrl: '/images/items/Microscope.png' },
-      { name: 'Toaster', quantity: 2, imageUrl: '/images/items/Toaster.png' },
+      { name: 'Mechanical Components', quantity: 3 },
+      { name: 'Microscope', quantity: 2 },
+      { name: 'Toaster', quantity: 2 },
       {
         name: 'Steel Spring',
-        quantity: 2, imageUrl: '/images/items/Steel_Spring.png'
+        quantity: 2
       },
       {
         name: 'Simple Gun Parts',
-        quantity: 2, imageUrl: '/images/items/Simple_Gun_Parts.png'
+        quantity: 2
       },
-      { name: 'Unusable Weapon', quantity: 2, imageUrl: '/images/items/Unusable_Weapon.png' }]
+      { name: 'Unusable Weapon', quantity: 2 }]
   },
   {
     id: 'loot-mod-components',
@@ -4499,10 +4345,10 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Mod_Components',
     craftingStation: 'Refiner 2',
     sources: [
-      { name: 'Anvil Splitter', quantity: 1, imageUrl: "/images/items/Anvil_Splitter.png" },
-      { name: 'Kinetic Converter', quantity: 1, imageUrl: '/images/items/Kinetic_Converter.png' },
-      { name: 'Horizontal Grip', quantity: 1, imageUrl: '/images/items/Horizontal_Grip.png' },
-      { name: 'Angled Grip III', quantity: 1, imageUrl: '/images/items/Angled_Grip_III.png' },
+      { name: 'Anvil Splitter', quantity: 1 },
+      { name: 'Kinetic Converter', quantity: 1 },
+      { name: 'Horizontal Grip', quantity: 1 },
+      { name: 'Angled Grip III', quantity: 1 },
       { name: 'Extended Barrel', quantity: 1 },
       { name: 'Vertical Grip III', quantity: 1 },
       { name: 'Stable Stock III', quantity: 1 },
@@ -4517,39 +4363,39 @@ export const LOOT_DATA: LootCategory[] = [
     material: 'Steel Spring',
     wikiUrl: 'https://arcraiders.wiki/wiki/Steel_Spring',
     sources: [
-      { name: 'Ruined Accordion', quantity: 3, imageUrl: "/images/items/Ruined_Accordion.png" },
-      { name: 'Cooling Coil', quantity: 2, imageUrl: '/images/items/Cooling_Coil.png' },
-      { name: 'Extended Light Mag III', quantity: 2, imageUrl: '/images/items/Extended_Light_Mag_III.png' },
-      { name: 'Extended Medium Mag III', quantity: 2, imageUrl: '/images/items/Extended_Medium_Mag_III.png' },
-      { name: 'Extended Shotgun Mag III', quantity: 2, imageUrl: '/images/items/Extended_Shotgun_Mag_III.png' },
-      { name: 'Spring Cushion', quantity: 2, imageUrl: '/images/items/Spring_Cushion.png' },
-      { name: 'Adv Mechanical Components', quantity: 1, imageUrl: '/images/items/Advanced_Mechanical_Components.png' },
-      { name: 'Mod Components', quantity: 1, imageUrl: '/images/items/Mod_Components.png' },
-      { name: 'Extended Light Mag II', quantity: 1, imageUrl: '/images/items/Extended_Light_Mag_II.png' },
-      { name: 'Extended Medium Mag II', quantity: 1, imageUrl: '/images/items/Extended_Medium_Mag_II.png' }]
+      { name: 'Ruined Accordion', quantity: 3 },
+      { name: 'Cooling Coil', quantity: 2 },
+      { name: 'Extended Light Mag III', quantity: 2 },
+      { name: 'Extended Medium Mag III', quantity: 2 },
+      { name: 'Extended Shotgun Mag III', quantity: 2 },
+      { name: 'Spring Cushion', quantity: 2 },
+      { name: 'Adv Mechanical Components', quantity: 1 },
+      { name: 'Mod Components', quantity: 1 },
+      { name: 'Extended Light Mag II', quantity: 1 },
+      { name: 'Extended Medium Mag II', quantity: 1 }]
   },
   {
     id: 'loot-wires',
     material: 'Wires',
     wikiUrl: 'https://arcraiders.wiki/wiki/Wires',
     sources: [
-      { name: 'Portable TV', quantity: 6, imageUrl: "/images/items/Portable_TV.png" },
-      { name: 'Acoustic Guitar', quantity: 6, imageUrl: '/images/items/Acoustic_Guitar.png' },
-      { name: 'Cooling Fan', quantity: 4, imageUrl: '/images/items/Cooling_Fan.png' },
-      { name: 'Power Cable', quantity: 4, imageUrl: '/images/items/Power_Cable.png' },
-      { name: 'Toaster', quantity: 3, imageUrl: '/images/items/Toaster.png' },
-      { name: 'Damaged Heat Sink', quantity: 2, imageUrl: '/images/items/Damaged_Heat_Sink.png' },
-      { name: 'Power Bank', quantity: 2, imageUrl: '/images/items/Power_Bank.png' },
-      { name: 'Humidifier', quantity: 2, imageUrl: '/images/items/Humidifier.png' },
-      { name: 'Muzzle Brake III', quantity: 2, imageUrl: '/images/items/Muzzle_Brake_III.png' },
-      { name: 'Shotgun Choke III', quantity: 2, imageUrl: '/images/items/Shotgun_Choke_III.png' },
+      { name: 'Portable TV', quantity: 6 },
+      { name: 'Acoustic Guitar', quantity: 6 },
+      { name: 'Cooling Fan', quantity: 4 },
+      { name: 'Power Cable', quantity: 4 },
+      { name: 'Toaster', quantity: 3 },
+      { name: 'Damaged Heat Sink', quantity: 2 },
+      { name: 'Power Bank', quantity: 2 },
+      { name: 'Humidifier', quantity: 2 },
+      { name: 'Muzzle Brake III', quantity: 2 },
+      { name: 'Shotgun Choke III', quantity: 2 },
       {
         name: 'Processor',
-        quantity: 1, imageUrl: '/images/items/Processor.png'
+        quantity: 1
       },
       {
         name: 'Voltage Converter',
-        quantity: 1, imageUrl: '/images/items/Voltage_Converter.png'
+        quantity: 1
       },
       { name: 'Broken Handheld Radio', quantity: 2 },
       { name: 'Broken Taser', quantity: 2 }]
@@ -4562,16 +4408,16 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Advanced_Electrical_Components',
     craftingStation: 'Refiner 2',
     sources: [
-      { name: 'Rocketeer Driver', quantity: 2, imageUrl: "/images/items/Rocketeer_Driver.png" },
-      { name: 'Combat Mk. 3 (Aggressive)', quantity: 1, imageUrl: '/images/items/Combat_Mk._3_(Aggressive).png' },
-      { name: 'Combat Mk. 3 (Flanking)', quantity: 1, imageUrl: '/images/items/Combat_Mk._3_(Flanking).png' },
-      { name: 'Frequency Modulation Box', quantity: 1, imageUrl: '/images/items/Frequency_Modulation_Box.png' },
-      { name: 'Looting Mk. 3 (Cautious)', quantity: 1, imageUrl: '/images/items/Looting_Mk._3_(Cautious).png' },
-      { name: 'Looting Mk. 3 (Safekeeper)', quantity: 1, imageUrl: '/images/items/Looting_Mk._3_(Safekeeper).png' },
-      { name: 'Looting Mk. 3 (Survivor)', quantity: 1, imageUrl: '/images/items/Looting_Mk._3_(Survivor).png' },
-      { name: 'Photoelectric Cloak', quantity: 1, imageUrl: '/images/items/Photoelectric_Cloak.png' },
-      { name: 'Power Rod', quantity: 1, imageUrl: '/images/items/Power_Rod.png' },
-      { name: 'Tactical Mk. 3 (Defensive)', quantity: 1, imageUrl: '/images/items/Tactical_Mk._3_(Defensive).png' }]
+      { name: 'Rocketeer Driver', quantity: 2 },
+      { name: 'Combat Mk. 3 (Aggressive)', quantity: 1 },
+      { name: 'Combat Mk. 3 (Flanking)', quantity: 1 },
+      { name: 'Frequency Modulation Box', quantity: 1 },
+      { name: 'Looting Mk. 3 (Cautious)', quantity: 1 },
+      { name: 'Looting Mk. 3 (Safekeeper)', quantity: 1 },
+      { name: 'Looting Mk. 3 (Survivor)', quantity: 1 },
+      { name: 'Photoelectric Cloak', quantity: 1 },
+      { name: 'Power Rod', quantity: 1 },
+      { name: 'Tactical Mk. 3 (Defensive)', quantity: 1 }]
   },
   {
     id: 'loot-adv-mechanical',
@@ -4588,7 +4434,7 @@ export const LOOT_DATA: LootCategory[] = [
       { name: 'Bettina IV', quantity: 3 },
       { name: 'Bobcat II', quantity: 3 },
       { name: 'Hullcracker III', quantity: 3 },
-      { name: 'Osprey IV', quantity: 3, imageUrl: '/images/items/Osprey.png' }]
+      { name: 'Osprey IV', quantity: 3 }]
   },
   {
     id: 'loot-electrical-components',
@@ -4596,16 +4442,16 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Electrical_Components',
     craftingStation: 'Refiner 1',
     sources: [
-      { name: 'Fried Motherboard', quantity: 2, imageUrl: "/images/items/Fried_Motherboard.png" },
-      { name: 'Hornet Driver', quantity: 2, imageUrl: '/images/items/Hornet_Driver.png' },
-      { name: 'Rotary Encoder', quantity: 2, imageUrl: '/images/items/Rotary_Encoder.png' },
-      { name: 'Sample Cleaner', quantity: 2, imageUrl: '/images/items/Sample_Cleaner.png' },
-      { name: 'Signal Amplifier', quantity: 2, imageUrl: '/images/items/Signal_Amplifier.png' },
-      { name: 'Snitch Scanner', quantity: 2, imageUrl: '/images/items/Snitch_Scanner.png' },
-      { name: 'Spotter Relay', quantity: 2, imageUrl: '/images/items/Spotter_Relay.png' },
-      { name: 'Adv Electrical Components', quantity: 1, imageUrl: "/images/items/Advanced_Electrical_Components.png" },
-      { name: 'Combat Mk. 2', quantity: 1, imageUrl: '/images/items/Combat_Mk._2.png' },
-      { name: 'Looting Mk. 2', quantity: 1, imageUrl: '/images/items/Looting_Mk._2.png' }]
+      { name: 'Fried Motherboard', quantity: 2 },
+      { name: 'Hornet Driver', quantity: 2 },
+      { name: 'Rotary Encoder', quantity: 2 },
+      { name: 'Sample Cleaner', quantity: 2 },
+      { name: 'Signal Amplifier', quantity: 2 },
+      { name: 'Snitch Scanner', quantity: 2 },
+      { name: 'Spotter Relay', quantity: 2 },
+      { name: 'Adv Electrical Components', quantity: 1 },
+      { name: 'Combat Mk. 2', quantity: 1 },
+      { name: 'Looting Mk. 2', quantity: 1 }]
   },
   {
     id: 'loot-heavy-gun-parts',
@@ -4642,8 +4488,8 @@ export const LOOT_DATA: LootCategory[] = [
     craftingStation: 'Refiner 1',
     sources: [
       { name: 'Arpeggio III', quantity: 4 },
-      { name: 'Burletta IV', quantity: 4, imageUrl: '/images/items/Burletta.png' },
-      { name: 'Power Drill', quantity: 4, imageUrl: '/images/items/Power_Drill.png' },
+      { name: 'Burletta IV', quantity: 4 },
+      { name: 'Power Drill', quantity: 4 },
       { name: 'Rattler IV', quantity: 4 }]
   },
   {
@@ -4654,14 +4500,14 @@ export const LOOT_DATA: LootCategory[] = [
     sources: [
       { name: 'Tempest III', quantity: 4 },
       { name: 'Tempest IV', quantity: 4 },
-      { name: 'Osprey III', quantity: 3, imageUrl: '/images/items/Osprey.png' },
-      { name: 'Osprey IV', quantity: 3, imageUrl: '/images/items/Osprey.png' },
-      { name: 'Renegade III', quantity: 3, imageUrl: '/images/items/Renegade.png' },
-      { name: 'Renegade IV', quantity: 3, imageUrl: '/images/items/Renegade.png' },
+      { name: 'Osprey III', quantity: 3 },
+      { name: 'Osprey IV', quantity: 3 },
+      { name: 'Renegade III', quantity: 3 },
+      { name: 'Renegade IV', quantity: 3 },
       { name: 'Tempest II', quantity: 3 },
-      { name: 'Torrente III', quantity: 3, imageUrl: '/images/items/Torrente.png' },
-      { name: 'Torrente IV', quantity: 3, imageUrl: '/images/items/Torrente.png' },
-      { name: 'Venator III', quantity: 3, imageUrl: '/images/items/Venator.png' }]
+      { name: 'Torrente III', quantity: 3 },
+      { name: 'Torrente IV', quantity: 3 },
+      { name: 'Venator III', quantity: 3 }]
   },
   {
     id: 'loot-simple-gun-parts',
@@ -4669,19 +4515,19 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Simple_Gun_Parts',
     craftingStation: 'Refiner 3',
     sources: [
-      { name: 'Anvil IV', quantity: 5, imageUrl: "/images/items/Anvil.png" },
+      { name: 'Anvil IV', quantity: 5 },
       { name: 'Arpeggio IV', quantity: 5 },
-      { name: 'Il Toro IV', quantity: 5, imageUrl: '/images/items/Il_Toro.png' },
-      { name: 'Unusable Weapon', quantity: 5, imageUrl: '/images/items/Unusable_Weapon.png' },
-      { name: 'Anvil III', quantity: 4, imageUrl: '/images/items/Anvil.png' },
+      { name: 'Il Toro IV', quantity: 5 },
+      { name: 'Unusable Weapon', quantity: 5 },
+      { name: 'Anvil III', quantity: 4 },
       { name: 'Arpeggio III', quantity: 4 },
-      { name: 'Burletta IV', quantity: 4, imageUrl: '/images/items/Burletta.png' },
-      { name: 'Il Toro III', quantity: 4, imageUrl: '/images/items/Il_Toro.png' },
+      { name: 'Burletta IV', quantity: 4 },
+      { name: 'Il Toro III', quantity: 4 },
       {
         name: 'Complex Gun Parts',
-        quantity: 3, imageUrl: "/images/items/Complex_Gun_Parts.png"
+        quantity: 3
       },
-      { name: 'Anvil II', quantity: 3, imageUrl: '/images/items/Anvil.png' }]
+      { name: 'Anvil II', quantity: 3 }]
   },
   {
     id: "loot-complex-gun-parts",
@@ -4689,9 +4535,9 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Complex_Gun_Parts',
     craftingStation: 'Refiner 3',
     sources: [
-      { name: 'Jupiter', quantity: 3, imageUrl: "/images/items/Jupiter.png" },
-      { name: 'Aphelion', quantity: 2, imageUrl: '/images/items/Aphelion.png' },
-      { name: 'Equalizer', quantity: 2, imageUrl: '/images/items/Equalizer.png' },
+      { name: 'Jupiter', quantity: 3 },
+      { name: 'Aphelion', quantity: 2 },
+      { name: 'Equalizer', quantity: 2 },
       { name: 'Jupiter (Tier 1)', quantity: 2 },
       { name: 'Aphelion (Tier 1)', quantity: 2 }]
   },
@@ -4700,9 +4546,9 @@ export const LOOT_DATA: LootCategory[] = [
     material: 'ARC Circuitry',
     wikiUrl: 'https://arcraiders.wiki/wiki/ARC_Circuitry',
     sources: [
-      { name: 'Power Rod', quantity: 1, imageUrl: "/images/items/Power_Rod.png" },
-      { name: 'Heavy Shield', quantity: 1, imageUrl: '/images/items/Heavy_Shield.png' },
-      { name: 'Deadline', quantity: 1, imageUrl: '/images/items/Deadline.png' },
+      { name: 'Power Rod', quantity: 1 },
+      { name: 'Heavy Shield', quantity: 1 },
+      { name: 'Deadline', quantity: 1 },
       { name: 'Sentinel Weaponry Core', quantity: 1 }]
   },
   {
@@ -4710,7 +4556,7 @@ export const LOOT_DATA: LootCategory[] = [
     material: 'ARC Motion Core',
     wikiUrl: 'https://arcraiders.wiki/wiki/ARC_Motion_Core',
     sources: [
-      { name: 'Wolfpack', quantity: 1, imageUrl: "/images/items/Wolfpack.png" },
+      { name: 'Wolfpack', quantity: 1 },
       { name: 'Launcher Ammo', quantity: 1 }]
   },
   {
@@ -4769,17 +4615,17 @@ export const LOOT_DATA: LootCategory[] = [
     sources: [
       { name: 'Sentinel Weaponry Core', quantity: 3 },
       { name: 'Surge Shield Recharger', quantity: 2 },
-      { name: 'Tactical Mk. 3 (Healing)', quantity: 2, imageUrl: '/images/items/Tactical_Mk._3_(Healing).png' },
-      { name: 'Tactical Mk. 3 (Defensive)', quantity: 2, imageUrl: '/images/items/Tactical_Mk._3_(Defensive).png' }]
+      { name: 'Tactical Mk. 3 (Healing)', quantity: 2 },
+      { name: 'Tactical Mk. 3 (Defensive)', quantity: 2 }]
   },
   {
     id: 'loot-antiseptic',
     material: 'Antiseptic',
     wikiUrl: 'https://arcraiders.wiki/wiki/Antiseptic',
     sources: [
-      { name: 'Vita Spray', quantity: 4, imageUrl: "/images/items/Vita_Spray.webp" },
-      { name: 'Vita Shot', quantity: 3, imageUrl: '/images/items/Vita_Shot.png' },
-      { name: 'Sterilized Bandage', quantity: 1, imageUrl: '/images/items/Sterilized_Bandage.png' },
+      { name: 'Vita Spray', quantity: 4 },
+      { name: 'Vita Shot', quantity: 3 },
+      { name: 'Sterilized Bandage', quantity: 1 },
       { name: 'Soap', quantity: 1 },
       { name: 'Bleach', quantity: 1 }]
   },
@@ -4790,9 +4636,9 @@ export const LOOT_DATA: LootCategory[] = [
     sources: [
       { name: 'Fire Extinguisher', quantity: 3 },
       { name: 'Compressed Air Can', quantity: 2 },
-      { name: 'Vita Spray', quantity: 1, imageUrl: '/images/items/Vita_Spray.png' },
-      { name: 'Smoke Grenade', quantity: 1, imageUrl: "/images/items/Smoke_Grenade.png" },
-      { name: 'Heavy Fuze Grenade', quantity: 1, imageUrl: "/images/items/Heavy_Fuze_Grenade.png" }]
+      { name: 'Vita Spray', quantity: 1 },
+      { name: 'Smoke Grenade', quantity: 1 },
+      { name: 'Heavy Fuze Grenade', quantity: 1 }]
   },
   {
     id: 'loot-tick-pod',
@@ -4807,14 +4653,14 @@ export const LOOT_DATA: LootCategory[] = [
     material: 'Fabric',
     wikiUrl: 'https://arcraiders.wiki/wiki/Fabric',
     sources: [
-      { name: 'Herbal Bandage', quantity: 5, imageUrl: "/images/items/Herbal_Bandage.png" },
-      { name: 'Ripped Safety Vest', quantity: 2, imageUrl: '/images/items/Ripped_Safety_Vest.png' },
-      { name: 'Ruined Tactical Vest', quantity: 4, imageUrl: '/images/items/Ruined_Tactical_Vest.png' },
+      { name: 'Herbal Bandage', quantity: 5 },
+      { name: 'Ripped Safety Vest', quantity: 2 },
+      { name: 'Ruined Tactical Vest', quantity: 4 },
       {
         name: 'Rope',
-        quantity: 2, imageUrl: '/images/items/Rope.png'
+        quantity: 2
       },
-      { name: 'Sterilized Bandage', quantity: 1, imageUrl: '/images/items/Sterilized_Bandage.png' }]
+      { name: 'Sterilized Bandage', quantity: 1 }]
   },
   {
     id: 'loot-durable-cloth',
@@ -4822,16 +4668,16 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Durable_Cloth',
     craftingStation: 'Refiner 1',
     sources: [
-      { name: 'Sterilized Bandage', quantity: 2, imageUrl: "/images/items/Sterilized_Bandage.png" },
-      { name: 'Ruined Riot Shield', quantity: 2, imageUrl: '/images/items/Ruined_Riot_Shield.png' },
-      { name: 'Ruined Tactical Vest', quantity: 2, imageUrl: '/images/items/Ruined_Tactical_Vest.png' }]
+      { name: 'Sterilized Bandage', quantity: 2 },
+      { name: 'Ruined Riot Shield', quantity: 2 },
+      { name: 'Ruined Tactical Vest', quantity: 2 }]
   },
   {
     id: 'loot-great-mullein',
     material: 'Great Mullein',
     wikiUrl: 'https://arcraiders.wiki/wiki/Great_Mullein',
     sources: [
-      { name: 'Herbal Bandage', quantity: 2, imageUrl: "/images/items/Herbal_Bandage.png" },
+      { name: 'Herbal Bandage', quantity: 2 },
       { name: 'Scavenging (Outdoors / Nature zones)', quantity: 1 }]
   },
   {
@@ -4839,7 +4685,7 @@ export const LOOT_DATA: LootCategory[] = [
     material: 'Moss',
     wikiUrl: 'https://arcraiders.wiki/wiki/Moss',
     sources: [
-      { name: 'Defibrillator', quantity: 1, imageUrl: "/images/items/Defibrillator.png" },
+      { name: 'Defibrillator', quantity: 1 },
       { name: 'Scavenging (Rocks / Damp surfaces)', quantity: 1 }]
   },
   {
@@ -4847,26 +4693,26 @@ export const LOOT_DATA: LootCategory[] = [
     material: 'Battery',
     wikiUrl: 'https://arcraiders.wiki/wiki/Battery',
     sources: [
-      { name: 'Jolt Mine', quantity: 1, imageUrl: "/images/items/Jolt_Mine.png" },
-      { name: 'Power Bank', quantity: 2, imageUrl: '/images/items/Power_Bank.png' },
-      { name: 'Alarm Clock', quantity: 1, imageUrl: '/images/items/Alarm_Clock.png' },
-      { name: 'Portable TV', quantity: 2, imageUrl: '/images/items/Portable_TV.png' }]
+      { name: 'Jolt Mine', quantity: 1 },
+      { name: 'Power Bank', quantity: 2 },
+      { name: 'Alarm Clock', quantity: 1 },
+      { name: 'Portable TV', quantity: 2 }]
   },
   {
     id: 'loot-power-rod',
     material: 'Power Rod',
     wikiUrl: 'https://arcraiders.wiki/wiki/Power_Rod',
     sources: [
-      { name: 'Queen Reactor', quantity: 1, imageUrl: "/images/items/Queen_Reactor.png" },
-      { name: 'Matriarch Reactor', quantity: 1, imageUrl: "/images/items/Matriarch_Reactor.png" },
-      { name: 'Adv Electrical Components', quantity: 1, imageUrl: "/images/items/Advanced_Electrical_Components.png" }]
+      { name: 'Queen Reactor', quantity: 1 },
+      { name: 'Matriarch Reactor', quantity: 1 },
+      { name: 'Adv Electrical Components', quantity: 1 }]
   },
   {
     id: 'loot-syringe',
     material: 'Syringe',
     wikiUrl: 'https://arcraiders.wiki/wiki/Syringe',
     sources: [
-      { name: 'Vita Shot', quantity: 1, imageUrl: "/images/items/Vita_Shot.png" },
+      { name: 'Vita Shot', quantity: 1 },
       { name: 'Medical Supply Box', quantity: 2 },
       { name: 'First Aid Kit', quantity: 1 },
       { name: 'Scavenging (Medical zones)', quantity: 1 }]
@@ -4876,30 +4722,30 @@ export const LOOT_DATA: LootCategory[] = [
     material: 'Exodus Modules',
     wikiUrl: 'https://arcraiders.wiki/wiki/Exodus_Modules',
     sources: [
-      { name: 'Bombardier Cell', quantity: 2, imageUrl: "/images/items/Bombardier_Cell.png" },
-      { name: 'Bastion Cell', quantity: 2, imageUrl: '/images/items/Bastion_Cell.png' },
-      { name: 'Leaper Pulse Unit', quantity: 2, imageUrl: '/images/items/Leaper_Pulse_Unit.png' },
-      { name: 'Rocketeer Driver', quantity: 1, imageUrl: '/images/items/Rocketeer_Driver.png' }]
+      { name: 'Bombardier Cell', quantity: 2 },
+      { name: 'Bastion Cell', quantity: 2 },
+      { name: 'Leaper Pulse Unit', quantity: 2 },
+      { name: 'Rocketeer Driver', quantity: 1 }]
   },
   {
     id: 'loot-crude-explosives',
     material: 'Crude Explosives',
     wikiUrl: 'https://arcraiders.wiki/wiki/Crude_Explosives',
     sources: [
-      { name: 'Trigger \'Nade', quantity: 2, imageUrl: "/images/items/Trigger_nade.png" },
-      { name: 'Snap Blast Grenade', quantity: 1, imageUrl: "/images/items/Snap_Blast_Grenade.png" },
-      { name: 'Trailblazer', quantity: 1, imageUrl: '/images/items/Trailblazer.png' },
-      { name: 'Shrapnel Grenade', quantity: 1, imageUrl: "/images/items/Shrapnel_Grenade.png" },
-      { name: 'Seeker Grenade', quantity: 1, imageUrl: "/images/items/Seeker_Grenade.png" }]
+      { name: 'Trigger \'Nade', quantity: 2 },
+      { name: 'Snap Blast Grenade', quantity: 1 },
+      { name: 'Trailblazer', quantity: 1 },
+      { name: 'Shrapnel Grenade', quantity: 1 },
+      { name: 'Seeker Grenade', quantity: 1 }]
   },
   {
     id: 'loot-explosive-compound',
     material: 'Explosive Compound',
     wikiUrl: 'https://arcraiders.wiki/wiki/Explosive_Compound',
     sources: [
-      { name: 'Heavy Fuze Grenade', quantity: 2, imageUrl: "/images/items/Heavy_Fuze_Grenade.png" },
-      { name: 'Blaze Grenade', quantity: 1, imageUrl: "/images/items/Blaze_Grenade.png" },
-      { name: 'Explosive Mine', quantity: 1, imageUrl: "/images/items/Explosive_Mine.png" },
+      { name: 'Heavy Fuze Grenade', quantity: 2 },
+      { name: 'Blaze Grenade', quantity: 1 },
+      { name: 'Explosive Mine', quantity: 1 },
       { name: 'Deadline', quantity: 1 },
       { name: 'Wolfpack', quantity: 1 }]
   },
@@ -4908,7 +4754,7 @@ export const LOOT_DATA: LootCategory[] = [
     material: 'Synthesized Fuel',
     wikiUrl: 'https://arcraiders.wiki/wiki/Synthesized_Fuel',
     sources: [
-      { name: 'Trailblazer', quantity: 2, imageUrl: "/images/items/Trailblazer.png" },
+      { name: 'Trailblazer', quantity: 2 },
       { name: 'Launcher Ammo (Incendiary)', quantity: 1 }]
   },
   {
@@ -4916,9 +4762,9 @@ export const LOOT_DATA: LootCategory[] = [
     material: 'Firefly Burner',
     wikiUrl: 'https://arcraiders.wiki/wiki/Firefly_Burner',
     sources: [
-      { name: 'Trailblazer', quantity: 1, imageUrl: "/images/items/Trailblazer.png" },
-      { name: 'Damaged Leaper Pulse Unit', quantity: 2, imageUrl: '/images/items/Damaged_Leaper_Pulse_Unit.png' },
-      { name: 'Leaper Pulse Unit', quantity: 1, imageUrl: '/images/items/Leaper_Pulse_Unit.png' }]
+      { name: 'Trailblazer', quantity: 1 },
+      { name: 'Damaged Leaper Pulse Unit', quantity: 2 },
+      { name: 'Leaper Pulse Unit', quantity: 1 }]
   },
   {
     id: 'loot-rocketeer-driver',
@@ -4926,7 +4772,7 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Rocketeer_Driver',
     sources: [
       { name: 'Wolfpack', quantity: 1 },
-      { name: 'Damaged Rocketeer Driver', quantity: 3, imageUrl: '/images/items/Damaged_Rocketeer_Driver.png' },
+      { name: 'Damaged Rocketeer Driver', quantity: 3 },
       { name: 'ARC Rocketeer', quantity: 2 }]
   },
   {
@@ -4935,8 +4781,8 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Comet_Igniter',
     sources: [
       { name: 'Deadline', quantity: 1 },
-      { name: 'Leaper Pulse Unit', quantity: 1, imageUrl: '/images/items/Leaper_Pulse_Unit.png' },
-      { name: 'Damaged Leaper Pulse Unit', quantity: 2, imageUrl: '/images/items/Damaged_Leaper_Pulse_Unit.png' }]
+      { name: 'Leaper Pulse Unit', quantity: 1 },
+      { name: 'Damaged Leaper Pulse Unit', quantity: 2 }]
   },
   {
     id: 'loot-light-shield',
@@ -4944,8 +4790,8 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Light_Shield',
     craftingStation: 'Gear Bench I',
     sources: [
-      { name: 'Ruined Riot Shield', quantity: 3, imageUrl: "/images/items/Ruined_Riot_Shield.png" },
-      { name: 'Medium Shield', quantity: 1, imageUrl: '/images/items/Medium_Shield.png' }]
+      { name: 'Ruined Riot Shield', quantity: 3 },
+      { name: 'Medium Shield', quantity: 1 }]
   },
   {
     id: 'loot-medium-shield',
@@ -4953,8 +4799,8 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Medium_Shield',
     craftingStation: 'Gear Bench II',
     sources: [
-      { name: 'Light Shield', quantity: 1, imageUrl: "/images/items/Light_Shield.png" },
-      { name: 'Heavy Shield', quantity: 1, imageUrl: '/images/items/Heavy_Shield.png' }]
+      { name: 'Light Shield', quantity: 1 },
+      { name: 'Heavy Shield', quantity: 1 }]
   },
   {
     id: 'loot-heavy-shield-mat',
@@ -4962,7 +4808,7 @@ export const LOOT_DATA: LootCategory[] = [
     wikiUrl: 'https://arcraiders.wiki/wiki/Heavy_Shield',
     sources: [
       { name: 'ARC Bastion', quantity: 3 },
-      { name: 'Bastion Cell', quantity: 3, imageUrl: '/images/items/Bastion_Cell.png' },
+      { name: 'Bastion Cell', quantity: 3 },
       { name: 'ARC Tank', quantity: 2 }]
   },
   {
@@ -4974,8 +4820,8 @@ export const LOOT_DATA: LootCategory[] = [
       { name: 'Water Pump', quantity: 3 },
       { name: 'Turbo Pump', quantity: 3 },
       { name: 'Coolant', quantity: 2 },
-      { name: 'Blaze Grenade', quantity: 1, imageUrl: "/images/items/Blaze_Grenade.png" },
-      { name: 'Explosive Mine', quantity: 2, imageUrl: "/images/items/Explosive_Mine.png" },
+      { name: 'Blaze Grenade', quantity: 1 },
+      { name: 'Explosive Mine', quantity: 2 },
       { name: 'Polluted Air Filter', quantity: 1 }]
   },
   {
@@ -4996,15 +4842,15 @@ export const LOOT_DATA: LootCategory[] = [
       { name: 'ARC Surveyor', quantity: 2 },
       { name: 'ARC Android', quantity: 1 },
       { name: 'Server Rack', quantity: 2 },
-      { name: 'Explosive Mine', quantity: 1, imageUrl: "/images/items/Explosive_Mine.png" }]
+      { name: 'Explosive Mine', quantity: 1 }]
   },
   {
     id: 'loot-speaker-component',
     material: 'Speaker Component',
     wikiUrl: 'https://arcraiders.wiki/wiki/Speaker_Component',
     sources: [
-      { name: 'Headphones', quantity: 2, imageUrl: "/images/items/Headphones.png" },
-      { name: 'Frequency Modulation Box', quantity: 1, imageUrl: '/images/items/Frequency_Modulation_Box.png' },
+      { name: 'Headphones', quantity: 2 },
+      { name: 'Frequency Modulation Box', quantity: 1 },
       { name: 'Radio', quantity: 2 },
       { name: 'Noisemaker', quantity: 1 }]
   },
@@ -5155,6 +5001,9 @@ LOOT_DATA.sort((a, b) => {
   const rarityB = matB?.rarity || 'COMMON';
   return RARITY_ORDER[rarityA] - RARITY_ORDER[rarityB];
 });
+
+
+
 
 
 

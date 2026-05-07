@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modification } from '../types';
 import { getRarityStyles, getRarityIconColor, getRarityGlowStyles, getRarityHoverStyles, getRarityBorderColor } from '../utils';
 import RichTooltip from './RichTooltip';
+import SmartItemIcon from './SmartItemIcon';
 
 interface ModCardProps {
   mod: Modification;
@@ -9,8 +10,6 @@ interface ModCardProps {
 }
 
 const ModCard: React.FC<ModCardProps> = ({ mod, onClick }) => {
-  const [imageError, setImageError] = useState(false);
-
   return (
     <RichTooltip item={mod}>
       <button
@@ -27,18 +26,13 @@ const ModCard: React.FC<ModCardProps> = ({ mod, onClick }) => {
           {/* Left: Image */}
           <div className={`relative w-20 h-20 rounded-xl flex items-center justify-center bg-background-dark shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner overflow-hidden ${getRarityBorderColor(mod.rarity)}`}>
             <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(mod.rarity)} opacity-20`}></div>
-            {mod.imageUrl && !imageError ? (
-              <img
-                src={mod.imageUrl}
-                alt={mod.name}
-                onError={() => setImageError(true)}
-                className="w-14 h-14 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
-              />
-            ) : (
-              <span className={`material-symbols-outlined text-4xl relative z-10 ${getRarityIconColor(mod.rarity)}`}>
-                {mod.icon || 'settings_input_component'}
-              </span>
-            )}
+            <SmartItemIcon
+              itemName={mod.name}
+              icon={mod.icon || 'settings_input_component'}
+              rarity={mod.rarity}
+              imageClassName="w-14 h-14 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
+              iconClassName="text-4xl relative z-10"
+            />
           </div>
 
           {/* Right: Info */}

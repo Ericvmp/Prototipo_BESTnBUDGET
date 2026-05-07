@@ -3,8 +3,9 @@ import React, { useEffect } from 'react';
 import { Material, Weapon, Modification } from '../types';
 import { MATERIALS_DATA, WEAPONS_DATA, MODS_DATA, THROWABLES_DATA, LOOT_DATA, AUGMENTS_DATA } from '../data';
 import { generateItemTooltip } from './tooltipHelper';
-import { getSourceImageUrl, getItemRarity, getRarityStyles, getRarityGlowStyles, getRarityHoverStyles, getRarityBorderColor, parseMaterialString } from '../utils';
+import { getItemRarity, getRarityStyles, getRarityGlowStyles, getRarityHoverStyles, getRarityBorderColor, parseMaterialString } from '../utils';
 import RichTooltip from './RichTooltip';
+import SmartItemIcon from './SmartItemIcon';
 
 interface MaterialOverlayProps {
   material: Material;
@@ -65,11 +66,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
       >
       <div className="flex items-center gap-3">
         <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0">
-          {mat.imageUrl ? (
-            <img src={mat.imageUrl} alt={mat.name} className="w-full h-full object-contain" />
-          ) : (
-            <span className="material-symbols-outlined text-xl text-slate-400">{mat.icon}</span>
-          )}
+          <SmartItemIcon itemName={mat.name} icon={mat.icon || 'category'} rarity={mat.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-xl text-slate-400" />
         </div>
         <div className="flex flex-col">
           <span className="text-sm font-bold text-white group-hover/mat:text-primary transition-colors">{mat.name}</span>
@@ -171,11 +168,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                   className={`w-44 h-44 rounded-3xl bg-slate-800/80 border flex items-center justify-center shadow-inner overflow-hidden p-6 shrink-0 ${rarityColor.border}`}
                   style={{ boxShadow: `inset 0 0 40px ${rarityColor.shadow}` }}
                 >
-                  {material.imageUrl ? (
-                    <img src={material.imageUrl} alt={material.name} className="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]" />
-                  ) : (
-                    <span className="material-symbols-outlined text-7xl" style={{ color: rarityColor.hex }}>{material.icon}</span>
-                  )}
+                  <SmartItemIcon itemName={material.name} icon={material.icon || 'category'} rarity={material.rarity} imageClassName="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]" iconClassName="text-7xl" style={{ color: rarityColor.hex }} />
                 </div>
 
                 <div className="space-y-3 text-center">
@@ -235,7 +228,6 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                         else if (targetAugment && onNavigateTactical) onNavigateTactical(targetAugment);
                       };
 
-                      const imageUrl = targetItem?.imageUrl || getSourceImageUrl(name);
                       const rarity = targetItem?.rarity || getItemRarity(name);
                       const icon = targetItem && 'icon' in targetItem ? (targetItem as any).icon : (targetWeapon ? 'swords' : targetMod ? 'settings_input_component' : 'inventory_2');
 
@@ -247,11 +239,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                           >
                             <div className="flex items-center gap-3">
                               <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0 border border-white/5 shadow-inner transition-transform group-hover/req-item:scale-110">
-                                {imageUrl ? (
-                                  <img src={imageUrl} alt={name} className="w-full h-full object-contain drop-shadow-md" />
-                                ) : (
-                                  <span className="material-symbols-outlined text-xl text-slate-400 group-hover/req-item:text-primary transition-colors">{icon}</span>
-                                )}
+                                <SmartItemIcon itemName={name} icon={icon} rarity={rarity} imageClassName="w-full h-full object-contain drop-shadow-md" iconClassName="text-xl text-slate-400 group-hover/req-item:text-primary transition-colors" />
                               </div>
                               <div className="flex flex-col">
                                 <span className="text-sm font-bold text-white group-hover/req-item:text-primary transition-colors">
@@ -286,7 +274,6 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                   <div className="space-y-2">
                     {(material.obtainedFrom || materialLootData?.sources || []).map((sourceItem, idx) => {
                       const { name, quantity } = typeof sourceItem === 'string' ? parseMaterialString(sourceItem) : sourceItem;
-                      const sourceImage = getSourceImageUrl(name);
                       const srcRarity = getItemRarity(name);
                       const srcRarityStyles = getRarityStyles(srcRarity);
                       const srcGlow = getRarityGlowStyles(srcRarity);
@@ -315,11 +302,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                               <div className={`absolute inset-0 opacity-0 group-hover/src:opacity-20 bg-gradient-to-r ${srcGlow} to-transparent transition-opacity rounded-xl`} />
                               <div className="flex items-center gap-3 relative z-10">
                                  <div className="w-10 h-10 rounded-lg bg-black/30 flex items-center justify-center p-1.5 border border-white/5 transition-transform group-hover/src:scale-110 shrink-0">
-                                 {sourceImage ? (
-                                    <img src={sourceImage} alt={name} className="w-full h-full object-contain drop-shadow-md" />
-                                 ) : (
-                                    <span className="material-symbols-outlined text-lg text-slate-500">inventory_2</span>
-                                 )}
+                                 <SmartItemIcon itemName={name} icon="inventory_2" rarity={srcRarity} imageClassName="w-full h-full object-contain drop-shadow-md" iconClassName="text-lg text-slate-500" />
                                  </div>
                                  <div className="flex flex-col text-left">
                                  <span className="text-[12px] font-black text-slate-100 tracking-wider">
@@ -380,11 +363,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                               >
                               <div className="flex items-center gap-3">
                                 <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center overflow-hidden shrink-0 border border-white/5">
-                                  {targetMat?.imageUrl ? (
-                                    <img src={targetMat.imageUrl} alt={req.name} className="w-full h-full object-contain" />
-                                  ) : (
-                                    <span className="material-symbols-outlined text-xl text-slate-400 group-hover/req:text-primary transition-colors">{targetMat?.icon || 'inventory_2'}</span>
-                                  )}
+                                  <SmartItemIcon itemName={req.name} icon={targetMat?.icon || 'inventory_2'} rarity={targetMat?.rarity || 'COMMON'} imageClassName="w-full h-full object-contain" iconClassName="text-xl text-slate-400 group-hover/req:text-primary transition-colors" />
                                 </div>
                                 <span className="text-sm font-bold text-white group-hover/req:text-primary transition-colors">
                                   {req.name}
