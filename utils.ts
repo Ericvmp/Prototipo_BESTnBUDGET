@@ -104,29 +104,29 @@ const ASSET_ALIASES: Record<string, string> = {
  */
 export const getSourceImageUrls = (sourceName: string): string[] => {
     if (!sourceName) return [];
-    
+
     // Resolve alias if one exists
     const resolvedName = ASSET_ALIASES[sourceName] || sourceName;
-    
+
     // Exact name with spaces replaced by underscores (e.g., "Muzzle Brake I" -> "Muzzle_Brake_I")
     const exactFormatted = resolvedName.replace(/ /g, '_');
-    
+
     // Strip tier suffixes like " I", " II", " III", " IV" for a base fallback
     const baseNameStr = resolvedName.replace(/\s+(I{1,3}|IV)$/, '').trim();
     const baseFormatted = baseNameStr.replace(/ /g, '_');
-    
+
     const extensions = ['.png', '.webp', '.jpg', '.jpeg'];
     const urls: string[] = [];
-    
+
     for (const ext of extensions) {
         // Try exact formatted name first (Muzzle_Brake_I.webp)
         urls.push(`/images/items/${exactFormatted}${ext}`);
-        
+
         // Try exact unformatted name (Muzzle Brake I.png)
         if (resolvedName !== exactFormatted) {
             urls.push(`/images/items/${resolvedName}${ext}`);
         }
-        
+
         // If it has a tier suffix, also try the base name (Muzzle_Brake.png)
         if (baseNameStr !== resolvedName) {
             urls.push(`/images/items/${baseFormatted}${ext}`);
@@ -176,7 +176,7 @@ export const getItemRarity = (name: string): Rarity => {
     if (lowerName.includes('heavy shield')) return 'EPIC';
     if (lowerName.includes('medium shield')) return 'RARE';
     if (lowerName.includes('light shield')) return 'UNCOMMON';
-    
+
     const arcUncommonItems = ['arc alloy', 'motion core', 'spotter relay', 'snitch scanner', 'sample cleaner', 'rotary encoder', 'hornet driver', 'magnet', 'arc circuitry'];
     if (arcUncommonItems.some(item => lowerName.includes(item))) return 'UNCOMMON';
 
