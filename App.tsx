@@ -137,7 +137,7 @@ const App: React.FC = () => {
           icon="military_tech"
           delay="200ms"
           image="https://cdn.metaforge.app/arc-raiders/icons/hideout/Gunsmith.webp"
-          itemImage="/images/items/Bobcat.png"
+          itemImage="/images/items/Bobcat.webp"
           itemImageClass="w-36 h-36 md:w-[211px] md:h-[211px]"
           hoverColor="#85f2e9"
           onClick={() => setCurrentScreen('weapons')}
@@ -147,7 +147,7 @@ const App: React.FC = () => {
           icon="settings_input_component"
           delay="300ms"
           image="https://cdn.metaforge.app/arc-raiders/icons/hideout/ExplosivesStation.webp"
-          itemImage="/images/items/Kinetic_Converter.png"
+          itemImage="/images/items/Kinetic_Converter.webp"
           itemImageClass="w-24 h-24 md:w-[189px] md:h-[189px]"
           hoverColor="#2df287"
           onClick={() => setCurrentScreen('mods')}
@@ -157,7 +157,7 @@ const App: React.FC = () => {
           icon="inventory_2"
           delay="400ms"
           image="/images/Refiner.webp"
-          itemImage="/images/items/Plastic_Parts.png"
+          itemImage="/images/items/Plastic_Parts.webp"
           itemImageClass="w-24 h-24 md:w-[173px] md:h-[173px]"
           hoverColor="#fbd008"
           onClick={() => setCurrentScreen('materials')}
@@ -167,7 +167,7 @@ const App: React.FC = () => {
           icon="shield_with_heart"
           delay="500ms"
           image="/images/GearBench.webp"
-          itemImage="/images/items/Medium_Shield.png"
+          itemImage="/images/items/Medium_Shield.webp"
           itemImageClass="w-20 h-20 md:w-[147px] md:h-[147px]"
           hoverColor="#fb090b"
           onClick={() => setCurrentScreen('equipment')}
@@ -176,8 +176,8 @@ const App: React.FC = () => {
           label="Blueprints"
           icon="architecture"
           delay="600ms"
-          image="/images/Workshop.png"
-          itemImage="/images/items/Barricade_Kit.png"
+          image="/images/Workshop.webp"
+          itemImage="/images/items/Barricade_Kit.webp"
           itemImageClass="w-28 h-28 md:w-[163px] md:h-[163px] transform -translate-y-[7px]"
           hoverColor="#135bec"
           onClick={() => setCurrentScreen('blueprints')}

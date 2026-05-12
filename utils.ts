@@ -119,7 +119,7 @@ export const getSourceImageUrls = (sourceName: string): string[] => {
     const urls: string[] = [];
     
     for (const ext of extensions) {
-        // Try exact formatted name first (Muzzle_Brake_I.png)
+        // Try exact formatted name first (Muzzle_Brake_I.webp)
         urls.push(`/images/items/${exactFormatted}${ext}`);
         
         // Try exact unformatted name (Muzzle Brake I.png)

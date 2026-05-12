@@ -1,0 +1,1489 @@
+{
+  "summary": {
+    "filesProcessed": 211,
+    "sourceFilesUpdated": 6,
+    "originalTotalMB": "62.08",
+    "convertedTotalMB": "5.47",
+    "savedMB": "56.61",
+    "savedPercent": "91.2"
+  },
+  "files": [
+    {
+      "file": "items\\Acoustic_Guitar.png",
+      "origKB": "6377.9",
+      "newKB": "368.5",
+      "saving": "94.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Adrenaline_Shot.png",
+      "origKB": "72.7",
+      "newKB": "10.1",
+      "saving": "86.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Advanced_ARC_Powercell.png",
+      "origKB": "177.1",
+      "newKB": "15.9",
+      "saving": "91.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Advanced_Electrical_Components.png",
+      "origKB": "657.6",
+      "newKB": "38.8",
+      "saving": "94.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Advanced_Mechanical_Components.png",
+      "origKB": "145.6",
+      "newKB": "22.0",
+      "saving": "84.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Alarm_Clock.png",
+      "origKB": "105.7",
+      "newKB": "17.5",
+      "saving": "83.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Angled_Grip_I.png",
+      "origKB": "122.9",
+      "newKB": "14.9",
+      "saving": "87.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Angled_Grip_II.png",
+      "origKB": "481.4",
+      "newKB": "40.7",
+      "saving": "91.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Angled_Grip_III.png",
+      "origKB": "444.2",
+      "newKB": "30.1",
+      "saving": "93.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Antiseptic.png",
+      "origKB": "319.2",
+      "newKB": "22.6",
+      "saving": "92.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Anvil.png",
+      "origKB": "153.3",
+      "newKB": "20.4",
+      "saving": "86.7",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Anvil_Splitter.png",
+      "origKB": "278.4",
+      "newKB": "26.0",
+      "saving": "90.7",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Aphelion.png",
+      "origKB": "215.9",
+      "newKB": "21.6",
+      "saving": "90.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\ARC_Alloy.png",
+      "origKB": "192.6",
+      "newKB": "21.1",
+      "saving": "89.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\ARC_Circuitry.png",
+      "origKB": "256.0",
+      "newKB": "25.1",
+      "saving": "90.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\ARC_Flex_Rubber.png",
+      "origKB": "207.3",
+      "newKB": "28.1",
+      "saving": "86.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\ARC_Motion_Core.png",
+      "origKB": "548.9",
+      "newKB": "40.4",
+      "saving": "92.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\ARC_Performance_Steel.png",
+      "origKB": "290.9",
+      "newKB": "37.6",
+      "saving": "87.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\ARC_Powercell.png",
+      "origKB": "98.8",
+      "newKB": "10.7",
+      "saving": "89.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\ARC_Synthetic_Resin.png",
+      "origKB": "86.2",
+      "newKB": "12.1",
+      "saving": "85.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Arpeggio.png",
+      "origKB": "152.1",
+      "newKB": "16.3",
+      "saving": "89.3",
+      "status": "skipped (webp existed)"
+    },
+    {
+      "file": "items\\Bandage.png",
+      "origKB": "92.6",
+      "newKB": "16.1",
+      "saving": "82.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Barricade_Kit.png",
+      "origKB": "670.7",
+      "newKB": "40.4",
+      "saving": "94.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Bastion_Cell.png",
+      "origKB": "251.2",
+      "newKB": "28.7",
+      "saving": "88.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Battery.png",
+      "origKB": "161.1",
+      "newKB": "20.5",
+      "saving": "87.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Bettina.png",
+      "origKB": "260.8",
+      "newKB": "36.0",
+      "saving": "86.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Bicycle_Pump.png",
+      "origKB": "78.2",
+      "newKB": "11.7",
+      "saving": "85.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Blaze_Grenade.png",
+      "origKB": "402.6",
+      "newKB": "27.2",
+      "saving": "93.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Bobcat.png",
+      "origKB": "195.6",
+      "newKB": "15.1",
+      "saving": "92.3",
+      "status": "skipped (webp existed)"
+    },
+    {
+      "file": "items\\Bombardier_Cell.png",
+      "origKB": "166.1",
+      "newKB": "20.6",
+      "saving": "87.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Burletta.png",
+      "origKB": "132.5",
+      "newKB": "21.2",
+      "saving": "84.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Burned_ARC_Circuitry.png",
+      "origKB": "304.4",
+      "newKB": "32.1",
+      "saving": "89.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Camera_Lens.png",
+      "origKB": "167.3",
+      "newKB": "15.3",
+      "saving": "90.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Candle_Holder.png",
+      "origKB": "109.9",
+      "newKB": "19.8",
+      "saving": "81.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Canister.png",
+      "origKB": "131.9",
+      "newKB": "11.2",
+      "saving": "91.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Canto.png",
+      "origKB": "200.4",
+      "newKB": "26.6",
+      "saving": "86.7",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Chemicals.png",
+      "origKB": "215.9",
+      "newKB": "21.6",
+      "saving": "90.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Combat_Mk._2.png",
+      "origKB": "364.6",
+      "newKB": "39.0",
+      "saving": "89.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Combat_Mk._3_(Aggressive).png",
+      "origKB": "354.6",
+      "newKB": "33.8",
+      "saving": "90.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Combat_Mk._3_(Flanking).png",
+      "origKB": "332.9",
+      "newKB": "31.3",
+      "saving": "90.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Comet_Igniter.png",
+      "origKB": "2503.3",
+      "newKB": "114.2",
+      "saving": "95.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Compensator_I.png",
+      "origKB": "314.2",
+      "newKB": "25.9",
+      "saving": "91.8",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Compensator_II.png",
+      "origKB": "414.8",
+      "newKB": "25.0",
+      "saving": "94.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Compensator_III.png",
+      "origKB": "555.3",
+      "newKB": "31.8",
+      "saving": "94.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Complex_Gun_Parts.png",
+      "origKB": "138.4",
+      "newKB": "15.4",
+      "saving": "88.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Cooling_Coil.png",
+      "origKB": "212.0",
+      "newKB": "28.4",
+      "saving": "86.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Cooling_Fan.png",
+      "origKB": "267.1",
+      "newKB": "25.5",
+      "saving": "90.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Crude_Explosives.png",
+      "origKB": "551.2",
+      "newKB": "32.4",
+      "saving": "94.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Damaged_Heat_Sink.png",
+      "origKB": "249.2",
+      "newKB": "30.7",
+      "saving": "87.7",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Damaged_Leaper_Pulse_Unit.png",
+      "origKB": "136.8",
+      "newKB": "17.1",
+      "saving": "87.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Damaged_Rocketeer_Driver.png",
+      "origKB": "159.9",
+      "newKB": "22.7",
+      "saving": "85.8",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Deadline.png",
+      "origKB": "323.8",
+      "newKB": "32.2",
+      "saving": "90.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Defibrillator.png",
+      "origKB": "345.8",
+      "newKB": "32.3",
+      "saving": "90.7",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Deflated_Football.png",
+      "origKB": "215.2",
+      "newKB": "19.0",
+      "saving": "91.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Degraded_ARC_Rubber.png",
+      "origKB": "212.5",
+      "newKB": "24.7",
+      "saving": "88.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Diving_Goggles.png",
+      "origKB": "148.4",
+      "newKB": "16.1",
+      "saving": "89.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Dolabra.png",
+      "origKB": "247.0",
+      "newKB": "29.2",
+      "saving": "88.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Dried-Out_ARC_Resin.png",
+      "origKB": "68.1",
+      "newKB": "7.9",
+      "saving": "88.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Duct_Tape.png",
+      "origKB": "105.4",
+      "newKB": "10.6",
+      "saving": "90.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Durable_Cloth.png",
+      "origKB": "177.3",
+      "newKB": "17.0",
+      "saving": "90.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Electrical_Components.png",
+      "origKB": "68.4",
+      "newKB": "10.8",
+      "saving": "84.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Equalizer.png",
+      "origKB": "117.3",
+      "newKB": "26.3",
+      "saving": "77.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Exodus_Modules.png",
+      "origKB": "169.6",
+      "newKB": "26.9",
+      "saving": "84.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Expired_Respirator.png",
+      "origKB": "215.5",
+      "newKB": "23.9",
+      "saving": "88.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Explosive_Compound.png",
+      "origKB": "632.2",
+      "newKB": "36.5",
+      "saving": "94.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Explosive_Mine.png",
+      "origKB": "490.0",
+      "newKB": "42.0",
+      "saving": "91.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Extended_Barrel.png",
+      "origKB": "261.7",
+      "newKB": "20.5",
+      "saving": "92.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Extended_Light_Mag_I.png",
+      "origKB": "383.0",
+      "newKB": "23.7",
+      "saving": "93.8",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Extended_Light_Mag_II.png",
+      "origKB": "311.8",
+      "newKB": "23.3",
+      "saving": "92.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Extended_Light_Mag_III.png",
+      "origKB": "439.7",
+      "newKB": "30.1",
+      "saving": "93.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Extended_Medium_Mag_I.png",
+      "origKB": "589.3",
+      "newKB": "33.4",
+      "saving": "94.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Extended_Medium_Mag_II.png",
+      "origKB": "496.9",
+      "newKB": "30.1",
+      "saving": "93.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Extended_Medium_Mag_III.png",
+      "origKB": "677.4",
+      "newKB": "38.1",
+      "saving": "94.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Extended_Shotgun_Mag_I.png",
+      "origKB": "630.3",
+      "newKB": "37.1",
+      "saving": "94.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Extended_Shotgun_Mag_II.png",
+      "origKB": "658.2",
+      "newKB": "35.4",
+      "saving": "94.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Extended_Shotgun_Mag_III.png",
+      "origKB": "595.6",
+      "newKB": "37.1",
+      "saving": "93.8",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Fabric.png",
+      "origKB": "146.7",
+      "newKB": "13.8",
+      "saving": "90.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Ferro.png",
+      "origKB": "71.7",
+      "newKB": "16.8",
+      "saving": "76.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Firefly_Burner.png",
+      "origKB": "1111.6",
+      "newKB": "78.7",
+      "saving": "92.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Frequency_Modulation_Box.png",
+      "origKB": "193.4",
+      "newKB": "21.6",
+      "saving": "88.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Fried_Motherboard.png",
+      "origKB": "159.0",
+      "newKB": "21.5",
+      "saving": "86.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Frying_Pan.png",
+      "origKB": "159.4",
+      "newKB": "17.5",
+      "saving": "89.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Garlic_Press.png",
+      "origKB": "91.3",
+      "newKB": "10.5",
+      "saving": "88.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Gas_Grenade.png",
+      "origKB": "146.6",
+      "newKB": "20.1",
+      "saving": "86.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Gas_Mine.png",
+      "origKB": "719.4",
+      "newKB": "52.4",
+      "saving": "92.7",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Great_Mullein.png",
+      "origKB": "70.3",
+      "newKB": "16.5",
+      "saving": "76.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Hairpin.png",
+      "origKB": "124.7",
+      "newKB": "9.9",
+      "saving": "92.1",
+      "status": "skipped (webp existed)"
+    },
+    {
+      "file": "items\\Headphones.png",
+      "origKB": "159.8",
+      "newKB": "29.5",
+      "saving": "81.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Heavy_Fuze_Grenade.png",
+      "origKB": "220.3",
+      "newKB": "20.6",
+      "saving": "90.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Heavy_Gun_Parts.png",
+      "origKB": "615.5",
+      "newKB": "43.3",
+      "saving": "93.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Heavy_Shield.png",
+      "origKB": "176.9",
+      "newKB": "24.3",
+      "saving": "86.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Herbal_Bandage.png",
+      "origKB": "116.2",
+      "newKB": "18.6",
+      "saving": "84.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Horizontal_Grip.png",
+      "origKB": "57.8",
+      "newKB": "8.2",
+      "saving": "85.8",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Hornet_Driver.png",
+      "origKB": "181.8",
+      "newKB": "21.6",
+      "saving": "88.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Hullcracker.png",
+      "origKB": "191.5",
+      "newKB": "11.2",
+      "saving": "94.1",
+      "status": "skipped (webp existed)"
+    },
+    {
+      "file": "items\\Humidifier.png",
+      "origKB": "186.6",
+      "newKB": "13.1",
+      "saving": "93.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Il Toro.png",
+      "origKB": "122.5",
+      "newKB": "25.8",
+      "saving": "79.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Il_Toro.png",
+      "origKB": "122.5",
+      "newKB": "25.8",
+      "saving": "79.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Industrial_Magnet.png",
+      "origKB": "249.8",
+      "newKB": "24.8",
+      "saving": "90.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Jolt_Mine.png",
+      "origKB": "262.8",
+      "newKB": "31.9",
+      "saving": "87.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Jupiter.png",
+      "origKB": "131.7",
+      "newKB": "28.2",
+      "saving": "78.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Kettle.png",
+      "origKB": "182.2",
+      "newKB": "30.7",
+      "saving": "83.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Kinetic_Converter.png",
+      "origKB": "105.5",
+      "newKB": "12.7",
+      "saving": "88.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Leaper_Pulse_Unit.png",
+      "origKB": "186.8",
+      "newKB": "24.1",
+      "saving": "87.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Lightweight_Stock.png",
+      "origKB": "270.7",
+      "newKB": "21.5",
+      "saving": "92.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Light_Gun_Parts.png",
+      "origKB": "660.7",
+      "newKB": "38.5",
+      "saving": "94.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Light_Impact_Grenade.png",
+      "origKB": "122.5",
+      "newKB": "20.8",
+      "saving": "83.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Light_Shield.png",
+      "origKB": "131.8",
+      "newKB": "20.3",
+      "saving": "84.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Looting_Mk._2.png",
+      "origKB": "352.5",
+      "newKB": "39.5",
+      "saving": "88.8",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Looting_Mk._3_(Cautious).png",
+      "origKB": "208.1",
+      "newKB": "19.7",
+      "saving": "90.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Looting_Mk._3_(Safekeeper).png",
+      "origKB": "379.4",
+      "newKB": "45.8",
+      "saving": "87.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Looting_Mk._3_(Survivor).png",
+      "origKB": "253.9",
+      "newKB": "27.5",
+      "saving": "89.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Magnet.png",
+      "origKB": "83.1",
+      "newKB": "12.2",
+      "saving": "85.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Magnetic_Accelerator.png",
+      "origKB": "172.8",
+      "newKB": "25.2",
+      "saving": "85.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Matriarch_Reactor.png",
+      "origKB": "181.4",
+      "newKB": "26.7",
+      "saving": "85.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Mechanical_Components.png",
+      "origKB": "130.6",
+      "newKB": "27.4",
+      "saving": "79.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Medium_Gun_Parts.png",
+      "origKB": "561.0",
+      "newKB": "36.7",
+      "saving": "93.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Medium_Shield.png",
+      "origKB": "129.1",
+      "newKB": "21.2",
+      "saving": "83.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Metal_Brackets.png",
+      "origKB": "86.4",
+      "newKB": "16.9",
+      "saving": "80.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Metal_Parts.png",
+      "origKB": "119.7",
+      "newKB": "16.9",
+      "saving": "85.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Microscope.png",
+      "origKB": "151.7",
+      "newKB": "13.0",
+      "saving": "91.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Mod_Components.png",
+      "origKB": "573.0",
+      "newKB": "32.5",
+      "saving": "94.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Moss.png",
+      "origKB": "140.0",
+      "newKB": "25.4",
+      "saving": "81.8",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Muzzle_Brake_I.png",
+      "origKB": "93.3",
+      "newKB": "11.7",
+      "saving": "87.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Muzzle_Brake_II.png",
+      "origKB": "356.9",
+      "newKB": "25.1",
+      "saving": "93.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Muzzle_Brake_III.png",
+      "origKB": "293.6",
+      "newKB": "25.1",
+      "saving": "91.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Oil.png",
+      "origKB": "89.2",
+      "newKB": "12.1",
+      "saving": "86.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Osprey.png",
+      "origKB": "86.2",
+      "newKB": "18.6",
+      "saving": "78.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Padded_Stock.png",
+      "origKB": "557.1",
+      "newKB": "32.6",
+      "saving": "94.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Photoelectric_Cloak.png",
+      "origKB": "49.7",
+      "newKB": "9.9",
+      "saving": "80.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Plastic_Parts.png",
+      "origKB": "133.7",
+      "newKB": "16.6",
+      "saving": "87.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Portable_TV.png",
+      "origKB": "254.3",
+      "newKB": "23.4",
+      "saving": "90.8",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Power_Bank.png",
+      "origKB": "171.8",
+      "newKB": "14.7",
+      "saving": "91.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Power_Cable.png",
+      "origKB": "124.5",
+      "newKB": "25.4",
+      "saving": "79.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Power_Rod.png",
+      "origKB": "75.0",
+      "newKB": "11.7",
+      "saving": "84.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Processor.png",
+      "origKB": "119.4",
+      "newKB": "17.1",
+      "saving": "85.7",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Queen_Reactor.png",
+      "origKB": "204.1",
+      "newKB": "19.6",
+      "saving": "90.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Raider_Hatch_Key.png",
+      "origKB": "79.8",
+      "newKB": "17.2",
+      "saving": "78.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Rattler.png",
+      "origKB": "123.0",
+      "newKB": "11.9",
+      "saving": "90.3",
+      "status": "skipped (webp existed)"
+    },
+    {
+      "file": "items\\Recorder.png",
+      "origKB": "33.8",
+      "newKB": "6.0",
+      "saving": "82.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Remote_Control.png",
+      "origKB": "90.2",
+      "newKB": "11.3",
+      "saving": "87.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Renegade.png",
+      "origKB": "98.3",
+      "newKB": "20.4",
+      "saving": "79.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Ripped_Safety_Vest.png",
+      "origKB": "203.0",
+      "newKB": "28.0",
+      "saving": "86.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Rocketeer_Driver.png",
+      "origKB": "166.5",
+      "newKB": "21.0",
+      "saving": "87.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Rope.png",
+      "origKB": "762.4",
+      "newKB": "104.1",
+      "saving": "86.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Rotary_Encoder.png",
+      "origKB": "39.4",
+      "newKB": "5.9",
+      "saving": "84.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Rubber_Pad.png",
+      "origKB": "142.6",
+      "newKB": "14.4",
+      "saving": "89.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Rubber_Parts.png",
+      "origKB": "169.3",
+      "newKB": "26.7",
+      "saving": "84.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Ruined_Accordion.png",
+      "origKB": "169.2",
+      "newKB": "20.5",
+      "saving": "87.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Ruined_Riot_Shield.png",
+      "origKB": "192.6",
+      "newKB": "16.4",
+      "saving": "91.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Ruined_Tactical_Vest.png",
+      "origKB": "249.4",
+      "newKB": "27.9",
+      "saving": "88.8",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Sample_Cleaner.png",
+      "origKB": "152.5",
+      "newKB": "17.3",
+      "saving": "88.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Seeker_Grenade.png",
+      "origKB": "423.4",
+      "newKB": "28.5",
+      "saving": "93.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Sensors.png",
+      "origKB": "154.7",
+      "newKB": "30.4",
+      "saving": "80.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Sentinel_Firing_Core.png",
+      "origKB": "195.6",
+      "newKB": "23.4",
+      "saving": "88.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Shaker.png",
+      "origKB": "43.9",
+      "newKB": "4.7",
+      "saving": "89.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Shield_Recharger.png",
+      "origKB": "79.2",
+      "newKB": "11.8",
+      "saving": "85.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Shotgun_Choke_I.png",
+      "origKB": "158.1",
+      "newKB": "13.5",
+      "saving": "91.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Shotgun_Choke_II.png",
+      "origKB": "284.9",
+      "newKB": "24.2",
+      "saving": "91.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Shotgun_Choke_III.png",
+      "origKB": "448.6",
+      "newKB": "29.4",
+      "saving": "93.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Shotgun_Silencer.png",
+      "origKB": "449.8",
+      "newKB": "25.4",
+      "saving": "94.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Showstopper.png",
+      "origKB": "564.4",
+      "newKB": "42.0",
+      "saving": "92.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Shrapnel_Grenade.png",
+      "origKB": "461.5",
+      "newKB": "34.1",
+      "saving": "92.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Shredder_Gyro.png",
+      "origKB": "143.8",
+      "newKB": "14.1",
+      "saving": "90.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Signal_Amplifier.png",
+      "origKB": "121.5",
+      "newKB": "9.7",
+      "saving": "92.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Silencer_I.png",
+      "origKB": "454.9",
+      "newKB": "30.3",
+      "saving": "93.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Silencer_II.png",
+      "origKB": "305.6",
+      "newKB": "21.0",
+      "saving": "93.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Silencer_III.png",
+      "origKB": "82.7",
+      "newKB": "10.7",
+      "saving": "87.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Simple_Gun_Parts.png",
+      "origKB": "131.1",
+      "newKB": "15.9",
+      "saving": "87.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Smoke_Grenade.png",
+      "origKB": "167.2",
+      "newKB": "23.9",
+      "saving": "85.7",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Snap_Blast_Grenade.png",
+      "origKB": "506.7",
+      "newKB": "33.8",
+      "saving": "93.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Snap_Hook.png",
+      "origKB": "101.6",
+      "newKB": "14.5",
+      "saving": "85.7",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Snitch_Scanner.png",
+      "origKB": "139.9",
+      "newKB": "20.7",
+      "saving": "85.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Speaker_Component.png",
+      "origKB": "239.2",
+      "newKB": "27.1",
+      "saving": "88.7",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Spotter_Relay.png",
+      "origKB": "171.2",
+      "newKB": "19.5",
+      "saving": "88.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Spring_Cushion.png",
+      "origKB": "190.4",
+      "newKB": "26.9",
+      "saving": "85.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Stable_Stock_I.png",
+      "origKB": "450.6",
+      "newKB": "30.1",
+      "saving": "93.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Stable_Stock_II.png",
+      "origKB": "464.4",
+      "newKB": "40.5",
+      "saving": "91.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Stable_Stock_III.png",
+      "origKB": "488.1",
+      "newKB": "32.4",
+      "saving": "93.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Steel_Spring.png",
+      "origKB": "67.7",
+      "newKB": "15.1",
+      "saving": "77.7",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Sterilized_Bandage.png",
+      "origKB": "60.3",
+      "newKB": "10.3",
+      "saving": "82.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Stitcher.png",
+      "origKB": "159.8",
+      "newKB": "28.1",
+      "saving": "82.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Surge_Coil.png",
+      "origKB": "128.8",
+      "newKB": "15.2",
+      "saving": "88.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Synthesized_Fuel.png",
+      "origKB": "212.2",
+      "newKB": "20.3",
+      "saving": "90.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Syringe.png",
+      "origKB": "73.0",
+      "newKB": "10.1",
+      "saving": "86.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Tactical_Mk._2.png",
+      "origKB": "275.9",
+      "newKB": "29.0",
+      "saving": "89.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Tactical_Mk._3_(Defensive).png",
+      "origKB": "249.3",
+      "newKB": "23.3",
+      "saving": "90.7",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Tactical_Mk._3_Healing.png",
+      "origKB": "186.5",
+      "newKB": "16.9",
+      "saving": "91.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Tactical_Mk._3_Revival.png",
+      "origKB": "243.6",
+      "newKB": "24.1",
+      "saving": "90.1",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Tagging_Grenade.png",
+      "origKB": "55.0",
+      "newKB": "7.2",
+      "saving": "86.9",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Tempest.png",
+      "origKB": "157.2",
+      "newKB": "16.8",
+      "saving": "89.3",
+      "status": "skipped (webp existed)"
+    },
+    {
+      "file": "items\\Thermostat.png",
+      "origKB": "74.5",
+      "newKB": "8.6",
+      "saving": "88.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Tick_Pod.png",
+      "origKB": "364.3",
+      "newKB": "35.5",
+      "saving": "90.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Toaster.png",
+      "origKB": "262.7",
+      "newKB": "24.9",
+      "saving": "90.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Torrente.png",
+      "origKB": "38.0",
+      "newKB": "9.9",
+      "saving": "74.0",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Trailblazer.png",
+      "origKB": "438.0",
+      "newKB": "32.2",
+      "saving": "92.7",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Trigger_'Nade.png",
+      "origKB": "736.9",
+      "newKB": "47.2",
+      "saving": "93.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Unusable_Weapon.png",
+      "origKB": "110.8",
+      "newKB": "18.6",
+      "saving": "83.2",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Vaporizer_Regulator.png",
+      "origKB": "299.2",
+      "newKB": "31.5",
+      "saving": "89.5",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Venator.png",
+      "origKB": "40.1",
+      "newKB": "8.2",
+      "saving": "79.7",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Vertical_Grip_I.png",
+      "origKB": "133.6",
+      "newKB": "13.9",
+      "saving": "89.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Vertical_Grip_II.png",
+      "origKB": "269.2",
+      "newKB": "23.3",
+      "saving": "91.3",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Vertical_Grip_III.png",
+      "origKB": "373.0",
+      "newKB": "28.4",
+      "saving": "92.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Vita_Shot.png",
+      "origKB": "64.4",
+      "newKB": "10.7",
+      "saving": "83.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Vita_Spray.png",
+      "origKB": "100.6",
+      "newKB": "21.6",
+      "saving": "78.5",
+      "status": "skipped (webp existed)"
+    },
+    {
+      "file": "items\\Voltage_Converter.png",
+      "origKB": "92.8",
+      "newKB": "15.2",
+      "saving": "83.6",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Vulcano.png",
+      "origKB": "139.6",
+      "newKB": "12.9",
+      "saving": "90.8",
+      "status": "skipped (webp existed)"
+    },
+    {
+      "file": "items\\Wires.png",
+      "origKB": "76.7",
+      "newKB": "25.0",
+      "saving": "67.4",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Wolfpack.png",
+      "origKB": "240.8",
+      "newKB": "17.3",
+      "saving": "92.8",
+      "status": "converted"
+    },
+    {
+      "file": "items\\Zipline.png",
+      "origKB": "84.5",
+      "newKB": "11.3",
+      "saving": "86.6",
+      "status": "converted"
+    },
+    {
+      "file": "Workshop.png",
+      "origKB": "4026.7",
+      "newKB": "232.2",
+      "saving": "94.2",
+      "status": "converted"
+    }
+  ]
+}

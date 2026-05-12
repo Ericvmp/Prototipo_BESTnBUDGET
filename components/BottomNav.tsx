@@ -9,11 +9,11 @@ interface BottomNavProps {
 const BottomNav: React.FC<BottomNavProps> = ({ activeScreen, onNavigate }) => {
   const navItems: { id: Screen; label: string; icon: string; color: string; image?: string }[] = [
     { id: 'home', label: 'HOME', icon: 'home', color: '#ffffff' },
-    { id: 'weapons', label: 'WEAPONS', icon: 'military_tech', color: '#85f2e9', image: '/images/items/Bobcat.png' },
-    { id: 'mods', label: 'MODS', icon: 'settings_input_component', color: '#2df287', image: '/images/items/Kinetic_Converter.png' },
-    { id: 'materials', label: 'MATERIALS', icon: 'construction', color: '#fbd008', image: '/images/items/Plastic_Parts.png' },
-    { id: 'equipment', label: 'EQUIPMENT', icon: 'explosion', color: '#fb090b', image: '/images/items/Medium_Shield.png' },
-    { id: 'blueprints', label: 'BLUEPRINTS', icon: 'architecture', color: '#135bec', image: '/images/items/Barricade_Kit.png' },
+    { id: 'weapons', label: 'WEAPONS', icon: 'military_tech', color: '#85f2e9', image: '/images/items/Bobcat.webp' },
+    { id: 'mods', label: 'MODS', icon: 'settings_input_component', color: '#2df287', image: '/images/items/Kinetic_Converter.webp' },
+    { id: 'materials', label: 'MATERIALS', icon: 'construction', color: '#fbd008', image: '/images/items/Plastic_Parts.webp' },
+    { id: 'equipment', label: 'EQUIPMENT', icon: 'explosion', color: '#fb090b', image: '/images/items/Medium_Shield.webp' },
+    { id: 'blueprints', label: 'BLUEPRINTS', icon: 'architecture', color: '#135bec', image: '/images/items/Barricade_Kit.webp' },
     { id: 'planner', label: 'PLANNER', icon: 'calculate', color: '#513bbd', image: '/images/scrappy.webp' },
   ];
 
