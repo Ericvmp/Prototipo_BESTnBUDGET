@@ -881,10 +881,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                   <span className="material-symbols-outlined text-2xl">arrow_back</span>
                </button>
                <div>
-                  <div>
-                     <h2 className="text-3xl font-black tracking-[0.3em] text-white drop-shadow-glow">STASH PLANNER</h2>
-                     <p className="text-[10px] text-primary font-bold tracking-[0.4em] uppercase mt-1 opacity-70">Loadout-Agregated Resource Calibration</p>
-                  </div>
+                  <h2 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white drop-shadow-glow uppercase italic">STASH PLANNER</h2>
                </div>
             </div>
 

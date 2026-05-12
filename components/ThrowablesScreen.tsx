@@ -80,8 +80,7 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
           <span className="material-symbols-outlined text-2xl">arrow_back</span>
         </button>
         <div>
-          <h2 className="text-3xl font-black tracking-[0.3em] text-white drop-shadow-glow uppercase">EQUIPMENT</h2>
-          <p className="text-[10px] text-primary font-bold tracking-[0.4em] uppercase mt-1 opacity-70">Support &amp; Equipment Inventory</p>
+          <h2 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white drop-shadow-glow uppercase italic">EQUIPMENT</h2>
         </div>
       </div>
 
@@ -132,6 +131,7 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
           </div>
         )}
       </div>
+      <div className="h-[100px] w-full pointer-events-none" />
     </main>
   );
 };

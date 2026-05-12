@@ -200,3 +200,22 @@ export const parseMaterialString = (s: string): { name: string; quantity: number
     return { name: s.trim(), quantity: 1 };
 };
 
+/**
+ * Universal Item Resolver
+ * Returns the full item object from any data array by name.
+ */
+export const findFullItem = (name: string): any => {
+    if (!name) return null;
+    const trimmedName = name.trim();
+    const lowerName = trimmedName.toLowerCase();
+
+    // Strip tier suffixes for weapon matching
+    const baseName = trimmedName.replace(/\s+(I{1,3}|IV)$/, '');
+    const lowerBase = baseName.toLowerCase();
+
+    return WEAPONS_DATA.find(w => w.name.toLowerCase() === lowerName || w.name.toLowerCase() === lowerBase)
+        || MODS_DATA.find(m => m.name.toLowerCase() === lowerName || m.name.toLowerCase() === lowerBase)
+        || MATERIALS_DATA.find(m => m.name.toLowerCase() === lowerName)
+        || THROWABLES_DATA.find(t => t.name.toLowerCase() === lowerName || t.name.toLowerCase() === lowerBase)
+        || AUGMENTS_DATA.find(a => a.name.toLowerCase() === lowerName || a.name.toLowerCase() === lowerBase);
+};

@@ -41,3 +41,13 @@
 .drop-shadow-glow {
   filter: drop-shadow(0 0 15px rgba(19, 91, 236, 0.6));
 }
+
+.neon-blue-text {
+  color: #fff;
+  text-shadow: 
+    0 0 4px #fff,
+    0 0 10px #00d2ff,
+    0 0 20px #00d2ff,
+    0 0 40px #00d2ff;
+  /* Reduzi a intensidade e removi a animação */
+}

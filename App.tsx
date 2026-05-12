@@ -4,6 +4,7 @@ import WeaponCard from './components/WeaponCard';
 import ModCard from './components/ModCard';
 import LootScreen from './components/LootScreen';
 import ThrowablesScreen from './components/ThrowablesScreen';
+import BlueprintsScreen from './components/BlueprintsScreen';
 import PlannerScreen from './components/PlannerScreen';
 import BottomNav from './components/BottomNav';
 import WeaponOverlay from './components/WeaponOverlay';
@@ -25,13 +26,23 @@ const HomeOption: React.FC<{ label: string; icon: string; delay: string; image?:
         animationDelay: delay,
       }}
     >
-      {/* Background Image */}
+      {/* Background Image or Blueprint Grid */}
       <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500 grayscale group-hover:grayscale-0">
-        <img
-          src={image || ''}
-          alt=""
-          className="w-full h-full object-cover"
-        />
+        {label === 'Blueprints' ? (
+          <div 
+            className="w-full h-full"
+            style={{ 
+              backgroundImage: `linear-gradient(${hoverColor} 2px, transparent 2px), linear-gradient(90deg, ${hoverColor} 2px, transparent 2px)`,
+              backgroundSize: '20% 20%'
+            }}
+          />
+        ) : (
+          <img
+            src={image || ''}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        )}
       </div>
       {/* Hover Glow & Border Overlay - Placed above everything but corners */}
       <div 
@@ -41,7 +52,7 @@ const HomeOption: React.FC<{ label: string; icon: string; delay: string; image?:
         <div className="absolute inset-0 border-[8px]" style={{ borderColor: hoverColor, boxShadow: `0 0 60px ${hoverColor}40, inset 0 0 40px ${hoverColor}30` }}></div>
       </div>
 
-      <div className="flex-1 flex items-center justify-center w-full relative z-40 transform group-hover:-translate-y-2 transition-transform duration-500">
+      <div className="flex-1 flex items-center justify-center w-full relative z-40 transform -translate-y-2 md:-translate-y-5 scale-75 group-hover:-translate-y-3 md:group-hover:-translate-y-6 transition-all duration-700 ease-out">
         {itemImage ? (
           <img src={itemImage} alt={label} className={`${itemImageClass} object-contain drop-shadow-[0_0_12px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.5)] transition-all duration-300`} />
         ) : (
@@ -54,11 +65,12 @@ const HomeOption: React.FC<{ label: string; icon: string; delay: string; image?:
         )}
       </div>
 
-      <div className="relative z-20 text-center px-1 pb-6 md:pb-10">
-        <span className="text-xs md:text-base font-bold tracking-[0.15em] md:tracking-[0.4em] uppercase text-slate-100 group-hover:text-white transition-colors">
+      {/* Label Area - Absolutely positioned to ensure perfect alignment across all cards */}
+      <div className="absolute bottom-0 left-0 right-0 z-50 text-center px-1 pb-6 md:pb-10 h-20 md:h-28 flex flex-col justify-end items-center w-full pointer-events-none">
+        <span className="text-xs md:text-base font-bold tracking-[0.15em] md:tracking-[0.4em] uppercase text-slate-100 group-hover:text-white transition-colors drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
           {label}
         </span>
-        <div className="h-[2px] w-0 mx-auto mt-2 group-hover:w-full transition-all duration-500" style={{ backgroundColor: hoverColor }}></div>
+        <div className="h-[2px] w-0 group-hover:w-1/2 transition-all duration-500 mt-2" style={{ backgroundColor: hoverColor }}></div>
       </div>
       <div className="absolute top-0 left-0 w-10 h-10 pointer-events-none z-50">
         <div className="absolute top-4 left-4 w-[1px] h-4 transition-colors" style={{ backgroundColor: hovered ? hoverColor : `${hoverColor}80` }}></div>
@@ -110,91 +122,96 @@ const App: React.FC = () => {
 
   const renderHome = () => (
     <main className="flex-1 flex flex-col items-center justify-center p-8 gap-12 relative z-10">
-      <div className="text-center animate-fade-in" style={{ animationDelay: '50ms' }}>
-        <div className="flex items-center justify-center gap-4 mb-4">
-          <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-primary/50"></div>
-          <div className="w-2 h-2 bg-primary rotate-45"></div>
-          <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-primary/50"></div>
+      <div className="flex flex-col items-center w-full animate-fade-in relative py-8 mb-4" style={{ animationDelay: '50ms' }}>
+        <div className="w-full max-w-7xl px-0">
+           {/* Full-width Title - Aligned to grid edges */}
+           <h1 className="text-4xl md:text-6xl lg:text-[7.7rem] font-black tracking-[0.08em] md:tracking-[0.12em] uppercase text-white relative z-10 whitespace-nowrap text-center leading-none w-full">
+             SCRAPPY PLANNER
+           </h1>
         </div>
-        <h1 className="text-3xl md:text-5xl font-black tracking-[0.3em] uppercase text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-          XANNAX STASH COPILOT
-        </h1>
-        <p className="text-[16px] md:text-[22px] text-primary tracking-[0.4em] uppercase mt-4 font-bold opacity-90 drop-shadow-glow">
-          STASH PLANNER
-        </p>
       </div>
-      {/* Grid of 4 options */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl mt-4">
+      {/* Grid of 5 options */}
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 w-full max-w-7xl mt-4">
         <HomeOption
           label="Weapons"
           icon="military_tech"
           delay="200ms"
           image="https://cdn.metaforge.app/arc-raiders/icons/hideout/Gunsmith.webp"
-          itemImage="/images/items/Stitcher.png"
-          itemImageClass="w-32 h-32 md:w-52 md:h-52"
+          itemImage="/images/items/Bobcat.png"
+          itemImageClass="w-36 h-36 md:w-[211px] md:h-[211px]"
           hoverColor="#85f2e9"
           onClick={() => setCurrentScreen('weapons')}
         />
         <HomeOption
           label="Mods"
           icon="settings_input_component"
-          delay="350ms"
+          delay="300ms"
           image="https://cdn.metaforge.app/arc-raiders/icons/hideout/ExplosivesStation.webp"
-          itemImage="/images/items/Compensator_II.png"
-          itemImageClass="w-20 h-20 md:w-32 md:h-32"
+          itemImage="/images/items/Kinetic_Converter.png"
+          itemImageClass="w-24 h-24 md:w-[189px] md:h-[189px]"
           hoverColor="#2df287"
           onClick={() => setCurrentScreen('mods')}
         />
         <HomeOption
           label="Materials"
           icon="inventory_2"
-          delay="500ms"
+          delay="400ms"
           image="/images/Refiner.webp"
-          itemImage="/images/items/Metal_Parts.png"
-          itemImageClass="w-24 h-24 md:w-44 md:h-44"
+          itemImage="/images/items/Plastic_Parts.png"
+          itemImageClass="w-24 h-24 md:w-[173px] md:h-[173px]"
           hoverColor="#fbd008"
           onClick={() => setCurrentScreen('materials')}
         />
         <HomeOption
           label="Equipment"
           icon="shield_with_heart"
-          delay="650ms"
+          delay="500ms"
           image="/images/GearBench.webp"
-          itemImage="/images/items/Combat_Mk._3_(Flanking).png"
-          itemImageClass="w-20 h-20 md:w-36 md:h-36"
+          itemImage="/images/items/Medium_Shield.png"
+          itemImageClass="w-20 h-20 md:w-[147px] md:h-[147px]"
           hoverColor="#fb090b"
           onClick={() => setCurrentScreen('equipment')}
+        />
+        <HomeOption
+          label="Blueprints"
+          icon="architecture"
+          delay="600ms"
+          image="/images/Workshop.png"
+          itemImage="/images/items/Barricade_Kit.png"
+          itemImageClass="w-28 h-28 md:w-[163px] md:h-[163px] transform -translate-y-[7px]"
+          hoverColor="#135bec"
+          onClick={() => setCurrentScreen('blueprints')}
         />
       </div>
 
       {/* STASH PLANNER Button (Moved Below) */}
-      <div className="w-full max-w-6xl animate-fade-in-up mt-8" style={{ animationDelay: '800ms' }}>
+      <div className="w-full max-w-7xl animate-fade-in-up mt-8" style={{ animationDelay: '800ms' }}>
           <button 
             onClick={() => setCurrentScreen('planner')}
             className="w-full relative group overflow-hidden rounded-2xl hover:ring-8 hover:ring-inset hover:ring-primary transition-all p-6 flex flex-col md:flex-row items-center justify-between bg-card-dark"
           >
-            <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
+            <div className="absolute inset-0 bg-[#513bbd]/5 group-hover:bg-[#513bbd]/10 transition-colors" />
             
             {/* OVERLAY BORDER - OVER EVERYTHING */}
-            <div className="absolute inset-0 pointer-events-none z-50 border-4 border-primary/60 group-hover:border-primary transition-colors rounded-2xl" />
+            <div className="absolute inset-0 pointer-events-none z-50 border-4 border-[#513bbd]/60 group-hover:border-[#513bbd] transition-colors rounded-2xl" />
 
             <div className="relative z-10 flex items-center gap-6">
-                <div className="w-24 h-24 rounded-2xl bg-background-dark border border-slate-700 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform p-3">
-                   <img src="/images/scrappy.webp" alt="Stash Planner" className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(30,167,253,0.5)]" />
+                <div className="w-24 h-24 rounded-2xl bg-background-dark border border-slate-700 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform p-1 overflow-hidden">
+                   <img src="/images/scrappy.webp" alt="Scrappy" className="w-full h-full object-cover rounded-xl" />
                 </div>
                 <div className="text-left">
-                   <h3 className="text-4xl font-black tracking-[0.3em] transform-gpu transition-all text-white group-hover:text-primary uppercase">
-                      STASH PLANNER
+                   <h3 className="text-4xl font-black tracking-[0.3em] transform-gpu transition-all text-white group-hover:text-blue-500 uppercase">
+                      STASH MANAGEMENT
                    </h3>
                    <p className="text-sm text-slate-400 mt-1 max-w-lg">
                       Build your ideal setup and calculate the exact materials needed to craft, upgrade, and maintain it.
                    </p>
                 </div>
             </div>
-            <span className="material-symbols-outlined text-4xl text-slate-600 group-hover:text-primary transition-all relative z-10 mt-4 md:mt-0">
+            <span className="material-symbols-outlined text-4xl text-slate-600 group-hover:text-[#513bbd] transition-all relative z-10 mt-4 md:mt-0">
                arrow_forward
             </span>
-         </button>
+          </button>
       </div>
 
       <div className="mt-8 flex flex-col items-center gap-2 opacity-30">
@@ -214,8 +231,7 @@ const App: React.FC = () => {
           <span className="material-symbols-outlined text-3xl">arrow_back</span>
         </button>
         <div>
-          <h2 className="text-2xl font-black tracking-[0.3em] text-white uppercase">WEAPONS</h2>
-          <p className="text-[10px] text-slate-500 tracking-widest uppercase mt-1">Foundry Inventory Access</p>
+          <h2 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white drop-shadow-glow uppercase italic">WEAPONS</h2>
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
@@ -223,6 +239,7 @@ const App: React.FC = () => {
           <WeaponCard key={weapon.id} weapon={weapon} onClick={handleWeaponSelect} />
         ))}
       </div>
+      <div className="h-[100px] w-full pointer-events-none" />
     </main>
   );
 
@@ -233,8 +250,7 @@ const App: React.FC = () => {
           <span className="material-symbols-outlined text-3xl">arrow_back</span>
         </button>
         <div>
-          <h2 className="text-2xl font-black tracking-[0.3em] text-white uppercase">MODS</h2>
-          <p className="text-[10px] text-slate-500 tracking-widest uppercase mt-1">Equipment Calibration Node</p>
+          <h2 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white drop-shadow-glow uppercase italic">MODS</h2>
         </div>
       </div>
       {(() => {
@@ -271,6 +287,7 @@ const App: React.FC = () => {
           );
         });
       })()}
+      <div className="h-[100px] w-full pointer-events-none" />
     </main>
   );
 
@@ -292,6 +309,11 @@ const App: React.FC = () => {
       </div>
 
       {currentScreen === 'home' && renderHome()}
+      {currentScreen === 'blueprints' && (
+        <BlueprintsScreen
+          onBack={() => { setCurrentScreen('home'); window.scrollTo(0, 0); }}
+        />
+      )}
       {currentScreen === 'weapons' && renderWeapons()}
       {currentScreen === 'mods' && renderMods()}
       {currentScreen === 'materials' && (

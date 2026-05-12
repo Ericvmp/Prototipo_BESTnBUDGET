@@ -14,15 +14,14 @@ interface LootScreenProps {
 
 const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect }) => {
     return (
-        <main className="flex-1 flex flex-col p-6 pb-32 relative z-10 animate-fade-in max-w-5xl mx-auto w-full">
+        <main className="flex-1 flex flex-col p-6 pb-32 relative z-10 animate-fade-in max-w-6xl mx-auto w-full">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-4">
                 <div className="flex items-center gap-4">
                     <button onClick={onBack} className="p-2 hover:bg-slate-800 rounded-full text-slate-400 hover:text-white transition-colors">
                         <span className="material-symbols-outlined text-3xl">arrow_back</span>
                     </button>
                     <div>
-                        <h2 className="text-2xl font-black tracking-[0.3em] text-white uppercase">MATERIALS</h2>
-                        <p className="text-[10px] text-slate-500 tracking-widest uppercase mt-1">Extraction & Component Data</p>
+                        <h2 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white drop-shadow-glow uppercase italic">MATERIALS</h2>
                     </div>
                 </div>
 
@@ -129,6 +128,7 @@ const LootScreen: React.FC<LootScreenProps> = ({ data, onBack, onMaterialSelect 
                     );
                 })}
             </div>
+            <div className="h-[100px] w-full pointer-events-none" />
         </main>
     );
 };
