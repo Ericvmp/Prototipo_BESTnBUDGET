@@ -144,7 +144,7 @@ export interface LootCategory {
   sources: LootSource[];
 }
 
-export type Screen = 'home' | 'weapons' | 'mods' | 'materials' | 'equipment' | 'planner' | 'blueprints';
+export type Screen = 'home' | 'weapons' | 'mods' | 'materials' | 'equipment' | 'planner' | 'blueprints' | 'trade';
 
 export type WeaponMaintenanceAction = 
   | 'NONE'

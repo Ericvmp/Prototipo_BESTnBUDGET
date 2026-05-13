@@ -8,6 +8,7 @@ interface SmartItemIconProps {
   rarity?: string | Rarity;
   imageClassName?: string;
   iconClassName?: string;
+  loading?: "eager" | "lazy";
 }
 
 const SmartItemIcon: React.FC<SmartItemIconProps> = ({ 
@@ -16,6 +17,7 @@ const SmartItemIcon: React.FC<SmartItemIconProps> = ({
   rarity = 'COMMON',
   imageClassName = 'w-full h-full object-contain',
   iconClassName = 'text-2xl',
+  loading = 'lazy'
 }) => {
   const urls = getSourceImageUrls(itemName);
   const [currentUrlIndex, setCurrentUrlIndex] = useState(0);
@@ -30,6 +32,7 @@ const SmartItemIcon: React.FC<SmartItemIconProps> = ({
         src={urls[currentUrlIndex]} 
         alt={itemName} 
         className={imageClassName} 
+        loading={loading}
         onError={() => setCurrentUrlIndex(prev => prev + 1)}
       />
     );

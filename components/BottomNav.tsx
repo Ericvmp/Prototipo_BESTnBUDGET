@@ -11,15 +11,16 @@ const BottomNav: React.FC<BottomNavProps> = ({ activeScreen, onNavigate }) => {
     { id: 'home', label: 'HOME', icon: 'home', color: '#ffffff' },
     { id: 'weapons', label: 'WEAPONS', icon: 'military_tech', color: '#85f2e9', image: '/images/items/Bobcat.webp' },
     { id: 'mods', label: 'MODS', icon: 'settings_input_component', color: '#2df287', image: '/images/items/Kinetic_Converter.webp' },
-    { id: 'materials', label: 'MATERIALS', icon: 'construction', color: '#fbd008', image: '/images/items/Plastic_Parts.webp' },
-    { id: 'equipment', label: 'EQUIPMENT', icon: 'explosion', color: '#fb090b', image: '/images/items/Medium_Shield.webp' },
-    { id: 'blueprints', label: 'BLUEPRINTS', icon: 'architecture', color: '#135bec', image: '/images/items/Barricade_Kit.webp' },
-    { id: 'planner', label: 'PLANNER', icon: 'calculate', color: '#513bbd', image: '/images/scrappy.webp' },
+    { id: 'materials', label: 'MATS', icon: 'construction', color: '#fbd008', image: '/images/items/Plastic_Parts.webp' },
+    { id: 'equipment', label: 'EQUIP', icon: 'explosion', color: '#fb090b', image: '/images/items/Medium_Shield.webp' },
+    { id: 'blueprints', label: 'PRINTS', icon: 'architecture', color: '#135bec', image: '/images/items/Barricade_Kit.webp' },
+    { id: 'trade', label: 'TRADE', icon: 'sync_alt', color: '#8b5cf6', image: '/images/items/Medium_Gun_Parts.webp' },
+    { id: 'planner', label: 'PLANNER', icon: 'calculate', color: '#f97316', image: '/images/scrappy.webp' },
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-background-dark/95 ios-blur border-t border-slate-800 pb-8 pt-3 z-50 animate-fade-in-up">
-      <div className="flex items-center justify-around max-w-2xl mx-auto px-4">
+    <nav className="fixed bottom-0 left-0 right-0 bg-background-dark/95 ios-blur border-t border-slate-800 pb-6 pt-2 z-50 animate-fade-in-up">
+      <div className="flex items-center justify-around max-w-4xl mx-auto px-2">
         {navItems.map((item) => {
           const isActive = activeScreen === item.id;
           return (
@@ -59,7 +60,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ activeScreen, onNavigate }) => {
                   <img
                     src={item.image}
                     alt={item.label}
-                    className={`w-7 h-7 object-contain transition-all duration-300 ${isActive ? 'grayscale-0 opacity-100' : 'opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0'}`}
+                    className={`w-6 h-6 object-contain transition-all duration-300 ${isActive ? 'grayscale-0 opacity-100' : 'opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0'}`}
                     style={{
                       filter: (isActive || true) ? `drop-shadow(0 0 12px ${isActive ? item.color : 'transparent'})` : 'none'
                     }}
@@ -72,7 +73,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ activeScreen, onNavigate }) => {
                   />
                 ) : (
                   <span
-                    className={`material-symbols-outlined text-[26px] ${isActive ? 'fill-[1]' : ''}`}
+                    className={`material-symbols-outlined text-[20px] ${isActive ? 'fill-[1]' : ''}`}
                     style={{
                       textShadow: isActive ? `0 0 15px ${item.color}` : 'none'
                     }}
@@ -82,7 +83,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ activeScreen, onNavigate }) => {
                 )}
               </div>
 
-              <span className="text-[12px] font-bold uppercase tracking-[0.2em] relative z-10">{item.label}</span>
+              <span className="text-[9px] font-bold uppercase tracking-[0.1em] relative z-10">{item.label}</span>
             </button>
           );
         })}

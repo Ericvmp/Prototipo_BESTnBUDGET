@@ -1,6 +1,7 @@
 
 import { Rarity, Weapon, Modification, Material, Throwable, Augment, LootCategory, WeaponSetup } from './types';
 import { WEAPONS_DATA, MODS_DATA, MATERIALS_DATA, THROWABLES_DATA, AUGMENTS_DATA, LOOT_DATA } from './data';
+import { BLUEPRINTS_DATA } from './blueprintData';
 
 // ─── Mod Slot Type helper (used by Planner compatibility filter) ───
 
@@ -219,3 +220,81 @@ export const findFullItem = (name: string): any => {
         || THROWABLES_DATA.find(t => t.name.toLowerCase() === lowerName || t.name.toLowerCase() === lowerBase)
         || AUGMENTS_DATA.find(a => a.name.toLowerCase() === lowerName || a.name.toLowerCase() === lowerBase);
 };
+
+// ─── Trade Module ───────────────────────────────────────────────────────────
+
+export type TradeItemCategory =
+    | 'Weapon'
+    | 'Mod'
+    | 'Material'
+    | 'Throwable'
+    | 'Augment'
+    | 'Blueprint';
+
+export interface TradeItem {
+    id: string;
+    name: string;
+    rarity: Rarity;
+    image: string | null;
+    category: TradeItemCategory;
+    type?: string;
+}
+
+let _allItemsCache: TradeItem[] | null = null;
+let _fetchPromise: Promise<TradeItem[]> | null = null;
+
+/**
+ * Loads items from the pre-generated /db/items.json (ARCTracker database).
+ * Async fetch on first call, then cached forever.
+ */
+export const loadAllGameItems = async (): Promise<TradeItem[]> => {
+    if (_allItemsCache) return _allItemsCache;
+    if (_fetchPromise) return _fetchPromise;
+
+    _fetchPromise = fetch('/db/items.json')
+        .then(r => r.json())
+        .then((data: { items: Array<{ id: string; name: string; rarity: string; category: string; image: string | null; type: string }> }) => {
+            _allItemsCache = data.items.map(item => ({
+                id:       item.id,
+                name:     item.name,
+                rarity:   (item.rarity || 'COMMON') as Rarity,
+                image:    item.image || null,
+                category: (item.category || 'Material') as TradeItemCategory,
+                type:     item.type,
+            }));
+            return _allItemsCache;
+        })
+        .catch(() => {
+            // Fallback to empty array if fetch fails
+            _allItemsCache = [];
+            return _allItemsCache;
+        });
+
+    return _fetchPromise;
+};
+
+/**
+ * Sync accessor - returns whatever is currently cached.
+ * Call loadAllGameItems() once at component mount to populate.
+ */
+export const getAllGameItems = (): TradeItem[] => _allItemsCache ?? [];
+
+export const getTradeItemImage = (item: TradeItem): string | null => {
+    // Blueprints already have a curated image path
+    if (item.image) return item.image;
+    // Build smart-asset URL for everything else
+    const urls = getSourceImageUrls(item.name);
+    return urls.length > 0 ? urls[0] : null;
+};
+
+export const getRarityHex = (rarity: Rarity): string => {
+    switch (rarity) {
+        case 'COMMON': return '#94a3b8';
+        case 'UNCOMMON': return '#10b981';
+        case 'RARE': return '#3b82f6';
+        case 'EPIC': return '#d946ef';
+        case 'LEGENDARY': return '#f59e0b';
+        default: return '#94a3b8';
+    }
+};
+
