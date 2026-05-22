@@ -4,6 +4,7 @@ import { Weapon } from '../types';
 import { getRarityStyles, getRarityGlowStyles, getRarityIconColor, getRarityHoverStyles, getRarityBorderColor } from '../utils';
 import RichTooltip from './RichTooltip';
 import SmartItemIcon from './SmartItemIcon';
+import { useLanguage } from './LanguageContext';
 
 interface WeaponCardProps {
   weapon: Weapon;
@@ -11,6 +12,7 @@ interface WeaponCardProps {
 }
 
 const WeaponCard: React.FC<WeaponCardProps> = ({ weapon, onClick }) => {
+  const { t, translateItemName } = useLanguage();
 
   return (
     <RichTooltip item={weapon}>
@@ -26,34 +28,36 @@ const WeaponCard: React.FC<WeaponCardProps> = ({ weapon, onClick }) => {
 
         <div className="flex items-center gap-6 p-4 w-full relative z-10">
           {/* Left: Image */}
-          <div className={`relative w-20 h-20 rounded-xl flex items-center justify-center bg-background-dark shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner overflow-hidden ${getRarityBorderColor(weapon.rarity)}`}>
+          <div className={`relative w-24 h-24 rounded-xl flex items-center justify-center bg-background-dark shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner overflow-hidden ${getRarityBorderColor(weapon.rarity)}`}>
             <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(weapon.rarity)} opacity-20`}></div>
             <SmartItemIcon
               itemName={weapon.name}
               icon={weapon.icon || 'swords'}
               rarity={weapon.rarity}
-              imageClassName="w-14 h-14 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
-              iconClassName="text-4xl relative z-10"
+              imageClassName="w-[76px] h-[76px] object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
+              iconClassName="text-5xl relative z-10"
             />
           </div>
 
           {/* Right: Info */}
           <div className="flex-1 min-w-0 text-left">
             <h3 className="text-base md:text-xl font-black text-slate-100 group-hover:text-white transition-colors truncate tracking-wider mb-2">
-              {weapon.name}
+              {translateItemName(weapon.name)}
             </h3>
             
             <div className="flex flex-wrap items-center gap-4 mt-1">
               {/* Rarity */}
               <span className={`text-[11px] font-black uppercase tracking-[0.2em] ${getRarityStyles(weapon.rarity).split(' ').filter(s => !s.startsWith('border') && !s.startsWith('bg') && !s.startsWith('px') && !s.startsWith('py')).join(' ')}`}>
-                {weapon.rarity}
+                {t('rarity.' + weapon.rarity.toLowerCase())}
               </span>
               
               {/* Weapon Type */}
-              <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-widest">
-                <span className="material-symbols-outlined text-[16px] leading-none">settings_input_component</span>
-                {weapon.weaponType}
-              </div>
+              {weapon.weaponType && (
+                <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-widest">
+                  <span className="material-symbols-outlined text-[16px] leading-none">settings_input_component</span>
+                  {t('weapon_type.' + weapon.weaponType.toLowerCase()) || weapon.weaponType}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -63,3 +67,4 @@ const WeaponCard: React.FC<WeaponCardProps> = ({ weapon, onClick }) => {
 };
 
 export default WeaponCard;
+

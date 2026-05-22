@@ -3,6 +3,7 @@ import { Modification } from '../types';
 import { getRarityStyles, getRarityIconColor, getRarityGlowStyles, getRarityHoverStyles, getRarityBorderColor } from '../utils';
 import RichTooltip from './RichTooltip';
 import SmartItemIcon from './SmartItemIcon';
+import { useLanguage } from './LanguageContext';
 
 interface ModCardProps {
   mod: Modification;
@@ -10,6 +11,8 @@ interface ModCardProps {
 }
 
 const ModCard: React.FC<ModCardProps> = ({ mod, onClick }) => {
+  const { t, translateItemName } = useLanguage();
+
   return (
     <RichTooltip item={mod}>
       <button
@@ -24,27 +27,27 @@ const ModCard: React.FC<ModCardProps> = ({ mod, onClick }) => {
 
         <div className="flex items-center gap-6 p-4 w-full relative z-10">
           {/* Left: Image */}
-          <div className={`relative w-20 h-20 rounded-xl flex items-center justify-center bg-background-dark shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner overflow-hidden ${getRarityBorderColor(mod.rarity)}`}>
+          <div className={`relative w-24 h-24 rounded-xl flex items-center justify-center bg-background-dark shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner overflow-hidden ${getRarityBorderColor(mod.rarity)}`}>
             <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(mod.rarity)} opacity-20`}></div>
             <SmartItemIcon
               itemName={mod.name}
               icon={mod.icon || 'settings_input_component'}
               rarity={mod.rarity}
-              imageClassName="w-14 h-14 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
-              iconClassName="text-4xl relative z-10"
+              imageClassName="w-[76px] h-[76px] object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
+              iconClassName="text-5xl relative z-10"
             />
           </div>
 
           {/* Right: Info */}
           <div className="flex-1 min-w-0 text-left">
             <h3 className="text-base md:text-xl font-black text-slate-100 group-hover:text-white transition-colors truncate tracking-wider mb-2">
-              {mod.name}
+              {translateItemName(mod.name)}
             </h3>
             
             <div className="flex flex-wrap items-center gap-4 mt-1">
               {/* Rarity */}
               <span className={`text-[11px] font-black uppercase tracking-[0.2em] ${getRarityStyles(mod.rarity).split(' ').filter(s => !s.startsWith('border') && !s.startsWith('bg') && !s.startsWith('px') && !s.startsWith('py')).join(' ')}`}>
-                {mod.rarity}
+                {t('rarity.' + mod.rarity.toLowerCase())}
               </span>
               
               {/* Stack */}
@@ -66,7 +69,7 @@ const ModCard: React.FC<ModCardProps> = ({ mod, onClick }) => {
                 ) : (
                   <span className="material-symbols-outlined text-[16px] leading-none">auto_awesome</span>
                 )}
-                {mod.category}
+                {t('category.' + mod.category.toLowerCase()) || mod.category}
               </div>
             </div>
           </div>
@@ -77,3 +80,4 @@ const ModCard: React.FC<ModCardProps> = ({ mod, onClick }) => {
 };
 
 export default ModCard;
+

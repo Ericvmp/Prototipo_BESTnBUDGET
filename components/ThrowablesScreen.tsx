@@ -4,6 +4,7 @@ import { Throwable, Augment } from '../types';
 import { getRarityGlowStyles, getRarityIconColor, getRarityStyles, getRarityHoverStyles, getRarityBorderColor } from '../utils';
 import RichTooltip from './RichTooltip';
 import SmartItemIcon from './SmartItemIcon';
+import { useLanguage } from './LanguageContext';
 
 interface ThrowablesScreenProps {
   data: Throwable[];
@@ -13,6 +14,7 @@ interface ThrowablesScreenProps {
 }
 
 const TacticalCard: React.FC<{ item: Throwable | Augment; onClick: (item: Throwable | Augment) => void }> = ({ item, onClick }) => {
+  const { t, translateItemName } = useLanguage();
 
   return (
     <RichTooltip item={item}>
@@ -25,30 +27,30 @@ const TacticalCard: React.FC<{ item: Throwable | Augment; onClick: (item: Throwa
         
         {/* Scanline */}
         <div className="scanline-overlay absolute inset-0 opacity-10 pointer-events-none"></div>
-
+ 
         <div className="flex items-center gap-6 p-4 w-full relative z-10">
           {/* Left: Image */}
-          <div className={`relative w-20 h-20 rounded-xl flex items-center justify-center bg-background-dark shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner overflow-hidden ${getRarityBorderColor(item.rarity)}`}>
+          <div className={`relative w-24 h-24 rounded-xl flex items-center justify-center bg-background-dark shrink-0 transition-transform duration-500 group-hover:scale-105 shadow-inner overflow-hidden ${getRarityBorderColor(item.rarity)}`}>
             <div className={`absolute inset-0 bg-gradient-to-br ${getRarityGlowStyles(item.rarity)} opacity-20`}></div>
             <SmartItemIcon
               itemName={item.name}
               icon={item.icon}
               rarity={item.rarity}
-              imageClassName="w-14 h-14 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
-              iconClassName="text-4xl relative z-10"
+              imageClassName="w-[76px] h-[76px] object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10"
+              iconClassName="text-5xl relative z-10"
             />
           </div>
-
+ 
           {/* Right: Info */}
           <div className="flex-1 min-w-0 text-left">
             <h3 className="text-base md:text-xl font-black text-slate-100 group-hover:text-white transition-colors truncate tracking-wider mb-2">
-              {item.name}
+              {translateItemName(item.name)}
             </h3>
             
             <div className="flex flex-wrap items-center gap-4 mt-1">
               {/* Rarity */}
               <span className={`text-[11px] font-black uppercase tracking-[0.2em] ${getRarityStyles(item.rarity).split(' ').filter(s => !s.startsWith('border') && !s.startsWith('bg') && !s.startsWith('px') && !s.startsWith('py')).join(' ')}`}>
-                {item.rarity}
+                {t('rarity.' + item.rarity.toLowerCase())}
               </span>
               
               {/* Stack */}
@@ -58,11 +60,11 @@ const TacticalCard: React.FC<{ item: Throwable | Augment; onClick: (item: Throwa
                   {(item as Throwable).stackSize || 1}
                 </div>
               )}
-
+ 
               {/* Category */}
               <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-widest">
                 <span className="material-symbols-outlined text-[16px] leading-none">category</span>
-                {item.category}
+                {t('category.' + item.category.toLowerCase())}
               </div>
             </div>
           </div>
@@ -71,8 +73,10 @@ const TacticalCard: React.FC<{ item: Throwable | Augment; onClick: (item: Throwa
     </RichTooltip>
   );
 };
-
+ 
 const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData, onBack, onItemSelect }) => {
+  const { t } = useLanguage();
+
   return (
     <main className="flex-1 flex flex-col p-6 pb-32 relative z-10 animate-fade-in max-w-6xl mx-auto w-full">
       <div className="flex items-center gap-4 mb-10">
@@ -80,27 +84,28 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
           <span className="material-symbols-outlined text-2xl">arrow_back</span>
         </button>
         <div>
-          <h2 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white drop-shadow-glow uppercase italic">EQUIPMENT</h2>
+          <h2 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white uppercase italic drop-shadow-[0_0_20px_rgba(16,185,129,0.6)] leading-none">{t('nav.equipments')}</h2>
+          <p className="text-[11px] md:text-xs text-slate-400 font-bold uppercase tracking-wider mt-2 opacity-80">{t('hint.lock_tooltip')}</p>
         </div>
       </div>
-
+ 
       <div className="space-y-16">
         {['GRENADES', 'SHIELDS', 'HEALING', 'UTILITY'].map(section => {
           const sectionItems = data.filter(item => item.category === section);
           if (sectionItems.length === 0) return null;
-
+ 
           return (
             <div key={section} className="space-y-8 animate-fade-in-up">
               <div className="flex items-center gap-6">
                  <div className="flex items-center gap-3 shrink-0">
                     <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(19,91,236,1)] animate-pulse"></span>
                     <h3 className="text-sm font-black tracking-[0.4em] text-white/90">
-                      {section}
+                      {t('category.' + section.toLowerCase())}
                     </h3>
                  </div>
                  <div className="h-px flex-1 bg-gradient-to-r from-primary/40 via-primary/10 to-transparent"></div>
               </div>
-
+ 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                 {sectionItems.map(item => (
                   <TacticalCard key={item.id} item={item} onClick={onItemSelect} />
@@ -109,7 +114,7 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
             </div>
           );
         })}
-
+ 
         {/* AUGMENTS SECTION */}
         {augmentsData && augmentsData.length > 0 && (
           <div className="space-y-8 pt-12 border-t border-slate-800 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
@@ -117,12 +122,12 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
                <div className="flex items-center gap-3 shrink-0">
                   <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(19,91,236,1)] animate-pulse"></span>
                   <h3 className="text-sm font-black tracking-[0.4em] text-white/90">
-                    AUGMENTS
+                    {t('category.augments')}
                   </h3>
                </div>
                <div className="h-px flex-1 bg-gradient-to-r from-primary/40 via-primary/10 to-transparent"></div>
             </div>
-
+ 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
               {augmentsData.map(item => (
                 <TacticalCard key={item.id} item={item} onClick={onItemSelect} />
@@ -135,5 +140,5 @@ const ThrowablesScreen: React.FC<ThrowablesScreenProps> = ({ data, augmentsData,
     </main>
   );
 };
-
+ 
 export default ThrowablesScreen;

@@ -5,6 +5,7 @@ import { MODS_DATA } from '../data';
 import { SetupDetail } from '../types';
 import { getRarityBorderColor, getRarityIconColor } from '../utils';
 import SmartItemIcon from './SmartItemIcon';
+import { useLanguage } from './LanguageContext';
 
 interface SetupTooltipProps {
   setup: SetupDetail;
@@ -22,6 +23,7 @@ const SetupTooltip: React.FC<SetupTooltipProps> = ({ setup, tier, children }) =>
   const [isShiftDown, setIsShiftDown] = useState(false);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const style = TIER_STYLES[tier];
+  const { t, translateItemName, translateItemDesc } = useLanguage();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => { 
@@ -68,12 +70,12 @@ const SetupTooltip: React.FC<SetupTooltipProps> = ({ setup, tier, children }) =>
         <div className={`p-4 text-center text-[10px] font-black tracking-[0.4em] uppercase bg-white/5 border-b border-white/5 shrink-0 flex items-center justify-center relative ${isShiftDown ? style.text : 'text-slate-500'}`}>
           {!isShiftDown ? (
             <div className="flex items-center gap-2">
-                 <span>Press [SHIFT] to Lock & Inspect</span>
+                 <span>{t('tooltip.press_shift')}</span>
                  <div className="w-1.5 h-1.5 rounded-full bg-slate-500 animate-pulse" />
             </div>
           ) : (
              <div className="flex items-center gap-2 w-full justify-center">
-                 <span className="animate-bounce">Inspection Locked</span>
+                 <span className="animate-bounce">{t('tooltip.inspection_locked')}</span>
                  <button 
                   onClick={(e) => { e.stopPropagation(); closeTooltip(); }}
                   className="absolute right-4 w-6 h-6 flex items-center justify-center bg-white/10 hover:bg-white/20 hover:text-white rounded-full transition-colors text-slate-300"
@@ -90,10 +92,10 @@ const SetupTooltip: React.FC<SetupTooltipProps> = ({ setup, tier, children }) =>
           style={{ scrollbarWidth: 'thin', scrollbarColor: `${style.glow} transparent` }}
           onWheel={(e) => {
             if (isShiftDown) {
-              const container = e.currentTarget;
-              if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
-                container.scrollTop += e.deltaX;
-              }
+               const container = e.currentTarget;
+               if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                 container.scrollTop += e.deltaX;
+               }
             }
           }}
         >
@@ -111,13 +113,29 @@ const SetupTooltip: React.FC<SetupTooltipProps> = ({ setup, tier, children }) =>
                           <SmartItemIcon itemName={mod.name} icon="settings" rarity={mod.rarity} imageClassName="w-full h-full object-contain drop-shadow-glow" iconClassName="text-xl text-slate-400" />
                       </div>
                       <div className="flex flex-col min-w-0">
-                          <span className="text-[15px] font-black text-slate-100 truncate uppercase tracking-wide leading-tight mb-1">{mod.name.replace('Extended ', '').replace('III', '3').replace('II', '2').replace('I', '1')}</span>
+                          <span className="text-[15px] font-black text-slate-100 truncate uppercase tracking-wide leading-tight mb-1">
+                            {translateItemName(mod.name)
+                              .replace('Estendido ', '')
+                              .replace('Estendida ', '')
+                              .replace('Extended ', '')
+                              .replace('  ', ' ')
+                              .trim()
+                              .replace('III', '3')
+                              .replace('II', '2')
+                              .replace('I', '1')}
+                          </span>
                           <div className="flex items-center gap-2 mb-2">
-                              <span className={`text-[10px] font-black tracking-[0.1em] uppercase leading-none opacity-60`}>{mod.category}</span>
+                              <span className={`text-[10px] font-black tracking-[0.1em] uppercase leading-none opacity-60`}>
+                                {t('category.' + mod.category.toLowerCase()) || mod.category}
+                              </span>
                               <span className="w-1 h-1 rounded-full bg-white/20" />
-                              <span className={`text-[10px] font-bold uppercase tracking-tighter ${rarityColor}`}>{mod.rarity}</span>
+                              <span className={`text-[10px] font-bold uppercase tracking-tighter ${rarityColor}`}>
+                                {t('rarity.' + mod.rarity.toLowerCase())}
+                              </span>
                           </div>
-                          <span className="text-[12px] text-slate-400 font-bold leading-snug break-words uppercase tracking-tighter opacity-80">{mod.description}</span>
+                          <span className="text-[12px] text-slate-400 font-bold leading-snug break-words uppercase tracking-tighter opacity-80">
+                            {translateItemDesc(mod.name, mod.description)}
+                          </span>
                       </div>
                   </div>
               );
@@ -126,7 +144,7 @@ const SetupTooltip: React.FC<SetupTooltipProps> = ({ setup, tier, children }) =>
         </div>
         
         <div className={`p-4 text-center text-[11px] font-black tracking-[0.4em] uppercase bg-white/5 border-t border-white/5 shrink-0 ${isShiftDown ? style.text : 'text-slate-500'}`}>
-          {isShiftDown ? 'Scroll to explore / Click to apply' : 'Move mouse away to close'}
+          {isShiftDown ? t('tooltip.scroll_apply') : t('tooltip.move_mouse')}
         </div>
       </div>
     </div>,

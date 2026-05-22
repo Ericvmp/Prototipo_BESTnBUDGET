@@ -6,6 +6,7 @@ import RichTooltip from './RichTooltip';
 import SetupTooltip from './SetupTooltip';
 import SmartItemIcon from './SmartItemIcon';
 import { WEAPON_MOD_SLOTS, WEAPON_SETUPS_DATA } from '../data';
+import { useLanguage } from './LanguageContext';
 
 interface PlannerScreenProps {
    weapons: Weapon[];
@@ -24,6 +25,7 @@ const ConfirmationModal: React.FC<{
    onCancel: () => void;
    danger?: boolean;
 }> = ({ isOpen, title, message, onConfirm, onCancel, danger = false }) => {
+   const { t } = useLanguage();
    if (!isOpen) return null;
    return (
       <div className="fixed inset-0 z-[300] bg-background-dark/95 backdrop-blur-md flex items-center justify-center p-6 animate-fade-in">
@@ -36,7 +38,7 @@ const ConfirmationModal: React.FC<{
                </div>
                <div>
                   <h3 className="text-xl font-black tracking-widest text-white uppercase">{title}</h3>
-                  <p className="text-[10px] text-slate-500 font-bold tracking-widest uppercase">System Confirmation Required</p>
+                  <p className="text-[10px] text-slate-500 font-bold tracking-widest uppercase">{t('planner.confirm.sys_required')}</p>
                </div>
             </div>
 
@@ -49,13 +51,13 @@ const ConfirmationModal: React.FC<{
                   onClick={onCancel}
                   className="flex-1 px-6 py-3 bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white rounded-xl text-[11px] font-black uppercase tracking-widest transition-all border border-white/5"
                >
-                  Cancel
+                  {t('planner.confirm.cancel')}
                </button>
                <button 
                   onClick={() => { onConfirm(); onCancel(); }}
                   className={`flex-1 px-6 py-3 ${danger ? 'bg-red-600 hover:bg-red-700' : 'bg-primary hover:bg-primary-dark'} text-white rounded-xl text-[11px] font-black uppercase tracking-widest transition-all shadow-xl`}
                >
-                  Confirm
+                  {t('planner.confirm.confirm')}
                </button>
             </div>
          </div>
@@ -94,6 +96,14 @@ const ScrollContainer: React.FC<{ children: React.ReactNode, className?: string 
    );
 };
 
+const translateCategory = (cat: string, t: (key: string) => string) => {
+   const c = cat.toLowerCase();
+   if (c === 'augment') return t('category.augments');
+   if (c === 'shield') return t('category.shields');
+   if (c === 'grenade') return t('category.grenades');
+   return t(`category.${c}`) || cat;
+};
+
 const PickerModal: React.FC<{
    isOpen: boolean;
    title: string;
@@ -104,15 +114,25 @@ const PickerModal: React.FC<{
    selectedIds?: string[];
    onToggle?: (id: string) => void;
 }> = ({ isOpen, title, items, onSelect, onClose, isMultiSelect = false, selectedIds = [], onToggle }) => {
+   const { t, translateItemName } = useLanguage();
    if (!isOpen) return null;
+   
+   const titleKeyMap: Record<string, string> = {
+      'Select Weapon': 'planner.picker.select_weapon',
+      'Equip Weapon Mods': 'planner.picker.equip_mods',
+      'Equip Augments': 'planner.picker.equip_augments',
+      'Equip Shields': 'planner.picker.equip_shields',
+      'Manage Utility Cache': 'planner.picker.manage_utility'
+   };
+   const displayTitle = titleKeyMap[title] ? t(titleKeyMap[title]) : title;
    return (
       <div className="fixed inset-0 z-[100] bg-background-dark/95 backdrop-blur-xl flex items-center justify-center p-6 animate-fade-in" onClick={onClose}>
          <div className="bg-card-dark border border-slate-700 rounded-2xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl relative" onClick={e => e.stopPropagation()}>
             <div className="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50 rounded-t-2xl">
                <div>
-                  <h2 className="text-xl font-black tracking-[0.2em] uppercase text-white">{title}</h2>
+                  <h2 className="text-xl font-black tracking-[0.2em] uppercase text-white">{displayTitle}</h2>
                   <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-1">
-                     {isMultiSelect ? `${selectedIds.length} ITEMS SELECTED` : 'Available Inventory'}
+                     {isMultiSelect ? `${selectedIds.length} ${t('planner.picker.items_selected')}` : t('planner.picker.available_inventory')}
                   </p>
                </div>
                <div className="flex items-center gap-4">
@@ -121,7 +141,7 @@ const PickerModal: React.FC<{
                         onClick={onClose}
                         className="px-6 py-2 bg-primary hover:bg-primary-dark text-white rounded-xl text-[10px] font-black uppercase tracking-widest transition-all shadow-[0_0_15px_rgba(19,91,236,0.3)]"
                      >
-                        Confirm
+                        {t('trade.confirm')}
                      </button>
                   )}
                   <button onClick={onClose} className="w-10 h-10 flex items-center justify-center hover:bg-white/5 rounded-full transition-all text-slate-400">
@@ -134,7 +154,13 @@ const PickerModal: React.FC<{
                   const isWeaponModPicker = items.some(i => ['MUZZLE', 'MAGAZINE', 'UNDERBARREL', 'STOCK'].includes(i.category));
                   if (isWeaponModPicker) {
                      const categoryOrder = ['MUZZLE', 'MAGAZINE', 'UNDERBARREL', 'STOCK', 'ALL'];
-                     const categoryLabels: Record<string, string> = { 'MUZZLE': 'Muzzle', 'MAGAZINE': 'Magazine', 'UNDERBARREL': 'Underbarrel', 'STOCK': 'Stock', 'ALL': 'Special' };
+                     const categoryLabels: Record<string, string> = { 
+                        'MUZZLE': t('category.muzzle'), 
+                        'MAGAZINE': t('category.magazine'), 
+                        'UNDERBARREL': t('category.underbarrel'), 
+                        'STOCK': t('category.stock'), 
+                        'ALL': t('category.special') 
+                     };
                      const categoryIcons: Record<string, string> = { 
                         'MUZZLE': 'https://arcraiders.wiki/w/images/4/4b/Mods_Muzzle.png', 
                         'MAGAZINE': 'https://arcraiders.wiki/w/images/c/c6/Mods_Medium-Mag.png', 
@@ -180,9 +206,9 @@ const PickerModal: React.FC<{
                                              <SmartItemIcon itemName={item.name} icon={item.icon || 'military_tech'} rarity={item.rarity} imageClassName="w-full h-full object-contain drop-shadow-lg" iconClassName="text-2xl" />
                                           </div>
                                           <div className="flex-1 min-w-0 flex flex-col justify-center">
-                                             <p className="text-[15px] font-black text-slate-100 group-hover:text-white truncate leading-tight mb-1">{item.name}</p>
+                                             <p className="text-[15px] font-black text-slate-100 group-hover:text-white truncate leading-tight mb-1">{translateItemName(item.name)}</p>
                                              <div className="flex items-center gap-2">
-                                                <p className={`text-[8px] uppercase font-black tracking-[0.1em] border px-1.5 py-0.5 rounded leading-none ${getRarityStyles(item.rarity || 'COMMON')}`}>{item.rarity || 'COMMON'}</p>
+                                                <p className={`text-[8px] uppercase font-black tracking-[0.1em] border px-1.5 py-0.5 rounded leading-none ${getRarityStyles(item.rarity || 'COMMON')}`}>{t('rarity.' + (item.rarity || 'COMMON').toLowerCase())}</p>
                                              </div>
                                           </div>
                                           {isSelected && (
@@ -221,10 +247,10 @@ const PickerModal: React.FC<{
                                        <SmartItemIcon itemName={item.name} icon={item.icon || 'military_tech'} rarity={item.rarity} imageClassName="w-full h-full object-contain drop-shadow-lg" iconClassName="text-2xl" />
                                     </div>
                                     <div className="flex-1 min-w-0 flex flex-col justify-center">
-                                       <p className="text-[15px] font-black text-slate-100 group-hover:text-white truncate leading-tight mb-1">{item.name}</p>
+                                       <p className="text-[15px] font-black text-slate-100 group-hover:text-white truncate leading-tight mb-1">{translateItemName(item.name)}</p>
                                        <div className="flex items-center gap-2">
-                                          <p className={`text-[8px] uppercase font-black tracking-[0.1em] border px-1.5 py-0.5 rounded leading-none ${getRarityStyles(item.rarity || 'COMMON')}`}>{item.rarity || 'COMMON'}</p>
-                                          {item.category && <span className="text-[8px] text-slate-500 font-black uppercase tracking-[0.2em]">{item.category || 'EQUIPMENT'}</span>}
+                                          <p className={`text-[8px] uppercase font-black tracking-[0.1em] border px-1.5 py-0.5 rounded leading-none ${getRarityStyles(item.rarity || 'COMMON')}`}>{t('rarity.' + (item.rarity || 'COMMON').toLowerCase())}</p>
+                                          {item.category && <span className="text-[8px] text-slate-500 font-black uppercase tracking-[0.2em]">{translateCategory(item.category || 'EQUIPMENT', t)}</span>}
                                        </div>
                                     </div>
                                     {isSelected && (
@@ -239,7 +265,7 @@ const PickerModal: React.FC<{
                         {items.length === 0 && (
                            <div className="col-span-full flex flex-col items-center justify-center py-16 text-slate-600 gap-4 opacity-30">
                               <span className="material-symbols-outlined text-6xl">inventory_2</span>
-                              <p className="text-sm font-bold uppercase tracking-[0.3em] italic">No items available.</p>
+                              <p className="text-sm font-bold uppercase tracking-[0.3em] italic">{t('planner.picker.no_items')}</p>
                            </div>
                         )}
                      </div>
@@ -258,6 +284,7 @@ const FinalReportModal: React.FC<{
    loadouts: PlannerLoadout[];
    multiplier: number;
 }> = ({ isOpen, onClose, materials, loadouts, multiplier }) => {
+   const { t, translateItemName } = useLanguage();
    if (!isOpen) return null;
 
    const activeLoadouts = loadouts.filter(l => l.isActive);
@@ -299,14 +326,14 @@ const FinalReportModal: React.FC<{
                      <span className="material-symbols-outlined text-4xl text-primary drop-shadow-glow">analytics</span>
                   </div>
                   <div>
-                     <h1 className="text-4xl font-black tracking-[0.4em] text-primary leading-none italic uppercase">FINAL STASH PLAN</h1>
+                     <h1 className="text-4xl font-black tracking-[0.4em] text-primary leading-none italic uppercase drop-shadow-[0_0_20px_rgba(249,115,22,0.4)]">{t('planner.report_title')}</h1>
                   </div>
                </div>
                <button 
                   onClick={onClose} 
                   className="px-8 py-3 flex items-center gap-3 bg-white/5 hover:bg-red-500/10 text-slate-400 hover:text-red-500 border-2 border-white/5 hover:border-red-500/30 rounded-2xl transition-all font-black uppercase tracking-widest text-[11px]"
                >
-                  Close <span className="material-symbols-outlined text-xl">close</span>
+                  {t('action.close')} <span className="material-symbols-outlined text-xl">close</span>
                </button>
             </div>
 
@@ -321,9 +348,9 @@ const FinalReportModal: React.FC<{
                         </div>
                         <div>
                            <h3 className="text-xl font-black tracking-[0.5em] uppercase text-orange-500 flex items-center gap-4 whitespace-nowrap">
-                              VITAL RESOURCES
+                              {t('planner.report.vital_resources')}
                            </h3>
-                           <p className="text-[9px] font-black text-slate-500 tracking-[0.4em] uppercase mt-1">High-Quantity Priority Assets</p>
+                           <p className="text-[9px] font-black text-slate-500 tracking-[0.4em] uppercase mt-1">{t('planner.report.vital_resources_desc')}</p>
                         </div>
                         <div className="h-[1px] flex-1 bg-gradient-to-r from-orange-500/30 to-transparent" />
                      </div>
@@ -342,8 +369,8 @@ const FinalReportModal: React.FC<{
                                        <SmartItemIcon itemName={mat.name} icon="category" rarity={mat.rarity} imageClassName="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(249,115,22,0.2)] scale-[1.3]" iconClassName="text-orange-500 text-2xl scale-[1.3]" />
                                     </div>
                                     <div className="flex-1 min-w-0">
-                                       <span className="text-[16px] font-black tracking-wider block text-white pr-1 leading-tight break-words">{mat.name}</span>
-                                       <span className="text-[11px] font-black tracking-[0.2em] uppercase text-orange-500/60 block mt-1">{mat.rarity}</span>
+                                       <span className="text-[16px] font-black tracking-wider block text-white pr-1 leading-tight break-words">{translateItemName(mat.name)}</span>
+                                       <span className="text-[11px] font-black tracking-[0.2em] uppercase text-orange-500/60 block mt-1">{t('rarity.' + (mat.rarity || 'COMMON').toLowerCase())}</span>
                                     </div>
                                     <div className="flex flex-col items-end gap-1 shrink-0 pl-4 border-l border-orange-500/20 group-hover:scale-105 transition-transform">
                                        <div className="text-3xl font-black text-orange-500 font-mono leading-none">
@@ -368,11 +395,11 @@ const FinalReportModal: React.FC<{
                   <div className="flex items-center gap-6 mb-8">
                      <h3 className="text-xl font-black tracking-[0.5em] uppercase text-slate-100 flex items-center gap-4 whitespace-nowrap">
                         <span className="w-8 h-px bg-primary/40" />
-                        PLANNED MATERIALS
+                        {t('planner.report.planned_materials')}
                      </h3>
                      <div className="h-[1px] flex-1 bg-gradient-to-r from-white/10 to-transparent" />
                      <span className="text-[10px] font-black text-primary border-2 border-primary/20 px-4 py-1.5 rounded-full bg-primary/5 tracking-widest">
-                        {materials.length} ASSETS LOGGED
+                        {materials.length} {t('planner.report.assets_logged')}
                      </span>
                   </div>
                   
@@ -388,8 +415,8 @@ const FinalReportModal: React.FC<{
                                     <SmartItemIcon itemName={mat.name} icon="category" rarity={mat.rarity} imageClassName="w-full h-full object-contain filter drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] scale-[1.4]" iconClassName="text-slate-700 text-xl scale-[1.4]" />
                                  </div>
                                  <div className="flex-1 min-w-0">
-                                    <span className="text-[14px] font-black tracking-wider block text-slate-100 pr-1 leading-tight group-hover:text-white break-words">{mat.name}</span>
-                                    <span className="text-[10px] font-black tracking-[0.1em] uppercase opacity-60 block mt-0.5">{mat.rarity}</span>
+                                    <span className="text-[14px] font-black tracking-wider block text-slate-100 pr-1 leading-tight group-hover:text-white break-words">{translateItemName(mat.name)}</span>
+                                    <span className="text-[10px] font-black tracking-[0.1em] uppercase opacity-60 block mt-0.5">{t('rarity.' + (mat.rarity || 'COMMON').toLowerCase())}</span>
                                  </div>
                                  <div className="flex flex-col items-end gap-1 shrink-0 pl-3 border-l border-white/10">
                                     <div className="text-2xl font-black text-white font-mono leading-none group-hover:text-primary transition-colors">
@@ -422,14 +449,14 @@ const FinalReportModal: React.FC<{
                   <span className="w-24 h-px bg-slate-700" />
                </div>
                <div className="text-center opacity-40">
-                  <p className="text-[9px] font-black tracking-[0.8em] uppercase text-slate-600 mb-2">Authenticated Provisioning Data</p>
-                  <p className="text-[8px] font-bold tracking-[0.4em] uppercase text-slate-700 italic">v1.4.2 // Calibration Complete</p>
+                  <p className="text-[9px] font-black tracking-[0.8em] uppercase text-slate-600 mb-2">{t('planner.report.authenticated_data')}</p>
+                  <p className="text-[8px] font-bold tracking-[0.4em] uppercase text-slate-700 italic">{t('planner.report.calibration_complete')}</p>
                </div>
                <button 
                   onClick={onClose}
                   className="mt-6 px-16 py-4 border-2 border-primary/30 text-primary hover:bg-primary hover:text-white transition-all rounded-full font-black uppercase tracking-[0.4em] text-[10px] active:scale-95 shadow-[0_0_40px_rgba(19,91,236,0.1)] hover:shadow-[0_0_50px_rgba(19,91,236,0.4)]"
                >
-                  Return to Planner
+                  {t('planner.report.return_to_planner')}
                </button>
             </div>
          </div>
@@ -438,6 +465,7 @@ const FinalReportModal: React.FC<{
 };
 
 const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables, augments, materialsData, onBack }) => {
+   const { t, translateItemName, translateItemDesc } = useLanguage();
    const [activeLoadoutIndex, setActiveLoadoutIndex] = useState(0);
 
    const [state, setState] = useState<MultiLoadoutState>(() => {
@@ -558,7 +586,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
             const json = JSON.parse(e.target?.result as string);
             setState(json);
          } catch (err) {
-            alert("Error importing file. Invalid format.");
+            alert(t('planner.import_error'));
          }
       };
       reader.readAsText(file);
@@ -699,7 +727,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                   pickerType: 'weapon',
                   slotKey
                })} className="w-full py-6 border-2 border-dashed border-slate-800 rounded-lg text-slate-500 hover:border-primary hover:text-primary hover:bg-primary/5 transition-all text-[13px] font-black tracking-[0.3em] uppercase flex items-center justify-center gap-2">
-                  <span className="material-symbols-outlined">add_circle</span> Select Weapon
+                  <span className="material-symbols-outlined">add_circle</span> {t('planner.picker.select_weapon')}
                </button>
             ) : (
                <div className="space-y-3">
@@ -709,8 +737,8 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                            <SmartItemIcon itemName={weapon.name} icon={weapon.icon} rarity={weapon.rarity} imageClassName="w-full h-full object-contain drop-shadow-md" iconClassName="text-2xl" />
                         </div>
                         <div className="flex-1 min-w-0">
-                           <p className="font-bold text-slate-100 tracking-wider text-base">{weapon.name}</p>
-                           <p className={`text-[11px] uppercase font-black tracking-widest mt-0.5 border inline-block px-1.5 py-0.5 rounded leading-none ${getRarityStyles(weapon.rarity)}`}>{weapon.rarity}</p>
+                           <p className="font-bold text-slate-100 tracking-wider text-base">{translateItemName(weapon.name)}</p>
+                           <p className={`text-[11px] uppercase font-black tracking-widest mt-0.5 border inline-block px-1.5 py-0.5 rounded leading-none ${getRarityStyles(weapon.rarity)}`}>{t('rarity.' + weapon.rarity.toLowerCase())}</p>
                         </div>
                      </div>
                   </RichTooltip>
@@ -746,7 +774,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                      <div className="flex justify-between items-center mb-2">
                         <div className="flex items-center gap-2">
                            <img src="https://arcraiders.wiki/w/images/0/01/Mods_Underbarrel.png" className="w-4 h-4 object-contain opacity-50" alt="" />
-                           <span className="text-[11px] font-black tracking-widest text-slate-500 uppercase">Apply Mods</span>
+                           <span className="text-[11px] font-black tracking-widest text-slate-500 uppercase">{t('planner.apply_mods')}</span>
                         </div>
                         <button onClick={() => {
                             const weapon = weapons.find(w => w.id === slotData.weaponId);
@@ -762,7 +790,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                slotKey
                             });
                          }} className="text-[11px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
-                           <span className="material-symbols-outlined text-sm text-primary">add</span> EDIT
+                           <span className="material-symbols-outlined text-sm text-primary">add</span> {t('planner.btn_edit')}
                         </button>
                      </div>
                      <div className="space-y-2">
@@ -778,9 +806,9 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                        <SmartItemIcon itemName={mod.name} icon="settings" rarity={mod.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-[16px] text-slate-500" />
                                     </div>
                                     <div>
-                                       <span className="text-[13px] font-black text-slate-100 block uppercase leading-tight truncate mb-0.5">{mod.name.replace('Extended ', '').replace('III', '3').replace('II', '2').replace('I', '1')}</span>
-                                       <span className={`text-[10px] font-black uppercase tracking-widest ${getRarityStyles(mod.rarity).split(' ').find(c => c.startsWith('text-'))} block leading-none mb-1.5`}>{mod.category}</span>
-                                       <p className="text-[11px] text-slate-500 font-bold uppercase tracking-tighter leading-snug break-words max-w-[240px]">{mod.description}</p>
+                                       <span className="text-[13px] font-black text-slate-100 block uppercase leading-tight truncate mb-0.5">{translateItemName(mod.name).replace('Estendido ', '').replace('Estendida ', '').replace('Extended ', '').replace('  ', ' ').trim().replace('III', '3').replace('II', '2').replace('I', '1')}</span>
+                                       <span className={`text-[10px] font-black uppercase tracking-widest ${getRarityStyles(mod.rarity).split(' ').find(c => c.startsWith('text-'))} block leading-none mb-1.5`}>{translateCategory(mod.category, t)}</span>
+                                       <p className="text-[11px] text-slate-500 font-bold uppercase tracking-tighter leading-snug break-words max-w-[240px]">{translateItemDesc(mod.name, mod.description)}</p>
                                     </div>
                                  </div>
                                  <button onClick={() => {
@@ -793,7 +821,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                            </RichTooltip>
                         );
                      })}
-                        {slotData.attachedModIds.length === 0 && <p className="text-[12px] text-slate-600 italic px-1 pt-1">No attachments equipped</p>}
+                        {slotData.attachedModIds.length === 0 && <p className="text-[12px] text-slate-600 italic px-1 pt-1">{t('planner.no_attachments')}</p>}
                      </div>
                   </div>
                </div>
@@ -881,27 +909,27 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                   <span className="material-symbols-outlined text-2xl">arrow_back</span>
                </button>
                <div>
-                  <h2 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white drop-shadow-glow uppercase italic">STASH PLANNER</h2>
+                  <h2 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white uppercase italic drop-shadow-[0_0_20px_rgba(249,115,22,0.6)]">{t('planner.title')}</h2>
                </div>
             </div>
 
             <div className="flex items-center gap-6">
                 <div className="flex items-center gap-4 bg-black/40 border-2 border-emerald-500/40 p-2 rounded-2xl shadow-[0_0_15px_rgba(16,185,129,0.1)]">
                    <div className="flex flex-col items-end px-4 border-r border-emerald-500/20">
-                      <span className="text-[9px] font-black tracking-widest text-emerald-400 uppercase">Save / Load</span>
+                      <span className="text-[9px] font-black tracking-widest text-emerald-400 uppercase">{t('planner.save_load')}</span>
                    </div>
                    <div className="flex items-center gap-2">
                       <button 
                          onClick={exportConfig}
                          className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-emerald-600 transition-all flex items-center justify-center text-emerald-400 hover:text-white"
-                         title="Export Config to File"
+                         title={t('planner.export_tooltip')}
                       >
                          <span className="material-symbols-outlined">download</span>
                       </button>
                       <button 
                          onClick={() => fileInputRef.current?.click()}
                          className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-emerald-600 transition-all flex items-center justify-center text-emerald-400 hover:text-white"
-                         title="Import Config from File"
+                         title={t('planner.import_tooltip')}
                       >
                          <span className="material-symbols-outlined">upload</span>
                       </button>
@@ -918,19 +946,19 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center gap-4">
                      <span className="material-symbols-outlined text-3xl text-primary drop-shadow-[0_0_8px_rgba(19,91,236,0.6)]">engineering</span>
-                      <h3 className="text-xl font-black text-slate-100 tracking-[0.2em]">Loadouts Manager</h3>
+                      <h3 className="text-xl font-black text-slate-100 tracking-[0.2em]">{t('planner.manager_title')}</h3>
                   </div>
                   <button
                      onClick={() => setConfirmModal({
                         isOpen: true,
-                        title: 'Wipe All Data',
-                        message: 'This will clear all primary/secondary slots, mods, and tactical items across ALL loadouts. This action cannot be undone.',
+                        title: t('planner.confirm.wipe_all_title'),
+                        message: t('planner.confirm.wipe_all_msg'),
                         danger: true,
                         onConfirm: wipeAllData
                      })}
                       className="flex items-center gap-1.5 px-3 py-1 rounded bg-black/40 border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all text-[9px] font-black uppercase tracking-widest group/wipe"
                   >
-                      <span className="material-symbols-outlined text-[14px]">delete_sweep</span> Wipe All
+                      <span className="material-symbols-outlined text-[14px]">delete_sweep</span> {t('planner.btn_wipe_all')}
                   </button>
                </div>
 
@@ -962,20 +990,20 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                <div className="flex-1 flex flex-col min-h-0">
                   <div className="flex items-center gap-4">
                      <div className="flex items-center gap-2">
-                        <span className="text-[10px] font-black tracking-widest text-primary uppercase">Active Config</span>
+                        <span className="text-[10px] font-black tracking-widest text-primary uppercase">{t('planner.active_config')}</span>
                         <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
                      </div>
                      <button 
                         onClick={() => setConfirmModal({
                            isOpen: true,
-                           title: `Wipe ${currentLoadout.name}`,
-                           message: `Are you sure you want to clear all slots for ${currentLoadout.name}? Other loadouts will remain untouched.`,
+                           title: `${t('planner.confirm.wipe_loadout_title')} - ${currentLoadout.name}`,
+                           message: t('planner.confirm.wipe_loadout_msg'),
                            danger: true,
                            onConfirm: () => resetLoadout(activeLoadoutIndex)
                         })}
                         className="flex items-center gap-1.5 px-3 py-1 rounded bg-black/40 border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all text-[9px] font-black uppercase tracking-widest group/wipe"
                      >
-                        <span className="material-symbols-outlined text-[14px]">delete</span> Wipe Loadout
+                        <span className="material-symbols-outlined text-[14px]">delete</span> {t('planner.btn_wipe_loadout')}
                      </button>
                   </div>
                   <input
@@ -983,7 +1011,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                      value={currentLoadout.name}
                      onChange={(e) => updateCurrentLoadout({ name: e.target.value })}
                      className="bg-transparent border-none text-right font-black text-white text-[14px] tracking-[0.2em] focus:ring-0 w-40 outline-none placeholder:opacity-30"
-                     placeholder="Rename"
+                     placeholder={t('planner.rename_placeholder')}
                   />
 
                   <ScrollContainer className="flex-1 px-1">
@@ -991,8 +1019,8 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
 
                         {/* PRIMARY & SECONDARY */}
                         <div className="space-y-4">
-                           {renderWeaponSlot('Primary Weapon', currentLoadout.primary, 'primary')}
-                           {renderWeaponSlot('Secondary Weapon', currentLoadout.secondary, 'secondary')}
+                           {renderWeaponSlot(t('planner.primary_weapon'), currentLoadout.primary, 'primary')}
+                           {renderWeaponSlot(t('planner.secondary_weapon'), currentLoadout.secondary, 'secondary')}
                         </div>
 
                         {/* AUGMENTS, SHIELDS, UTILITY */}
@@ -1003,7 +1031,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                               <div className="flex justify-between items-center mb-3">
                                  <div className="flex items-center gap-2">
                                     <img src="https://arcraiders.wiki/w/images/6/6b/Icon_Augment.png" className="w-5 h-5 object-contain opacity-60" alt="" />
-                                    <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">AUGMENTS</h4>
+                                    <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">{t('category.augments')}</h4>
                                  </div>
                                  <button onClick={() => setPickerConfig({
                                     isOpen: true,
@@ -1012,7 +1040,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                     pickerType: 'augments'
                                  })} className="text-[11px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
                                     <span className="material-symbols-outlined text-sm">{currentLoadout.augments.length === 0 ? 'add' : 'edit'}</span>
-                                    {currentLoadout.augments.length === 0 ? 'ADD' : 'EDIT'}
+                                    {currentLoadout.augments.length === 0 ? t('planner.btn_add_prefix') : t('planner.btn_edit_prefix')}
                                  </button>
                               </div>
                               <div className="grid grid-cols-1 gap-2">
@@ -1026,7 +1054,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                                 <div className="w-8 h-8 rounded bg-black/20 border border-white/5 flex items-center justify-center p-1 shrink-0">
                                                    <SmartItemIcon itemName={aug.name} icon="memory" rarity={aug.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-sm text-slate-500" />
                                                 </div>
-                                                <span className="text-[13px] font-bold text-slate-200 truncate max-w-[120px]">{aug.name}</span>
+                                                <span className="text-[13px] font-bold text-slate-200 truncate max-w-[120px]">{translateItemName(aug.name)}</span>
                                              </div>
                                           </div>
                                        </RichTooltip>
@@ -1038,7 +1066,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                        className="py-4 border-2 border-dashed border-slate-800/40 rounded-xl flex flex-col items-center justify-center gap-2 group/empty hover:border-primary/40 hover:bg-primary/5 transition-all cursor-pointer"
                                     >
                                        <span className="material-symbols-outlined text-slate-600 group-hover/empty:text-primary transition-colors">add_circle</span>
-                                       <p className="text-[11px] text-slate-500 font-black uppercase tracking-widest group-hover/empty:text-primary transition-colors">No augments equipped</p>
+                                       <p className="text-[11px] text-slate-500 font-black uppercase tracking-widest group-hover/empty:text-primary transition-colors">{t('planner.no_augments')}</p>
                                     </div>
                                  )}
                               </div>
@@ -1049,7 +1077,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                               <div className="flex justify-between items-center mb-3">
                                  <div className="flex items-center gap-2">
                                     <img src="https://arcraiders.wiki/w/images/6/61/Icon_Shield_I.png" className="w-5 h-5 object-contain opacity-60" alt="" />
-                                    <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">SHIELDS</h4>
+                                    <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">{t('category.shields')}</h4>
                                  </div>
                                  <button onClick={() => setPickerConfig({
                                     isOpen: true,
@@ -1058,7 +1086,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                     pickerType: 'shields'
                                  })} className="text-[11px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
                                     <span className="material-symbols-outlined text-sm">{currentLoadout.shields.length === 0 ? 'add' : 'edit'}</span>
-                                    {currentLoadout.shields.length === 0 ? 'ADD' : 'EDIT'}
+                                    {currentLoadout.shields.length === 0 ? t('planner.btn_add_prefix') : t('planner.btn_edit_prefix')}
                                  </button>
                               </div>
                               <div className="grid grid-cols-1 gap-2">
@@ -1072,7 +1100,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                                 <div className="w-8 h-8 rounded bg-black/20 border border-white/5 flex items-center justify-center p-1 shrink-0">
                                                    <SmartItemIcon itemName={item.name} icon="shield" rarity={item.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-sm text-slate-500" />
                                                 </div>
-                                                <span className="text-[13px] font-bold text-slate-200 truncate max-w-[120px]">{item.name}</span>
+                                                <span className="text-[13px] font-bold text-slate-200 truncate max-w-[120px]">{translateItemName(item.name)}</span>
                                              </div>
                                           </div>
                                        </RichTooltip>
@@ -1084,7 +1112,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                        className="py-4 border-2 border-dashed border-slate-800/40 rounded-xl flex flex-col items-center justify-center gap-2 group/empty hover:border-primary/40 hover:bg-primary/5 transition-all cursor-pointer"
                                     >
                                        <span className="material-symbols-outlined text-slate-600 group-hover/empty:text-primary transition-colors">add_circle</span>
-                                       <p className="text-[11px] text-slate-500 font-black uppercase tracking-widest group-hover/empty:text-primary transition-colors">No shields equipped</p>
+                                       <p className="text-[11px] text-slate-500 font-black uppercase tracking-widest group-hover/empty:text-primary transition-colors">{t('planner.no_shields')}</p>
                                     </div>
                                  )}
                               </div>
@@ -1095,7 +1123,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                               <div className="flex justify-between items-center mb-3">
                                  <div className="flex items-center gap-2">
                                     <img src="https://arcraiders.wiki/w/images/7/71/Icon_QuickUse.png" className="w-5 h-5 object-contain opacity-60" alt="" />
-                                    <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">UTILITY</h4>
+                                    <h4 className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-500">{t('category.utility')}</h4>
                                  </div>
                                  <button onClick={() => setPickerConfig({
                                     isOpen: true,
@@ -1104,7 +1132,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                     pickerType: 'quickUse'
                                  })} className="text-[11px] font-black text-primary hover:scale-105 transition-transform uppercase tracking-widest flex items-center gap-1">
                                     <span className="material-symbols-outlined text-sm">{currentLoadout.quickUse.length === 0 ? 'add' : 'edit'}</span>
-                                    {currentLoadout.quickUse.length === 0 ? 'ADD' : 'EDIT'}
+                                    {currentLoadout.quickUse.length === 0 ? t('planner.btn_add_prefix') : t('planner.btn_edit_prefix')}
                                  </button>
                               </div>
                               <div className="space-y-2">
@@ -1118,7 +1146,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                                 <div className="w-8 h-8 rounded bg-black/20 border border-white/5 flex items-center justify-center p-1 shrink-0">
                                                    <SmartItemIcon itemName={item.name} icon="explosion" rarity={item.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-sm text-slate-500" />
                                                 </div>
-                                                <span className="text-[13px] font-bold text-slate-200 truncate max-w-[80px]">{item.name}</span>
+                                                <span className="text-[13px] font-bold text-slate-200 truncate max-w-[80px]">{translateItemName(item.name)}</span>
                                              </div>
                                              <div className="flex items-center gap-2 bg-black/40 rounded border border-white/5 p-0.5">
                                                 <button onClick={() => {
@@ -1144,7 +1172,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                        className="py-4 border-2 border-dashed border-slate-800/40 rounded-xl flex flex-col items-center justify-center gap-2 group/empty hover:border-primary/40 hover:bg-primary/5 transition-all cursor-pointer"
                                     >
                                        <span className="material-symbols-outlined text-slate-600 group-hover/empty:text-primary transition-colors">add_circle</span>
-                                       <p className="text-[11px] text-slate-500 font-black uppercase tracking-widest group-hover/empty:text-primary transition-colors">No tactical gear selected</p>
+                                       <p className="text-[11px] text-slate-500 font-black uppercase tracking-widest group-hover/empty:text-primary transition-colors">{t('planner.no_tactical')}</p>
                                     </div>
                                  )}
                               </div>
@@ -1164,7 +1192,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                 <div className="flex items-center justify-between mb-6">
                    <div className="flex items-center gap-4">
                       <span className="material-symbols-outlined text-3xl text-primary drop-shadow-[0_0_8px_rgba(19,91,236,0.6)]">analytics</span>
-                      <h3 className="text-xl font-black text-white tracking-[0.2em]">Stash List</h3>
+                      <h3 className="text-xl font-black text-white tracking-[0.2em]">{t('planner.stash_list')}</h3>
                    </div>
                 </div>
 
@@ -1172,14 +1200,14 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                   {!hasAnyMaterials ? (
                      <div className="h-full flex flex-col items-center justify-center text-slate-600 gap-6 mt-20 opacity-30">
                         <span className="material-symbols-outlined text-7xl animate-pulse">monitoring</span>
-                        <p className="text-sm font-black uppercase tracking-[0.3em] text-center max-w-[200px] leading-relaxed italic">Configure loadouts to visualize resource needs</p>
+                        <p className="text-sm font-black uppercase tracking-[0.3em] text-center max-w-[200px] leading-relaxed italic">{t('planner.configure_loadouts_prompt')}</p>
                      </div>
                   ) : (
                       <div className="flex flex-col gap-4">
                          {/* Items Needed Header */}
                          <div className="flex items-center gap-3 mb-2">
                             <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/30"></div>
-                            <span className="text-[11px] font-black uppercase tracking-[0.4em] text-primary whitespace-nowrap">ITEMS NEEDED FOR PLAN</span>
+                            <span className="text-[11px] font-black uppercase tracking-[0.4em] text-primary whitespace-nowrap">{t('planner.items_needed_for_plan')}</span>
                             <div className="h-px flex-1 bg-gradient-to-l from-transparent to-primary/30"></div>
                          </div>
                          <div className="space-y-2">
@@ -1197,8 +1225,8 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                                               <SmartItemIcon itemName={mat.name} icon="category" rarity={mat.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-lg opacity-40" />
                                            </div>
                                            <div>
-                                              <span className="text-[14px] font-black tracking-wider block leading-tight text-slate-100">{mat.name}</span>
-                                              <span className={`text-[10px] font-black uppercase tracking-widest ${rarityStyles.split(' ').find(c => c.startsWith('text-'))}`}>{mat.rarity}</span>
+                                              <span className="text-[14px] font-black tracking-wider block leading-tight text-slate-100">{translateItemName(mat.name)}</span>
+                                              <span className={`text-[10px] font-black uppercase tracking-widest ${rarityStyles.split(' ').find(c => c.startsWith('text-'))}`}>{t('rarity.' + (mat.rarity as string || 'COMMON').toLowerCase())}</span>
                                            </div>
                                         </div>
                                         <div className="flex items-center gap-4 relative z-10">
@@ -1228,7 +1256,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                          className="w-full py-4 bg-primary/10 hover:bg-primary text-primary hover:text-white rounded-2xl text-sm font-black uppercase tracking-[0.3em] transition-all border-2 border-primary/30 hover:border-primary flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(19,91,236,0.1)] hover:shadow-[0_0_30px_rgba(19,91,236,0.3)]"
                       >
                          <span className="material-symbols-outlined text-xl">analytics</span>
-                         Finalize Plan
+                         {t('planner.btn_finalize_plan')}
                       </button>
                    </div>
                 )}

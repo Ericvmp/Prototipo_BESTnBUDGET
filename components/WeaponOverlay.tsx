@@ -6,6 +6,7 @@ import RichTooltip from './RichTooltip';
 import SetupTooltip from './SetupTooltip';
 import { getRarityBorderColor } from '../utils';
 import SmartItemIcon from './SmartItemIcon';
+import { useLanguage } from './LanguageContext';
 
 interface WeaponOverlayProps {
   weapon: Weapon;
@@ -27,6 +28,7 @@ const getRarityColor = (rarity: string) => {
 };
 
 const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNavigateWeapon, onNavigateMod, onNavigateMaterial }) => {
+  const { t, translateItemName, translateItemDesc, translatePerkString } = useLanguage();
   const rarity = getRarityColor(weapon.rarity);
 
   // Lock background scroll
@@ -54,8 +56,8 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
               <SmartItemIcon itemName={mat.name} icon={mat.icon || 'category'} rarity={mat.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-xl text-slate-400" />
             </div>
             <div className="flex flex-col">
-              <span className="text-sm font-bold text-white group-hover/mat:text-primary transition-colors">{mat.name}</span>
-              <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">{mat.rarity}</span>
+              <span className="text-sm font-bold text-white group-hover/mat:text-primary transition-colors">{translateItemName(mat.name)}</span>
+              <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">{t(`rarity.${mat.rarity.toLowerCase()}`)}</span>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -119,9 +121,9 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
 
           <div className="text-center">
             <div className={`text-[11px] font-black tracking-[0.5em] uppercase mb-1 ${rarity.text}`} style={{ textShadow: `0 0 12px ${rarity.hex}` }}>
-              WEAPON SYSTEM · 1.0
+              {t('overlay.weapon_system')}
             </div>
-            <h2 className="text-3xl md:text-4xl font-black tracking-[0.2em] text-white drop-shadow-lg leading-tight">{weapon.name}</h2>
+            <h2 className="text-3xl md:text-4xl font-black tracking-[0.2em] text-white drop-shadow-lg leading-tight">{translateItemName(weapon.name)}</h2>
           </div>
 
           <button
@@ -163,10 +165,10 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                       className={`px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-widest border ${rarity.border} ${rarity.text}`}
                       style={{ background: `${rarity.hex}18` }}
                     >
-                      {weapon.rarity}
+                      {t(`rarity.${weapon.rarity.toLowerCase()}`)}
                     </span>
                     <span className="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-widest border border-white/10 bg-white/5 text-slate-300">
-                      TIER SYSTEM
+                      {t('overlay.tier_system')}
                     </span>
                   </div>
                 </div>
@@ -183,7 +185,7 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                 <section className="mb-8">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="material-symbols-outlined text-primary" style={{ textShadow: '0 0 10px rgba(30,167,253,0.5)' }}>verified_user</span>
-                    <h3 className="text-[14px] font-black tracking-[0.4em] uppercase text-white">BEST SETUPS (PvP)</h3>
+                    <h3 className="text-[14px] font-black tracking-[0.4em] uppercase text-white">{t('overlay.best_setups')}</h3>
                   </div>
                   
                   {(() => {
@@ -195,7 +197,7 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                         {/* TIER S */}
                         <SetupTooltip setup={setup.setups.S} tier="S">
                           <div className="relative group/setup bg-amber-400/5 border-2 border-amber-400/40 rounded-2xl overflow-hidden p-5 transition-all hover:border-amber-400 hover:bg-amber-400/10 h-full">
-                            <div className="absolute top-0 right-0 bg-amber-400 px-3 py-1 text-[10px] font-black text-black rounded-bl-xl tracking-widest uppercase z-10 animate-pulse">TIER S</div>
+                            <div className="absolute top-0 right-0 bg-amber-400 px-3 py-1 text-[10px] font-black text-black rounded-bl-xl tracking-widest uppercase z-10 animate-pulse">{t('overlay.tier')} S</div>
                             <div className="relative z-10 mt-2">
                               <div className="flex flex-col gap-2">
                                 {setup.setups.S.modIds.map(modId => {
@@ -213,10 +215,10 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                                         </div>
                                         <div className="flex flex-col items-start overflow-hidden">
                                           <span className={`text-[11px] font-black text-slate-300 truncate uppercase mt-0.5 tracking-wider transition-colors ${rClass.text}`}>
-                                            {mod.name.replace('Extended ', '').replace('III', '3').replace('II', '2').replace('I', '1')}
+                                            {translateItemName(mod.name).replace('Estendido ', '').replace('Estendida ', '').replace('Extended ', '').replace('  ', ' ').trim().replace('III', '3').replace('II', '2').replace('I', '1')}
                                           </span>
-                                          <span className={`text-[8px] font-black uppercase tracking-widest leading-none transition-colors shrink-0 mb-1 ${rClass.icon}`}>{mod.category}</span>
-                                          <span className="text-[10px] text-slate-500 font-bold uppercase tracking-tighter leading-tight break-words">{mod.description}</span>
+                                          <span className={`text-[8px] font-black uppercase tracking-widest leading-none transition-colors shrink-0 mb-1 ${rClass.icon}`}>{t(`category.${mod.category.toLowerCase()}`) || mod.category}</span>
+                                          <span className="text-[10px] text-slate-500 font-bold uppercase tracking-tighter leading-tight break-words">{translateItemDesc(mod.name, mod.description)}</span>
                                         </div>
                                         <div className="flex-1" />
                                         <span className={`material-symbols-outlined text-sm opacity-0 group-hover/mod:opacity-100 transition-all mr-2 ${rClass.icon}`}>arrow_forward</span>
@@ -232,7 +234,7 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                         {/* TIER A */}
                         <SetupTooltip setup={setup.setups.A} tier="A">
                           <div className="relative group/setup bg-fuchsia-500/5 border-2 border-fuchsia-500/30 rounded-2xl overflow-hidden p-5 transition-all hover:border-fuchsia-500 hover:bg-fuchsia-500/10 h-full">
-                            <div className="absolute top-0 right-0 bg-fuchsia-600 px-3 py-1 text-[10px] font-black text-white rounded-bl-xl tracking-widest uppercase z-10">TIER A</div>
+                            <div className="absolute top-0 right-0 bg-fuchsia-600 px-3 py-1 text-[10px] font-black text-white rounded-bl-xl tracking-widest uppercase z-10">{t('overlay.tier')} A</div>
                             <div className="relative z-10 mt-2">
                               <div className="flex flex-col gap-2">
                                 {setup.setups.A.modIds.map(modId => {
@@ -250,10 +252,10 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                                         </div>
                                         <div className="flex flex-col items-start overflow-hidden">
                                           <span className={`text-[11px] font-black text-slate-300 truncate uppercase mt-0.5 tracking-wider transition-colors ${rClass.text}`}>
-                                            {mod.name.replace('Extended ', '').replace('III', '3').replace('II', '2').replace('I', '1')}
+                                            {translateItemName(mod.name).replace('Estendido ', '').replace('Estendida ', '').replace('Extended ', '').replace('  ', ' ').trim().replace('III', '3').replace('II', '2').replace('I', '1')}
                                           </span>
-                                          <span className={`text-[8px] font-black uppercase tracking-widest leading-none transition-colors shrink-0 mb-1 ${rClass.icon}`}>{mod.category}</span>
-                                          <span className="text-[10px] text-slate-500 font-bold uppercase tracking-tighter leading-tight break-words">{mod.description}</span>
+                                          <span className={`text-[8px] font-black uppercase tracking-widest leading-none transition-colors shrink-0 mb-1 ${rClass.icon}`}>{t(`category.${mod.category.toLowerCase()}`) || mod.category}</span>
+                                          <span className="text-[10px] text-slate-500 font-bold uppercase tracking-tighter leading-tight break-words">{translateItemDesc(mod.name, mod.description)}</span>
                                         </div>
                                         <div className="flex-1" />
                                         <span className={`material-symbols-outlined text-sm opacity-0 group-hover/mod:opacity-100 transition-all mr-2 ${rClass.icon}`}>arrow_forward</span>
@@ -276,7 +278,7 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                 <section className="mb-8">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="material-symbols-outlined" style={{ color: rarity.hex }}>precision_manufacturing</span>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">CRAFTING COST</h3>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">{t('overlay.crafting_cost')}</h3>
                   </div>
                   <div className="space-y-2">
                     {weapon.craftInfo.materials.map((m, i) => (
@@ -296,13 +298,13 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                 <section className="mb-8">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="material-symbols-outlined text-emerald-400">recycling</span>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-emerald-400">RECYCLING</h3>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-emerald-400">{t('overlay.recycle')}</h3>
                   </div>
                   <div className="space-y-4">
                     {weapon.recycleInfo.map((info, i) => (
                       <div key={i} className="bg-black/20 p-4 rounded-2xl border border-white/5">
                         <div className="flex items-center justify-between mb-3 px-1">
-                          <span className="text-[10px] font-black text-emerald-400 tracking-[.2em]">FROM TIER {info.tier}</span>
+                          <span className="text-[10px] font-black text-emerald-400 tracking-[.2em]">{t('overlay.from_tier')} {info.tier}</span>
                         </div>
                         {info.materials.map((m, j) => (
                           <MatRow key={j} matName={m.name} quantity={m.quantity} onClick={() => {
@@ -321,13 +323,13 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                 <section className="mb-8">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="material-symbols-outlined text-amber-400">build_circle</span>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-amber-400">SALVAGING</h3>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-amber-400">{t('overlay.salvage')}</h3>
                   </div>
                   <div className="space-y-4">
                     {weapon.salvageInfo.map((info, i) => (
                       <div key={i} className="bg-black/20 p-4 rounded-2xl border border-white/5">
                         <div className="flex items-center justify-between mb-3 px-1">
-                          <span className="text-[10px] font-black text-amber-400 tracking-[.2em]">FROM TIER {info.tier}</span>
+                          <span className="text-[10px] font-black text-amber-400 tracking-[.2em]">{t('overlay.from_tier')} {info.tier}</span>
                         </div>
                         {info.materials.map((m, j) => (
                           <MatRow key={j} matName={m.name} quantity={m.quantity} onClick={() => {
@@ -346,14 +348,14 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                 <section className="mb-8">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="material-symbols-outlined text-amber-400">build</span>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-amber-400">REPAIR TIERS</h3>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-amber-400">{t('overlay.repair_tiers')}</h3>
                   </div>
                   <div className="space-y-4">
                     {weapon.repairInfo.map((info, i) => (
                       <div key={i} className="bg-black/20 p-4 rounded-2xl border border-white/5">
                         <div className="flex items-center justify-between mb-3 px-1">
-                          <span className="text-[10px] font-black text-amber-400 tracking-[.2em]">TIER {info.tier}</span>
-                          <span className="text-[10px] font-bold text-emerald-400">{info.durability} DURABILITY</span>
+                          <span className="text-[10px] font-black text-amber-400 tracking-[.2em]">{t('overlay.tier')} {info.tier}</span>
+                          <span className="text-[10px] font-bold text-emerald-400">{info.durability} {t('overlay.durability')}</span>
                         </div>
                         {info.materials.map((m, j) => (
                           <MatRow key={j} matName={m.name} quantity={m.quantity} onClick={() => {
@@ -372,13 +374,13 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                 <section>
                   <div className="flex items-center gap-3 mb-4">
                     <span className="material-symbols-outlined text-blue-400">upgrade</span>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">UPGRADES</h3>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">{t('overlay.upgrades')}</h3>
                   </div>
                   <div className="space-y-4">
                     {weapon.upgradeInfo.map((info, i) => (
                       <div key={i} className="bg-black/20 p-4 rounded-2xl border border-white/5">
                          <div className="flex items-center justify-between mb-3 px-1">
-                           <span className="text-[10px] font-black text-blue-400 tracking-[.2em]">TO TIER {info.tier}</span>
+                           <span className="text-[10px] font-black text-blue-400 tracking-[.2em]">{t('overlay.to_tier')} {info.tier}</span>
                          </div>
                          {info.materials.map((m, j) => (
                            <MatRow key={j} matName={m.name} quantity={m.quantity} onClick={() => {
@@ -389,7 +391,7 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                          <div className="flex flex-wrap gap-1 mt-3">
                            {info.perks?.split(', ').map((perk, k) => (
                              <span key={k} className="text-[9px] font-bold px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/10 uppercase tracking-widest">
-                               {perk}
+                               {translatePerkString(perk)}
                              </span>
                            ))}
                          </div>

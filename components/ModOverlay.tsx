@@ -6,6 +6,7 @@ import { generateItemTooltip } from './tooltipHelper';
 import RichTooltip from './RichTooltip';
 import { getRarityBorderColor } from '../utils';
 import SmartItemIcon from './SmartItemIcon';
+import { useLanguage } from './LanguageContext';
 
 interface ModOverlayProps {
   mod: Modification;
@@ -26,6 +27,7 @@ const getRarityColor = (rarity: string) => {
 };
 
 const ModOverlay: React.FC<ModOverlayProps> = ({ mod, onClose, onNavigateMaterial, onNavigateMod }) => {
+  const { t, translateItemName, translateItemDesc } = useLanguage();
   const rarity = getRarityColor(mod.rarity);
 
   // Lock background scroll, unlock on unmount
@@ -60,8 +62,8 @@ const ModOverlay: React.FC<ModOverlayProps> = ({ mod, onClose, onNavigateMateria
             <SmartItemIcon itemName={mat.name} icon={mat.icon || 'category'} rarity={mat.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-xl text-slate-400" />
           </div>
           <div className="flex flex-col">
-            <span className="text-sm font-bold text-white group-hover/mat:text-primary transition-colors">{mat.name}</span>
-            <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">{mat.rarity}</span>
+            <span className="text-sm font-bold text-white group-hover/mat:text-primary transition-colors">{translateItemName(mat.name)}</span>
+            <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">{t(`rarity.${mat.rarity.toLowerCase()}`)}</span>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -113,9 +115,9 @@ const ModOverlay: React.FC<ModOverlayProps> = ({ mod, onClose, onNavigateMateria
 
           <div className="text-center">
             <div className={`text-[11px] font-black tracking-[0.5em] uppercase mb-1 ${rarity.text}`} style={{ textShadow: `0 0 12px ${rarity.hex}` }}>
-              MOD SYSTEM · 2.0
+              {t('overlay.mod_system')}
             </div>
-            <h2 className="text-3xl md:text-4xl font-black tracking-[0.2em] text-white drop-shadow-lg">{mod.name}</h2>
+            <h2 className="text-3xl md:text-4xl font-black tracking-[0.2em] text-white drop-shadow-lg">{translateItemName(mod.name)}</h2>
           </div>
 
           <button
@@ -163,17 +165,17 @@ const ModOverlay: React.FC<ModOverlayProps> = ({ mod, onClose, onNavigateMateria
                       className={`px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-widest border ${rarity.border} ${rarity.text}`}
                       style={{ background: `${rarity.hex}18` }}
                     >
-                      {mod.rarity}
+                      {t(`rarity.${mod.rarity.toLowerCase()}`)}
                     </span>
                     <span className="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-widest border border-white/10 bg-white/5 text-slate-300">
-                      TIER {mod.tier === 'LEGENDARY' ? 'L' : mod.tier}
+                      {t('overlay.tier')} {mod.tier === 'LEGENDARY' ? 'L' : mod.tier}
                     </span>
                   </div>
 
                   {/* Stat perks */}
                   {mod.description && (
                     <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-                      {mod.description.split(', ').map((stat, i) => {
+                      {translateItemDesc(mod.name, mod.description).split(', ').map((stat, i) => {
                         const isNegative =
                           (stat.includes('Increased') && (stat.includes('Recoil') || stat.includes('Durability') || stat.includes('Equip') || stat.includes('Unequip') || stat.includes('Recovery Time'))) ||
                           stat.includes('Reduced ADS Speed');
@@ -198,7 +200,7 @@ const ModOverlay: React.FC<ModOverlayProps> = ({ mod, onClose, onNavigateMateria
               <section className="mb-8">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="material-symbols-outlined" style={{ color: rarity.hex }}>precision_manufacturing</span>
-                  <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">CRAFT</h3>
+                  <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">{t('overlay.crafting_cost')}</h3>
                 </div>
                 {modRequirements.length > 0 ? (
                   <div className="space-y-2">
@@ -211,7 +213,7 @@ const ModOverlay: React.FC<ModOverlayProps> = ({ mod, onClose, onNavigateMateria
                 ) : (
                   <div className="flex justify-center py-6">
                     <div className="bg-red-500/10 border border-red-500/30 rounded-xl py-3 px-8 text-red-400 font-black tracking-[0.3em] text-sm uppercase shadow-[0_0_15px_rgba(239,68,68,0.2)]">
-                      NOT CRAFTABLE
+                      {t('overlay.not_craftable')}
                     </div>
                   </div>
                 )}
@@ -222,7 +224,7 @@ const ModOverlay: React.FC<ModOverlayProps> = ({ mod, onClose, onNavigateMateria
                 <section className="mb-8">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="material-symbols-outlined text-emerald-400">recycling</span>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-emerald-400">RECYCLING</h3>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-emerald-400">{t('overlay.recycle')}</h3>
                   </div>
                   <div className="space-y-2">
                     {recycleResults.map((mat, idx) => (
@@ -239,7 +241,7 @@ const ModOverlay: React.FC<ModOverlayProps> = ({ mod, onClose, onNavigateMateria
                 <section>
                   <div className="flex items-center gap-3 mb-4">
                     <span className="material-symbols-outlined text-amber-400">build_circle</span>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-amber-400">SALVAGING</h3>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-amber-400">{t('overlay.salvage')}</h3>
                   </div>
                   <div className="space-y-2">
                     {salvageResults.map((mat, idx) => (

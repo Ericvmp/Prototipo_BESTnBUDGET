@@ -6,6 +6,7 @@ import { generateItemTooltip } from './tooltipHelper';
 import { getItemRarity, getRarityStyles, getRarityGlowStyles, getRarityHoverStyles, getRarityBorderColor, parseMaterialString } from '../utils';
 import RichTooltip from './RichTooltip';
 import SmartItemIcon from './SmartItemIcon';
+import { useLanguage } from './LanguageContext';
 
 interface MaterialOverlayProps {
   material: Material;
@@ -30,6 +31,7 @@ const getRarityColor = (rarity: string) => {
 const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
   material, onClose, onNavigateWeapon, onNavigateMod, onNavigateMaterial, onNavigateTactical
 }) => {
+  const { t, translateItemName } = useLanguage();
   const rarityColor = getRarityColor(material.rarity);
 
   // Lock background scroll
@@ -69,8 +71,8 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
           <SmartItemIcon itemName={mat.name} icon={mat.icon || 'category'} rarity={mat.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-xl text-slate-400" />
         </div>
         <div className="flex flex-col">
-          <span className="text-sm font-bold text-white group-hover/mat:text-primary transition-colors">{mat.name}</span>
-          <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">{mat.rarity}</span>
+          <span className="text-sm font-bold text-white group-hover/mat:text-primary transition-colors">{translateItemName(mat.name)}</span>
+          <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">{t(`rarity.${mat.rarity.toLowerCase()}`)}</span>
         </div>
       </div>
       <div className="flex items-center gap-2">
@@ -125,10 +127,10 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
               className={`text-[11px] font-black tracking-[0.5em] uppercase mb-1 ${rarityColor.text}`}
               style={{ textShadow: `0 0 12px ${rarityColor.hex}` }}
             >
-              MATERIAL ARCHIVE · {material.rarity}
+              {t('overlay.material_archive')} · {t(`rarity.${material.rarity.toLowerCase()}`)}
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-widest leading-tight">
-              {material.name}
+              {translateItemName(material.name)}
             </h2>
           </div>
 
@@ -189,7 +191,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                       <div className="flex items-center gap-2 pl-1">
                         <span className="material-symbols-outlined text-lg text-emerald-400">storefront</span>
                         <span className="text-[14px] font-black uppercase tracking-[0.3em] text-emerald-500 drop-shadow-[0_0_5px_rgba(16,185,129,0.5)]">
-                          Trader Celeste
+                          {t('overlay.source.celeste')}
                         </span>
                       </div>
                     </div>
@@ -208,7 +210,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                 <section className="mb-8">
                   <div className="flex items-center gap-3 mb-5">
                     <span className="material-symbols-outlined text-primary drop-shadow-[0_0_8px_rgba(var(--primary-rgb),0.5)]">assignment_late</span>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white/70">USED IN</h3>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white/70">{t('overlay.used_in')}</h3>
                   </div>
                   <div className="flex flex-col gap-2">
                     {material.requiredFor.map((itemStr, idx) => {
@@ -243,9 +245,9 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                               </div>
                               <div className="flex flex-col">
                                 <span className="text-sm font-bold text-white group-hover/req-item:text-primary transition-colors">
-                                  {name}
+                                  {translateItemName(name)}
                                 </span>
-                                <span className="text-[9px] text-slate-500 uppercase tracking-widest font-semibold">{rarity}</span>
+                                <span className="text-[9px] text-slate-500 uppercase tracking-widest font-semibold">{t(`rarity.${rarity.toLowerCase()}`)}</span>
                               </div>
                             </div>
                             <div className="flex items-center gap-2">
@@ -269,7 +271,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                 <section className="mb-8">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="material-symbols-outlined text-yellow-400 drop-shadow-[0_0_6px_rgba(234,179,8,0.5)]">recycling</span>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-yellow-400">SOURCE</h3>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-yellow-400">{t('overlay.source')}</h3>
                   </div>
                   <div className="space-y-2">
                     {(material.obtainedFrom || materialLootData?.sources || []).map((sourceItem, idx) => {
@@ -306,10 +308,10 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                                  </div>
                                  <div className="flex flex-col text-left">
                                  <span className="text-[12px] font-black text-slate-100 tracking-wider">
-                                    {name}
+                                    {translateItemName(name)}
                                  </span>
                                  <span className={`text-[9px] font-bold mt-0.5 px-1.5 py-0.5 rounded border-[0.5px] uppercase tracking-[0.15em] self-start ${srcRarityStyles}`}>
-                                    {srcRarity}
+                                    {t(`rarity.${srcRarity.toLowerCase()}`)}
                                  </span>
                                  </div>
                               </div>
@@ -333,19 +335,19 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
               <section className="mb-8">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="material-symbols-outlined" style={{ color: rarityColor.hex }}>precision_manufacturing</span>
-                  <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">CRAFTING COST</h3>
+                  <h3 className="text-xs font-black tracking-[0.4em] uppercase text-white">{t('overlay.crafting_cost')}</h3>
                 </div>
                 {!material.craftInfo?.isCraftable ? (
                   <div className="flex justify-center py-6">
                     <div className="bg-red-500/10 border border-red-500/30 rounded-xl py-3 px-8 text-red-400 font-black tracking-[0.3em] text-sm uppercase shadow-[0_0_15px_rgba(239,68,68,0.2)]">
-                      NOT CRAFTABLE
+                      {t('overlay.not_craftable')}
                     </div>
                   </div>
                 ) : (
                   <div className="space-y-3">
                     {material.craftInfo?.location && (
                       <div className="flex items-center justify-between px-4 py-2 bg-white/5 rounded-xl border border-white/5 mb-3">
-                        <span className="text-[11px] text-slate-500 font-bold uppercase tracking-widest">Station</span>
+                        <span className="text-[11px] text-slate-500 font-bold uppercase tracking-widest">{t('overlay.station')}</span>
                         <span className="text-[11px] font-black uppercase tracking-wider" style={{ color: rarityColor.hex }}>
                           {material.craftInfo.location}
                         </span>
@@ -366,7 +368,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                                   <SmartItemIcon itemName={req.name} icon={targetMat?.icon || 'inventory_2'} rarity={targetMat?.rarity || 'COMMON'} imageClassName="w-full h-full object-contain" iconClassName="text-xl text-slate-400 group-hover/req:text-primary transition-colors" />
                                 </div>
                                 <span className="text-sm font-bold text-white group-hover/req:text-primary transition-colors">
-                                  {req.name}
+                                  {translateItemName(req.name)}
                                 </span>
                               </div>
                               <span className="text-lg font-black text-primary">×{req.quantity}</span>
@@ -385,7 +387,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                 <section className="mb-8">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="material-symbols-outlined text-emerald-400">recycling</span>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-emerald-400">RECYCLING</h3>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-emerald-400">{t('overlay.recycle')}</h3>
                   </div>
                   <div className="space-y-2">
                     {recycleResults.map((mat, idx) => (
@@ -402,7 +404,7 @@ const MaterialOverlay: React.FC<MaterialOverlayProps> = ({
                 <section className="mb-8">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="material-symbols-outlined text-amber-400">build_circle</span>
-                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-amber-400">SALVAGING</h3>
+                    <h3 className="text-xs font-black tracking-[0.4em] uppercase text-amber-400">{t('overlay.salvage')}</h3>
                   </div>
                   <div className="space-y-2">
                     {salvageResults.map((mat, idx) => (

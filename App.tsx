@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { LanguageProvider, useLanguage } from './components/LanguageContext';
 import WeaponCard from './components/WeaponCard';
 import ModCard from './components/ModCard';
 import LootScreen from './components/LootScreen';
@@ -15,7 +16,7 @@ import TacticalOverlay from './components/TacticalOverlay';
 import { WEAPONS_DATA, MODS_DATA, MATERIALS_DATA, LOOT_DATA, THROWABLES_DATA, AUGMENTS_DATA } from './data';
 import { Weapon, Modification, Material, Screen, Augment, Throwable } from './types';
 
-const HomeOption: React.FC<{ label: string; icon: string; delay: string; image?: string; itemImage?: string; itemImageClass?: string; hoverColor?: string; onClick: () => void }> = ({ label, icon, delay, image, itemImage, itemImageClass = 'w-20 h-20', hoverColor = '#135bec', onClick }) => {
+const HomeOption: React.FC<{ label: string; icon: string; delay: string; image?: string; itemImage?: string; itemImageClass?: string; hoverColor?: string; useBlueprintBg?: boolean; onClick: () => void }> = ({ label, icon, delay, image, itemImage, itemImageClass = 'w-20 h-20', hoverColor = '#135bec', useBlueprintBg = false, onClick }) => {
   const [hovered, setHovered] = React.useState(false);
   return (
     <button
@@ -29,7 +30,7 @@ const HomeOption: React.FC<{ label: string; icon: string; delay: string; image?:
       <div className="absolute inset-0 flex flex-col items-center">
         {/* Background Image or Blueprint Grid */}
         <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500 grayscale group-hover:grayscale-0">
-          {label === 'Blueprints' ? (
+          {useBlueprintBg ? (
             <div 
               className="w-full h-full"
               style={{ 
@@ -88,7 +89,8 @@ const HomeOption: React.FC<{ label: string; icon: string; delay: string; image?:
   );
 };
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
+  const { language, setLanguage, t } = useLanguage();
   const [currentScreen, setCurrentScreen] = useState<Screen>('home');
   const [selectedWeapon, setSelectedWeapon] = useState<Weapon | null>(null);
   const [selectedMod, setSelectedMod] = useState<Modification | null>(null);
@@ -115,17 +117,41 @@ const App: React.FC = () => {
 
   const renderHome = () => (
     <main className="flex-1 flex flex-col items-center justify-center px-6 py-6 gap-6 relative z-10 pb-32">
-      {/* Title */}
-      <div className="flex flex-col items-center w-full animate-fade-in relative" style={{ animationDelay: '50ms' }}>
-        <h1 className="text-3xl md:text-5xl lg:text-7xl font-black tracking-[0.08em] md:tracking-[0.12em] uppercase text-white relative z-10 whitespace-nowrap text-center leading-none w-full">
-          SCRAPPY PLANNER
+      {/* Title with Inline Flag Language Selector */}
+      <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 w-full animate-fade-in relative" style={{ animationDelay: '50ms' }}>
+        <div className="flex items-center gap-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full p-1 shadow-[0_0_20px_rgba(0,0,0,0.5)] select-none">
+          <button
+            onClick={() => setLanguage('en')}
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] font-black tracking-wider transition-all duration-300 ${
+              language === 'en'
+                ? 'bg-primary text-white shadow-[0_0_12px_rgba(249,115,22,0.4)]'
+                : 'text-slate-400 hover:text-white hover:bg-white/5'
+            }`}
+          >
+            <img src="/images/flag_en.png" alt="English" className="w-4.5 h-4.5 rounded-full object-cover shadow-sm" style={{ width: '18px', height: '18px' }} />
+            <span>EN</span>
+          </button>
+          <button
+            onClick={() => setLanguage('pt-BR')}
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] font-black tracking-wider transition-all duration-300 ${
+              language === 'pt-BR'
+                ? 'bg-primary text-white shadow-[0_0_12px_rgba(249,115,22,0.4)]'
+                : 'text-slate-400 hover:text-white hover:bg-white/5'
+            }`}
+          >
+            <img src="/images/flag_pt.png" alt="Português" className="w-4.5 h-4.5 rounded-full object-cover shadow-sm" style={{ width: '18px', height: '18px' }} />
+            <span>PT-BR</span>
+          </button>
+        </div>
+        <h1 className="text-3xl md:text-5xl lg:text-7xl font-black tracking-[0.08em] md:tracking-[0.12em] uppercase text-white relative z-10 whitespace-nowrap text-center leading-none">
+          {t('home.title')}
         </h1>
       </div>
 
       {/* Single row of 6 compact cards */}
       <div className="grid grid-cols-3 md:grid-cols-6 gap-3 w-full max-w-7xl">
         <HomeOption
-          label="Weapons"
+          label={t('home.weapons')}
           icon="military_tech"
           delay="200ms"
           image="https://cdn.metaforge.app/arc-raiders/icons/hideout/Gunsmith.webp"
@@ -135,7 +161,7 @@ const App: React.FC = () => {
           onClick={() => setCurrentScreen('weapons')}
         />
         <HomeOption
-          label="Mods"
+          label={t('home.mods')}
           icon="settings_input_component"
           delay="300ms"
           image="https://cdn.metaforge.app/arc-raiders/icons/hideout/ExplosivesStation.webp"
@@ -145,7 +171,7 @@ const App: React.FC = () => {
           onClick={() => setCurrentScreen('mods')}
         />
         <HomeOption
-          label="Materials"
+          label={t('home.materials')}
           icon="inventory_2"
           delay="400ms"
           image="/images/Refiner.webp"
@@ -155,7 +181,7 @@ const App: React.FC = () => {
           onClick={() => setCurrentScreen('materials')}
         />
         <HomeOption
-          label="Equipment"
+          label={t('home.equipments')}
           icon="shield_with_heart"
           delay="500ms"
           image="/images/GearBench.webp"
@@ -165,17 +191,18 @@ const App: React.FC = () => {
           onClick={() => setCurrentScreen('equipment')}
         />
         <HomeOption
-          label="Blueprints"
+          label={t('home.blueprints')}
           icon="architecture"
           delay="600ms"
           image="/images/Workshop.webp"
           itemImage="/images/items/Barricade_Kit.webp"
           itemImageClass="w-[70px] h-[70px] md:w-[94px] md:h-[94px]"
           hoverColor="#135bec"
+          useBlueprintBg
           onClick={() => setCurrentScreen('blueprints')}
         />
         <HomeOption
-          label="Trade"
+          label={t('home.trade')}
           icon="sync_alt"
           delay="700ms"
           image="/images/background-home.webp"
@@ -199,8 +226,8 @@ const App: React.FC = () => {
               <img src="/images/scrappy.webp" alt="Scrappy" className="w-full h-full object-cover rounded-xl" />
             </div>
             <div className="text-left">
-              <h3 className="text-2xl md:text-3xl font-black tracking-[0.2em] text-white group-hover:text-orange-400 uppercase transition-colors">STASH MANAGEMENT</h3>
-              <p className="text-xs text-slate-400 mt-0.5 max-w-lg">Build your setup and calculate the exact materials needed.</p>
+              <h3 className="text-2xl md:text-3xl font-black tracking-[0.2em] text-white group-hover:text-orange-400 uppercase transition-colors">{t('home.stash_planner')}</h3>
+              <p className="text-xs text-slate-400 mt-0.5 max-w-lg">{t('home.stash_desc')}</p>
             </div>
           </div>
           <span className="material-symbols-outlined text-4xl text-slate-600 group-hover:text-[#f97316] transition-all relative z-10 mt-3 md:mt-0">arrow_forward</span>
@@ -222,7 +249,8 @@ const App: React.FC = () => {
           <span className="material-symbols-outlined text-3xl">arrow_back</span>
         </button>
         <div>
-          <h2 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white drop-shadow-glow uppercase italic">WEAPONS</h2>
+          <h2 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white uppercase italic drop-shadow-[0_0_20px_rgba(251,208,8,0.6)] leading-none">{t('nav.weapons')}</h2>
+          <p className="text-[11px] md:text-xs text-slate-400 font-bold uppercase tracking-wider mt-2 opacity-80">{t('hint.lock_tooltip')}</p>
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
@@ -241,12 +269,19 @@ const App: React.FC = () => {
           <span className="material-symbols-outlined text-3xl">arrow_back</span>
         </button>
         <div>
-          <h2 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white drop-shadow-glow uppercase italic">MODS</h2>
+          <h2 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white uppercase italic drop-shadow-[0_0_20px_rgba(168,85,247,0.6)] leading-none">{t('nav.mods')}</h2>
+          <p className="text-[11px] md:text-xs text-slate-400 font-bold uppercase tracking-wider mt-2 opacity-80">{t('hint.lock_tooltip')}</p>
         </div>
       </div>
       {(() => {
         const categoryOrder = ['MUZZLE', 'MAGAZINE', 'UNDERBARREL', 'STOCK', 'ALL'];
-        const categoryLabels: Record<string, string> = { 'MUZZLE': 'Muzzle', 'MAGAZINE': 'Magazine', 'UNDERBARREL': 'Underbarrel', 'STOCK': 'Stock', 'ALL': 'Special' };
+        const categoryLabels: Record<string, string> = { 
+          'MUZZLE': language === 'pt-BR' ? 'Boca' : 'Muzzle', 
+          'MAGAZINE': language === 'pt-BR' ? 'Carregador' : 'Magazine', 
+          'UNDERBARREL': language === 'pt-BR' ? 'Acoplamento' : 'Underbarrel', 
+          'STOCK': language === 'pt-BR' ? 'Coronha' : 'Stock', 
+          'ALL': language === 'pt-BR' ? 'Especial' : 'Special' 
+        };
         const categoryIcons: Record<string, string> = { 
           'MUZZLE': 'https://arcraiders.wiki/w/images/4/4b/Mods_Muzzle.png', 
           'MAGAZINE': 'https://arcraiders.wiki/w/images/c/c6/Mods_Medium-Mag.png', 
@@ -284,6 +319,34 @@ const App: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-background-dark text-slate-100 font-display overflow-x-hidden selection:bg-primary/40 leading-relaxed">
+      {/* Floating Language Selector - Only visible when not on home screen to avoid duplication */}
+      {currentScreen !== 'home' && (
+        <div className="fixed top-4 right-4 z-[100] flex gap-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full p-1 shadow-[0_0_20px_rgba(0,0,0,0.5)] select-none">
+          <button
+            onClick={() => setLanguage('en')}
+            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9px] font-black tracking-wider transition-all duration-300 ${
+              language === 'en'
+                ? 'bg-primary text-white shadow-[0_0_10px_rgba(249,115,22,0.4)]'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <img src="/images/flag_en.png" alt="English" className="w-3.5 h-3.5 rounded-full object-cover shadow-sm" style={{ width: '14px', height: '14px' }} />
+            <span>EN</span>
+          </button>
+          <button
+            onClick={() => setLanguage('pt-BR')}
+            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9px] font-black tracking-wider transition-all duration-300 ${
+              language === 'pt-BR'
+                ? 'bg-primary text-white shadow-[0_0_10px_rgba(249,115,22,0.4)]'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <img src="/images/flag_pt.png" alt="Português" className="w-3.5 h-3.5 rounded-full object-cover shadow-sm" style={{ width: '14px', height: '14px' }} />
+            <span>PT-BR</span>
+          </button>
+        </div>
+      )}
+
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Main Background Image */}
         <img
@@ -382,6 +445,14 @@ const App: React.FC = () => {
       )}
 
     </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 };
 

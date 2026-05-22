@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from './LanguageContext';
 
 interface ConfirmationModalProps {
    isOpen: boolean;
@@ -10,6 +11,7 @@ interface ConfirmationModalProps {
 }
 
 const ConfirmationModal: React.FC<ConfirmationModalProps> = ({ isOpen, title, message, onConfirm, onCancel, danger = false }) => {
+   const { t } = useLanguage();
    if (!isOpen) return null;
    return (
       <div className="fixed inset-0 z-[300] bg-background-dark/95 backdrop-blur-md flex items-center justify-center p-6 animate-fade-in">
@@ -22,7 +24,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({ isOpen, title, me
                </div>
                <div>
                   <h3 className="text-xl font-black tracking-widest text-white uppercase">{title}</h3>
-                  <p className="text-[10px] text-slate-500 font-bold tracking-widest uppercase">System Confirmation Required</p>
+                  <p className="text-[10px] text-slate-500 font-bold tracking-widest uppercase">{t('planner.confirm.sys_required')}</p>
                </div>
             </div>
 
@@ -35,13 +37,13 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({ isOpen, title, me
                   onClick={onCancel}
                   className="flex-1 px-6 py-3 bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white rounded-xl text-[11px] font-black uppercase tracking-widest transition-all border border-white/5"
                >
-                  Cancel
+                  {t('planner.confirm.cancel')}
                </button>
                <button 
                   onClick={() => { onConfirm(); onCancel(); }}
                   className={`flex-1 px-6 py-3 ${danger ? 'bg-red-600 hover:bg-red-700' : 'bg-primary hover:bg-primary-dark'} text-white rounded-xl text-[11px] font-black uppercase tracking-widest transition-all shadow-xl`}
                >
-                  Confirm
+                  {t('planner.confirm.confirm')}
                </button>
             </div>
          </div>
@@ -50,3 +52,4 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({ isOpen, title, me
 };
 
 export default ConfirmationModal;
+

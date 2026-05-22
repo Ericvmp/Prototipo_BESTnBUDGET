@@ -96,7 +96,12 @@ const ASSET_ALIASES: Record<string, string> = {
     "Trigger 'Nade": "Trigger_'Nade",
     "Tactical Mk. 3 (Healing)": "Tactical Mk. 3 Healing",
     "Tactical Mk. 3 (Revival)": "Tactical Mk. 3 Revival",
-    "Li'l Smoke Grenade": "Lil_Smoke_Grenade" // Just in case
+    "Li'l Smoke Grenade": "Lil_Smoke_Grenade", // Just in case
+    "\"Leviathan's Crown\" Ship Model": "Leviathans_Crown_Ship_Model",
+    "\"Sirena Dorata\" Ship Model": "Sirena_Dorata_Ship_Model",
+    "\"Twilight Compass\" Ship Model": "Twilight_Compass_Ship_Model",
+    "\"Velocity\" Ship Model": "Velocity_Ship_Model",
+    "\"Wind Sprite\" Ship Model": "Wind_Sprite_Ship_Model"
 };
 
 /**

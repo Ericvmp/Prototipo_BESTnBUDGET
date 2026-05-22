@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { LOOT_DATA, MATERIALS_DATA, WEAPONS_DATA, MODS_DATA, THROWABLES_DATA } from '../data';
 import { parseMaterialString, getItemRarity, getRarityStyles, getRarityBorderColor, getRarityIconColor } from '../utils';
 import SmartItemIcon from './SmartItemIcon';
+import { useLanguage } from './LanguageContext';
 
 interface RichTooltipProps {
   item: any;
@@ -19,10 +20,12 @@ const RARITY_STYLES: Record<string, { border: string; text: string; glow: string
 };
 
 const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
+  const { t, translateItemName, translateItemDesc, translateItemPerks } = useLanguage();
   const [visible, setVisible] = useState(false);
   const [isShiftDown, setIsShiftDown] = useState(false);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const style = item?.rarity ? RARITY_STYLES[item.rarity] || RARITY_STYLES.COMMON : RARITY_STYLES.COMMON;
+  const itemDesc = item ? translateItemDesc(item.name, item.description) : '';
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => { 
@@ -39,6 +42,17 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [visible]);
+
+  useEffect(() => {
+    if (isShiftDown && visible) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isShiftDown, visible]);
 
   const closeTooltip = () => {
     setIsShiftDown(false);
@@ -98,9 +112,9 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
                 <SmartItemIcon itemName={r.name} icon={mat?.icon || 'category'} rarity={rarity} imageClassName="w-full h-full object-contain opacity-90" iconClassName={`text-[20px] ${getRarityIconColor(rarity)}`} />
               </div>
               <div className="flex flex-col min-w-0">
-                <span className="text-[14px] text-slate-100 font-bold truncate tracking-wide">{r.name}</span>
+                <span className="text-[14px] text-slate-100 font-bold truncate tracking-wide">{translateItemName(r.name)}</span>
                 <span className={`text-[9px] uppercase font-black leading-none ${getRarityIconColor(rarity)}`}>
-                  {rarity}
+                  {t(`rarity.${rarity.toLowerCase()}`)}
                 </span>
               </div>
               <span className={`ml-auto text-[14px] font-black ${color} shrink-0 bg-black/30 px-2.5 py-1 rounded-lg border border-white/10 shadow-inner`}>×{r.quantity}</span>
@@ -117,7 +131,7 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
         <div className="p-1.5 rounded bg-black/40 border border-white/5">
           <span className="material-symbols-outlined text-[18px] block text-violet-400">travel_explore</span>
         </div>
-        <span className="text-[12px] font-black tracking-[0.3em] uppercase text-violet-400">SOURCE</span>
+        <span className="text-[12px] font-black tracking-[0.3em] uppercase text-violet-400">{t('tooltip.source')}</span>
       </div>
       <div className="space-y-2">
         {sources.map((s, i) => {
@@ -131,9 +145,9 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
                 <SmartItemIcon itemName={s.name} icon="inventory_2" rarity={rarity} imageClassName="w-full h-full object-contain opacity-80" iconClassName={`text-[20px] ${getRarityIconColor(rarity)}`} />
               </div>
               <div className="flex flex-col min-w-0">
-                <span className="text-[14px] text-slate-100 font-bold truncate tracking-wide">{s.name}</span>
+                <span className="text-[14px] text-slate-100 font-bold truncate tracking-wide">{translateItemName(s.name)}</span>
                 <span className={`text-[9px] uppercase font-black leading-none ${getRarityIconColor(rarity)}`}>
-                  {rarity}
+                  {t(`rarity.${rarity.toLowerCase()}`)}
                 </span>
               </div>
               <span className="ml-auto text-[14px] font-black text-violet-300 shrink-0 bg-black/30 px-2.5 py-1 rounded-lg border border-white/10 shadow-inner">×{s.quantity}</span>
@@ -173,12 +187,12 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
         <div className={`p-4 text-center text-[10px] font-black tracking-[0.4em] uppercase bg-white/5 border-b border-white/5 shrink-0 flex items-center justify-center relative ${isShiftDown ? rs.text : 'text-slate-500'}`}>
           {!isShiftDown ? (
             <div className="flex items-center gap-2">
-                 <span>Press [SHIFT] to Lock & Inspect</span>
+                 <span>{t('tooltip.press_shift')}</span>
                  <div className="w-1.5 h-1.5 rounded-full bg-slate-500 animate-pulse" />
             </div>
           ) : (
              <div className="flex items-center gap-2 w-full justify-center">
-                 <span className="animate-bounce">Inspection Locked</span>
+                 <span className="animate-bounce">{t('tooltip.inspection_locked')}</span>
                  <button 
                   onClick={(e) => { e.stopPropagation(); closeTooltip(); }}
                   className="absolute right-4 w-6 h-6 flex items-center justify-center bg-white/10 hover:bg-white/20 hover:text-white rounded-full transition-colors text-slate-300"
@@ -190,32 +204,59 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
         </div>
 
         {/* Header */}
-        <div className="p-6 flex items-center gap-5 border-b border-white/5 bg-white/[0.03] shrink-0 relative">
-          <div className={`w-16 h-16 rounded-2xl bg-slate-800 ${item?.imageUrl ? 'p-3' : ''} flex items-center justify-center border-2 ${rs.border} shadow-2xl`}>
-            <SmartItemIcon itemName={item.name} icon={item.icon || 'category'} rarity={item.rarity} imageClassName="w-full h-full object-contain drop-shadow-glow" iconClassName={`text-4xl ${rs.text}`} />
-          </div>
-          <div className="min-w-0 flex-1">
-            <p className="text-[22px] font-black text-white leading-tight tracking-wider mb-2">{item.name}</p>
-            <div className="flex gap-2 flex-wrap">
-              <span className={`text-[11px] font-black tracking-widest uppercase border-2 px-3 py-1 rounded-full leading-none ${rs.text} ${rs.border} bg-black/40 shadow-inner`}>
-                {rarity}
-              </span>
-              {item.purchasableFromCeleste && (
-                <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.1)]">
-                  <img src="https://arcraiders.wiki/w/images/5/54/Icon_Nature.png" alt="Seeds" className="w-3.5 h-3.5 object-contain drop-shadow-[0_0_5px_rgba(16,185,129,0.4)]" />
-                  <span className="text-white font-black font-mono text-[13px]">{item.celesteSeedCost}</span>
-                  <span className="w-px h-3 bg-emerald-500/20 mx-1" />
-                  <span className="material-symbols-outlined text-[14px] text-emerald-400">storefront</span>
-                </div>
-              )}
-              {item.category && (
-                <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest border border-slate-700 bg-slate-800/50 px-3 py-1 rounded-full leading-none">
-                  {item.category}
+        {item.weaponType ? (
+          <div className="p-6 flex flex-col items-center gap-4 border-b border-white/5 bg-white/[0.03] shrink-0 relative text-center">
+            <div className={`w-48 h-48 rounded-3xl bg-slate-800 flex items-center justify-center border-2 ${rs.border} shadow-2xl p-4`}>
+              <SmartItemIcon itemName={item.name} icon={item.icon || 'military_tech'} rarity={item.rarity} imageClassName="w-full h-full object-contain drop-shadow-glow" iconClassName={`text-6xl ${rs.text}`} />
+            </div>
+            <div className="flex flex-col items-center mt-2">
+              <p className="text-[26px] font-black text-white leading-tight tracking-wider mb-3">{translateItemName(item.name)}</p>
+              <div className="flex gap-2 flex-wrap justify-center">
+                <span className={`text-[11px] font-black tracking-widest uppercase border-2 px-3 py-1 rounded-full leading-none ${rs.text} ${rs.border} bg-black/40 shadow-inner`}>
+                  {t(`rarity.${rarity.toLowerCase()}`)}
                 </span>
-              )}
+                <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest border border-slate-700 bg-slate-800/50 px-3 py-1 rounded-full leading-none">
+                  {t(`weapon_type.${item.weaponType?.toLowerCase()}`) || item.weaponType}
+                </span>
+                {item.purchasableFromCeleste && (
+                  <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+                    <img src="https://arcraiders.wiki/w/images/5/54/Icon_Nature.png" alt="Seeds" className="w-3.5 h-3.5 object-contain drop-shadow-[0_0_5px_rgba(16,185,129,0.4)]" />
+                    <span className="text-white font-black font-mono text-[13px]">{item.celesteSeedCost}</span>
+                    <span className="w-px h-3 bg-emerald-500/20 mx-1" />
+                    <span className="material-symbols-outlined text-[14px] text-emerald-400">storefront</span>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="p-6 flex items-center gap-5 border-b border-white/5 bg-white/[0.03] shrink-0 relative">
+            <div className={`w-16 h-16 rounded-2xl bg-slate-800 ${item?.imageUrl ? 'p-3' : ''} flex items-center justify-center border-2 ${rs.border} shadow-2xl`}>
+              <SmartItemIcon itemName={item.name} icon={item.icon || 'category'} rarity={item.rarity} imageClassName="w-full h-full object-contain drop-shadow-glow" iconClassName={`text-4xl ${rs.text}`} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="text-[22px] font-black text-white leading-tight tracking-wider mb-2">{translateItemName(item.name)}</p>
+              <div className="flex gap-2 flex-wrap">
+                <span className={`text-[11px] font-black tracking-widest uppercase border-2 px-3 py-1 rounded-full leading-none ${rs.text} ${rs.border} bg-black/40 shadow-inner`}>
+                  {t(`rarity.${rarity.toLowerCase()}`)}
+                </span>
+                {item.purchasableFromCeleste && (
+                  <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+                    <img src="https://arcraiders.wiki/w/images/5/54/Icon_Nature.png" alt="Seeds" className="w-3.5 h-3.5 object-contain drop-shadow-[0_0_5px_rgba(16,185,129,0.4)]" />
+                    <span className="text-white font-black font-mono text-[13px]">{item.celesteSeedCost}</span>
+                    <span className="w-px h-3 bg-emerald-500/20 mx-1" />
+                    <span className="material-symbols-outlined text-[14px] text-emerald-400">storefront</span>
+                  </div>
+                )}
+                {item.category && (
+                  <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest border border-slate-700 bg-slate-800/50 px-3 py-1 rounded-full leading-none">
+                    {t(`category.${item.category.toLowerCase()}`) || item.category}
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Scrollable Body */}
         <div 
@@ -230,10 +271,58 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
             }
           }}
         >
-          {(item.description && (item.category || item.weaponType) && item.category !== 'AUGMENT') && (
+          {(itemDesc && !item.weaponType && (item.category || item.weaponType) && item.category !== 'AUGMENT' && !['MUZZLE', 'MAGAZINE', 'UNDERBARREL', 'STOCK', 'OPTICS'].includes(item.category)) && (
             <p className="text-[14px] text-slate-300 leading-relaxed font-bold italic border-l-4 border-white/10 pl-5 py-1 mb-5 opacity-80">
-              "{item.description}"
+              "{itemDesc}"
             </p>
+          )}
+
+          {/* MODS SPECIFIC */}
+          {item.category && ['MUZZLE', 'MAGAZINE', 'UNDERBARREL', 'STOCK', 'OPTICS'].includes(item.category) && itemDesc && (
+            <div className="mb-6 space-y-4">
+              <div className="bg-black/20 border border-white/5 p-4 rounded-2xl shadow-inner">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="material-symbols-outlined text-emerald-400 text-[18px]">auto_awesome</span>
+                  <span className="text-[12px] font-black tracking-[0.3em] uppercase text-emerald-400">{t('tooltip.bonus_stats')}</span>
+                </div>
+                <ul className="space-y-2">
+                  {itemDesc.split(', ').map((stat: string, i: number) => {
+                    const isNegative =
+                      (stat.includes('Increased') && (stat.includes('Recoil') || stat.includes('Durability') || stat.includes('Equip') || stat.includes('Unequip') || stat.includes('Recovery Time'))) ||
+                      stat.includes('Reduced ADS Speed') || stat.includes('Reduced Bullet Velocity');
+                    return (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className={`mt-1 material-symbols-outlined text-[14px] ${isNegative ? 'text-red-400' : 'text-emerald-400'}`}>
+                          {isNegative ? 'remove' : 'add'}
+                        </span>
+                        <span className={`text-[12px] font-black uppercase tracking-widest ${isNegative ? 'text-red-300' : 'text-emerald-100'}`}>
+                          {stat}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              {/* COMPATIBLE WEAPONS */}
+              <div className="bg-white/[0.03] border border-white/5 p-4 rounded-2xl">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="material-symbols-outlined text-slate-400 text-[18px]">military_tech</span>
+                  <span className="text-[12px] font-black tracking-[0.3em] uppercase text-slate-400">{t('tooltip.compatible_weapons')}</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {WEAPONS_DATA.filter(w => {
+                    if (item.ammoCompatibility) return w.ammoType === item.ammoCompatibility;
+                    if (item.weaponTypeCompatibility) return item.weaponTypeCompatibility.includes(w.weaponType);
+                    return true;
+                  }).map(w => (
+                    <span key={w.id} className="text-[10px] font-bold px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700 uppercase tracking-widest">
+                      {w.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           )}
 
           {/* AUGMENT STATS GRID */}
@@ -241,10 +330,10 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
             <div className="mb-6 space-y-3">
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { icon: 'https://arcraiders.wiki/w/images/thumb/e/e8/Icon_Weight.png/22px-Icon_Weight.png.webp', label: 'WEIGHT', val: `${item.maxWeight} KG` },
-                  { icon: 'https://arcraiders.wiki/w/images/thumb/7/7f/Icon_AllItems.png/30px-Icon_AllItems.png.webp', label: 'BACKPACK', val: `${item.backpackSlots} SLOTS` },
-                  { icon: 'https://arcraiders.wiki/w/images/thumb/7/71/Icon_QuickUse.png/30px-Icon_QuickUse.png.webp', label: 'QUICK USE', val: `${item.quickUseSlots} SLOTS` },
-                  { icon: 'https://arcraiders.wiki/w/images/thumb/6/67/Icon_SafePocket.png/30px-Icon_SafePocket.png.webp', label: 'SAFE POCKET', val: `${item.safePocketSlots} SLOTS` },
+                  { icon: 'https://arcraiders.wiki/w/images/thumb/e/e8/Icon_Weight.png/22px-Icon_Weight.png.webp', label: t('tooltip.weight'), val: `${item.maxWeight} KG` },
+                  { icon: 'https://arcraiders.wiki/w/images/thumb/7/7f/Icon_AllItems.png/30px-Icon_AllItems.png.webp', label: t('tooltip.backpack'), val: `${item.backpackSlots} SLOTS` },
+                  { icon: 'https://arcraiders.wiki/w/images/thumb/7/71/Icon_QuickUse.png/30px-Icon_QuickUse.png.webp', label: t('tooltip.quick_use'), val: `${item.quickUseSlots} SLOTS` },
+                  { icon: 'https://arcraiders.wiki/w/images/thumb/6/67/Icon_SafePocket.png/30px-Icon_SafePocket.png.webp', label: t('tooltip.safe_pocket'), val: `${item.safePocketSlots} SLOTS` },
                 ].map((stat, idx) => (
                   <div key={idx} className="flex items-center gap-3 bg-white/[0.04] border border-white/5 p-3 rounded-2xl shadow-inner group/stat hover:bg-white/[0.06] transition-colors">
                     <img src={stat.icon} className="w-7 h-7 object-contain opacity-70 group-hover/stat:opacity-100 transition-opacity" alt={stat.label} />
@@ -259,7 +348,7 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
                 <div className="flex items-center gap-4 bg-white/[0.04] border border-white/5 p-3 rounded-2xl shadow-inner group/stat hover:bg-white/[0.06] transition-colors">
                   <img src="https://arcraiders.wiki/w/images/thumb/6/61/Icon_Shield_I.png/25px-Icon_Shield_I.png.webp" className="w-8 h-8 object-contain opacity-70" alt="Shields" />
                   <div className="flex flex-col">
-                    <span className="text-[10px] text-slate-500 font-black uppercase tracking-widest leading-none mb-1">SHIELD COMPATIBILITY</span>
+                    <span className="text-[10px] text-slate-500 font-black uppercase tracking-widest leading-none mb-1">{t('tooltip.shield_compat')}</span>
                     <span className="text-[12px] text-violet-300 font-black uppercase tracking-widest">{item.shieldCompat}</span>
                   </div>
                 </div>
@@ -271,9 +360,9 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
             <div className="mt-5 p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20 shadow-inner">
               <div className="flex items-center gap-2 mb-3">
                 <span className="material-symbols-outlined text-amber-400 text-[22px]">bolt</span>
-                <span className="text-[12px] font-black tracking-[0.3em] uppercase text-amber-400">PERKS</span>
+                <span className="text-[12px] font-black tracking-[0.3em] uppercase text-amber-400">{t('tooltip.perks')}</span>
               </div>
-              <p className="text-[14px] text-white font-black leading-relaxed">{item.perks}</p>
+              <p className="text-[14px] text-white font-black leading-relaxed">{translateItemPerks(item.name, item.perks)}</p>
             </div>
           )}
 
@@ -284,7 +373,7 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
                 <div className="p-1.5 rounded bg-black/40 border border-white/5">
                   <span className="material-symbols-outlined text-[18px] block text-primary">assignment_late</span>
                 </div>
-                <span className="text-[12px] font-black tracking-[0.3em] uppercase text-primary">USED IN</span>
+                <span className="text-[12px] font-black tracking-[0.3em] uppercase text-primary">{t('tooltip.used_in')}</span>
               </div>
               <div className="space-y-2">
                 {item.requiredFor.map((itemStr: string, i: number) => {
@@ -299,9 +388,9 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
                         <SmartItemIcon itemName={name} icon="category" rarity={rarity} imageClassName="w-full h-full object-contain opacity-80" iconClassName={`text-[20px] ${getRarityIconColor(rarity)}`} />
                       </div>
                       <div className="flex flex-col min-w-0">
-                        <span className="text-[13px] text-slate-100 font-bold truncate tracking-wide">{name}</span>
+                        <span className="text-[13px] text-slate-100 font-bold truncate tracking-wide">{translateItemName(name)}</span>
                         <span className={`text-[9px] uppercase font-black leading-none ${getRarityIconColor(rarity)}`}>
-                          {rarity}
+                          {t(`rarity.${rarity.toLowerCase()}`)}
                         </span>
                       </div>
                       <span className="ml-auto text-[14px] font-black text-primary shrink-0 bg-black/30 px-2.5 py-1 rounded-lg border border-white/10 shadow-inner">×{quantity}</span>
@@ -319,7 +408,7 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
                 <div className="p-1.5 rounded bg-black/40 border border-white/5">
                   <span className="material-symbols-outlined text-[18px] block text-violet-400">travel_explore</span>
                 </div>
-                <span className="text-[12px] font-black tracking-[0.3em] uppercase text-violet-400">SOURCE</span>
+                <span className="text-[12px] font-black tracking-[0.3em] uppercase text-violet-400">{t('tooltip.source')}</span>
               </div>
               <div className="space-y-2">
                 {(item.obtainedFrom || lootSources).map((srcItem: any, i: number) => {
@@ -334,9 +423,9 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
                         <SmartItemIcon itemName={name} icon="inventory_2" rarity={rarity} imageClassName="w-full h-full object-contain opacity-80" iconClassName={`text-[20px] ${getRarityIconColor(rarity)}`} />
                       </div>
                       <div className="flex flex-col min-w-0">
-                        <span className="text-[13px] text-slate-100 font-bold truncate tracking-wide">{name}</span>
+                        <span className="text-[13px] text-slate-100 font-bold truncate tracking-wide">{translateItemName(name)}</span>
                         <span className={`text-[9px] uppercase font-black leading-none ${getRarityIconColor(rarity)}`}>
-                          {rarity}
+                          {t(`rarity.${rarity.toLowerCase()}`)}
                         </span>
                       </div>
                       <span className="ml-auto text-[14px] font-black text-violet-300 shrink-0 bg-black/30 px-2.5 py-1 rounded-lg border border-white/10 shadow-inner">×{quantity}</span>
@@ -348,19 +437,19 @@ const RichTooltip: React.FC<RichTooltipProps> = ({ item, children }) => {
           )}
 
           {craftingReqs.length > 0 && (
-            <Section icon="precision_manufacturing" label="CRAFTING" color="text-sky-400" rows={craftingReqs} />
+            <Section icon="precision_manufacturing" label={t('tooltip.crafting')} color="text-sky-400" rows={craftingReqs} />
           )}
           {recycleReqs.length > 0 && (
-            <Section icon="recycling" label="RECYCLING" color="text-emerald-400" rows={recycleReqs} />
+            <Section icon="recycling" label={t('tooltip.recycling')} color="text-emerald-400" rows={recycleReqs} />
           )}
           {salvageReqs.length > 0 && (
-            <Section icon="build_circle" label="SALVAGING" color="text-amber-400" rows={salvageReqs} />
+            <Section icon="build_circle" label={t('tooltip.salvaging')} color="text-amber-400" rows={salvageReqs} />
           )}
           
         </div>
         
         <div className={`p-4 text-center text-[11px] font-black tracking-[0.4em] uppercase bg-white/5 border-t border-white/5 shrink-0 ${isShiftDown ? rs.text : 'text-slate-500'}`}>
-          {isShiftDown ? 'Scroll to view more details' : 'Move mouse away to close'}
+          {isShiftDown ? t('tooltip.scroll_more') : t('tooltip.move_mouse')}
         </div>
       </div>
     </div>,

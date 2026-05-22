@@ -1,5 +1,6 @@
 import React from 'react';
 import { Screen } from '../types';
+import { useLanguage } from './LanguageContext';
 
 interface BottomNavProps {
   activeScreen: Screen;
@@ -7,15 +8,17 @@ interface BottomNavProps {
 }
 
 const BottomNav: React.FC<BottomNavProps> = ({ activeScreen, onNavigate }) => {
+  const { t } = useLanguage();
+
   const navItems: { id: Screen; label: string; icon: string; color: string; image?: string }[] = [
-    { id: 'home', label: 'HOME', icon: 'home', color: '#ffffff' },
-    { id: 'weapons', label: 'WEAPONS', icon: 'military_tech', color: '#85f2e9', image: '/images/items/Bobcat.webp' },
-    { id: 'mods', label: 'MODS', icon: 'settings_input_component', color: '#2df287', image: '/images/items/Kinetic_Converter.webp' },
-    { id: 'materials', label: 'MATS', icon: 'construction', color: '#fbd008', image: '/images/items/Plastic_Parts.webp' },
-    { id: 'equipment', label: 'EQUIP', icon: 'explosion', color: '#fb090b', image: '/images/items/Medium_Shield.webp' },
-    { id: 'blueprints', label: 'PRINTS', icon: 'architecture', color: '#135bec', image: '/images/items/Barricade_Kit.webp' },
-    { id: 'trade', label: 'TRADE', icon: 'sync_alt', color: '#8b5cf6', image: '/images/items/Medium_Gun_Parts.webp' },
-    { id: 'planner', label: 'PLANNER', icon: 'calculate', color: '#f97316', image: '/images/scrappy.webp' },
+    { id: 'home', label: t('nav.home'), icon: 'home', color: '#ffffff' },
+    { id: 'weapons', label: t('nav.weapons'), icon: 'military_tech', color: '#85f2e9', image: '/images/items/Bobcat.webp' },
+    { id: 'mods', label: t('nav.mods'), icon: 'settings_input_component', color: '#2df287', image: '/images/items/Kinetic_Converter.webp' },
+    { id: 'materials', label: t('nav.materials'), icon: 'construction', color: '#fbd008', image: '/images/items/Plastic_Parts.webp' },
+    { id: 'equipment', label: t('nav.equipments'), icon: 'explosion', color: '#fb090b', image: '/images/items/Medium_Shield.webp' },
+    { id: 'blueprints', label: t('nav.blueprints'), icon: 'architecture', color: '#135bec', image: '/images/items/Barricade_Kit.webp' },
+    { id: 'trade', label: t('nav.trade'), icon: 'sync_alt', color: '#8b5cf6', image: '/images/items/Medium_Gun_Parts.webp' },
+    { id: 'planner', label: t('nav.planner'), icon: 'calculate', color: '#f97316', image: '/images/scrappy.webp' },
   ];
 
   return (

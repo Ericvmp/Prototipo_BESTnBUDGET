@@ -1,0 +1,1814 @@
+[
+  {
+    "name": "Matriarch Reactor",
+    "category": "MATERIALS_DATA",
+    "description": "A high-power reactor core found by scavenging destroyed Matriarchs. Extremely rare and required to craft the legendary Aphelion battle rifle.",
+    "perks": ""
+  },
+  {
+    "name": "Queen Reactor",
+    "category": "MATERIALS_DATA",
+    "description": "Recovered from destroyed Queens or their blown-off leg armor segments. Required to craft the legendary Jupiter and Equalizer weapons.",
+    "perks": ""
+  },
+  {
+    "name": "Magnetic Accelerator",
+    "category": "MATERIALS_DATA",
+    "description": "An extremely powerful electromagnetic module used in experimental and high-energy weapons.",
+    "perks": ""
+  },
+  {
+    "name": "Exodus Modules",
+    "category": "MATERIALS_DATA",
+    "description": "Adv coordination modules recovered from high-tier ARC units. Critical for experimental weapon synchronization.",
+    "perks": ""
+  },
+  {
+    "name": "Rocketeer Driver",
+    "category": "MATERIALS_DATA",
+    "description": "Propulsion management system for guided rocket ordinance. Recovered from major ARC threats.",
+    "perks": ""
+  },
+  {
+    "name": "Heavy Shield",
+    "category": "MATERIALS_DATA",
+    "description": "Heavy Shield offering maximum protection.",
+    "perks": ""
+  },
+  {
+    "name": "Mod Components",
+    "category": "MATERIALS_DATA",
+    "description": "Sophisticated mechanical and electronic sub-assemblies specifically required for Adv weapon modifications. Found in high-tech industrial areas.",
+    "perks": ""
+  },
+  {
+    "name": "Light Gun Parts",
+    "category": "MATERIALS_DATA",
+    "description": "Lightweight, precision-machined internal parts optimized for high-rate-of-fire weapons like SMGs and small-caliber handguns.",
+    "perks": ""
+  },
+  {
+    "name": "Medium Gun Parts",
+    "category": "MATERIALS_DATA",
+    "description": "Standard durability weapon components designed for assault rifles and battle rifles. Balanced for weight and heat dissipation under sustained fire.",
+    "perks": ""
+  },
+  {
+    "name": "Heavy Gun Parts",
+    "category": "MATERIALS_DATA",
+    "description": "Reinforced, heavy-duty components capable of withstanding the extreme pressure and recoil of high-caliber sniper rifles and light machine guns.",
+    "perks": ""
+  },
+  {
+    "name": "Adv Mechanical Components",
+    "category": "MATERIALS_DATA",
+    "description": "High-tier precision parts requiring expert craftsmanship. These are essential for the construction of elite weapons and experimental tactical gear.",
+    "perks": ""
+  },
+  {
+    "name": "Adv ARC Powercell",
+    "category": "MATERIALS_DATA",
+    "description": "A high-density energy source found in elite ARC units. Highly efficient and essential for high-tier equipment.",
+    "perks": ""
+  },
+  {
+    "name": "Adv Electrical Components",
+    "category": "MATERIALS_DATA",
+    "description": "State-of-the-art microprocessors and high-frequency hardware required for Adv utility upgrades.",
+    "perks": ""
+  },
+  {
+    "name": "ARC Circuitry",
+    "category": "MATERIALS_DATA",
+    "description": "Complex neural-like processing arrays recovered from Adv ARC units. Intricate and extremely valuable.",
+    "perks": ""
+  },
+  {
+    "name": "ARC Motion Core",
+    "category": "MATERIALS_DATA",
+    "description": "A critical mechanical unit that manages high-speed motion and stabilization in ARC drones.",
+    "perks": ""
+  },
+  {
+    "name": "Tick Pod",
+    "category": "MATERIALS_DATA",
+    "description": "Biological component harvested from ARC Ticks. Contains enzymes used in high-end medical gear.",
+    "perks": ""
+  },
+  {
+    "name": "Moss",
+    "category": "MATERIALS_DATA",
+    "description": "A simple biological material that can be used as a stabilizer in some chemical reactions.",
+    "perks": ""
+  },
+  {
+    "name": "Power Rod",
+    "category": "MATERIALS_DATA",
+    "description": "A high-capacity energy conductor used in heavy-duty electronic equipment.",
+    "perks": ""
+  },
+  {
+    "name": "Syringe",
+    "category": "MATERIALS_DATA",
+    "description": "A standard medical tool for injecting fluids or extracting samples.",
+    "perks": ""
+  },
+  {
+    "name": "Voltage Converter",
+    "category": "MATERIALS_DATA",
+    "description": "An Adv transformer designed to handle high-power ARC energy systems.",
+    "perks": ""
+  },
+  {
+    "name": "Complex Gun Parts",
+    "category": "MATERIALS_DATA",
+    "description": "Highly intricate weapon parts required for crafting state-of-the-art ballistic firearms.",
+    "perks": ""
+  },
+  {
+    "name": "Processor",
+    "category": "MATERIALS_DATA",
+    "description": "A high-performance processing unit recovered from Adv ARC technology or rare weapon modifications.",
+    "perks": ""
+  },
+  {
+    "name": "Explosive Compound",
+    "category": "MATERIALS_DATA",
+    "description": "Refined explosive material capable of delivering high-yield kinetic energy. Found in military-grade caches.",
+    "perks": ""
+  },
+  {
+    "name": "Synthesized Fuel",
+    "category": "MATERIALS_DATA",
+    "description": "High-energy liquid fuel synthesized for propulsion and incendiary devices. Extremely flammable.",
+    "perks": ""
+  },
+  {
+    "name": "Firefly Burner",
+    "category": "MATERIALS_DATA",
+    "description": "A precision combustion unit used in high-end incendiary tactical gear.",
+    "perks": ""
+  },
+  {
+    "name": "Comet Igniter",
+    "category": "MATERIALS_DATA",
+    "description": "High-intensity ignition core used to trigger vacuum-level thermal reactions.",
+    "perks": ""
+  },
+  {
+    "name": "Medium Shield",
+    "category": "MATERIALS_DATA",
+    "description": "Standard Shield that offers Raiders fair protection.",
+    "perks": ""
+  },
+  {
+    "name": "Rope",
+    "category": "MATERIALS_DATA",
+    "description": "Durable synthetic rope found in residential and commercial zones. Used for traversal gear like Ziplines and Snap Hooks.",
+    "perks": ""
+  },
+  {
+    "name": "Sensors",
+    "category": "MATERIALS_DATA",
+    "description": "Electronic motion detectors salvaged from ARC drones and security infrastructure. Used in trap construction and tracking devices.",
+    "perks": ""
+  },
+  {
+    "name": "Speaker Component",
+    "category": "MATERIALS_DATA",
+    "description": "An audio amplification unit salvaged from electronic devices. Used in sound-based tactical gear like lures and noisemakers.",
+    "perks": ""
+  },
+  {
+    "name": "Hornet Driver",
+    "category": "MATERIALS_DATA",
+    "description": "A high-voltage discharge unit recovered from destroyed ARC Hornets. Can be thrown to stun nearby ARC units and Raiders, or used in the construction of EMP devices.",
+    "perks": ""
+  },
+  {
+    "name": "Mechanical Components",
+    "category": "MATERIALS_DATA",
+    "description": "Precision-engineered parts used for moving mechanisms in weapons and modules. These are frequently recovered from complex toolboxes and industrial crates.",
+    "perks": ""
+  },
+  {
+    "name": "Wires",
+    "category": "MATERIALS_DATA",
+    "description": "Conductive wiring used for electrical paths in weapon electronics and automated modules. Can be recovered from broken circuit boards and power stations.",
+    "perks": ""
+  },
+  {
+    "name": "Duct Tape",
+    "category": "MATERIALS_DATA",
+    "description": "Universal adhesive of the wasteland. Used for everything from field repairs to securing underbarrel attachments. A Raiders' best friend for improvised fixes.",
+    "perks": ""
+  },
+  {
+    "name": "Simple Gun Parts",
+    "category": "MATERIALS_DATA",
+    "description": "Basic firearm components like receivers and slides. These are the fundamental building blocks for common-tier weapon construction and repair.",
+    "perks": ""
+  },
+  {
+    "name": "Magnet",
+    "category": "MATERIALS_DATA",
+    "description": "Specialized industrial-grade magnet used in the fabrication of railgun components and Adv electromagnetic stabilization for precision scopes.",
+    "perks": ""
+  },
+  {
+    "name": "ARC Alloy",
+    "category": "MATERIALS_DATA",
+    "description": "An Adv specialized alloy of ARC origin, offering exceptional electromagnetic properties and thermal resistance.",
+    "perks": ""
+  },
+  {
+    "name": "Electrical Components",
+    "category": "MATERIALS_DATA",
+    "description": "Refined circuitry and electrical hardware used in most electronic gear and weapon systems.",
+    "perks": ""
+  },
+  {
+    "name": "Antiseptic",
+    "category": "MATERIALS_DATA",
+    "description": "Medical-grade cleaning solution, essential for preventing infection and crafting Adv healing items.",
+    "perks": ""
+  },
+  {
+    "name": "Durable Cloth",
+    "category": "MATERIALS_DATA",
+    "description": "Reinforced textile material, much stronger than standard fabric.",
+    "perks": ""
+  },
+  {
+    "name": "Great Mullein",
+    "category": "MATERIALS_DATA",
+    "description": "A hardy plant with medicinal properties, often used in traditional healing.",
+    "perks": ""
+  },
+  {
+    "name": "Battery",
+    "category": "MATERIALS_DATA",
+    "description": "A standard portable power source for civilian and military electronics.",
+    "perks": ""
+  },
+  {
+    "name": "Crude Explosives",
+    "category": "MATERIALS_DATA",
+    "description": "Volatile chemicals packed into an improvised container. The basic building block for Raider explosives.",
+    "perks": ""
+  },
+  {
+    "name": "Light Shield",
+    "category": "MATERIALS_DATA",
+    "description": "Basic protection made from salvaged parts.",
+    "perks": ""
+  },
+  {
+    "name": "Oil",
+    "category": "MATERIALS_DATA",
+    "description": "A viscous lubricant and fuel source used in weapon maintenance and explosive manufacturing. Recycled from motors, pumps, and coolant systems.",
+    "perks": ""
+  },
+  {
+    "name": "Metal Parts",
+    "category": "MATERIALS_DATA",
+    "description": "A very common material used to craft almost anything. It is the backbone of the Foundry's manufacturing process, found in almost all loot containers and discarded machinery.",
+    "perks": ""
+  },
+  {
+    "name": "Rubber Parts",
+    "category": "MATERIALS_DATA",
+    "description": "A common material used for flexible components, seals, and ergonomic grips. Essential for recoil management systems and airtight equipment seals.",
+    "perks": ""
+  },
+  {
+    "name": "Plastic Parts",
+    "category": "MATERIALS_DATA",
+    "description": "Lightweight synthetic material used in a wide variety of basic gear, structural weapon parts, and civilian salvage. Extremely versatile and easy to process.",
+    "perks": ""
+  },
+  {
+    "name": "Steel Spring",
+    "category": "MATERIALS_DATA",
+    "description": "Precision coiled high-tension metal. Critical for the operation of weapon magazines, trigger groups, and any system requiring stored mechanical energy.",
+    "perks": ""
+  },
+  {
+    "name": "ARC Powercell",
+    "category": "MATERIALS_DATA",
+    "description": "A standard energy storage unit for ARC technology. Can be used to recharge portable shield devices.",
+    "perks": ""
+  },
+  {
+    "name": "Chemicals",
+    "category": "MATERIALS_DATA",
+    "description": "A variety of reactive substances used in the production of explosives and medical supplies.",
+    "perks": ""
+  },
+  {
+    "name": "Canister",
+    "category": "MATERIALS_DATA",
+    "description": "A pressurized metal container suitable for storing gases or liquids.",
+    "perks": ""
+  },
+  {
+    "name": "Fabric",
+    "category": "MATERIALS_DATA",
+    "description": "Basic cloth remnants that can be repurposed for simple bandages or clothing repairs.",
+    "perks": ""
+  },
+  {
+    "name": "Kinetic Converter",
+    "category": "MODS_DATA",
+    "description": "15% Increased Fire Rate, 20% Increased Horizontal Recoil, 20% Increased Vertical Recoil",
+    "perks": ""
+  },
+  {
+    "name": "Anvil Splitter",
+    "category": "MODS_DATA",
+    "description": "+3 Projectiles Per Shot, 70% Reduced Projectile Damage",
+    "perks": ""
+  },
+  {
+    "name": "Extended Barrel",
+    "category": "MODS_DATA",
+    "description": "25% Increased Bullet Velocity, 15% Increased Vertical Recoil",
+    "perks": ""
+  },
+  {
+    "name": "Horizontal Grip",
+    "category": "MODS_DATA",
+    "description": "30% Reduced Horizontal Recoil, 30% Reduced Vertical Recoil, 30% Reduced ADS Speed",
+    "perks": ""
+  },
+  {
+    "name": "Lightweight Stock",
+    "category": "MODS_DATA",
+    "description": "200% Increased ADS Speed, 30% Reduced Equip/Unequip Time, 50% Increased Vertical Recoil",
+    "perks": ""
+  },
+  {
+    "name": "Shotgun Silencer",
+    "category": "MODS_DATA",
+    "description": "50% Reduced Noise",
+    "perks": ""
+  },
+  {
+    "name": "Compensator III",
+    "category": "MODS_DATA",
+    "description": "60% Reduced Per-Shot Dispersion, 20% Increased Durability Burn Rate",
+    "perks": ""
+  },
+  {
+    "name": "Muzzle Brake III",
+    "category": "MODS_DATA",
+    "description": "45% Reduced Horizontal Recoil, 35% Reduced Vertical Recoil",
+    "perks": ""
+  },
+  {
+    "name": "Shotgun Choke III",
+    "category": "MODS_DATA",
+    "description": "30% Reduced Base Dispersion",
+    "perks": ""
+  },
+  {
+    "name": "Silencer III",
+    "category": "MODS_DATA",
+    "description": "60% Reduced Noise",
+    "perks": ""
+  },
+  {
+    "name": "Extended Light Mag III",
+    "category": "MODS_DATA",
+    "description": "+15 Magazine Size",
+    "perks": ""
+  },
+  {
+    "name": "Extended Medium Mag III",
+    "category": "MODS_DATA",
+    "description": "+12 Magazine Size",
+    "perks": ""
+  },
+  {
+    "name": "Extended Shotgun Mag III",
+    "category": "MODS_DATA",
+    "description": "+6 Magazine Size",
+    "perks": ""
+  },
+  {
+    "name": "Angled Grip III",
+    "category": "MODS_DATA",
+    "description": "40% Reduced Horizontal Recoil, 20% Reduced ADS Speed",
+    "perks": ""
+  },
+  {
+    "name": "Vertical Grip III",
+    "category": "MODS_DATA",
+    "description": "40% Reduced Vertical Recoil, 30% Reduced ADS Speed",
+    "perks": ""
+  },
+  {
+    "name": "Stable Stock III",
+    "category": "MODS_DATA",
+    "description": "45% Reduced Vertical Recoil, 20% Increased Equip/Unequip Time",
+    "perks": ""
+  },
+  {
+    "name": "Padded Stock III",
+    "category": "MODS_DATA",
+    "description": "20% Reduced Base Dispersion, 20% Reduced Vertical/Horizontal Recoil, 50% Reduced ADS Speed",
+    "perks": ""
+  },
+  {
+    "name": "Compensator II",
+    "category": "MODS_DATA",
+    "description": "40% Reduced Per-Shot Dispersion",
+    "perks": ""
+  },
+  {
+    "name": "Muzzle Brake II",
+    "category": "MODS_DATA",
+    "description": "30% Reduced Horizontal Recoil, 20% Reduced Vertical Recoil",
+    "perks": ""
+  },
+  {
+    "name": "Shotgun Choke II",
+    "category": "MODS_DATA",
+    "description": "20% Reduced Base Dispersion",
+    "perks": ""
+  },
+  {
+    "name": "Silencer II",
+    "category": "MODS_DATA",
+    "description": "40% Reduced Noise",
+    "perks": ""
+  },
+  {
+    "name": "Extended Light Mag II",
+    "category": "MODS_DATA",
+    "description": "+10 Magazine Size",
+    "perks": ""
+  },
+  {
+    "name": "Extended Medium Mag II",
+    "category": "MODS_DATA",
+    "description": "+8 Magazine Size",
+    "perks": ""
+  },
+  {
+    "name": "Extended Shotgun Mag II",
+    "category": "MODS_DATA",
+    "description": "+4 Magazine Size",
+    "perks": ""
+  },
+  {
+    "name": "Angled Grip II",
+    "category": "MODS_DATA",
+    "description": "30% Reduced Horizontal Recoil",
+    "perks": ""
+  },
+  {
+    "name": "Vertical Grip II",
+    "category": "MODS_DATA",
+    "description": "30% Reduced Vertical Recoil",
+    "perks": ""
+  },
+  {
+    "name": "Stable Stock II",
+    "category": "MODS_DATA",
+    "description": "30% Reduced Vertical Recoil",
+    "perks": ""
+  },
+  {
+    "name": "Compensator I",
+    "category": "MODS_DATA",
+    "description": "20% Reduced Per-Shot Dispersion",
+    "perks": ""
+  },
+  {
+    "name": "Muzzle Brake I",
+    "category": "MODS_DATA",
+    "description": "15% Reduced Horizontal Recoil, 10% Reduced Vertical Recoil",
+    "perks": ""
+  },
+  {
+    "name": "Shotgun Choke I",
+    "category": "MODS_DATA",
+    "description": "10% Reduced Base Dispersion",
+    "perks": ""
+  },
+  {
+    "name": "Silencer I",
+    "category": "MODS_DATA",
+    "description": "20% Reduced Noise",
+    "perks": ""
+  },
+  {
+    "name": "Extended Light Mag I",
+    "category": "MODS_DATA",
+    "description": "+5 Magazine Size",
+    "perks": ""
+  },
+  {
+    "name": "Extended Medium Mag I",
+    "category": "MODS_DATA",
+    "description": "+4 Magazine Size",
+    "perks": ""
+  },
+  {
+    "name": "Extended Shotgun Mag I",
+    "category": "MODS_DATA",
+    "description": "+2 Magazine Size",
+    "perks": ""
+  },
+  {
+    "name": "Angled Grip I",
+    "category": "MODS_DATA",
+    "description": "20% Reduced Horizontal Recoil",
+    "perks": ""
+  },
+  {
+    "name": "Vertical Grip I",
+    "category": "MODS_DATA",
+    "description": "20% Reduced Vertical Recoil",
+    "perks": ""
+  },
+  {
+    "name": "Stable Stock I",
+    "category": "MODS_DATA",
+    "description": "20% Reduced Vertical Recoil",
+    "perks": ""
+  },
+  {
+    "name": "Aphelion",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Jupiter",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Equalizer",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Dolabra",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Tempest",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Bettina",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Bobcat",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Vulcano",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Hullcracker",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Renegade",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Venator",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Osprey",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Torrente",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Canto",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Arpeggio",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Il Toro",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Anvil",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Burletta",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Rattler",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Hairpin",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Ferro",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Stitcher",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Kettle",
+    "category": "WEAPONS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Photoelectric Cloak",
+    "category": "THROWABLES_DATA",
+    "description": "Briefly invisible to ARC.",
+    "perks": ""
+  },
+  {
+    "name": "Trailblazer",
+    "category": "THROWABLES_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Wolfpack",
+    "category": "THROWABLES_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Deadline",
+    "category": "THROWABLES_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Vita Spray",
+    "category": "THROWABLES_DATA",
+    "description": "A pressurized healing spray that restores health rapidly over time.",
+    "perks": ""
+  },
+  {
+    "name": "Zipline",
+    "category": "THROWABLES_DATA",
+    "description": "Bidirectional zipline for squad.",
+    "perks": ""
+  },
+  {
+    "name": "Raider Hatch Key",
+    "category": "THROWABLES_DATA",
+    "description": "An over-the-counter electronic lock bypass. Unlocks Raider Hatches.",
+    "perks": ""
+  },
+  {
+    "name": "Surge Coil",
+    "category": "THROWABLES_DATA",
+    "description": "Deploys an electrical field to disable nearby ARC.",
+    "perks": ""
+  },
+  {
+    "name": "Tagging Grenade",
+    "category": "THROWABLES_DATA",
+    "description": "A tactical grenade that tags enemies through walls.",
+    "perks": ""
+  },
+  {
+    "name": "Smoke Grenade",
+    "category": "THROWABLES_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Showstopper",
+    "category": "THROWABLES_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Jolt Mine",
+    "category": "THROWABLES_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Explosive Mine",
+    "category": "THROWABLES_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Trigger'nade",
+    "category": "THROWABLES_DATA",
+    "description": "A remote-detonated Grenade that explodes after being triggered. It can stick to almost any surface when thrown.",
+    "perks": ""
+  },
+  {
+    "name": "Heavy Fuze Grenade",
+    "category": "THROWABLES_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Blaze Grenade",
+    "category": "THROWABLES_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Seeker Grenade",
+    "category": "THROWABLES_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Surge Shield Recharger",
+    "category": "THROWABLES_DATA",
+    "description": "Quick Use item that can be used to recharge Shields instantly.",
+    "perks": ""
+  },
+  {
+    "name": "Vita Shot",
+    "category": "THROWABLES_DATA",
+    "description": "An injectable healing agent that provides an immediate boost to health.",
+    "perks": ""
+  },
+  {
+    "name": "Sterilized Bandage",
+    "category": "THROWABLES_DATA",
+    "description": "Clean medical wrap treated with antiseptic to heal wounds.",
+    "perks": ""
+  },
+  {
+    "name": "Defibrillator",
+    "category": "THROWABLES_DATA",
+    "description": "A device used to revive downed teammates in the heat of battle.",
+    "perks": ""
+  },
+  {
+    "name": "Adrenaline Shot",
+    "category": "THROWABLES_DATA",
+    "description": "A powerful stimulant that rapidly restores stamina and briefly boosts movement speed.",
+    "perks": ""
+  },
+  {
+    "name": "Snap Hook",
+    "category": "THROWABLES_DATA",
+    "description": "Quick traversal across gaps.",
+    "perks": ""
+  },
+  {
+    "name": "Shrapnel Grenade",
+    "category": "THROWABLES_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Shield Recharger",
+    "category": "THROWABLES_DATA",
+    "description": "Quick Use item that can be used to recharge Shields over time.",
+    "perks": ""
+  },
+  {
+    "name": "Herbal Bandage",
+    "category": "THROWABLES_DATA",
+    "description": "A traditional bandage using medicinal plants for natural healing.",
+    "perks": ""
+  },
+  {
+    "name": "Gas Mine",
+    "category": "THROWABLES_DATA",
+    "description": "A proximity mine that releases a cloud of toxic gas when triggered.",
+    "perks": ""
+  },
+  {
+    "name": "Pulse Mine",
+    "category": "THROWABLES_DATA",
+    "description": "A proximity mine that releases an EMP pulse, disabling nearby ARC on trigger.",
+    "perks": ""
+  },
+  {
+    "name": "Barricade Kit",
+    "category": "THROWABLES_DATA",
+    "description": "Deploys a reinforced barricade panel to block doorways and chokepoints.",
+    "perks": ""
+  },
+  {
+    "name": "Light Impact Grenade",
+    "category": "THROWABLES_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Snap Blast Grenade",
+    "category": "THROWABLES_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Gas Grenade",
+    "category": "THROWABLES_DATA",
+    "description": "Detonates to create a lingering toxic gas cloud that drains stamina.",
+    "perks": ""
+  },
+  {
+    "name": "Lure Grenade",
+    "category": "THROWABLES_DATA",
+    "description": "Emits a signal that attracts nearby ARC to its location.",
+    "perks": ""
+  },
+  {
+    "name": "Bandage",
+    "category": "THROWABLES_DATA",
+    "description": "A basic wound dressing. Stops bleeding and restores a small amount of health over time.",
+    "perks": ""
+  },
+  {
+    "name": "Combat Mk. 3 (Aggressive)",
+    "category": "AUGMENTS_DATA",
+    "description": "Built for frontline assault. High shield integrity and optimized for offensive resource deployment.",
+    "perks": "+2 slots de granada e regen de 2 HP a cada 5 s (pausa 30 s ao tomar dano)."
+  },
+  {
+    "name": "Combat Mk. 3 (Flanking)",
+    "category": "AUGMENTS_DATA",
+    "description": "Highly mobile frame designed for rapid equipment swapping and maneuvering in close quarters.",
+    "perks": "+3 slots de Utility e pistolas/hand cannons equipam ~33% mais rápido."
+  },
+  {
+    "name": "Looting Mk. 3 (Cautious)",
+    "category": "AUGMENTS_DATA",
+    "description": "Recon-optimized frame that prioritizes situational awareness and early warning systems.",
+    "perks": "Adrenaline Shot automático ao quebrar o escudo, com cooldown."
+  },
+  {
+    "name": "Looting Mk. 3 (Safekeeper)",
+    "category": "AUGMENTS_DATA",
+    "description": "The ultimate extractor. Features experimental safe pocket technology for high-value assets.",
+    "perks": "Safe Pocket aceita qualquer item (incluindo armas), protegendo-os da perda."
+  },
+  {
+    "name": "Looting Mk. 3 (Survivor)",
+    "category": "AUGMENTS_DATA",
+    "description": "Exceptional solo frame designed for survival in hostile environments without support.",
+    "perks": "Altíssimo peso + mochila, +1 Utility; 'mula' máxima, sem perk ativável."
+  },
+  {
+    "name": "Tactical Mk. 3 (Defensive)",
+    "category": "AUGMENTS_DATA",
+    "description": "Frontline tank frame designed for maximum durability and energy redirection.",
+    "perks": "Integrated Shield Recharger para recarregar escudo com cooldown."
+  },
+  {
+    "name": "Tactical Mk. 3 (Healing)",
+    "category": "AUGMENTS_DATA",
+    "description": "Specialized combat medic frame with integrated healing dispersal systems.",
+    "perks": "+3 slots de cura e nuvem de cura (~20 HP em 10 s) ao ser revivido."
+  },
+  {
+    "name": "Tactical Mk. 3 (Revival)",
+    "category": "AUGMENTS_DATA",
+    "description": "Support-heavy frame built for emergency squads and squad recovery operations.",
+    "perks": "Integrated Defibrillator (revive grátis com cooldown) e regen leve de HP."
+  },
+  {
+    "name": "Looting Mk. 2",
+    "category": "AUGMENTS_DATA",
+    "description": "Scavenger's best friend. Lightweight with increased storage capacity for Trinkets.",
+    "perks": "+3 slots de Trinket e joga fora Ticks presos em você após ~1 s."
+  },
+  {
+    "name": "Tactical Mk. 2",
+    "category": "AUGMENTS_DATA",
+    "description": "Utility frame focused on defensive deployment and area denial strategies.",
+    "perks": "+1 slot de Utility e fumaça automática ao quebrar o escudo (CD fixo)."
+  },
+  {
+    "name": "Combat Mk. 2",
+    "category": "AUGMENTS_DATA",
+    "description": "Advanced frame with integrated medical systems.",
+    "perks": "+1 slot de granada e regen de 1 HP a cada 5 s (pausa 30 s após dano)."
+  },
+  {
+    "name": "Combat Mk. 1",
+    "category": "AUGMENTS_DATA",
+    "description": "Basic armor that supports Medium Shields.",
+    "perks": "Suporta Medium Shield, pouca mochila, sem perk."
+  },
+  {
+    "name": "Looting Mk. 1",
+    "category": "AUGMENTS_DATA",
+    "description": "Increases carrying weight and backpack slots.",
+    "perks": "Mais slots de mochila e peso, sem perk ativo extra."
+  },
+  {
+    "name": "Tactical Mk. 1",
+    "category": "AUGMENTS_DATA",
+    "description": "Provides additional Quick Use slots for tactical items.",
+    "perks": "Mais Quick Use, mochila menor, sem perk."
+  },
+  {
+    "name": "ARC Matriarch (Boss drop)",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "ARC Queen (Boss drop)",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "ARC Queen Leg Armor",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Magnetron",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Bombardier Cell",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Bastion Cell",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Leaper Pulse Unit",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Damaged Rocketeer Driver",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "ARC Rocketeer",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "ARC Bastion",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "ARC Tank",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Trigger 'Nade",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Frequency Modulation Box",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Bobcat IV",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Tempest IV",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Bobcat III",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Hullcracker IV",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Tempest III",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Vulcano IV",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Bettina IV",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Bobcat II",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Hullcracker III",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Osprey IV",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Vulcano III",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Bettina III",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Hullcracker II",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Vulcano II",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Bettina II",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Bettina I",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Bobcat I",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Osprey III",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Renegade III",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Renegade IV",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Tempest II",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Torrente III",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Torrente IV",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Venator III",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Jupiter (Tier 1)",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Aphelion (Tier 1)",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Sentinel Weaponry Core",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Launcher Ammo",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Industrial Charger",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Ion Sputter",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Signal Amplifier",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "ARC Tick",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "ARC Tick Nymph",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Scavenging (Rocks / Damp surfaces)",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Medical Supply Box",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "First Aid Kit",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Scavenging (Medical zones)",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Launcher Ammo (Incendiary)",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Damaged Leaper Pulse Unit",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Scavenging (Residential / Commercial zones)",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "ARC Snitch",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "ARC Surveyor",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "ARC Android",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Server Rack",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Headphones",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Radio",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Noisemaker",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "ARC Hornet",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "ARC Courier",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Microscope",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Industrial Magnet",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Ripped Safety Vest",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Ruined Tactical Vest",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Portable TV",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Acoustic Guitar",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Cooling Fan",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Power Cable",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Toaster",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Damaged Heat Sink",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Power Bank",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Humidifier",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Broken Handheld Radio",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Broken Taser",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Fried Motherboard",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Rotary Encoder",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Sample Cleaner",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Snitch Scanner",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Spotter Relay",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Arpeggio III",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Burletta IV",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Power Drill",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Rattler IV",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Anvil IV",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Arpeggio IV",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Il Toro IV",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Unusable Weapon",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Anvil III",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Il Toro III",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Anvil II",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Soap",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Bleach",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Ruined Riot Shield",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Scavenging (Outdoors / Nature zones)",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Alarm Clock",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Motor",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Water Pump",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Turbo Pump",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Coolant",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Polluted Air Filter",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Pulse Mine Blueprint",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Rattler II",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Rubber Pad",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Ruined Accordion",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "ARC Flex Rubber",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Diving Goggles",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Degraded ARC Rubber",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Deflated Football",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Expired Respirator",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Thermostat",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "ARC Synthetic Resin",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Recorder",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Shaker",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Dried-Out ARC Resin",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Camera Lens",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Remote Control",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Cooling Coil",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Spring Cushion",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Fire Extinguisher",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Compressed Air Can",
+    "category": "LOOT_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Red Light Stick",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Tactical MK.3 (Defensive)",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Crash Mat",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Tactical MK.3 (Smoke)",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "White Flag",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Remote Raider Flare",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Aphelion Rifle",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Tactical MK.3 (Healing)",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Looting MK. 3 (Survivor)",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Powered Descender",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Trailblazer Grenade",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Green Light Stick",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Combat Mk.3 (Aggressive)",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Padded Stock",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Fireworks Box",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Yellow Light Stick",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Looting MK. 3 (Safekeeper)",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Trigger Nade",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  },
+  {
+    "name": "Blue Light Stick",
+    "category": "BLUEPRINTS_DATA",
+    "description": "",
+    "perks": ""
+  }
+]

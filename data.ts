@@ -1827,7 +1827,8 @@ export const WEAPONS_DATA: Weapon[] = [
         quantity: 1
       }]
     }],
-    salvageInfo: [{ tier: 'I', materials: [{ name: 'Magnetic Accelerator', quantity: 1 }] }]
+    salvageInfo: [{ tier: 'I', materials: [{ name: 'Magnetic Accelerator', quantity: 1 }] }],
+    weaponType: 'SNIPER'
   },
   {
     id: 'w-bobcat', name: 'Bobcat', rarity: 'EPIC', icon: 'my_location',
@@ -2198,7 +2199,8 @@ export const WEAPONS_DATA: Weapon[] = [
         quantity: 1
       }]
     }],
-    salvageInfo: [{ tier: 'I', materials: [{ name: 'Adv Mechanical Components', quantity: 3 }] }]
+    salvageInfo: [{ tier: 'I', materials: [{ name: 'Adv Mechanical Components', quantity: 3 }] }],
+    weaponType: 'AR'
   },
   {
     id: 'w-hullcracker', name: 'Hullcracker', rarity: 'EPIC', icon: 'my_location',
@@ -2330,7 +2332,8 @@ export const WEAPONS_DATA: Weapon[] = [
         quantity: 1
       }]
     }],
-    salvageInfo: [{ tier: 'I', materials: [{ name: 'Magnetic Accelerator', quantity: 1 }] }]
+    salvageInfo: [{ tier: 'I', materials: [{ name: 'Magnetic Accelerator', quantity: 1 }] }],
+    weaponType: 'SMG'
   },
   {
     id: 'w1', name: 'Ferro', rarity: 'COMMON', icon: 'handyman',
@@ -2459,7 +2462,8 @@ export const WEAPONS_DATA: Weapon[] = [
           quantity: 2
         }]
       }
-    ]
+    ],
+    weaponType: 'PISTOL'
   },
   {
     id: 'w2', name: 'Stitcher', rarity: 'COMMON', icon: 'adjust',
