@@ -63,7 +63,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ activeScreen, onNavigate }) => {
                   <img
                     src={item.image}
                     alt={item.label}
-                    className={`w-6 h-6 object-contain transition-all duration-300 ${isActive ? 'grayscale-0 opacity-100' : 'opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0'}`}
+                    className={`w-7 h-7 md:w-8 md:h-8 object-contain transition-all duration-300 ${isActive ? 'grayscale-0 opacity-100' : 'opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0'}`}
                     style={{
                       filter: (isActive || true) ? `drop-shadow(0 0 12px ${isActive ? item.color : 'transparent'})` : 'none'
                     }}
@@ -76,7 +76,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ activeScreen, onNavigate }) => {
                   />
                 ) : (
                   <span
-                    className={`material-symbols-outlined text-[20px] ${isActive ? 'fill-[1]' : ''}`}
+                    className={`material-symbols-outlined text-[23px] md:text-[26px] ${isActive ? 'fill-[1]' : ''}`}
                     style={{
                       textShadow: isActive ? `0 0 15px ${item.color}` : 'none'
                     }}
@@ -86,7 +86,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ activeScreen, onNavigate }) => {
                 )}
               </div>
 
-              <span className="text-[9px] font-bold uppercase tracking-[0.1em] relative z-10">{item.label}</span>
+              <span className="text-[10px] md:text-[11.7px] font-bold uppercase tracking-[0.1em] relative z-10">{item.label}</span>
             </button>
           );
         })}

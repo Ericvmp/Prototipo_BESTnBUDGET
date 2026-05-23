@@ -23,39 +23,65 @@ const TradeExportCard: React.FC<{
   imageCache: Record<string, string>;
   intent: 'WTB' | 'WTS';
 }> = ({ giveList, receiveList, exportRef, imageCache, intent }) => {
-  const { t } = useLanguage();
-  const lookForBlock = (
+  const { t, language } = useLanguage();
+
+  const showReceiveRelations = (intent === 'WTS');
+  const showGiveRelations = (intent === 'WTB');
+
+  const receiveSection = (
     <div style={{ flex: 1 }}>
-      <div style={{ fontSize: '32px', color: '#f59e0b', fontWeight: 900, marginBottom: '24px', textAlign: 'center', letterSpacing: '4px', textTransform: 'uppercase' }}>
-        {t('trade.export.looking_for')}
-      </div>
-      <div style={{ backgroundColor: '#0f172a', padding: '40px', borderRadius: '40px', border: '3px solid #f59e0b44', display: 'flex', flexWrap: 'wrap', gap: '24px', justifyContent: 'center' }}>
-        {receiveList.map((entry) => {
+      <div style={{ 
+        backgroundColor: '#0c1325', 
+        padding: '40px', 
+        borderRadius: '40px', 
+        border: '3px solid #64748b', 
+        display: 'flex', 
+        flexWrap: 'wrap', 
+        gap: '24px', 
+        justifyContent: 'center',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.6)'
+      }}>
+        {receiveList.map((entry, index) => {
           const count = receiveList.length;
-          let size = { w: 160, h: 210, imgH: 150, fontSize: '11px', qSize: '21px' };
-          if (count <= 2) size = { w: 380, h: 480, imgH: 360, fontSize: '26px', qSize: '42px' };
-          else if (count <= 4) size = { w: 240, h: 320, imgH: 240, fontSize: '18px', qSize: '30px' };
+          let size = { w: 185, h: 245, imgH: 175, fontSize: '16px', qSize: '24px' };
+          if (count <= 2) size = { w: 420, h: 520, imgH: 400, fontSize: '31px', qSize: '46px' };
+          else if (count <= 4) size = { w: 270, h: 360, imgH: 270, fontSize: '23px', qSize: '34px' };
           
-          return <ExportItemCard key={entry.item.id} entry={entry} imageCache={imageCache} size={size} />;
+          return (
+            <React.Fragment key={entry.item.id}>
+              <ExportItemCard entry={entry} imageCache={imageCache} size={size} />
+            </React.Fragment>
+          );
         })}
         {receiveList.length === 0 && <div style={{ color: '#64748b', fontSize: '24px', padding: '40px' }}>{t('trade.empty_list')}</div>}
       </div>
     </div>
   );
 
-  const offeringBlock = (
+  const giveSection = (
     <div style={{ flex: 1 }}>
-      <div style={{ fontSize: '32px', color: '#10b981', fontWeight: 900, marginBottom: '24px', textAlign: 'center', letterSpacing: '4px', textTransform: 'uppercase' }}>
-        {t('trade.export.offering')}
-      </div>
-      <div style={{ backgroundColor: '#0f172a', padding: '40px', borderRadius: '40px', border: '3px solid #10b98144', display: 'flex', flexWrap: 'wrap', gap: '24px', justifyContent: 'center' }}>
-        {giveList.map((entry) => {
+      <div style={{ 
+        backgroundColor: '#0c1325', 
+        padding: '40px', 
+        borderRadius: '40px', 
+        border: '3px solid #64748b', 
+        display: 'flex', 
+        flexWrap: 'wrap', 
+        gap: '24px', 
+        justifyContent: 'center',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.6)'
+      }}>
+        {giveList.map((entry, index) => {
           const count = giveList.length;
-          let size = { w: 160, h: 210, imgH: 150, fontSize: '11px', qSize: '21px' };
-          if (count <= 2) size = { w: 380, h: 480, imgH: 360, fontSize: '26px', qSize: '42px' };
-          else if (count <= 4) size = { w: 240, h: 320, imgH: 240, fontSize: '18px', qSize: '30px' };
+          let size = { w: 185, h: 245, imgH: 175, fontSize: '16px', qSize: '24px' };
+          if (count <= 2) size = { w: 420, h: 520, imgH: 400, fontSize: '31px', qSize: '46px' };
+          else if (count <= 4) size = { w: 270, h: 360, imgH: 270, fontSize: '23px', qSize: '34px' };
 
-          return <ExportItemCard key={entry.item.id} entry={entry} imageCache={imageCache} size={size} />;
+          return (
+            <React.Fragment key={entry.item.id}>
+              <ExportItemCard entry={entry} imageCache={imageCache} size={size} />
+            </React.Fragment>
+          );
         })}
         {giveList.length === 0 && <div style={{ color: '#64748b', fontSize: '24px', padding: '40px' }}>{t('trade.empty_list')}</div>}
       </div>
@@ -68,42 +94,116 @@ const TradeExportCard: React.FC<{
       style={{
         position: 'fixed', left: '-9999px', top: 0,
         width: '1080px', minHeight: '1350px', backgroundColor: '#050914',
-        padding: '40px', fontFamily: "'Barlow', sans-serif", boxSizing: 'border-box',
+        padding: '48px', fontFamily: "'Barlow', sans-serif", boxSizing: 'border-box',
         display: 'flex', flexDirection: 'column',
       }}
     >
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px', borderBottom: `2px solid ${TRADE_COLOR}33`, paddingBottom: '16px' }}>
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '8px' }}>
-            <img src="/images/logo.jpg" alt="Logo" style={{ width: '64px', height: '64px', borderRadius: '12px' }} />
-            <div style={{ fontSize: '26px', color: '#64748b', letterSpacing: '8px', fontWeight: 900 }}>
-              SCRAPPY HUB
-            </div>
+      <div style={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center', 
+        width: '100%', 
+        marginBottom: '28px', 
+        borderBottom: '1px solid rgba(100, 116, 139, 0.2)', 
+        paddingBottom: '24px' 
+      }}>
+        {/* Top: Logo + Larger SCRAPPY HUB Centered (Matches Sample) */}
+        <div style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center', 
+          gap: '24px', 
+          marginBottom: '16px', 
+          width: '100%' 
+        }}>
+          <img 
+            src="/images/logo.jpg" 
+            alt="Logo" 
+            style={{ 
+              width: '96px', 
+              height: '96px', 
+              borderRadius: '24px', 
+              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.5)' 
+            }} 
+          />
+          <div style={{ fontSize: '54px', color: '#64748b', letterSpacing: '12px', fontWeight: 700 }}>
+            SCRAPPY HUB
           </div>
-          <div style={{ fontSize: '48px', color: '#ffffff', fontWeight: 900, letterSpacing: '4px' }}>
-            {t('trade.title')}
-          </div>
-          <div style={{ fontSize: '22px', color: TRADE_COLOR, letterSpacing: '2px', fontWeight: 500, marginTop: '8px', opacity: 0.85 }}>
-            {intent === 'WTB' ? `${t('trade.intent.wtb')} (WTB)` : `${t('trade.intent.wts')} (WTS)`}
-          </div>
+        </div>
+
+        {/* Main Title: PROCURO POR: / TENHO: (Yellow) - Centered */}
+        <div style={{ 
+          fontSize: '84px', 
+          color: '#f59e0b', 
+          fontWeight: 900, 
+          letterSpacing: '8px', 
+          textAlign: 'center',
+          textTransform: 'uppercase',
+          textShadow: '0 0 35px rgba(245, 158, 11, 0.3)',
+          fontStyle: 'italic',
+          marginTop: '4px'
+        }}>
+          {intent === 'WTB' ? t('trade.export.looking_for') : t('trade.export.have')}
         </div>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-        {receiveList.length > 0 && lookForBlock}
-        {giveList.length > 0 && offeringBlock}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', flex: 1 }}>
+        {intent === 'WTB' ? (
+          <>
+            {receiveList.length > 0 && receiveSection}
+            {giveList.length > 0 && (
+              <div style={{ flex: 1 }}>
+                <div style={{ 
+                  fontSize: '84px', 
+                  color: '#10b981', 
+                  fontWeight: 900, 
+                  marginBottom: '28px', 
+                  textAlign: 'center', 
+                  letterSpacing: '8px', 
+                  textTransform: 'uppercase',
+                  textShadow: '0 0 35px rgba(16, 185, 129, 0.3)',
+                  fontStyle: 'italic'
+                }}>
+                  {t('trade.export.offering')}
+                </div>
+                {giveSection}
+              </div>
+            )}
+          </>
+        ) : (
+          <>
+            {giveList.length > 0 && giveSection}
+            {receiveList.length > 0 && (
+              <div style={{ flex: 1 }}>
+                <div style={{ 
+                  fontSize: '84px', 
+                  color: '#10b981', 
+                  fontWeight: 900, 
+                  marginBottom: '28px', 
+                  textAlign: 'center', 
+                  letterSpacing: '8px', 
+                  textTransform: 'uppercase',
+                  textShadow: '0 0 35px rgba(16, 185, 129, 0.3)',
+                  fontStyle: 'italic'
+                }}>
+                  {language === 'pt-BR' ? t('trade.export.offering') : t('trade.export.looking_for')}
+                </div>
+                {receiveSection}
+              </div>
+            )}
+          </>
+        )}
       </div>
-
 
       <div style={{ 
         marginTop: '60px', 
         textAlign: 'center', 
         color: '#475569', 
-        fontSize: '32px', 
+        fontSize: '28px', 
         letterSpacing: '8px', 
         fontWeight: 900, 
         opacity: 0.5,
-        borderTop: `2px solid ${TRADE_COLOR}11`,
+        borderTop: '1px solid rgba(100, 116, 139, 0.1)',
         paddingTop: '40px'
       }}>
         {t('blueprints.export.generated_by')}
@@ -123,18 +223,31 @@ const ExportItemCard: React.FC<{
   
   return (
     <div style={{
-      width: `${size.w}px`, height: `${size.h}px`, backgroundColor: '#1e293b', borderRadius: `${size.w/10}px`,
-      border: `${size.w/60}px solid ${rarityHex}66`, display: 'flex', flexDirection: 'column', overflow: 'hidden', position: 'relative'
+      width: `${size.w}px`, 
+      height: `${size.h}px`, 
+      backgroundColor: '#131f37', 
+      borderRadius: '24px',
+      border: `4px solid ${rarityHex}`, 
+      display: 'flex', 
+      flexDirection: 'column', 
+      overflow: 'hidden', 
+      position: 'relative',
+      boxShadow: '0 8px 24px rgba(0,0,0,0.45)'
     }}>
       <div style={{ 
-        position: 'absolute', top: '10px', right: '12px', color: '#fff', 
-        fontSize: size.qSize, fontWeight: '900', zIndex: 10,
+        position: 'absolute', 
+        top: '12px', 
+        right: '16px', 
+        color: '#ffffff', 
+        fontSize: size.qSize, 
+        fontWeight: '900', 
+        zIndex: 10,
         textShadow: '0 2px 8px rgba(0,0,0,0.9), 0 0 4px rgba(0,0,0,0.5)',
         lineHeight: 1
       }}>
         x{entry.quantity}
       </div>
-      <div style={{ height: `${size.imgH}px`, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: `${size.w/15}px`, position: 'relative' }}>
+      <div style={{ height: `${size.imgH}px`, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: `${size.w/14}px ${size.w/14}px 6px ${size.w/14}px`, position: 'relative' }}>
         {finalSrc ? (
           <img src={finalSrc} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} alt={translateItemName(entry.item.name)} />
         ) : (
@@ -149,11 +262,17 @@ const ExportItemCard: React.FC<{
           </div>
         )}
       </div>
-      <div style={{ flex: 1, backgroundColor: '#000000aa', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '6px 12px' }}>
+      <div style={{ flex: 1, backgroundColor: '#0a0f1d', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '4px 16px 8px 16px' }}>
         <div style={{ 
-          fontSize: size.fontSize, color: '#e2e8f0', fontWeight: 900, textAlign: 'center', 
-          whiteSpace: 'normal', width: '100%', lineHeight: 1.1, transform: 'translateY(-1px)',
-          textTransform: 'uppercase'
+          fontSize: size.fontSize, 
+          color: '#ffffff', 
+          fontWeight: 800, 
+          textAlign: 'center', 
+          whiteSpace: 'normal', 
+          width: '100%', 
+          lineHeight: 1.1, 
+          textTransform: 'uppercase',
+          letterSpacing: '0.5px'
         }}>
           {translateItemName(entry.item.name)}
         </div>
@@ -435,66 +554,80 @@ const TradeScreen: React.FC<TradeScreenProps> = ({ onBack }) => {
     } finally { setIsExporting(false); }
   };
 
-const renderTradeList = (list: TradeEntry[], type: 'give' | 'receive') => (
-  <div className={`flex-1 rounded-3xl p-6 relative overflow-hidden backdrop-blur-sm border-2 ${type === 'give' ? 'border-red-500/20 bg-red-950/20' : 'border-emerald-500/20 bg-emerald-950/20'}`}>
-    <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${type === 'give' ? 'from-red-500 to-transparent' : 'from-emerald-500 to-transparent'}`} />
-    
-    <div className="flex justify-between items-center mb-6">
-      <div>
-        <h3 className={`text-2xl font-black tracking-widest uppercase ${type === 'give' ? 'text-red-400' : 'text-emerald-400'}`}>
-          {type === 'give' ? t('trade.give') : t('trade.receive')}
-        </h3>
-        <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">
-          {list.length === 1 ? `1 ${t('trade.item_listed')}` : `${list.length} ${t('trade.items_listed')}`}
-        </p>
-      </div>
-      <button
-        onClick={() => openPicker(type)}
-        className={`flex items-center gap-2 px-4 py-2 rounded-xl border transition-all ${type === 'give' ? 'bg-red-500/10 border-red-500/30 hover:bg-red-500/20 hover:border-red-400 text-red-400' : 'bg-emerald-500/10 border-emerald-500/30 hover:bg-emerald-500/20 hover:border-emerald-400 text-emerald-400'}`}
-      >
-        <span className="material-symbols-outlined text-sm">add</span>
-        <span className="text-xs font-black tracking-widest">{t('trade.btn_add')}</span>
-      </button>
-    </div>
+const renderTradeList = (list: TradeEntry[], type: 'give' | 'receive') => {
+  const listColor = '#10b981';
 
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {list.map((entry) => {
-        return (
-          <div key={entry.item.id} className={`group relative bg-slate-900/80 rounded-2xl p-3 flex flex-col items-center border border-white/5 hover:border-white/20 transition-all ${getRarityHoverStyles(entry.item.rarity)}`}>
-            <div className="w-16 h-16 mb-2 relative">
-              {entry.item.image ? (
-                <img src={entry.item.image} alt={translateItemName(entry.item.name)} className="w-full h-full object-contain" />
-              ) : (
-                <SmartItemIcon itemName={entry.item.name} rarity={entry.item.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-3xl text-slate-600" />
-              )}
-            </div>
-            <div className="text-[10px] font-black text-center text-slate-200 uppercase line-clamp-1 break-words w-full px-1">
-              {translateItemName(entry.item.name)}
-            </div>
-            <div className={`mt-3 flex items-center justify-between w-full bg-black/40 rounded-lg p-1 border ${type === 'give' ? 'border-red-500/20' : 'border-emerald-500/20'}`}>
-              <button onClick={() => updateQuantity(type, entry.item.id, -1)} className="w-6 h-6 flex items-center justify-center bg-white/5 hover:bg-white/20 rounded text-slate-300">-</button>
-              <span className="text-sm font-black text-white w-8 text-center">{entry.quantity}</span>
-              <button onClick={() => updateQuantity(type, entry.item.id, 1)} className="w-6 h-6 flex items-center justify-center bg-white/5 hover:bg-white/20 rounded text-slate-300">+</button>
-            </div>
-            <button onClick={() => updateQuantity(type, entry.item.id, -999)} className="absolute -top-2 -right-2 w-6 h-6 bg-red-500/90 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg scale-75 hover:scale-100">
-              <span className="material-symbols-outlined text-sm">close</span>
-            </button>
-          </div>
-        );
-      })}
-    </div>
-    {list.length === 0 && (
-      <div className="flex flex-col items-center justify-center py-16 opacity-30">
-        <span className="material-symbols-outlined text-5xl mb-2">inventory_2</span>
-        <span className="text-sm font-bold tracking-widest uppercase">{t('trade.empty_list')}</span>
+  return (
+    <div className={`flex-1 rounded-3xl p-6 relative overflow-hidden backdrop-blur-sm border-2 ${type === 'give' ? 'border-red-500/20 bg-red-950/20' : 'border-emerald-500/20 bg-emerald-950/20'}`}>
+      <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${type === 'give' ? 'from-red-500 to-transparent' : 'from-emerald-500 to-transparent'}`} />
+      
+      <div className="flex justify-between items-center mb-6">
+        <div>
+          <h3 className={`text-2xl font-black tracking-widest uppercase ${type === 'give' ? 'text-red-400' : 'text-emerald-400'}`}>
+            {type === 'give' 
+              ? (tradeIntent === 'WTS' ? t('trade.intent.have') : t('trade.give')) 
+              : (tradeIntent === 'WTS' ? t('trade.intent.wts') : t('trade.receive'))}
+          </h3>
+          <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">
+            {list.length === 1 ? `1 ${t('trade.item_listed')}` : `${list.length} ${t('trade.items_listed')}`}
+          </p>
+        </div>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => openPicker(type)}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl border transition-all ${type === 'give' ? 'bg-red-500/10 border-red-500/30 hover:bg-red-500/20 hover:border-red-400 text-red-400' : 'bg-emerald-500/10 border-emerald-500/30 hover:bg-emerald-500/20 hover:border-emerald-400 text-emerald-400'}`}
+          >
+            <span className="material-symbols-outlined text-sm">add</span>
+            <span className="text-xs font-black tracking-widest">{t('trade.btn_add')}</span>
+          </button>
+        </div>
       </div>
-    )}
-  </div>
-);
+
+      <div className="flex flex-wrap gap-4 justify-center">
+        {list.map((entry) => {
+          return (
+            <div key={entry.item.id} className={`w-40 group relative bg-slate-900/80 rounded-2xl p-3 flex flex-col items-center border border-white/5 hover:border-white/20 transition-all ${getRarityHoverStyles(entry.item.rarity)}`}>
+                <div className="w-16 h-16 mb-2 relative">
+                  {entry.item.image ? (
+                    <img src={entry.item.image} alt={translateItemName(entry.item.name)} className="w-full h-full object-contain" />
+                  ) : (
+                    <SmartItemIcon itemName={entry.item.name} rarity={entry.item.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-3xl text-slate-600" />
+                  )}
+                </div>
+                <div className="text-[10px] font-black text-center text-slate-200 uppercase line-clamp-1 break-words w-full px-1">
+                  {translateItemName(entry.item.name)}
+                </div>
+                <div className={`mt-3 flex items-center justify-between w-full bg-black/40 rounded-lg p-1 border ${type === 'give' ? 'border-red-500/20' : 'border-emerald-500/20'}`}>
+                  <button onClick={() => updateQuantity(type, entry.item.id, -1)} className="w-6 h-6 flex items-center justify-center bg-white/5 hover:bg-white/20 rounded text-slate-300">-</button>
+                  <span className="text-sm font-black text-white w-8 text-center">{entry.quantity}</span>
+                  <button onClick={() => updateQuantity(type, entry.item.id, 1)} className="w-6 h-6 flex items-center justify-center bg-white/5 hover:bg-white/20 rounded text-slate-300">+</button>
+                </div>
+                <button onClick={() => updateQuantity(type, entry.item.id, -999)} className="absolute -top-2 -right-2 w-6 h-6 bg-red-500/90 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg scale-75 hover:scale-100">
+                  <span className="material-symbols-outlined text-sm">close</span>
+                </button>
+              </div>
+          );
+        })}
+      </div>
+      {list.length === 0 && (
+        <div className="flex flex-col items-center justify-center py-16 opacity-30">
+          <span className="material-symbols-outlined text-5xl mb-2">inventory_2</span>
+          <span className="text-sm font-bold tracking-widest uppercase">{t('trade.empty_list')}</span>
+        </div>
+      )}
+    </div>
+  );
+};
 
   return (
     <div className="flex-1 flex flex-col relative min-h-screen">
-      <TradeExportCard giveList={giveItems} receiveList={receiveItems} exportRef={exportRef} imageCache={imageCache} intent={tradeIntent} />
+      <TradeExportCard 
+        giveList={giveItems} 
+        receiveList={receiveItems} 
+        exportRef={exportRef} 
+        imageCache={imageCache} 
+        intent={tradeIntent} 
+      />
       
       {toastMsg && (
         <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-[999] bg-[#0d1b2e] border border-blue-500/40 text-white text-sm font-bold px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3">
@@ -511,7 +644,7 @@ const renderTradeList = (list: TradeEntry[], type: 'give' | 'receive') => (
             <div>
               <div className="flex bg-white/5 rounded-xl p-1 mb-2 w-fit border border-white/10 shadow-inner">
                 <button onClick={() => setTradeIntent('WTB')} className={`px-4 py-1.5 rounded-lg font-black tracking-widest text-xs transition-all ${tradeIntent === 'WTB' ? 'bg-emerald-500 text-white shadow-[0_0_15px_rgba(16,185,129,0.4)]' : 'text-slate-400 hover:text-white'}`}>{t('trade.intent.wtb')}</button>
-                <button onClick={() => setTradeIntent('WTS')} className={`px-4 py-1.5 rounded-lg font-black tracking-widest text-xs transition-all ${tradeIntent === 'WTS' ? 'bg-red-500 text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-slate-400 hover:text-white'}`}>{t('trade.intent.wts')}</button>
+                <button onClick={() => setTradeIntent('WTS')} className={`px-4 py-1.5 rounded-lg font-black tracking-widest text-xs transition-all ${tradeIntent === 'WTS' ? 'bg-red-500 text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-slate-400 hover:text-white'}`}>{t('trade.intent.have')}</button>
               </div>
               <h2 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white drop-shadow-glow uppercase italic" style={{ textShadow: '0 0 20px rgba(139, 92, 246, 0.5)' }}>
                 {t('trade.title')}
@@ -567,9 +700,39 @@ const renderTradeList = (list: TradeEntry[], type: 'give' | 'receive') => (
               <button
                 onClick={() => setTradeIntent(prev => prev === 'WTB' ? 'WTS' : 'WTB')}
                 title="Invert cards / Inverter cards"
-                className="hidden lg:flex flex-col items-center justify-center gap-1 group cursor-pointer opacity-40 hover:opacity-100 transition-all duration-300 px-2"
+                className="flex flex-col items-center justify-center gap-1 group cursor-pointer opacity-75 hover:opacity-100 transition-all duration-300 px-4 py-3 lg:py-0 self-center lg:self-stretch my-2 lg:my-0"
               >
-                <span className="material-symbols-outlined text-6xl text-purple-400 group-hover:text-purple-300 transition-all duration-300 group-hover:rotate-180 group-hover:scale-110" style={{ transition: 'transform 0.4s ease, color 0.3s ease, filter 0.3s ease', filter: 'drop-shadow(0 0 0px #a78bfa)' }} onMouseEnter={e => (e.currentTarget.style.filter = 'drop-shadow(0 0 12px #a78bfa)')} onMouseLeave={e => (e.currentTarget.style.filter = 'drop-shadow(0 0 0px #a78bfa)')}>sync_alt</span>
+                <div className="bg-purple-950/40 hover:bg-purple-900/60 border border-purple-500/30 backdrop-blur-md px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-[0_0_15px_rgba(168,85,247,0.15)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.35)] transition-all select-none mb-1">
+                  <span className="material-symbols-outlined text-[12px] text-purple-400 animate-pulse lg:hidden">swap_vert</span>
+                  <span className="material-symbols-outlined text-[12px] text-purple-400 animate-pulse hidden lg:inline">swap_horiz</span>
+                  <span className="text-[10px] font-black text-purple-300 tracking-[0.15em] uppercase leading-none">
+                    {language === 'pt-BR' ? 'CLIQUE PARA INVERTER' : 'CLICK TO INVERT'}
+                  </span>
+                </div>
+                <div className="relative flex items-center justify-center">
+                  {/* Desktop horizontal double arrows */}
+                  <span 
+                    className="hidden lg:inline material-symbols-outlined text-6xl text-purple-400 group-hover:text-purple-300 transition-all duration-300 group-hover:rotate-180 group-hover:scale-110" 
+                    style={{ 
+                      transition: 'transform 0.4s ease, color 0.3s ease, filter 0.3s ease', 
+                      filter: 'drop-shadow(0 0 4px rgba(168, 85, 247, 0.3))' 
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.filter = 'drop-shadow(0 0 15px #a78bfa)')}
+                    onMouseLeave={e => (e.currentTarget.style.filter = 'drop-shadow(0 0 4px rgba(168, 85, 247, 0.3))')}
+                  >
+                    sync_alt
+                  </span>
+                  {/* Mobile vertical double arrows */}
+                  <span 
+                    className="inline lg:hidden material-symbols-outlined text-5xl text-purple-400 group-hover:text-purple-300 transition-all duration-300 group-hover:rotate-180 group-hover:scale-110" 
+                    style={{ 
+                      transition: 'transform 0.4s ease, color 0.3s ease, filter 0.3s ease', 
+                      filter: 'drop-shadow(0 0 4px rgba(168, 85, 247, 0.3))' 
+                    }}
+                  >
+                    swap_vert
+                  </span>
+                </div>
               </button>
               {renderTradeList(giveItems, 'give')}
             </>
@@ -579,9 +742,39 @@ const renderTradeList = (list: TradeEntry[], type: 'give' | 'receive') => (
               <button
                 onClick={() => setTradeIntent(prev => prev === 'WTB' ? 'WTS' : 'WTB')}
                 title="Invert cards / Inverter cards"
-                className="hidden lg:flex flex-col items-center justify-center gap-1 group cursor-pointer opacity-40 hover:opacity-100 transition-all duration-300 px-2"
+                className="flex flex-col items-center justify-center gap-1 group cursor-pointer opacity-75 hover:opacity-100 transition-all duration-300 px-4 py-3 lg:py-0 self-center lg:self-stretch my-2 lg:my-0"
               >
-                <span className="material-symbols-outlined text-6xl text-purple-400 group-hover:text-purple-300 transition-all duration-300 group-hover:rotate-180 group-hover:scale-110" style={{ transition: 'transform 0.4s ease, color 0.3s ease, filter 0.3s ease', filter: 'drop-shadow(0 0 0px #a78bfa)' }} onMouseEnter={e => (e.currentTarget.style.filter = 'drop-shadow(0 0 12px #a78bfa)')} onMouseLeave={e => (e.currentTarget.style.filter = 'drop-shadow(0 0 0px #a78bfa)')}>sync_alt</span>
+                <div className="bg-purple-950/40 hover:bg-purple-900/60 border border-purple-500/30 backdrop-blur-md px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-[0_0_15px_rgba(168,85,247,0.15)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.35)] transition-all select-none mb-1">
+                  <span className="material-symbols-outlined text-[12px] text-purple-400 animate-pulse lg:hidden">swap_vert</span>
+                  <span className="material-symbols-outlined text-[12px] text-purple-400 animate-pulse hidden lg:inline">swap_horiz</span>
+                  <span className="text-[10px] font-black text-purple-300 tracking-[0.15em] uppercase leading-none">
+                    {language === 'pt-BR' ? 'CLIQUE PARA INVERTER' : 'CLICK TO INVERT'}
+                  </span>
+                </div>
+                <div className="relative flex items-center justify-center">
+                  {/* Desktop horizontal double arrows */}
+                  <span 
+                    className="hidden lg:inline material-symbols-outlined text-6xl text-purple-400 group-hover:text-purple-300 transition-all duration-300 group-hover:rotate-180 group-hover:scale-110" 
+                    style={{ 
+                      transition: 'transform 0.4s ease, color 0.3s ease, filter 0.3s ease', 
+                      filter: 'drop-shadow(0 0 4px rgba(168, 85, 247, 0.3))' 
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.filter = 'drop-shadow(0 0 15px #a78bfa)')}
+                    onMouseLeave={e => (e.currentTarget.style.filter = 'drop-shadow(0 0 4px rgba(168, 85, 247, 0.3))')}
+                  >
+                    sync_alt
+                  </span>
+                  {/* Mobile vertical double arrows */}
+                  <span 
+                    className="inline lg:hidden material-symbols-outlined text-5xl text-purple-400 group-hover:text-purple-300 transition-all duration-300 group-hover:rotate-180 group-hover:scale-110" 
+                    style={{ 
+                      transition: 'transform 0.4s ease, color 0.3s ease, filter 0.3s ease', 
+                      filter: 'drop-shadow(0 0 4px rgba(168, 85, 247, 0.3))' 
+                    }}
+                  >
+                    swap_vert
+                  </span>
+                </div>
               </button>
               {renderTradeList(receiveItems, 'receive')}
             </>

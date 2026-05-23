@@ -34,6 +34,13 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const translateItemName = (name: string): string => {
     if (language === 'en') return name;
+
+    if (name.toLowerCase().endsWith(' blueprint')) {
+      const baseName = name.slice(0, -10).trim();
+      const translatedBase = itemTranslations[baseName]?.name || baseName;
+      return `${translatedBase} (Projeto)`;
+    }
+
     return itemTranslations[name]?.name || name;
   };
 
