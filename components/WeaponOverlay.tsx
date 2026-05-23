@@ -18,12 +18,12 @@ interface WeaponOverlayProps {
 
 const getRarityColor = (rarity: string) => {
   switch (rarity) {
-    case 'COMMON':    return { hex: '#94a3b8', shadow: 'rgba(148,163,184,0.4)', border: 'border-[3px] border-slate-400', text: 'text-slate-300', topBar: 'bg-slate-400' };
-    case 'UNCOMMON':  return { hex: '#34d399', shadow: 'rgba(52,211,153,0.4)', border: 'border-[3px] border-emerald-400', text: 'text-emerald-300', topBar: 'bg-emerald-400' };
-    case 'RARE':      return { hex: '#60a5fa', shadow: 'rgba(96,165,250,0.4)', border: 'border-[3px] border-blue-400', text: 'text-blue-300', topBar: 'bg-blue-400' };
-    case 'EPIC':      return { hex: '#e879f9', shadow: 'rgba(232,121,249,0.4)', border: 'border-[3px] border-fuchsia-400', text: 'text-fuchsia-300', topBar: 'bg-fuchsia-400' };
+    case 'COMMON': return { hex: '#94a3b8', shadow: 'rgba(148,163,184,0.4)', border: 'border-[3px] border-slate-400', text: 'text-slate-300', topBar: 'bg-slate-400' };
+    case 'UNCOMMON': return { hex: '#34d399', shadow: 'rgba(52,211,153,0.4)', border: 'border-[3px] border-emerald-400', text: 'text-emerald-300', topBar: 'bg-emerald-400' };
+    case 'RARE': return { hex: '#60a5fa', shadow: 'rgba(96,165,250,0.4)', border: 'border-[3px] border-blue-400', text: 'text-blue-300', topBar: 'bg-blue-400' };
+    case 'EPIC': return { hex: '#e879f9', shadow: 'rgba(232,121,249,0.4)', border: 'border-[3px] border-fuchsia-400', text: 'text-fuchsia-300', topBar: 'bg-fuchsia-400' };
     case 'LEGENDARY': return { hex: '#fbbf24', shadow: 'rgba(251,191,36,0.4)', border: 'border-[3px] border-amber-400', text: 'text-amber-300', topBar: 'bg-amber-400' };
-    default:          return { hex: '#94a3b8', shadow: 'rgba(148,163,184,0.4)', border: 'border-[3px] border-slate-400', text: 'text-slate-300', topBar: 'bg-slate-400' };
+    default: return { hex: '#94a3b8', shadow: 'rgba(148,163,184,0.4)', border: 'border-[3px] border-slate-400', text: 'text-slate-300', topBar: 'bg-slate-400' };
   }
 };
 
@@ -69,16 +69,16 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
     );
   };
 
-   const getModRarityClasses = (rarity: string) => {
-      switch (rarity) {
-         case 'COMMON': return { defaultBorder: 'border-slate-500/30', border: 'hover:border-slate-400 hover:border-2', text: 'group-hover/mod:text-slate-100', icon: 'text-slate-500' };
-         case 'UNCOMMON': return { defaultBorder: 'border-emerald-500/40', border: 'hover:border-emerald-400 hover:border-2', text: 'group-hover/mod:text-emerald-400', icon: 'text-emerald-500' };
-         case 'RARE': return { defaultBorder: 'border-blue-500/40', border: 'hover:border-blue-400 hover:border-2', text: 'group-hover/mod:text-blue-400', icon: 'text-blue-500' };
-         case 'EPIC': return { defaultBorder: 'border-fuchsia-500/40', border: 'hover:border-fuchsia-400 hover:border-2', text: 'group-hover/mod:text-fuchsia-400', icon: 'text-fuchsia-500' };
-         case 'LEGENDARY': return { defaultBorder: 'border-amber-500/40', border: 'hover:border-amber-400 hover:border-2', text: 'group-hover/mod:text-amber-400', icon: 'text-amber-500' };
-         default: return { defaultBorder: 'border-slate-500/30', border: 'hover:border-slate-400 hover:border-2', text: 'group-hover/mod:text-slate-100', icon: 'text-slate-500' };
-      }
-   };
+  const getModRarityClasses = (rarity: string) => {
+    switch (rarity) {
+      case 'COMMON': return { defaultBorder: 'border-slate-500/30', border: 'hover:border-slate-400 hover:border-2', text: 'group-hover/mod:text-slate-100', icon: 'text-slate-500' };
+      case 'UNCOMMON': return { defaultBorder: 'border-emerald-500/40', border: 'hover:border-emerald-400 hover:border-2', text: 'group-hover/mod:text-emerald-400', icon: 'text-emerald-500' };
+      case 'RARE': return { defaultBorder: 'border-blue-500/40', border: 'hover:border-blue-400 hover:border-2', text: 'group-hover/mod:text-blue-400', icon: 'text-blue-500' };
+      case 'EPIC': return { defaultBorder: 'border-fuchsia-500/40', border: 'hover:border-fuchsia-400 hover:border-2', text: 'group-hover/mod:text-fuchsia-400', icon: 'text-fuchsia-500' };
+      case 'LEGENDARY': return { defaultBorder: 'border-amber-500/40', border: 'hover:border-amber-400 hover:border-2', text: 'group-hover/mod:text-amber-400', icon: 'text-amber-500' };
+      default: return { defaultBorder: 'border-slate-500/30', border: 'hover:border-slate-400 hover:border-2', text: 'group-hover/mod:text-slate-100', icon: 'text-slate-500' };
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-[100] flex flex-col animate-fade-in">
@@ -187,63 +187,26 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                     <span className="material-symbols-outlined text-primary" style={{ textShadow: '0 0 10px rgba(30,167,253,0.5)' }}>verified_user</span>
                     <h3 className="text-[14px] font-black tracking-[0.4em] uppercase text-white">{t('overlay.best_setups')}</h3>
                   </div>
-                  
+
                   {(() => {
                     const setup = WEAPON_SETUPS_DATA.find(s => s.weaponId === weapon.id);
                     if (!setup) return null;
-                    
-                    return (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {/* TIER S */}
-                        <SetupTooltip setup={setup.setups.S} tier="S">
-                          <div className="relative group/setup bg-amber-400/5 border-2 border-amber-400/40 rounded-2xl overflow-hidden p-5 transition-all hover:border-amber-400 hover:bg-amber-400/10 h-full">
-                            <div className="absolute top-0 right-0 bg-amber-400 px-3 py-1 text-[10px] font-black text-black rounded-bl-xl tracking-widest uppercase z-10 animate-pulse">{t('overlay.tier')} S</div>
-                            <div className="relative z-10 mt-2">
-                              <div className="flex flex-col gap-2">
-                                {setup.setups.S.modIds.map(modId => {
-                                  const mod = MODS_DATA.find(m => m.id === modId);
-                                  if (!mod) return null;
-                                  const rClass = getModRarityClasses(mod.rarity);
-                                  return (
-                                    <RichTooltip key={modId} item={mod}>
-                                      <button 
-                                        onClick={() => onNavigateMod(mod)}
-                                        className={`flex items-center gap-4 p-2 bg-black/40 rounded-xl border transition-all group/mod w-full ${rClass.defaultBorder} ${rClass.border}`}
-                                      >
-                                        <div className={`w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center p-1.5 overflow-hidden shrink-0 border shadow-inner ${rClass.defaultBorder}`}>
-                                          <SmartItemIcon itemName={mod.name} icon="settings" rarity={mod.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-xl text-slate-400" />
-                                        </div>
-                                        <div className="flex flex-col items-start overflow-hidden">
-                                          <span className={`text-[11px] font-black text-slate-300 truncate uppercase mt-0.5 tracking-wider transition-colors ${rClass.text}`}>
-                                            {translateItemName(mod.name).replace('Estendido ', '').replace('Estendida ', '').replace('Extended ', '').replace('  ', ' ').trim().replace('III', '3').replace('II', '2').replace('I', '1')}
-                                          </span>
-                                          <span className={`text-[8px] font-black uppercase tracking-widest leading-none transition-colors shrink-0 mb-1 ${rClass.icon}`}>{t(`category.${mod.category.toLowerCase()}`) || mod.category}</span>
-                                          <span className="text-[10px] text-slate-500 font-bold uppercase tracking-tighter leading-tight break-words">{translateItemDesc(mod.name, mod.description)}</span>
-                                        </div>
-                                        <div className="flex-1" />
-                                        <span className={`material-symbols-outlined text-sm opacity-0 group-hover/mod:opacity-100 transition-all mr-2 ${rClass.icon}`}>arrow_forward</span>
-                                      </button>
-                                    </RichTooltip>
-                                  );
-                                })}
-                              </div>
-                            </div>
-                          </div>
-                        </SetupTooltip>
 
-                        {/* TIER A */}
-                        <SetupTooltip setup={setup.setups.A} tier="A">
-                          <div className="relative group/setup bg-fuchsia-500/5 border-2 border-fuchsia-500/30 rounded-2xl overflow-hidden p-5 transition-all hover:border-fuchsia-500 hover:bg-fuchsia-500/10 h-full">
-                            <div className="absolute top-0 right-0 bg-fuchsia-600 px-3 py-1 text-[10px] font-black text-white rounded-bl-xl tracking-widest uppercase z-10">{t('overlay.tier')} A</div>
+                    return (
+                      <div className="grid grid-cols-1 gap-4">
+                        {/* BEST BUILD */}
+                        <SetupTooltip setup={setup.setups.BEST} tier="BEST">
+                          <div className="relative group/setup bg-emerald-500/5 border-2 border-emerald-500/40 rounded-2xl overflow-hidden p-5 transition-all hover:border-emerald-500 hover:bg-emerald-500/10 h-full">
+                            <div className="absolute top-0 right-0 bg-emerald-500 px-3 py-1 text-[10px] font-black text-black rounded-bl-xl tracking-widest uppercase z-10 animate-pulse">BEST BUILD</div>
                             <div className="relative z-10 mt-2">
                               <div className="flex flex-col gap-2">
-                                {setup.setups.A.modIds.map(modId => {
+                                {setup.setups.BEST.modIds.map(modId => {
                                   const mod = MODS_DATA.find(m => m.id === modId);
                                   if (!mod) return null;
                                   const rClass = getModRarityClasses(mod.rarity);
                                   return (
                                     <RichTooltip key={modId} item={mod}>
-                                      <button 
+                                      <button
                                         onClick={() => onNavigateMod(mod)}
                                         className={`flex items-center gap-4 p-2 bg-black/40 rounded-xl border transition-all group/mod w-full ${rClass.defaultBorder} ${rClass.border}`}
                                       >
@@ -379,22 +342,22 @@ const WeaponOverlay: React.FC<WeaponOverlayProps> = ({ weapon, onClose, onNaviga
                   <div className="space-y-4">
                     {weapon.upgradeInfo.map((info, i) => (
                       <div key={i} className="bg-black/20 p-4 rounded-2xl border border-white/5">
-                         <div className="flex items-center justify-between mb-3 px-1">
-                           <span className="text-[10px] font-black text-blue-400 tracking-[.2em]">{t('overlay.to_tier')} {info.tier}</span>
-                         </div>
-                         {info.materials.map((m, j) => (
-                           <MatRow key={j} matName={m.name} quantity={m.quantity} onClick={() => {
-                             const mat = MATERIALS_DATA.find(mat => mat.name === m.name);
-                             if (mat) onNavigateMaterial(mat);
-                           }} />
-                         ))}
-                         <div className="flex flex-wrap gap-1 mt-3">
-                           {info.perks?.split(', ').map((perk, k) => (
-                             <span key={k} className="text-[9px] font-bold px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/10 uppercase tracking-widest">
-                               {translatePerkString(perk)}
-                             </span>
-                           ))}
-                         </div>
+                        <div className="flex items-center justify-between mb-3 px-1">
+                          <span className="text-[10px] font-black text-blue-400 tracking-[.2em]">{t('overlay.to_tier')} {info.tier}</span>
+                        </div>
+                        {info.materials.map((m, j) => (
+                          <MatRow key={j} matName={m.name} quantity={m.quantity} onClick={() => {
+                            const mat = MATERIALS_DATA.find(mat => mat.name === m.name);
+                            if (mat) onNavigateMaterial(mat);
+                          }} />
+                        ))}
+                        <div className="flex flex-wrap gap-1 mt-3">
+                          {info.perks?.split(', ').map((perk, k) => (
+                            <span key={k} className="text-[9px] font-bold px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/10 uppercase tracking-widest">
+                              {translatePerkString(perk)}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     ))}
                   </div>

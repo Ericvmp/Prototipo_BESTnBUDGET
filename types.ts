@@ -188,8 +188,6 @@ export interface SetupDetail {
 export interface WeaponSetup {
   weaponId: string;
   setups: {
-    S: SetupDetail;
-    A: SetupDetail;
-    B?: SetupDetail;
+    BEST: SetupDetail;
   };
 }

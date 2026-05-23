@@ -3241,108 +3241,117 @@ export const LOOT_DATA: LootCategory[] = [
 
 export const WEAPON_SETUPS_DATA: WeaponSetup[] = [
   {
-    weaponId: 'w3', // Kettle
+    weaponId: 'w1',
     setups: {
-      S: { focus: 'DPS MÁXIMO (SEMI)', description: 'Foco em zerar o bloom e maximizar a cadência de tiro.', modIds: ['m3', 'ma3', 'm11', 'm28'] },
-      A: { focus: 'ESTABILIDADE TOTAL', description: 'Rifle extremamente preciso e fácil de controlar.', modIds: ['mb3', 'mv2', 'm10b', 'm26'] }
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m7', 'm19', 'm27'] }
     }
   },
   {
-    weaponId: 'w-rattler', // Rattler
+    weaponId: 'w-rattler',
     setups: {
-      S: { focus: 'GLASS CANNON', description: 'Cadência insana com controle de bloom agressivo.', modIds: ['m3', 'ma3', 'm28'] },
-      A: { focus: 'CONTROLE E CONSISTÊNCIA', description: 'Mais estável e menos punitivo no recuo.', modIds: ['m2', 'ma3', 'mp3'] }
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m3', 'm19', 'mp3'] }
     }
   },
   {
-    weaponId: 'w-arpeggio', // Arpeggio
+    weaponId: 'w2',
     setups: {
-      S: { focus: 'BURST AGRESSIVO', description: 'Minimiza o intervalo entre rajadas com alto DPS.', modIds: ['m3', 'ma3', 'm14', 'm28'] },
-      A: { focus: 'BURST PRECISO', description: 'Garante que todos os tiros da rajada atinjam o alvo.', modIds: ['mb3', 'mv3', 'm14', 'm26'] }
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m2', 'ma3', 'm11', 'mp3'] }
     }
   },
   {
-    weaponId: 'w-tempest', // Tempest
+    weaponId: 'w3',
     setups: {
-      S: { focus: 'META PVP MID-RANGE', description: 'A build definitiva para dominar confrontos diretos.', modIds: ['m3', 'ma3', 'm14'] },
-      A: { focus: 'FULL-AUTO LASER', description: 'Spray constante com recuo quase nulo.', modIds: ['mb3', 'mv3', 'm14'] }
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m2', 'm23', 'm11', 'mp3'] }
     }
   },
   {
-    weaponId: 'w-bettina', // Bettina
+    weaponId: 'w5',
     setups: {
-      S: { focus: 'DESTRUIDOR PESADO', description: 'Dano massivo com cadência aumentada.', modIds: ['m3', 'ma3', 'm28'] },
-      A: { focus: 'LASER PESADO', description: 'Rifle pesado mas com controle excepcional.', modIds: ['mb3', 'ma3', 'mp3'] }
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['ms1'] }
     }
   },
   {
-    weaponId: 'w-bobcat', // Bobcat
+    weaponId: 'w-arpeggio',
     setups: {
-      S: { focus: 'CLOSE-RANGE SHREDDER', description: 'Derrete inimigos cara a cara em milissegundos.', modIds: ['m3', 'ma3', 'm11', 'm28'] },
-      A: { focus: 'SMG CONTROLADA', description: 'Versátil para curta e média distância.', modIds: ['mb3', 'm23', 'm11', 'm26'] }
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m3', 'm23', 'm14', 'm26'] }
     }
   },
   {
-    weaponId: 'w-vulcano', // Vulcano
+    weaponId: 'w6',
     setups: {
-      S: { focus: 'DPS MÁXIMO', description: 'Spam de shotgun semi-auto com spread fechado.', modIds: ['m6b', 'mv3', 'm17', 'm28'] },
-      A: { focus: 'VULCANO ESTÁVEL', description: 'Maior controle no recuo entre disparos.', modIds: ['m6', 'ma3', 'm17', 'mp3'] }
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m3', 'm11'] }
     }
   },
   {
-    weaponId: 'w1', // Ferro
+    weaponId: 'w4',
     setups: {
-      S: { focus: 'PICK RIFLE AGRESSIVO', description: 'ADS instantâneo para punir peeks.', modIds: ['m4', 'mv3', 'm27'] },
-      A: { focus: 'HÍBRIDA PRECISA', description: 'Follow-ups mais limpos e menor recuo.', modIds: ['m3', 'mv3', 'm26'] }
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m6b', 'm17', 'm27'] }
     }
   },
   {
-    weaponId: 'w7', // Renegade
+    weaponId: 'w10',
     setups: {
-      S: { focus: 'DMR ALL-ROUNDER', description: 'Aumenta velocidade do projétil e alcance.', modIds: ['m4', 'm14', 'm26'] },
-      A: { focus: 'DUELO PVP', description: 'ADS rápido para trocas rápidas de tiro.', modIds: ['m3', 'm14', 'm27'] }
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m3', 'm14', 'm28'] }
     }
   },
   {
-    weaponId: 'w2', // Stitcher
+    weaponId: 'w7',
     setups: {
-      S: { focus: 'SMG META PVP', description: 'Equilíbrio perfeito entre DPS e controle.', modIds: ['m3', 'mv3', 'm11', 'm26'] },
-      A: { focus: 'SPRAY CONTROLADO', description: 'Ideal para jogadores que preferem pouco recuo.', modIds: ['mb3', 'ma3', 'm11', 'mp3'] }
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m7', 'm11', 'm26'] }
     }
   },
   {
-    weaponId: 'w4', // Il Toro
+    weaponId: 'w9',
     setups: {
-      S: { focus: 'SHOTGUN META DUEL', description: 'Otimizada para finalizar oponentes rapidamente.', modIds: ['m6b', 'mv3', 'm17', 'm27'] },
-      A: { focus: 'CONSISTENTE', description: 'Hits confiáveis a distâncias maiores.', modIds: ['m6', 'mv3', 'm17', 'm26'] }
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m7', 'm27'] }
     }
   },
   {
-    weaponId: 'w5', // Anvil
+    weaponId: 'w8',
     setups: {
-      S: { focus: 'ANTI-ARC / AREA DAMAGE', description: 'Usa o Anvil Splitter para dano em área massivo.', modIds: ['m4', 'm-anvilsplitter'] },
-      A: { focus: 'PRECISION PICK', description: 'Dano de precisão em alvo único.', modIds: ['m3', 'm-anvilsplitter'] }
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m19', 'm14'] }
     }
   },
   {
-    weaponId: 'w8', // Venator
+    weaponId: 'w-canto',
     setups: {
-      S: { focus: 'SNIPER AGRESSIVO', description: 'Otimiza mira rápida e controle de recuo para duelos.', modIds: ['ma3', 'm14'] },
-      A: { focus: 'SNIPER ESTÁVEL', description: 'Foco em precisão total e follow-up consistente.', modIds: ['m22', 'm14'] }
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m3', 'm23', 'm14', 'mp3'] }
     }
   },
   {
-    weaponId: 'w9', // Osprey
+    weaponId: 'w-bettina',
     setups: {
-      S: { focus: 'SNIPER META PICK', description: 'Transição rápida para ADS e alta velocidade de bala.', modIds: ['m4', 'mv3', 'm14', 'm27'] },
-      A: { focus: 'SNIPER STEALTH', description: 'Operações silenciosas com recuo zero.', modIds: ['ms3', 'mv3', 'm14', 'm26'] }
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m3', 'm23', 'mp3'] }
     }
   },
   {
-    weaponId: 'w10', // Torrente
+    weaponId: 'w-bobcat',
     setups: {
-      S: { focus: 'SUPRESSÃO META', description: 'Inunda o campo de batalha com balas.', modIds: ['m3', 'm14', 'm28'] },
-      A: { focus: 'TORRENTE LASER', description: 'Fogo contínuo extremamente preciso.', modIds: ['mb3', 'm14', 'mp3'] }
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m3', 'm23', 'm11', 'mp3'] }
+    }
+  },
+  {
+    weaponId: 'w-hullcracker',
+    setups: {
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m28'] }
+    }
+  },
+  {
+    weaponId: 'w-tempest',
+    setups: {
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m3', 'm23', 'm11'] }
+    }
+  },
+  {
+    weaponId: 'w-vulcano',
+    setups: {
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m6b', 'm23', 'mp3'] }
+    }
+  },
+  {
+    weaponId: 'w-aphelion',
+    setups: {
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m23', 'm26'] }
     }
   }
 ];

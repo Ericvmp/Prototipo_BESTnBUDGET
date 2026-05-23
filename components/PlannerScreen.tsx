@@ -520,7 +520,7 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
       });
    };
 
-   const applyWeaponSetup = (slotKey: 'primary' | 'secondary', setupType: 'S' | 'A') => {
+   const applyWeaponSetup = (slotKey: 'primary' | 'secondary', setupType: 'BEST') => {
       const weaponId = currentLoadout[slotKey].weaponId;
       if (!weaponId) return;
       
@@ -749,20 +749,12 @@ const PlannerScreen: React.FC<PlannerScreenProps> = ({ weapons, mods, throwables
                      if (!setup) return null;
                      return (
                         <div className="flex gap-2 w-full mt-2">
-                           <SetupTooltip setup={setup.setups.S} tier="S">
+                           <SetupTooltip setup={setup.setups.BEST} tier="BEST">
                               <button 
-                                onClick={() => applyWeaponSetup(slotKey, 'S')}
-                                className="flex-1 flex flex-col items-center justify-center py-2.5 bg-amber-400/10 hover:bg-amber-400 border-2 border-amber-400/30 hover:border-amber-400 text-amber-400 hover:text-black rounded-xl transition-all shadow-lg active:scale-95"
+                                onClick={() => applyWeaponSetup(slotKey, 'BEST')}
+                                className="flex-1 flex flex-col items-center justify-center py-2.5 bg-emerald-500/10 hover:bg-emerald-500 border-2 border-emerald-500/30 hover:border-emerald-500 text-emerald-400 hover:text-black rounded-xl transition-all shadow-lg active:scale-95"
                               >
-                                 <span className="text-[12px] font-black tracking-[0.2em] uppercase">TIER S</span>
-                              </button>
-                           </SetupTooltip>
-                           <SetupTooltip setup={setup.setups.A} tier="A">
-                              <button 
-                                onClick={() => applyWeaponSetup(slotKey, 'A')}
-                                className="flex-1 flex flex-col items-center justify-center py-2.5 bg-fuchsia-500/10 hover:bg-fuchsia-600 border-2 border-fuchsia-500/30 hover:border-fuchsia-600 text-fuchsia-400 hover:text-white rounded-xl transition-all shadow-lg active:scale-95"
-                              >
-                                 <span className="text-[12px] font-black tracking-[0.2em] uppercase">TIER A</span>
+                                 <span className="text-[12px] font-black tracking-[0.2em] uppercase">BEST BUILD</span>
                               </button>
                            </SetupTooltip>
                         </div>

@@ -9,13 +9,14 @@ import { useLanguage } from './LanguageContext';
 
 interface SetupTooltipProps {
   setup: SetupDetail;
-  tier: 'S' | 'A';
+  tier: 'S' | 'A' | 'BEST';
   children: React.ReactNode;
 }
 
 const TIER_STYLES = {
   S: { border: 'border-amber-400', text: 'text-amber-300', glow: 'rgba(251,191,36,0.25)', bg: 'bg-amber-400/5', icon: 'military_tech' },
   A: { border: 'border-fuchsia-500', text: 'text-fuchsia-300', glow: 'rgba(232,121,249,0.25)', bg: 'bg-fuchsia-500/5', icon: 'verified_user' },
+  BEST: { border: 'border-emerald-500', text: 'text-emerald-400', glow: 'rgba(16,185,129,0.25)', bg: 'bg-emerald-500/5', icon: 'verified' },
 };
 
 const SetupTooltip: React.FC<SetupTooltipProps> = ({ setup, tier, children }) => {
