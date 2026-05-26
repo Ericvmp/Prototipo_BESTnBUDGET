@@ -35,13 +35,36 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const translateItemName = (name: string): string => {
     if (language === 'en') return name;
 
+    // 1. Handle Blueprint suffix
+    let isBlueprint = false;
+    let base = name;
     if (name.toLowerCase().endsWith(' blueprint')) {
-      const baseName = name.slice(0, -10).trim();
-      const translatedBase = itemTranslations[baseName]?.name || baseName;
-      return `${translatedBase} (Projeto)`;
+      isBlueprint = true;
+      base = name.slice(0, -10).trim();
     }
 
-    return itemTranslations[name]?.name || name;
+    // Helper to translate a name that might end with a Roman numeral
+    const getTranslation = (n: string): string => {
+      // Direct lookup first
+      if (itemTranslations[n]?.name) {
+        return itemTranslations[n].name;
+      }
+      
+      // Match roman numerals at the end (e.g. "Weapon IV", "Weapon III", etc.)
+      const romanRegex = /^(.*?)\s+(I|II|III|IV|V)$/i;
+      const match = n.match(romanRegex);
+      if (match) {
+        const weaponBase = match[1];
+        const roman = match[2];
+        if (itemTranslations[weaponBase]?.name) {
+          return `${itemTranslations[weaponBase].name} ${roman.toUpperCase()}`;
+        }
+      }
+      return n;
+    };
+
+    const translatedBase = getTranslation(base);
+    return isBlueprint ? `${translatedBase} (Projeto)` : translatedBase;
   };
 
   const translateItemDesc = (name: string, fallbackDesc?: string): string => {

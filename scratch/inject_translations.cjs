@@ -247,7 +247,7 @@ const newTranslations = {
     description: "Libera sensores de eco para rastrear inimigos através de superfícies."
   },
   "Crash Mat": {
-    name: "Amortecedor de Quedas",
+    name: "Tapete de Aterrissagem",
     description: "Colchão de ar de alta absorção de impacto contra quedas extremas."
   },
   "Tactical MK.3 (Smoke)": {

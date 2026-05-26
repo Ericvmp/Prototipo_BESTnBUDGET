@@ -872,33 +872,57 @@ const renderTradeList = (list: TradeEntry[], type: 'give' | 'receive') => {
                   <button 
                     key={item.id} 
                     onClick={() => handleSelectItem(item)} 
-                    className="bg-slate-800/50 rounded-xl p-2 flex flex-col items-center transition-all duration-200 group relative"
+                    className="w-full bg-slate-800/50 rounded-xl p-2 flex flex-col items-center transition-all duration-200 group relative"
                     style={{ 
+                      border: isBlueprint ? '1px solid #ffffff' : `3px solid ${rarityColor}60`,
+                      boxShadow: isBlueprint 
+                        ? '0 0 12px rgba(255, 255, 255, 0.3), inset 0 0 8px rgba(255, 255, 255, 0.15)' 
+                        : `0 0 10px ${rarityColor}20, inset 0 0 10px ${rarityColor}10`,
                       ...(isBlueprint ? {
-                        backgroundImage: "linear-gradient(rgba(10, 22, 40, 0.6), rgba(10, 22, 40, 0.6)), url('/images/BG-blueprint-bg.webp')", 
+                        backgroundImage: "linear-gradient(rgba(19, 91, 236, 0.4), rgba(5, 12, 28, 0.85)), url('/images/BG-blueprint-bg.webp')", 
                         backgroundSize: 'cover', 
                         backgroundPosition: 'center',
                       } : {}),
-                      border: `3px solid ${rarityColor}60`,
-                      boxShadow: `0 0 10px ${rarityColor}20, inset 0 0 10px ${rarityColor}10`,
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.border = `4px solid ${rarityColor}`;
-                      e.currentTarget.style.boxShadow = `0 0 25px ${rarityColor}60, inset 0 0 20px ${rarityColor}30`;
+                      e.currentTarget.style.border = isBlueprint ? '2px solid #ffffff' : `4px solid ${rarityColor}`;
+                      e.currentTarget.style.boxShadow = isBlueprint 
+                        ? '0 0 25px rgba(255, 255, 255, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.25)' 
+                        : `0 0 25px ${rarityColor}60, inset 0 0 20px ${rarityColor}30`;
                       e.currentTarget.style.transform = 'scale(1.03) translateY(-2px)';
                       e.currentTarget.style.zIndex = '10';
-                      e.currentTarget.style.backgroundColor = 'rgba(30, 41, 59, 0.8)';
+                      e.currentTarget.style.backgroundColor = isBlueprint ? '' : 'rgba(30, 41, 59, 0.8)';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.border = `3px solid ${rarityColor}60`;
-                      e.currentTarget.style.boxShadow = `0 0 10px ${rarityColor}20, inset 0 0 10px ${rarityColor}10`;
+                      e.currentTarget.style.border = isBlueprint ? '1px solid #ffffff' : `3px solid ${rarityColor}60`;
+                      e.currentTarget.style.boxShadow = isBlueprint 
+                        ? '0 0 12px rgba(255, 255, 255, 0.3), inset 0 0 8px rgba(255, 255, 255, 0.15)' 
+                        : `0 0 10px ${rarityColor}20, inset 0 0 10px ${rarityColor}10`;
                       e.currentTarget.style.transform = 'scale(1) translateY(0)';
                       e.currentTarget.style.zIndex = '1';
                       e.currentTarget.style.backgroundColor = '';
                     }}
                   >
                     {/* Inner glow specifically behind the image on hover */}
-                    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: `radial-gradient(circle at center, ${rarityColor}30 0%, transparent 70%)` }} />
+                    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: `radial-gradient(circle at center, ${isBlueprint ? '#3b82f6' : rarityColor}30 0%, transparent 70%)` }} />
+                    
+                    {/* Blueprint grid overlay */}
+                    {isBlueprint && (
+                      <div
+                        className="absolute inset-0 z-0 opacity-[0.08] group-hover:opacity-[0.18] transition-opacity duration-700 pointer-events-none rounded-xl"
+                        style={{
+                          backgroundImage: `linear-gradient(#135bec 1px, transparent 1px), linear-gradient(90deg, #135bec 1px, transparent 1px)`,
+                          backgroundSize: '15% 15%',
+                        }}
+                      />
+                    )}
+
+                    {/* Blueprint badge */}
+                    {isBlueprint && (
+                      <div className="absolute top-1 left-1 bg-white text-slate-950 text-[6.5px] font-black px-1 py-[1px] rounded uppercase tracking-wider z-20 border border-white leading-none">
+                        {language === 'pt-BR' ? 'Projeto' : 'BP'}
+                      </div>
+                    )}
                     
                     {/* Selected state overlay */}
                     {isSelected && (

@@ -941,7 +941,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Converte Munição Padrão em Fragmentos de Projétil que Destroem Blindagem"
   },
   "Rattler": {
-    name: "Cascavel",
+    name: "Matraca",
     description: "Pistola semiautomática ágil e de alta precisão. Excelente como arma secundária confiável."
   },
   "Arpeggio": {
@@ -949,7 +949,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Pistola de rajada compacta e de disparo rápido, ideal para encontros de curta distância."
   },
   "Tempest": {
-    name: "Tempestade",
+    name: "Temporal",
     description: "Submetralhadora leve com altíssima cadência de tiro, destruidora de alvos próximos."
   },
   "Bettina": {
@@ -977,7 +977,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Revólver pesado de calibre massivo. Cada disparo causa dano devastador."
   },
   "Stitcher": {
-    name: "Costureira",
+    name: "Costuradora",
     description: "Rifle de precisão semiautomático projetado para engajamentos de médio a longo alcance."
   },
   "Kettle": {
@@ -1005,7 +1005,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Rifle eletromagnético experimental que dispara flechettes energizadas de alta velocidade."
   },
   "Osprey": {
-    name: "Águia-Pesqueira",
+    name: "Águia-pescadora",
     description: "Rifle de rajada de precisão tático, balanceado para todas as distâncias."
   },
   "Torrente": {
@@ -1172,7 +1172,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Libera sensores de eco para rastrear inimigos através de superfícies."
   },
   "Crash Mat": {
-    name: "Amortecedor de Quedas",
+    name: "Tapete de Aterrissagem",
     description: "Colchão de ar de alta absorção de impacto contra quedas extremas."
   },
   "Tactical MK.3 (Smoke)": {
@@ -1288,7 +1288,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Desinfetante químico concentrado em garrafa plástica."
   },
   "Rattler II": {
-    name: "Cascavel II",
+    name: "Matraca II",
     description: "Versão calibrada de Tier II da confiável pistola semiautomática."
   },
   "Rubber Pad": {
@@ -1384,8 +1384,8 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Placa balística vazia danificada com tiras de tecido militar forte."
   },
   "Rattler IV": {
-    name: "Cascavel IV",
-    description: "Pistola Rattler de Tier IV com máxima calibração de combate."
+    name: "Matraca IV",
+    description: "Pistola Matraca de Tier IV com máxima calibração de combate."
   },
   "Il Toro IV": {
     name: "Il Toro IV",
@@ -1452,7 +1452,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Rifle Bobcat calibrado de Tier IV de elite."
   },
   "Tempest IV": {
-    name: "Tempestade IV",
+    name: "Temporal IV",
     description: "Submetralhadora Tempest refinada ao nível máximo de combate."
   },
   "Bobcat III": {
@@ -1464,7 +1464,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Escopeta Hullcracker de cano duplo robusta de Tier IV."
   },
   "Tempest III": {
-    name: "Tempestade III",
+    name: "Temporal III",
     description: "Submetralhadora Tempest ágil de Tier III."
   },
   "Vulcano IV": {
@@ -1484,7 +1484,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Escopeta Hullcracker robusta de Tier III."
   },
   "Osprey IV": {
-    name: "Águia-Pesqueira IV",
+    name: "Águia-pescadora IV",
     description: "Rifle Osprey de elite modificado para o Tier IV."
   },
   "Fried Motherboard": {
@@ -1552,7 +1552,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Ferramenta de perfuração industrial pesada."
   },
   "Osprey III": {
-    name: "Águia-Pesqueira III",
+    name: "Águia-pescadora III",
     description: "Rifle de rajada Osprey de Tier III."
   },
   "Renegade III": {
@@ -1564,7 +1564,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Rifle Renegade modificado para o Tier IV militar de elite."
   },
   "Tempest II": {
-    name: "Tempestade II",
+    name: "Temporal II",
     description: "Submetralhadora Tempest calibrada para Tier II."
   },
   "Torrente III": {
