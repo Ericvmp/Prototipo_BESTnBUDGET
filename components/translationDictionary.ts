@@ -729,7 +729,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Cria uma espessa cortina de fumaça cinzenta para ocultar movimentos ou forçar recuos."
   },
   "Showstopper": {
-    name: "Showstopper",
+    name: "Paratudo",
     description: "Dispositivo PEM portátil que desativa temporariamente escudos e robôs próximos."
   },
   "Jolt Mine": {
@@ -769,7 +769,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Explode disparando centenas de pregos e estilhaços cortantes. Causa sangramento massivo."
   },
   "Deadline": {
-    name: "Linha Limite",
+    name: "Prazo Final",
     description: "Gera uma barreira de lasers de alta energia. Causa dano severo a qualquer máquina que a cruzar."
   },
   "Shield Recharger": {
@@ -1001,7 +1001,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Rifle tático de precisão com modo de disparo alternado ágil."
   },
   "Venator": {
-    name: "Caçador",
+    name: "Venator",
     description: "Rifle eletromagnético experimental que dispara flechettes energizadas de alta velocidade."
   },
   "Osprey": {
@@ -1095,7 +1095,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     perks: "+2 espaços de granada e regeneração de 2 HP a cada 5 s (pausa por 30 s ao sofrer dano)."
   },
   "Combat Mk. 3 (Flanking)": {
-    name: "Combate Mk. 3 (Flanco)",
+    name: "Combate Mk. 3 (Flanqueador)",
     description: "Otimizado para mobilidade ofensiva de flanco e ataques de surpresa devastadores.",
     perks: "+15% de velocidade de movimento ao correr e +20% de dano pelas costas do inimigo."
   },
@@ -1187,16 +1187,16 @@ export const itemTranslations: Record<string, { name: string; description: strin
     name: "Sinalizador Raider Remoto",
     description: "Dispositivo de iluminação tática disparado à distância."
   },
-  "Aphelion Rifle": {
-    name: "Rifle Afélio",
+  "Aphelion": {
+    name: "Afélio",
     description: "Projeto do lendário rifle eletromagnético militar de precisão extrema."
   },
   "Powered Descender": {
     name: "Descensor Motorizado",
     description: "Equipamento motorizado de alta velocidade para cabos e rapel tático."
   },
-  "Trailblazer Grenade": {
-    name: "Granada Trailblazer",
+  "Trailblazer": {
+    name: "Desbravador",
     description: "Dispositivo sinalizador de rastreamento com varredura persistente."
   },
   "Green Light Stick": {
@@ -1700,7 +1700,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Filtro industrial entupido de fibras sintéticas."
   },
   "Snap Hook": {
-    name: "Mosquetão Tático",
+    name: "Mosquetão",
     description: "Mosquetão de liga reforçada com rolamento motorizado para cabos táticos."
   },
   "Scavenging (Residential / Commercial zones)": {
