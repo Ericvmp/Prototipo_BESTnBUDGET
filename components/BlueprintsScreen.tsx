@@ -702,7 +702,9 @@ const BlueprintsScreen: React.FC<BlueprintsScreenProps> = ({ onBack }) => {
                   }`}
                 style={{
                   animationDelay: `${Math.min(index * 8, 800)}ms`,
-                  backgroundImage: `url(${CARD_BG_PATH})`,
+                  backgroundImage: isOwned 
+                    ? `linear-gradient(rgba(19, 91, 236, 0.45), rgba(5, 12, 28, 0.85)), url(${CARD_BG_PATH})` 
+                    : `url(${CARD_BG_PATH})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}
@@ -712,17 +714,14 @@ const BlueprintsScreen: React.FC<BlueprintsScreenProps> = ({ onBack }) => {
 
                 {/* Blueprint Internal Grid */}
                 <div
-                  className="absolute inset-0 z-0 opacity-[0.05] group-hover:opacity-[0.12] transition-opacity duration-700"
+                  className={`absolute inset-0 z-0 transition-opacity duration-700 pointer-events-none ${
+                    isOwned ? 'opacity-[0.09] group-hover:opacity-[0.18]' : 'opacity-[0.04] group-hover:opacity-[0.10]'
+                  }`}
                   style={{
                     backgroundImage: `linear-gradient(${BLUEPRINT_COLOR} 1px, transparent 1px), linear-gradient(90deg, ${BLUEPRINT_COLOR} 1px, transparent 1px)`,
                     backgroundSize: '15% 15%',
                   }}
                 />
-
-                {/* Owned blue overlay tint */}
-                {isOwned && (
-                  <div className="absolute inset-0 z-0 bg-blue-950/20 pointer-events-none" />
-                )}
 
                 {/* Missing red overlay tint (only when filter=missing) */}
                 {!isOwned && filter === 'missing' && (
