@@ -549,15 +549,15 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Gatilhos brutos, canos e molas usados na manufatura de armas básicas."
   },
   "Light Gun Parts": {
-    name: "Partes Leves de Armas",
+    name: "Peças de Arma Leve",
     description: "Componentes usinados de precisão otimizados para armas automáticas leves e pistolas."
   },
   "Medium Gun Parts": {
-    name: "Partes Médias de Armas",
+    name: "Peças de Arma Média",
     description: "Receptores robustos e canos balanceados usados em rifles de assalto."
   },
   "Heavy Gun Parts": {
-    name: "Partes Pesadas de Armas",
+    name: "Peças de Arma Pesada",
     description: "Componentes reforçados de aço capazes de suportar o impacto de metralhadoras e snipers pesadas."
   },
   "Advanced Mechanical Components": {
@@ -569,7 +569,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Pistões e engrenagens recuperados de maquinários arruinados."
   },
   "Mod Components": {
-    name: "Componentes de Mods",
+    name: "Componentes de Modificação",
     description: "Kits de encaixe especializados para trilhos táticos e miras de armas."
   },
   "Magnet": {
@@ -601,7 +601,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Fiação e chips biossintéticos complexos que processam os algoritmos de combate dos robôs ARC."
   },
   "ARC Motion Core": {
-    name: "Núcleo de Movimento ARC",
+    name: "Núcleo Motriz ARC",
     description: "Mecanismo giroscópico antigravitacional que estabiliza robôs ARC de alto nível."
   },
   "Antiseptic": {
@@ -633,7 +633,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Bateria de íon-lítio recarregável padrão para pequenos eletrônicos."
   },
   "Power Rod": {
-    name: "Bastão de Energia",
+    name: "Barra de Força",
     description: "Núcleo gerador de microfusão usado para alimentar dispositivos portáteis de alta demanda."
   },
   "Syringe": {
@@ -673,15 +673,15 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Combustível químico refinado ideal para lança-chamas ou motores scrap."
   },
   "Firefly Burner": {
-    name: "Queimador Firefly",
+    name: "Maçarico de Vagalume",
     description: "Componente de plasma térmico extraído de drones Firefly da ARC."
   },
   "Rocketeer Driver": {
-    name: "Propulsor Rocketeer",
+    name: "Driver de Fogueteiro",
     description: "Turbina de exaustão de alta velocidade recuperada de unidades voadoras ARC."
   },
   "Comet Igniter": {
-    name: "Ignitor Comet",
+    name: "Acendedor de Cometa",
     description: "Dispositivo piezoelétrico de alta ignição térmica de ligas especiais."
   },
   "Light Shield": {
@@ -729,7 +729,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Cria uma espessa cortina de fumaça cinzenta para ocultar movimentos ou forçar recuos."
   },
   "Showstopper": {
-    name: "Paratudo",
+    name: "Para-tudo",
     description: "Dispositivo PEM portátil que desativa temporariamente escudos e robôs próximos."
   },
   "Jolt Mine": {
@@ -741,7 +741,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Mina de proximidade tradicional de alto dano destrutivo a blindagens robóticas."
   },
   "Snap Blast Grenade": {
-    name: "Granada de Detonação Instantânea",
+    name: "Granada de Explosão Rápida",
     description: "Pequeno explosivo magnético ágil que se prende a alvos metálicos antes de detonar."
   },
   "Heavy Fuze Grenade": {
@@ -757,11 +757,11 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Arremessa um sinalizador de longo alcance que revela inimigos em tempo real através das paredes."
   },
   "Wolfpack": {
-    name: "Matilha",
+    name: "Matilha de Lobos",
     description: "Dispositivo tático que libera uma salva de mini-mísseis teleguiados em direção a alvos múltiplos."
   },
   "Seeker Grenade": {
-    name: "Granada Rastreadora",
+    name: "Granada Teleguiada",
     description: "Granada inteligente autopropulsada que busca e persegue ativamente o inimigo mais próximo."
   },
   "Shrapnel Grenade": {
@@ -769,7 +769,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Explode disparando centenas de pregos e estilhaços cortantes. Causa sangramento massivo."
   },
   "Deadline": {
-    name: "Prazo Final",
+    name: "Prazo",
     description: "Gera uma barreira de lasers de alta energia. Causa dano severo a qualquer máquina que a cruzar."
   },
   "Shield Recharger": {
@@ -777,24 +777,24 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Dispositivo de suporte que projeta um campo de indução para reabastecer escudos táticos aliados."
   },
   "Surge Shield Recharger": {
-    name: "Recarregador de Escudo de Sobrecarga",
+    name: "Recarregador de Escudo de Surto",
     description: "Supercarrega temporariamente o escudo dos aliados além de sua capacidade nominal."
   },
   "Vita Spray": {
-    name: "Vita Spray",
+    name: "Spray Vita",
     description: "Aerossol médico portátil que cura pequenos cortes e ferimentos leves em área."
   },
   "Vita Shot": {
-    name: "Vita Shot",
+    name: "Injeção Vita",
     description: "Injeção de adrenalina e compostos restauradores para cura instantânea rápida."
   },
   "Sterilized Bandage": {
-    name: "Bandagem Esterilizada",
-    description: "Bandagem básica tratada com antisséptico para parar sangramentos rapidamente."
+    name: "Atadura Esterilizada",
+    description: "Atadura básica tratada com antisséptico para parar sangramentos rapidamente."
   },
   "Herbal Bandage": {
-    name: "Bandagem Herbal",
-    description: "Bandagem natural de ervas que promove regeneração de vida gradual a longo prazo."
+    name: "Atadura de Ervas",
+    description: "Atadura natural de ervas que promove regeneração de vida gradual a longo prazo."
   },
   "Defibrillator": {
     name: "Desfibrilador",
@@ -851,6 +851,10 @@ export const itemTranslations: Record<string, { name: string; description: strin
   "Extended Barrel": {
     name: "Cano Estendido",
     description: "Alcance de Dano Aumentado, Velocidade do Projétil Aumentada"
+  },
+  "Extended Barrel II": {
+    name: "Cano Estendido II",
+    description: "Aumenta moderadamente a velocidade do projétil e a distância até a queda de dano."
   },
   "Extended Light Mag I": {
     name: "Carregador Leve Estendido I",
@@ -1033,7 +1037,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Granada leve de ativação manual imediata sob sinal de rádio."
   },
   "Trigger Nade": {
-    name: "Granada de Impacto Manual",
+    name: "Granada de Gatilho",
     description: "Granada acionada à distância por um gatilho de rádio tático."
   },
   "Gas Grenade": {
@@ -1049,12 +1053,12 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Dispositivo de pressão defensivo que explode cobrindo a área com névoa corrosiva."
   },
   "Pulse Mine": {
-    name: "Mina de Pulso",
+    name: "Mina Saltadora: Impulso",
     description: "Cria um campo desacelerador intermitente que sabota a mobilidade mecânica ARC."
   },
   "Bandage": {
-    name: "Bandagem",
-    description: "Bandagem de pano simples para curativo de emergência rápido."
+    name: "Atadura",
+    description: "Atadura de pano simples para curativo de emergência rápido."
   },
   "Adrenaline Shot": {
     name: "Injeção de Adrenalina",
@@ -1065,7 +1069,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Barreira tática compacta para proteção imediata contra fogo inimigo no campo."
   },
   "Tactical Mk. 3 (Revival)": {
-    name: "Tático Mk. 3 (Reanimação)",
+    name: "Tático Mk. 3 (Reanimador)",
     description: "Módulo de suporte avançado que melhora drasticamente a velocidade de reanimação de aliados.",
     perks: "Velocidade de reanimação aumentada em 50% e concede escudo temporário ao aliado reanimado."
   },
@@ -1100,32 +1104,32 @@ export const itemTranslations: Record<string, { name: string; description: strin
     perks: "+15% de velocidade de movimento ao correr e +20% de dano pelas costas do inimigo."
   },
   "Looting Mk. 2": {
-    name: "Coleta Mk. 2",
+    name: "Saque Mk. 2",
     description: "Módulo utilitário intermediário que aumenta significativamente a capacidade de transporte e velocidade de saque.",
     perks: "+15% de velocidade de saque, +4 espaços de mochila e +10kg de capacidade de peso máximo."
   },
   "Looting Mk. 3 (Cautious)": {
-    name: "Coleta Mk. 3 (Cauteloso)",
+    name: "Saque Mk. 3 (Cauteloso)",
     description: "Projetado para sobrevivência furtiva de saqueadores solitários.",
     perks: "Passos silenciosos a 50% de distância, raio de detecção de inimigos reduzido no minimapa."
   },
   "Looting Mk. 3 (Safekeeper)": {
-    name: "Coleta Mk. 3 (Guardião)",
+    name: "Saque Mk. 3 (Protetor)",
     description: "Garante proteção máxima para os saques mais preciosos obtidos nas incursões.",
     perks: "O Bolso Seguro aceita qualquer tipo de item (incluindo armas) protegendo-os de perda na morte."
   },
   "Looting MK. 3 (Safekeeper)": {
-    name: "Coleta Mk. 3 (Guardião)",
+    name: "Saque Mk. 3 (Protetor)",
     description: "Garante proteção máxima para os saques mais preciosos obtidos nas incursões.",
     perks: "O Bolso Seguro aceita qualquer tipo de item (incluindo armas) protegendo-os de perda na morte."
   },
   "Looting Mk. 3 (Survivor)": {
-    name: "Coleta Mk. 3 (Sobrevivente)",
+    name: "Saque Mk. 3 (Sobrevivente)",
     description: "Focado em expedições de longa duração em condições ambientais severas.",
     perks: "+25kg de peso máximo de carga e +5 espaços de mochila para transporte massivo."
   },
   "Looting MK. 3 (Survivor)": {
-    name: "Coleta Mk. 3 (Sobrevivente)",
+    name: "Saque Mk. 3 (Sobrevivente)",
     description: "Focado em expedições de longa duração em condições ambientais severas.",
     perks: "+25kg de peso máximo de carga e +5 espaços de mochila para transporte massivo."
   },
@@ -1172,12 +1176,18 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Libera sensores de eco para rastrear inimigos através de superfícies."
   },
   "Crash Mat": {
-    name: "Tapete de Aterrissagem",
+    name: "Colchão de Queda",
     description: "Colchão de ar de alta absorção de impacto contra quedas extremas."
   },
   "Tactical MK.3 (Smoke)": {
-    name: "Tático MK.3 (Fumaça)",
-    description: "Módulo especializado em ocultação térmica e fumaça em larga escala."
+    name: "Tático Mk. 3 (Fumaça)",
+    description: "Uma versão aprimorada do módulo Tático Mk. 2, adicionando capacidade expandida em todos os aspectos.",
+    perks: "+2 slots de utilitários rápidos e cortina de fumaça automática de emergência ao quebrar o escudo."
+  },
+  "Tactical Mk. 3 (Smoke)": {
+    name: "Tático Mk. 3 (Fumaça)",
+    description: "Uma versão aprimorada do módulo Tático Mk. 2, adicionando capacidade expandida em todos os aspectos.",
+    perks: "+2 slots de utilitários rápidos e cortina de fumaça automática de emergência ao quebrar o escudo."
   },
   "White Flag": {
     name: "Bandeira Branca",
@@ -1187,17 +1197,9 @@ export const itemTranslations: Record<string, { name: string; description: strin
     name: "Sinalizador Raider Remoto",
     description: "Dispositivo de iluminação tática disparado à distância."
   },
-  "Aphelion": {
-    name: "Afélio",
-    description: "Projeto do lendário rifle eletromagnético militar de precisão extrema."
-  },
   "Powered Descender": {
     name: "Descensor Motorizado",
     description: "Equipamento motorizado de alta velocidade para cabos e rapel tático."
-  },
-  "Trailblazer": {
-    name: "Desbravador",
-    description: "Dispositivo sinalizador de rastreamento com varredura persistente."
   },
   "Green Light Stick": {
     name: "Bastão de Luz Verde",
@@ -1216,7 +1218,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Sinalizador de visibilidade amarela para condições de névoa densa."
   },
   "Surge Coil": {
-    name: "Bobina de Sobrecarga",
+    name: "Bobina de Surto",
     description: "Dispositivo de indução eletromagnética para sobrecarga ativa de escudos."
   },
   "Blue Light Stick": {
@@ -1260,7 +1262,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Núcleo de locomoção quebrado de drones saltadores Leaper da ARC."
   },
   "Damaged Rocketeer Driver": {
-    name: "Propulsor Rocketeer Danificado",
+    name: "Driver de Fogueteiro Danificado",
     description: "Módulo propulsor queimado de unidades voadoras da ARC."
   },
   "Bastion Cell": {
@@ -1276,7 +1278,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Núcleo de pulso intacto de drones Leaper. Usado em tecnologia magnética."
   },
   "Pulse Mine Blueprint": {
-    name: "Projeto de Mina de Pulso",
+    name: "Projeto de Mina Saltadora: Impulso",
     description: "Esquema completo para manufaturar minas eletromagnéticas."
   },
   "Soap": {

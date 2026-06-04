@@ -1,7 +1,7 @@
 {
-  "version": "1778467693521",
-  "generatedAt": "2026-05-13T20:04:20.158Z",
-  "totalItems": 560,
+  "version": "1779299516775",
+  "generatedAt": "2026-06-04T15:40:40.159Z",
+  "totalItems": 568,
   "items": [
     {
       "id": "acoustic_guitar",
@@ -974,7 +974,7 @@
     {
       "id": "dam_controlled_access_zone_key",
       "name": "Dam Controlled Access Zone Key",
-      "rarity": "EPIC",
+      "rarity": "RARE",
       "category": "Material",
       "image": "https://cdn.arctracker.io/items/v2/dam_controlled_access_zone_key.png",
       "type": "Key"
@@ -1348,16 +1348,40 @@
       "type": "Blueprint"
     },
     {
-      "id": "extended_barrel",
-      "name": "Extended Barrel",
+      "id": "extended_barrel_i",
+      "name": "Extended Barrel I",
+      "rarity": "COMMON",
+      "category": "Mod",
+      "image": "https://cdn.arctracker.io/items/v2/extended_barrel.png",
+      "type": "Modification"
+    },
+    {
+      "id": "extended_barrel_ii",
+      "name": "Extended Barrel II",
+      "rarity": "COMMON",
+      "category": "Mod",
+      "image": "https://cdn.arctracker.io/items/v2/extended_barrel.png",
+      "type": "Modification"
+    },
+    {
+      "id": "extended_barrel_ii_blueprint",
+      "name": "Extended Barrel II Blueprint",
+      "rarity": "COMMON",
+      "category": "Blueprint",
+      "image": null,
+      "type": "Blueprint"
+    },
+    {
+      "id": "extended_barrel_iii",
+      "name": "Extended Barrel III",
       "rarity": "EPIC",
       "category": "Mod",
       "image": "https://cdn.arctracker.io/items/v2/extended_barrel.png",
       "type": "Modification"
     },
     {
-      "id": "extended_barrel_blueprint",
-      "name": "Extended Barrel Blueprint",
+      "id": "extended_barrel_iii_blueprint",
+      "name": "Extended Barrel III Blueprint",
       "rarity": "COMMON",
       "category": "Blueprint",
       "image": "https://cdn.arctracker.io/items/v2/extended_barrel_blueprint.png",
@@ -2296,7 +2320,7 @@
       "name": "Looting Mk. 3 (Survivor)",
       "rarity": "EPIC",
       "category": "Augment",
-      "image": "https://cdn.arctracker.io/items/v2/looting_mk3_survivor.png",
+      "image": "https://cdn.arctracker.io/items/looting_mk3_survivor.png",
       "type": "Augment"
     },
     {
@@ -2906,6 +2930,46 @@
       "category": "Material",
       "image": "https://cdn.arctracker.io/items/v2/raiders_refuge_security_code.png",
       "type": "Key"
+    },
+    {
+      "id": "rascal_blueprint",
+      "name": "Rascal Blueprint",
+      "rarity": "COMMON",
+      "category": "Blueprint",
+      "image": "https://cdn.arctracker.io/items/v2/rascal.png",
+      "type": "Blueprint"
+    },
+    {
+      "id": "rascal_i",
+      "name": "Rascal I",
+      "rarity": "RARE",
+      "category": "Weapon",
+      "image": "https://cdn.arctracker.io/items/v2/rascal.png",
+      "type": "Special"
+    },
+    {
+      "id": "rascal_ii",
+      "name": "Rascal II",
+      "rarity": "RARE",
+      "category": "Weapon",
+      "image": "https://cdn.arctracker.io/items/v2/rascal.png",
+      "type": "Special"
+    },
+    {
+      "id": "rascal_iii",
+      "name": "Rascal III",
+      "rarity": "RARE",
+      "category": "Weapon",
+      "image": "https://cdn.arctracker.io/items/v2/rascal.png",
+      "type": "Special"
+    },
+    {
+      "id": "rascal_iv",
+      "name": "Rascal IV",
+      "rarity": "RARE",
+      "category": "Weapon",
+      "image": "https://cdn.arctracker.io/items/v2/rascal.png",
+      "type": "Special"
     },
     {
       "id": "rattler_i",

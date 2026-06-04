@@ -84,6 +84,7 @@ export const BLUEPRINTS_DATA: Blueprint[] = [
   { id: 'vertical-grip-ii', name: 'Vertical Grip II', image: '/images/items/Vertical_Grip_II.webp' },
   { id: 'muzzle-brake-ii', name: 'Muzzle Brake II', image: '/images/items/Muzzle_Brake_II.webp' },
   { id: 'extended-barrel', name: 'Extended Barrel', image: '/images/items/Extended_Barrel.webp' },
+  { id: 'extended-barrel-ii', name: 'Extended Barrel II', image: '/images/items/Extended_Barrel_II.webp' },
   { id: 'burletta', name: 'Burletta', image: '/images/items/Burletta.webp' },
   { id: 'equalizer', name: 'Equalizer', image: '/images/items/Equalizer.webp' },
   { id: 'snap-hook', name: 'Snap Hook', image: '/images/items/Snap_Hook.webp' },

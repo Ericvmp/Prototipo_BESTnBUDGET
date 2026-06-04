@@ -70,8 +70,8 @@ export const MATERIALS_DATA: Material[] = [
         "Anvil III - 4 Mechanical Components (reciclagem)"
       ]
     },
-    obtainedFrom: ["Vertical Grip III (2x)", "Arpeggio (2x)", "Il Toro (2x)", "Anvil (2x)", "Motor (2x)", "Mod Components (1x)", "Advanced Mechanical Components (1x)", "Compensator II (1x)", "Muzzle Brake II (1x)", "Shotgun Choke II (1x)", "Silencer I (1x)", "Extended Light Mag II (1x)", "Extended Medium Mag II (1x)", "Extended Shotgun Mag II (1x)", "Angled Grip II (1x)", "Vertical Grip II (1x)", "Stable Stock II (1x)", "Burletta (1x)", "Turbo Pump (1x)"],
-    requiredFor: ["Arpeggio (6x)", "Il Toro (5x)", "Anvil (5x)", "Burletta (3x)", "Mod Components (2x)", "Advanced Mechanical Components (2x)", "Compensator II (2x)", "Muzzle Brake II (2x)", "Shotgun Choke II (2x)", "Silencer I (2x)", "Extended Light Mag II (2x)", "Extended Medium Mag II (2x)", "Extended Shotgun Mag II (2x)", "Angled Grip II (2x)", "Vertical Grip II (2x)", "Stable Stock II (2x)", "Zipline (1x)"]
+    obtainedFrom: ["Vertical Grip III (2x)", "Arpeggio (2x)", "Il Toro (2x)", "Anvil (2x)", "Motor (2x)", "Mod Components (1x)", "Advanced Mechanical Components (1x)", "Compensator II (1x)", "Muzzle Brake II (1x)", "Shotgun Choke II (1x)", "Silencer I (1x)", "Extended Light Mag II (1x)", "Extended Medium Mag II (1x)", "Extended Shotgun Mag II (1x)", "Angled Grip II (1x)", "Vertical Grip II (1x)", "Stable Stock II (1x)", "Burletta (1x)", "Turbo Pump (1x)", "Extended Barrel II (1x)"],
+    requiredFor: ["Arpeggio (6x)", "Il Toro (5x)", "Anvil (5x)", "Burletta (3x)", "Mod Components (2x)", "Advanced Mechanical Components (2x)", "Compensator II (2x)", "Muzzle Brake II (2x)", "Shotgun Choke II (2x)", "Silencer I (2x)", "Extended Light Mag II (2x)", "Extended Medium Mag II (2x)", "Extended Shotgun Mag II (2x)", "Angled Grip II (2x)", "Vertical Grip II (2x)", "Stable Stock II (2x)", "Extended Barrel II (3x)", "Zipline (1x)"]
   },
   {
     id: 'mat5',
@@ -149,8 +149,8 @@ export const MATERIALS_DATA: Material[] = [
         "Compensator II - 1 Wire (reciclagem)"
       ]
     },
-    obtainedFrom: ["Portable TV (6x)", "Acoustic Guitar (6x)", "Cooling Fan (4x)", "Power Cable (4x)", "Silencer III (3x)", "Toaster (3x)", "Compensator III (2x)", "Muzzle Brake III (2x)", "Shotgun Choke III (2x)", "Silencer II (2x)", "Broken Handheld Radio (2x)", "Broken Taser (2x)", "Damaged Heat Sink (2x)", "Power Bank (2x)", "Humidifier (2x)", "Advanced Electrical Components (1x)", "Voltage Converter (1x)", "Processor (1x)", "Sensors (1x)", "Compensator II (1x)", "Muzzle Brake II (1x)", "Shotgun Choke II (1x)", "Silencer I (1x)", "Extended Barrel (1x)"],
-    requiredFor: ["Compensator III (8x)", "Muzzle Brake III (8x)", "Shotgun Choke III (8x)", "Silencer II (8x)", "Extended Barrel (8x)", "Osprey (7x)", "Compensator II (4x)", "Muzzle Brake II (4x)", "Shotgun Choke II (4x)", "Silencer I (4x)", "Advanced Electrical Components (3x)", "Compensator I (1x)", "Muzzle Brake I (1x)", "Shotgun Choke I (1x)"]
+    obtainedFrom: ["Portable TV (6x)", "Acoustic Guitar (6x)", "Cooling Fan (4x)", "Power Cable (4x)", "Silencer III (3x)", "Toaster (3x)", "Compensator III (2x)", "Muzzle Brake III (2x)", "Shotgun Choke III (2x)", "Silencer II (2x)", "Broken Handheld Radio (2x)", "Broken Taser (2x)", "Damaged Heat Sink (2x)", "Power Bank (2x)", "Humidifier (2x)", "Advanced Electrical Components (1x)", "Voltage Converter (1x)", "Processor (1x)", "Sensors (1x)", "Compensator II (1x)", "Muzzle Brake II (1x)", "Shotgun Choke II (1x)", "Silencer I (1x)", "Extended Barrel (1x)", "Extended Barrel II (1x)"],
+    requiredFor: ["Compensator III (8x)", "Muzzle Brake III (8x)", "Shotgun Choke III (8x)", "Silencer II (8x)", "Extended Barrel (8x)", "Osprey (7x)", "Compensator II (4x)", "Muzzle Brake II (4x)", "Shotgun Choke II (4x)", "Silencer I (4x)", "Advanced Electrical Components (3x)", "Extended Barrel II (6x)", "Compensator I (1x)", "Muzzle Brake I (1x)", "Shotgun Choke I (1x)"]
   },
   {
     id: 'mat8',
@@ -419,8 +419,8 @@ export const MATERIALS_DATA: Material[] = [
         stackSize: 15, quantity: 3
       }, { name: 'Electrical Components', stackSize: 10, quantity: 2 }]
     },
-    obtainedFrom: ["Rocketeer Driver (2x)", "Power Rod (1x)", "Combat Mk. 3 (Aggressive) (1x)", "Combat Mk. 3 (Flanking) (1x)", "Frequency Modulation Box (1x)", "Looting Mk. 3 (Cautious) (1x)", "Looting Mk. 3 (Safekeeper) (1x)", "Looting Mk. 3 (Survivor) (1x)", "Photoelectric Cloak (1x)", "Tactical Mk. 3 (Defensive) (1x)", "Tactical Mk. 3 (Healing) (1x)"],
-    requiredFor: ["Power Rod (2x)", "Combat Mk. 3 (Aggressive) (2x)", "Combat Mk. 3 (Flanking) (2x)", "Looting Mk. 3 (Cautious) (2x)", "Looting Mk. 3 (Safekeeper) (2x)", "Looting Mk. 3 (Survivor) (2x)", "Photoelectric Cloak (2x)", "Tactical Mk. 3 (Defensive) (2x)", "Tactical Mk. 3 (Healing) (2x)", "Raider Hatch Key (1x)"]
+    obtainedFrom: ["Rocketeer Driver (2x)", "Power Rod (1x)", "Combat Mk. 3 (Aggressive) (1x)", "Combat Mk. 3 (Flanking) (1x)", "Frequency Modulation Box (1x)", "Looting Mk. 3 (Cautious) (1x)", "Looting Mk. 3 (Safekeeper) (1x)", "Looting Mk. 3 (Survivor) (1x)", "Photoelectric Cloak (1x)", "Tactical Mk. 3 (Defensive) (1x)", "Tactical Mk. 3 (Healing) (1x)", "Tactical Mk. 3 (Smoke) (1x)"],
+    requiredFor: ["Power Rod (2x)", "Combat Mk. 3 (Aggressive) (2x)", "Combat Mk. 3 (Flanking) (2x)", "Looting Mk. 3 (Cautious) (2x)", "Looting Mk. 3 (Safekeeper) (2x)", "Looting Mk. 3 (Survivor) (2x)", "Photoelectric Cloak (2x)", "Tactical Mk. 3 (Defensive) (2x)", "Tactical Mk. 3 (Healing) (2x)", "Tactical Mk. 3 (Smoke) (2x)", "Raider Hatch Key (1x)"]
   },
   {
     id: 'mat20',
@@ -587,7 +587,7 @@ export const MATERIALS_DATA: Material[] = [
   {
     id: 'mat31',
     name: 'Power Rod', recycleInfo: [{ name: 'Adv Electrical Components', stackSize: 5, quantity: 1 }, { name: 'ARC Circuitry', stackSize: 5, quantity: 1 }], salvageInfo: [{ name: 'Adv Electrical Components', stackSize: 5, quantity: 1 }], stackSize: 3,
-    rarity: 'RARE',
+    rarity: 'EPIC',
     icon: 'vertical_align_center',
     description: 'A high-capacity energy conductor used in heavy-duty electronic equipment.',
     craftInfo: {
@@ -691,8 +691,8 @@ export const MATERIALS_DATA: Material[] = [
       stackSize: 50, quantity: 2
     }],
     craftInfo: { isCraftable: false },
-    obtainedFrom: ["Exodus Modules (2x)", "Rotary Encoder (2x)", "Anvil Splitter (1x)", "Alarm Clock (1x)", "Combat Mk. 3 (Aggressive) (1x)", "Combat Mk. 3 (Flanking) (1x)", "Looting Mk. 3 (Cautious) (1x)", "Looting Mk. 3 (Safekeeper) (1x)", "Looting Mk. 3 (Survivor) (1x)", "Tactical Mk. 3 (Defensive) (1x)", "Tactical Mk. 3 (Healing) (1x)"],
-    requiredFor: ["Combat Mk. 3 (Aggressive) (3x)", "Combat Mk. 3 (Flanking) (3x)", "Looting Mk. 3 (Cautious) (3x)", "Looting Mk. 3 (Safekeeper) (3x)", "Looting Mk. 3 (Survivor) (3x)", "Tactical Mk. 3 (Defensive) (3x)", "Tactical Mk. 3 (Healing) (3x)"]
+    obtainedFrom: ["Exodus Modules (2x)", "Rotary Encoder (2x)", "Anvil Splitter (1x)", "Alarm Clock (1x)", "Combat Mk. 3 (Aggressive) (1x)", "Combat Mk. 3 (Flanking) (1x)", "Looting Mk. 3 (Cautious) (1x)", "Looting Mk. 3 (Safekeeper) (1x)", "Looting Mk. 3 (Survivor) (1x)", "Tactical Mk. 3 (Defensive) (1x)", "Tactical Mk. 3 (Healing) (1x)", "Tactical Mk. 3 (Smoke) (1x)"],
+    requiredFor: ["Combat Mk. 3 (Aggressive) (3x)", "Combat Mk. 3 (Flanking) (3x)", "Looting Mk. 3 (Cautious) (3x)", "Looting Mk. 3 (Safekeeper) (3x)", "Looting Mk. 3 (Survivor) (3x)", "Tactical Mk. 3 (Defensive) (3x)", "Tactical Mk. 3 (Healing) (3x)", "Tactical Mk. 3 (Smoke) (3x)"]
   },
   {
     id: 'mat37',
@@ -1101,6 +1101,15 @@ export const MODS_DATA: Modification[] = [
       stackSize: 15, quantity: 3
     }], salvageInfo: [{ name: 'Mod Components', stackSize: 5, quantity: 2 }], category: 'MUZZLE', rarity: 'RARE', icon: 'volume_off', tier: 3, description: '60% Reduced Noise', materials: [{ name: "Mod Components", quantity: 3 }, {
       name: 'Duct Tape',
+      quantity: 6
+    }]
+  },
+  {
+    id: 'm4-ii', name: 'Extended Barrel II', recycleInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }, {
+      name: 'Wires',
+      stackSize: 15, quantity: 1
+    }], salvageInfo: [{ name: 'Mechanical Components', stackSize: 10, quantity: 1 }], category: 'MUZZLE', rarity: 'RARE', icon: 'straighten', tier: 2, description: '20% Increased Bullet Velocity', materials: [{ name: "Mechanical Components", quantity: 3 }, {
+      name: 'Wires',
       quantity: 6
     }]
   },
@@ -4092,6 +4101,23 @@ export const AUGMENTS_DATA: Augment[] = [
     description: "Support-heavy frame built for emergency squads and squad recovery operations.",
     perks: "Integrated Defibrillator (revive grátis com cooldown) e regen leve de HP.",
     maxWeight: "65", backpackSlots: 16, quickUseSlots: 5, safePocketSlots: 2, shieldCompat: "Light",
+    craftInfo: {
+      station: "Refiner 3", quantityProduced: 1, materials: [{ name: "Adv Electrical Components", quantity: 2 }, {
+        name: 'Processor',
+        quantity: 3
+      }]
+    },
+    recycleInfo: [{ name: "Adv Electrical Components", quantity: 1 }, {
+      name: 'Processor',
+      quantity: 1
+    }],
+    salvageInfo: [{ name: "Electrical Components", quantity: 2 }]
+  },
+  {
+    id: "a-t3s", name: "Tactical Mk. 3 (Smoke)", rarity: "EPIC", icon: "tactic", category: "AUGMENT", stackSize: 1,
+    description: "An upgraded version of the Tactical MK.2 augment, adding expanded capacity across the board.",
+    perks: "+2 slots de utilitários rápidos e cortina de fumaça automática de emergência ao quebrar o escudo.",
+    maxWeight: "50", backpackSlots: 19, quickUseSlots: 5, safePocketSlots: 2, shieldCompat: "Light / Medium",
     craftInfo: {
       station: "Refiner 3", quantityProduced: 1, materials: [{ name: "Adv Electrical Components", quantity: 2 }, {
         name: 'Processor',

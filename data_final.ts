@@ -536,7 +536,7 @@ export const MATERIALS_DATA: Material[] = [
   {
     id: 'mat31',
     name: 'Power Rod', recycleInfo: [ { name: 'Adv Electrical Components', stackSize: 5, quantity: 1 }, { name: 'ARC Circuitry', stackSize: 5, quantity: 1 } ], salvageInfo: [ { name: 'Adv Electrical Components', stackSize: 5, quantity: 1 } ], stackSize: 3,
-    rarity: 'RARE',
+    rarity: 'EPIC',
     icon: 'vertical_align_center',
     imageUrl: '/images/items/Power_Rod.webp',
     description: 'A high-capacity energy conductor used in heavy-duty electronic equipment.',
