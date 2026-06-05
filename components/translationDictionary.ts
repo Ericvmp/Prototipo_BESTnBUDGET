@@ -825,15 +825,15 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Controle de Recuo Horizontal Máximo, Velocidade de Mira Reduzida"
   },
   "Shotgun Choke I": {
-    name: "Estrangulador de Escopeta I",
+    name: "Choque de Escopeta I",
     description: "Dispersão de Chumbo Reduzida"
   },
   "Shotgun Choke II": {
-    name: "Estrangulador de Escopeta II",
+    name: "Choque de Escopeta II",
     description: "Dispersão de Chumbo Altamente Reduzida, Cadência de Tiro Reduzida"
   },
   "Shotgun Choke III": {
-    name: "Estrangulador de Escopeta III",
+    name: "Choque de Escopeta III",
     description: "Dispersão de Chumbo Mínima, Cadência de Tiro Reduzida"
   },
   "Silencer I": {
@@ -893,15 +893,15 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Capacidade de Cartuchos Máxima, Tempo de Recarga Aumentado"
   },
   "Angled Grip I": {
-    name: "Empunhadura Angular I",
+    name: "Empunhadura Angulada I",
     description: "Velocidade de Mira (ADS) Aumentada"
   },
   "Angled Grip II": {
-    name: "Empunhadura Angular II",
+    name: "Empunhadura Angulada II",
     description: "Velocidade de Mira Altamente Aumentada, Estabilidade de Oscilação Reduzida"
   },
   "Angled Grip III": {
-    name: "Empunhadura Angular III",
+    name: "Empunhadura Angulada III",
     description: "Velocidade de Mira Máxima, Estabilidade de Oscilação Reduzida"
   },
   "Vertical Grip I": {
@@ -1206,7 +1206,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Sinalizador de luz fria verde de alta duração."
   },
   "Padded Stock": {
-    name: "Coronha Acolchoada",
+    name: "Coronha com Almofada",
     description: "Melhora o conforto físico e reduz a oscilação da mira sob fogo intenso."
   },
   "Fireworks Box": {
@@ -1238,7 +1238,7 @@ export const itemTranslations: Record<string, { name: string; description: strin
     description: "Microprocessadores blindados contra radiação e pulsos eletromagnéticos."
   },
   "Padded Stock III": {
-    name: "Coronha Acolchoada III",
+    name: "Coronha com Almofada III",
     description: "Estabilização balística máxima, minimizando totalmente a oscilação."
   },
   "Aphelion": {
