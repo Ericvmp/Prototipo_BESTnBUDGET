@@ -64,6 +64,7 @@ export const BLUEPRINTS_DATA: Blueprint[] = [
   { id: 'il-toro', name: 'Il Toro', image: '/images/items/Il_Toro.webp' },
   { id: 'padded-stock', name: 'Padded Stock', image: '/images/items/Padded_Stock.webp' },
   { id: 'heavy-gun-parts', name: 'Heavy Gun Parts', image: '/images/items/Heavy_Gun_Parts.webp' },
+  { id: 'rascal', name: 'Rascal', image: '/images/items/Rascal_Blueprint.webp' },
   { id: 'canto', name: 'Canto', image: '/images/items/Canto.webp' },
   { id: 'bettina', name: 'Bettina', image: '/images/items/Bettina.webp' },
   { id: 'fireworks-box', name: 'Fireworks Box', image: '/images/items/Fireworks_Box.webp' },

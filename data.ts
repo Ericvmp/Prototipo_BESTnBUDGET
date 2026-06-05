@@ -278,8 +278,8 @@ export const MATERIALS_DATA: Material[] = [
       }]
     },
     residualInfo: { items: ["Armas pesadas (Il Toro, Anvil)"] },
-    obtainedFrom: ["Bettina (2x)", "Vulcano (2x)", "Hullcracker (2x)"],
-    requiredFor: ["Bettina (3x)", "Vulcano (3x)", "Hullcracker (3x)", "Complex Gun Parts (2x)"]
+    obtainedFrom: ["Bettina (2x)", "Vulcano (2x)", "Hullcracker (2x)", "Rascal (2x)"],
+    requiredFor: ["Bettina (3x)", "Vulcano (3x)", "Hullcracker (3x)", "Complex Gun Parts (2x)", "Rascal (3x)"]
   },
   {
     id: 'mat13',
@@ -304,11 +304,15 @@ export const MATERIALS_DATA: Material[] = [
         "Bettina I - 1 Adv Mechanical Component (reciclagem)",
         "Bettina II - 2 Adv Mechanical Components (reciclagem)",
         "Bettina III - 2 Adv Mechanical Components (reciclagem)",
-        "Bettina IV - 3 Adv Mechanical Components (reciclagem)"
+        "Bettina IV - 3 Adv Mechanical Components (reciclagem)",
+        "Rascal I - 1 Adv Mechanical Component (reciclagem)",
+        "Rascal II - 2 Adv Mechanical Components (reciclagem)",
+        "Rascal III - 2 Adv Mechanical Components (reciclagem)",
+        "Rascal IV - 3 Adv Mechanical Components (reciclagem)"
       ]
     },
-    obtainedFrom: ["Tempest (2x)", "Bobcat (2x)", "Vulcano (2x)", "Hullcracker (2x)", "Magnetic Accelerator (1x)", "Bettina (1x)", "Renegade (1x)", "Venator (1x)", "Osprey (1x)", "Torrente (1x)", "Bastion Cell (1x)", "Bombardier Cell (1x)", "Leaper Pulse Unit (1x)", "Microscope (1x)"],
-    requiredFor: ["Bettina (3x)", "Magnetic Accelerator (2x)", "Renegade (2x)", "Venator (2x)", "Osprey (2x)", "Torrente (2x)"]
+    obtainedFrom: ["Tempest (2x)", "Bobcat (2x)", "Vulcano (2x)", "Hullcracker (2x)", "Magnetic Accelerator (1x)", "Bettina (1x)", "Renegade (1x)", "Venator (1x)", "Osprey (1x)", "Torrente (1x)", "Bastion Cell (1x)", "Bombardier Cell (1x)", "Leaper Pulse Unit (1x)", "Microscope (1x)", "Rascal (1x)"],
+    requiredFor: ["Bettina (3x)", "Magnetic Accelerator (2x)", "Renegade (2x)", "Venator (2x)", "Osprey (2x)", "Torrente (2x)", "Rascal (2x)"]
   },
   {
     id: 'mat14',
@@ -500,7 +504,7 @@ export const MATERIALS_DATA: Material[] = [
     description: 'A pressurized metal container suitable for storing gases or liquids.',
     craftInfo: { isCraftable: false },
     obtainedFrom: ["Broken Taser (2x)", "Portable TV (2x)", "Power Bank (2x)", "Jolt Mine (1x)", "Scavenging (Commercial)"],
-    requiredFor: ["Smoke Grenade (1x)", "Heavy Fuze Grenade (1x)", "Blaze Grenade (1x)", "Vita Spray (1x)"]
+    requiredFor: ["Smoke Grenade (1x)", "Heavy Fuze Grenade (1x)", "Blaze Grenade (1x)", "Vita Spray (1x)", "Rascal (5x)"]
   },
   {
     id: 'mat25',
@@ -1393,6 +1397,7 @@ export const WEAPON_MOD_SLOTS: Record<string, string[]> = {
   'w10': ['Muzzle', 'Medium Magazine', 'Stock'],                                               // Torrente
   'w9': ['Muzzle', 'Medium Magazine', 'Underbarrel', 'Stock'],                                // Osprey
   'w-hullcracker': ['Underbarrel', 'Stock'],                                                             // Hullcracker
+  'w-rascal': ['Underbarrel', 'Stock'],                                                             // Rascal
   'w-jupiter': [],                                                                                   // Jupiter (no mod slots)
   'w-equalizer': [],                                                                                   // Equalizer (no mod slots)
 };
@@ -3511,6 +3516,104 @@ export const WEAPONS_DATA: Weapon[] = [
       { tier: 'I', materials: [{ name: 'Magnetic Accelerator', quantity: 2 }] }],
     salvageInfo: [
       { tier: 'I', materials: [{ name: 'Magnetic Accelerator', quantity: 1 }] }]
+  },
+  {
+    id: 'w-rascal', name: 'Rascal', rarity: 'RARE', icon: 'my_location',
+    ammoType: 'EXPLOSIVE', weaponType: 'LAUNCHER',
+    craftInfo: {
+      materials: [
+        { name: 'Adv Mechanical Components', quantity: 2 },
+        { name: 'Heavy Gun Parts', quantity: 3 },
+        { name: 'Canister', quantity: 5 }
+      ],
+      station: 'Gunsmith 2'
+    },
+    repairInfo: [
+      {
+        tier: 'I', materials: [{ name: 'Adv Mechanical Components', quantity: 1 }, {
+          name: 'Heavy Gun Parts',
+          quantity: 1
+        }], durability: '+50'
+      },
+      {
+        tier: 'II', materials: [{ name: 'Adv Mechanical Components', quantity: 2 }, {
+          name: 'Heavy Gun Parts',
+          quantity: 1
+        }], durability: '+55'
+      },
+      {
+        tier: 'III', materials: [{ name: 'Adv Mechanical Components', quantity: 2 }, {
+          name: 'Heavy Gun Parts',
+          quantity: 3
+        }], durability: '+60'
+      },
+      {
+        tier: 'IV', materials: [{ name: 'Adv Mechanical Components', quantity: 3 }, {
+          name: 'Heavy Gun Parts',
+          quantity: 3
+        }], durability: '+65'
+      }
+    ],
+    upgradeInfo: [
+      {
+        tier: 'II', materials: [{ name: 'Adv Mechanical Components', quantity: 1 }, {
+          name: 'Heavy Gun Parts',
+          quantity: 1
+        }], perks: '15% Increased Fire Rate, 10% Reduced Reload Time, +10 Durability'
+      },
+      {
+        tier: 'III', materials: [{ name: 'Adv Mechanical Components', quantity: 1 }, {
+          name: 'Heavy Gun Parts',
+          quantity: 1
+        }], perks: '30% Increased Fire Rate, 20% Reduced Reload Time, +20 Durability'
+      },
+      {
+        tier: 'IV', materials: [{ name: 'Adv Mechanical Components', quantity: 2 }, {
+          name: 'Heavy Gun Parts',
+          quantity: 1
+        }], perks: '45% Increased Fire Rate, 30% Reduced Reload Time, +30 Durability'
+      }
+    ],
+    recycleInfo: [
+      {
+        tier: 'I', materials: [{ name: 'Adv Mechanical Components', quantity: 1 }, {
+          name: 'Heavy Gun Parts',
+          quantity: 2
+        }]
+      },
+      {
+        tier: 'II', materials: [{ name: 'Adv Mechanical Components', quantity: 2 }, {
+          name: 'Heavy Gun Parts',
+          quantity: 2
+        }]
+      },
+      {
+        tier: 'III', materials: [{ name: 'Adv Mechanical Components', quantity: 2 }, {
+          name: 'Heavy Gun Parts',
+          quantity: 3
+        }]
+      },
+      {
+        tier: 'IV', materials: [{ name: 'Adv Mechanical Components', quantity: 3 }, {
+          name: 'Heavy Gun Parts',
+          quantity: 3
+        }]
+      }
+    ],
+    salvageInfo: [
+      {
+        tier: 'I', materials: [{ name: 'Heavy Gun Parts', quantity: 2 }]
+      },
+      {
+        tier: 'II', materials: [{ name: 'Heavy Gun Parts', quantity: 2 }]
+      },
+      {
+        tier: 'III', materials: [{ name: 'Heavy Gun Parts', quantity: 3 }]
+      },
+      {
+        tier: 'IV', materials: [{ name: 'Heavy Gun Parts', quantity: 3 }]
+      }
+    ]
   }];
 
 export const THROWABLES_DATA: Throwable[] = [
@@ -5021,6 +5124,12 @@ export const WEAPON_SETUPS_DATA: WeaponSetup[] = [
     weaponId: 'w-aphelion',
     setups: {
       BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m23', 'm26'] }
+    }
+  },
+  {
+    weaponId: 'w-rascal',
+    setups: {
+      BEST: { focus: 'BEST BUILD', description: 'A melhor configuração possível recomendada.', modIds: ['m28'] }
     }
   }
 ];

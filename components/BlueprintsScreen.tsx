@@ -106,15 +106,15 @@ const ExportCard: React.FC<ExportCardProps> = ({ blueprints, collection, filter,
       {/* Dynamic Grid Setup */}
       {(() => {
         const itemCount = displayList.length;
-        let cols = 9;
-        let fontSize = '8.5px';
+        let cols = 10;
+        let fontSize = '10.5px';
         let letterSpacing = '0.4px';
         let gap = 8;
 
-        if (itemCount <= 4) { cols = 2; fontSize = '24px'; letterSpacing = '2px'; gap = 32; }
-        else if (itemCount <= 9) { cols = 3; fontSize = '18px'; letterSpacing = '1.5px'; gap = 24; }
-        else if (itemCount <= 16) { cols = 4; fontSize = '14px'; letterSpacing = '1.2px'; gap = 16; }
-        else if (itemCount <= 30) { cols = 6; fontSize = '11px'; letterSpacing = '0.8px'; gap = 12; }
+        if (itemCount <= 4) { cols = 2; fontSize = '26px'; letterSpacing = '2px'; gap = 32; }
+        else if (itemCount <= 9) { cols = 3; fontSize = '20px'; letterSpacing = '1.5px'; gap = 24; }
+        else if (itemCount <= 16) { cols = 4; fontSize = '16px'; letterSpacing = '1.2px'; gap = 16; }
+        else if (itemCount <= 30) { cols = 6; fontSize = '13px'; letterSpacing = '0.8px'; gap = 12; }
 
         const availableW = 1080 - (32 * 2) - (gap * (cols - 1));
         const CARD_W = Math.floor(availableW / cols);
@@ -656,7 +656,7 @@ const BlueprintsScreen: React.FC<BlueprintsScreenProps> = ({ onBack }) => {
         </div>
 
         {/* —— Blueprint Grid —— */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-10 gap-4">
           {filteredBlueprints.length === 0 ? (
             <div className="col-span-full py-20 flex flex-col items-center justify-center text-slate-500">
               <span className="material-symbols-outlined text-6xl mb-4 opacity-50">search_off</span>
@@ -764,7 +764,7 @@ const BlueprintsScreen: React.FC<BlueprintsScreenProps> = ({ onBack }) => {
                     e.currentTarget.style.borderTopColor = '';
                   }}
                 >
-                  <div className="text-[7px] md:text-[9px] font-black uppercase tracking-[0.05em] text-slate-200 group-hover:text-white transition-colors duration-300 line-clamp-2 leading-[1.1] break-words w-full">
+                  <div className="text-[9px] md:text-[11px] font-black uppercase tracking-[0.05em] text-slate-200 group-hover:text-white transition-colors duration-300 line-clamp-2 leading-[1.1] break-words w-full">
                     {translateItemName(bp.name)}
                   </div>
                 </div>

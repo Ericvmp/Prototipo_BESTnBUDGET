@@ -1,0 +1,189 @@
+{
+  "rascal": {
+    "name": "rascal",
+    "url": "https://metaforge.app/arc-raiders/database/item/rascal",
+    "title": "Rascal in ARC Raiders | Item Stats, Locations & Uses | MetaForgeDiscord",
+    "description": "Fires explosive projectiles that only detonate when hitting ARC.",
+    "mentions": [
+      {
+        "@type": "Thing",
+        "name": "Advanced Mechanical Components",
+        "url": "https://metaforge.app/arc-raiders/database/item/advanced-mechanical-components",
+        "description": "Obtained by recycling Rascal"
+      },
+      {
+        "@type": "Thing",
+        "name": "Heavy Gun Parts",
+        "url": "https://metaforge.app/arc-raiders/database/item/heavy-gun-parts",
+        "description": "Obtained by recycling Rascal"
+      },
+      {
+        "@type": "Thing",
+        "name": "Advanced Mechanical Components",
+        "url": "https://metaforge.app/arc-raiders/database/item/advanced-mechanical-components",
+        "description": "Required to craft Rascal"
+      },
+      {
+        "@type": "Thing",
+        "name": "Heavy Gun Parts",
+        "url": "https://metaforge.app/arc-raiders/database/item/heavy-gun-parts",
+        "description": "Required to craft Rascal"
+      },
+      {
+        "@type": "Thing",
+        "name": "Canister",
+        "url": "https://metaforge.app/arc-raiders/database/item/canister",
+        "description": "Required to craft Rascal"
+      }
+    ],
+    "details": [
+      "Type",
+      "Heavy Gun Parts",
+      "Canister",
+      "Type",
+      "Advanced Mechanical Components Mostly used to craft advanced weapons. Can be recycled into crafting materials.",
+      "Heavy Gun Parts Used directly in crafting items of all tiers."
+    ],
+    "lists": []
+  },
+  "rascal-ii": {
+    "name": "rascal-ii",
+    "url": "https://metaforge.app/arc-raiders/database/item/rascal-ii",
+    "title": "Rascal II  in ARC Raiders | Item Stats, Locations & Uses | MetaForgeDiscord",
+    "description": "Fires explosive projectiles that only detonate when hitting ARC.",
+    "mentions": [
+      {
+        "@type": "Thing",
+        "name": "Advanced Mechanical Components",
+        "url": "https://metaforge.app/arc-raiders/database/item/advanced-mechanical-components",
+        "description": "Obtained by recycling Rascal II "
+      },
+      {
+        "@type": "Thing",
+        "name": "Heavy Gun Parts",
+        "url": "https://metaforge.app/arc-raiders/database/item/heavy-gun-parts",
+        "description": "Obtained by recycling Rascal II "
+      },
+      {
+        "@type": "Thing",
+        "name": "Advanced Mechanical Components",
+        "url": "https://metaforge.app/arc-raiders/database/item/advanced-mechanical-components",
+        "description": "Required to craft Rascal II "
+      },
+      {
+        "@type": "Thing",
+        "name": "Heavy Gun Parts",
+        "url": "https://metaforge.app/arc-raiders/database/item/heavy-gun-parts",
+        "description": "Required to craft Rascal II "
+      }
+    ],
+    "details": [
+      "Type",
+      "Heavy Gun Parts",
+      "Type",
+      "Advanced Mechanical Components Mostly used to craft advanced weapons. Can be recycled into crafting materials.",
+      "Heavy Gun Parts Used directly in crafting items of all tiers."
+    ],
+    "lists": []
+  },
+  "rascal-iii": {
+    "name": "rascal-iii",
+    "url": "https://metaforge.app/arc-raiders/database/item/rascal-iii",
+    "title": "Rascal III in ARC Raiders | Item Stats, Locations & Uses | MetaForgeDiscord",
+    "description": "Fires explosive projectiles that only detonate when hitting ARC.",
+    "mentions": [
+      {
+        "@type": "Thing",
+        "name": "Advanced Mechanical Components",
+        "url": "https://metaforge.app/arc-raiders/database/item/advanced-mechanical-components",
+        "description": "Obtained by recycling Rascal III"
+      },
+      {
+        "@type": "Thing",
+        "name": "Heavy Gun Parts",
+        "url": "https://metaforge.app/arc-raiders/database/item/heavy-gun-parts",
+        "description": "Obtained by recycling Rascal III"
+      },
+      {
+        "@type": "Thing",
+        "name": "Advanced Mechanical Components",
+        "url": "https://metaforge.app/arc-raiders/database/item/advanced-mechanical-components",
+        "description": "Required to craft Rascal III"
+      },
+      {
+        "@type": "Thing",
+        "name": "Heavy Gun Parts",
+        "url": "https://metaforge.app/arc-raiders/database/item/heavy-gun-parts",
+        "description": "Required to craft Rascal III"
+      }
+    ],
+    "details": [
+      "Type",
+      "Heavy Gun Parts",
+      "Type",
+      "Advanced Mechanical Components Mostly used to craft advanced weapons. Can be recycled into crafting materials.",
+      "Heavy Gun Parts Used directly in crafting items of all tiers."
+    ],
+    "lists": []
+  },
+  "rascal-iv": {
+    "name": "rascal-iv",
+    "url": "https://metaforge.app/arc-raiders/database/item/rascal-iv",
+    "title": "Rascal IV in ARC Raiders | Item Stats, Locations & Uses | MetaForgeDiscord",
+    "description": "Fires explosive projectiles that only detonate when hitting ARC.",
+    "mentions": [
+      {
+        "@type": "Thing",
+        "name": "Advanced Mechanical Components",
+        "url": "https://metaforge.app/arc-raiders/database/item/advanced-mechanical-components",
+        "description": "Obtained by recycling Rascal IV"
+      },
+      {
+        "@type": "Thing",
+        "name": "Heavy Gun Parts",
+        "url": "https://metaforge.app/arc-raiders/database/item/heavy-gun-parts",
+        "description": "Obtained by recycling Rascal IV"
+      },
+      {
+        "@type": "Thing",
+        "name": "Advanced Mechanical Components",
+        "url": "https://metaforge.app/arc-raiders/database/item/advanced-mechanical-components",
+        "description": "Required to craft Rascal IV"
+      },
+      {
+        "@type": "Thing",
+        "name": "Heavy Gun Parts",
+        "url": "https://metaforge.app/arc-raiders/database/item/heavy-gun-parts",
+        "description": "Required to craft Rascal IV"
+      }
+    ],
+    "details": [
+      "Type",
+      "Heavy Gun Parts",
+      "Type",
+      "Advanced Mechanical Components Mostly used to craft advanced weapons. Can be recycled into crafting materials.",
+      "Heavy Gun Parts Used directly in crafting items of all tiers."
+    ],
+    "lists": []
+  },
+  "rascal-blueprint": {
+    "name": "rascal-blueprint",
+    "url": "https://metaforge.app/arc-raiders/database/item/rascal-blueprint",
+    "title": "Rascal Blueprint in ARC Raiders | Item Stats, Locations & Uses | MetaForgeDiscordTwitch",
+    "description": "Fires explosive projectiles that only detonate when hitting ARC.",
+    "mentions": [],
+    "details": [
+      "The Rascal Blueprint is a rare grenade launcher recipe in ARC Raiders, added in Patch 1.29.0. If you're wondering how to find the Rascal Blueprint in ARC Raiders - it drops from Raider Containers across all maps and requires a level 2 Gunsmith Workbench to craft.",
+      "Raider Containers — Weapon Cases, Raider Caches, and Ammo Crates are your best source across all maps.",
+      "Raider Containers — Weapon Cases, Raider Caches, and Ammo Crates are your best source across all maps.",
+      "The Rascal Blueprint in ARC Raiders drops from Raider Containers across all maps – no specific event or map condition required. Added in Patch 1.29.0, it’s a rare grenade launcher built to shred armored ARC threats without the weight or cost of the Hullcracker. Here’s how to find it and what you need to craft it.",
+      "Because it’s a Rare (blue) quality weapon, the blueprint sits in the general weapon loot pool across every map. That’s good news – you don’t need to wait on a specific event to farm it. The tradeoff is there’s no single guaranteed spot, so knowing which containers to prioritize makes a real difference. You’ll also need a level 2 Gunsmith Workbench to craft it, so check your workshop progression before heading out.",
+      "Raider Containers are your best bet. Weapon Cases, Raider Caches, and Ammo Crates all have a chance to drop the Rascal Blueprint, and they’re the highest-probability source confirmed so far. These spawn across every map, so you can run whichever map you’re most comfortable with. Check the MetaForge Interactive Maps to plan your routes around known Raider Cache and Weapon Case locations before you drop in.",
+      "Once you’ve got the blueprint, head to your Gunsmith Workbench – you’ll need it at level 2 to unlock the recipe. The crafting cost is straightforward compared to some Legendary weapons:",
+      "3x Heavy Gun Parts",
+      "5x Canister",
+      "Heavy Gun Parts and Canisters can both be picked up from trader Celeste if you’re short on scavenged stock, so the Rascal is genuinely accessible once you have the blueprint. That’s the whole point of it – fast, repeatable anti-ARC firepower you can keep restocking without a grind every time you lose one."
+    ],
+    "lists": []
+  }
+}

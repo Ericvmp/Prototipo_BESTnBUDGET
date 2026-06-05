@@ -1024,6 +1024,14 @@ export const itemTranslations: Record<string, { name: string; description: strin
     name: "Dolabra",
     description: "Dispositivo de combate de proximidade com lâmina vibratória de alta frequência."
   },
+  "Rascal": {
+    name: "Pestinha",
+    description: "Dispara projéteis explosivos que só detonam ao atingir o ARC."
+  },
+  "Rascal Blueprint": {
+    name: "Projeto Pestinha",
+    description: "Esquema completo para manufaturar o lançador de granadas Pestinha."
+  },
   "Shredder Gyro": {
     name: "Shredder Gyro",
     description: "Mecanismo rotativo giroscópico tático para disparos de fragmentação."

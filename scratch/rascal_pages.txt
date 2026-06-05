@@ -1,0 +1,248 @@
+
+======================================================
+=== RASCAL ===
+======================================================
+H1: Rascal in ARC Raiders
+DIV: Last updated: 4 days ago · 10:42 AM
+DIV: Add to Favorites
+DIV: Weapon
+DIV: Rare
+DIV: Rascal
+DIV: Fires explosive projectiles that only detonate when hitting ARC.
+DIV: Ammo Type
+DIV: Magazine Size
+DIV: Range
+DIV: 28.3m
+DIV: Damage
+DIV: Range
+DIV: Agility
+DIV: Fire Rate
+DIV: Stability
+DIV: Stealth
+H2: Top Rascal Locations (Player-Voted)
+H2: MetaForge Marketplace Value (24h Median)
+P: 0 Seeds
+P: Trades
+P: 0
+P: Units
+P: 0
+H2: Compare Tiers:
+DIV: 1
+DIV: 2
+DIV: 3
+DIV: 4
+H2: Needed to Craft
+TR: Qty Name Type
+TR: 2 Advanced Mechanical Components Advanced Material
+TR: 3 Heavy Gun Parts Topside Material
+TR: 5 Canister Topside Material
+H2: Recycle Value
+P: 7000
+P: 3150
+H3: Breakdown
+H2: Item Usage & Drops
+H3: Comments
+DIV: No comments yet. Be the first to comment!
+H3: Recycle Components
+TR: Qty Name Type
+TR: 1 Advanced Mechanical Components Mostly used to craft advanced weapons. Can be recycled into crafting materials. Advanced Material
+DIV: Mostly used to craft advanced weapons. Can be recycled into crafting materials.
+TR: 2 Heavy Gun Parts Used directly in crafting items of all tiers. Topside Material
+DIV: Used directly in crafting items of all tiers.
+
+======================================================
+=== RASCAL-II ===
+======================================================
+H1: Rascal II in ARC Raiders
+DIV: Last updated: last week · 09:50 PM
+DIV: Add to Favorites
+DIV: Weapon
+DIV: Rare
+DIV: Rascal II
+DIV: Fires explosive projectiles that only detonate when hitting ARC.
+DIV: Ammo Type
+DIV: Magazine Size
+DIV: Range
+DIV: 28.3m
+DIV: Damage
+DIV: Range
+DIV: Agility
+DIV: Fire Rate
+DIV: Stability
+DIV: Stealth
+H2: Top Rascal II Locations (Player-Voted)
+H2: MetaForge Marketplace Value (24h Median)
+P: 0 Seeds
+P: Trades
+P: 0
+P: Units
+P: 0
+H2: Compare Tiers:
+DIV: 1
+DIV: 2
+DIV: 3
+DIV: 4
+H2: Needed to Craft
+TR: Qty Name Type
+TR: 1 Advanced Mechanical Components Advanced Material
+TR: 1 Heavy Gun Parts Topside Material
+H2: Item Usage & Drops
+H3: Comments
+DIV: No comments yet. Be the first to comment!
+H3: Recycle Components
+TR: Qty Name Type
+TR: 2 Advanced Mechanical Components Mostly used to craft advanced weapons. Can be recycled into crafting materials. Advanced Material
+DIV: Mostly used to craft advanced weapons. Can be recycled into crafting materials.
+TR: 2 Heavy Gun Parts Used directly in crafting items of all tiers. Topside Material
+DIV: Used directly in crafting items of all tiers.
+
+======================================================
+=== RASCAL-III ===
+======================================================
+H1: Rascal III in ARC Raiders
+DIV: Last updated: last week · 09:51 PM
+DIV: Add to Favorites
+DIV: Weapon
+DIV: Rare
+DIV: Rascal III
+DIV: Fires explosive projectiles that only detonate when hitting ARC.
+DIV: Magazine Size
+DIV: Range
+DIV: 28.3m
+DIV: Damage
+DIV: Range
+DIV: Agility
+DIV: Fire Rate
+DIV: Stability
+DIV: Stealth
+H2: Top Rascal III Locations (Player-Voted)
+H2: MetaForge Marketplace Value (24h Median)
+P: 0 Seeds
+P: Trades
+P: 0
+P: Units
+P: 0
+H2: Compare Tiers:
+DIV: 1
+DIV: 2
+DIV: 3
+DIV: 4
+H2: Needed to Craft
+TR: Qty Name Type
+TR: 1 Advanced Mechanical Components Advanced Material
+TR: 1 Heavy Gun Parts Topside Material
+H2: Item Usage & Drops
+H3: Comments
+DIV: No comments yet. Be the first to comment!
+H3: Recycle Components
+TR: Qty Name Type
+TR: 2 Advanced Mechanical Components Mostly used to craft advanced weapons. Can be recycled into crafting materials. Advanced Material
+DIV: Mostly used to craft advanced weapons. Can be recycled into crafting materials.
+TR: 3 Heavy Gun Parts Used directly in crafting items of all tiers. Topside Material
+DIV: Used directly in crafting items of all tiers.
+
+======================================================
+=== RASCAL-IV ===
+======================================================
+H1: Rascal IV in ARC Raiders
+DIV: Last updated: last week · 09:52 PM
+DIV: Add to Favorites
+DIV: Weapon
+DIV: Rare
+DIV: Rascal IV
+DIV: Fires explosive projectiles that only detonate when hitting ARC.
+DIV: Ammo Type
+DIV: Magazine Size
+DIV: Range
+DIV: 28.3m
+DIV: Damage
+DIV: Range
+DIV: Agility
+DIV: Fire Rate
+DIV: Stability
+DIV: Stealth
+H2: Top Rascal IV Locations (Player-Voted)
+H2: MetaForge Marketplace Value (24h Median)
+P: 0 Seeds
+P: Trades
+P: 0
+P: Units
+P: 0
+H2: Compare Tiers:
+DIV: 1
+DIV: 2
+DIV: 3
+DIV: 4
+H2: Needed to Craft
+TR: Qty Name Type
+TR: 2 Advanced Mechanical Components Advanced Material
+TR: 1 Heavy Gun Parts Topside Material
+H2: Item Usage & Drops
+H3: Comments
+DIV: No comments yet. Be the first to comment!
+H3: Recycle Components
+TR: Qty Name Type
+TR: 3 Advanced Mechanical Components Mostly used to craft advanced weapons. Can be recycled into crafting materials. Advanced Material
+DIV: Mostly used to craft advanced weapons. Can be recycled into crafting materials.
+TR: 3 Heavy Gun Parts Used directly in crafting items of all tiers. Topside Material
+DIV: Used directly in crafting items of all tiers.
+
+======================================================
+=== RASCAL-BLUEPRINT ===
+======================================================
+H1: Rascal Blueprint in ARC Raiders
+DIV: Last updated: last week · 10:03 PM
+DIV: Add to Favorites
+DIV: Blueprint
+DIV: Legendary
+DIV: Rascal Blueprint
+DIV: Fires explosive projectiles that only detonate when hitting ARC.
+P: The Rascal Blueprint is a rare grenade launcher recipe in ARC Raiders, added in Patch 1.29.0. If you're wondering how to find the Rascal Blueprint in ARC Raiders - it drops from Raider Containers across all maps and requires a level 2 Gunsmith Workbench to craft.
+P: Best Ways to Find the Rascal Blueprint:
+LI: Raider Containers — Weapon Cases, Raider Caches, and Ammo Crates are your best source across all maps.
+P: Raider Containers — Weapon Cases, Raider Caches, and Ammo Crates are your best source across all maps.
+LI: Security Breach Lockers — Breach Lockers scattered across all maps have confirmed drops. Use Metaforge Interactive Maps to find them.
+P: Security Breach Lockers — Breach Lockers scattered across all maps have confirmed drops. Use Metaforge Interactive Maps to find them.
+LI: Key Rooms — Locked rooms with high loot density can also yield the blueprint as a general drop.
+P: Key Rooms — Locked rooms with high loot density can also yield the blueprint as a general drop.
+P: Tips to Maximize Rascal Blueprint Drops: Run Night Raid for boosted rare blueprint drop rates. Safe Pocket the blueprint the moment you find it. Go in naked with Adrenaline Shots to keep farming runs low-risk.
+H2: Top Rascal Blueprint Locations (Player-Voted)
+H2: MetaForge Marketplace Value (24h Median)
+P: 397 Seeds
+P: Trades
+P: 23
+P: Units
+P: 23
+H2: Item Usage & Drops
+H2: How to Find Rascal Blueprint in ARC Raiders
+P: The Rascal Blueprint in ARC Raiders drops from Raider Containers across all maps – no specific event or map condition required. Added in Patch 1.29.0, it’s a rare grenade launcher built to shred armored ARC threats without the weight or cost of the Hullcracker. Here’s how to find it and what you need to craft it.
+H2: Why You Need the Rascal Blueprint in ARC Raiders
+P: The Rascal is a compact, lightweight grenade launcher designed as your go-to anti-ARC sidearm. Think of it as the budget Hullcracker – slower to reload and not the most accurate, but it punches well above its price tag. ARC armor penetration is rated Very Strong, and players are already dropping Shredders in three hits. For any raider who wants reliable anti-ARC firepower without committing a primary slot to it, the Rascal is worth having in your loadout.
+P: Because it’s a Rare (blue) quality weapon, the blueprint sits in the general weapon loot pool across every map. That’s good news – you don’t need to wait on a specific event to farm it. The tradeoff is there’s no single guaranteed spot, so knowing which containers to prioritize makes a real difference. You’ll also need a level 2 Gunsmith Workbench to craft it, so check your workshop progression before heading out.
+H2: Best Method to Find the Rascal Blueprint
+P: Raider Containers are your best bet. Weapon Cases, Raider Caches, and Ammo Crates all have a chance to drop the Rascal Blueprint, and they’re the highest-probability source confirmed so far. These spawn across every map, so you can run whichever map you’re most comfortable with. Check the MetaForge Interactive Maps to plan your routes around known Raider Cache and Weapon Case locations before you drop in.
+P: Night Raid gives you a general drop rate boost for rare blueprints, so queuing into a Night Raid while targeting Raider Containers is the most efficient approach. Keep an eye on the Event Timers and time your runs accordingly.
+H2: Alternative Locations for the Rascal Blueprint
+P: Outside of Raider Containers, two other sources are worth working into your runs.
+LI: Security Breach lockers: The red lockers found across all maps have confirmed Rascal Blueprint drops. They’re not as reliable as Raider Caches, but you should be clearing them every run anyway – the odds add up over time.
+LI: Key Rooms: Locked rooms opened with raid keys tend to have strong general loot, and the Rascal Blueprint can show up here too. Bring whatever key fits your target map and consider bringing a a Raider Hatch Key – the higher loot density makes key rooms a solid bonus source on any run.
+H2: How to Craft the Rascal
+P: Once you’ve got the blueprint, head to your Gunsmith Workbench – you’ll need it at level 2 to unlock the recipe. The crafting cost is straightforward compared to some Legendary weapons:
+P: 2x Advanced Mechanical Components
+P: 3x Heavy Gun Parts
+P: 5x Canister
+P: Heavy Gun Parts and Canisters can both be picked up from trader Celeste if you’re short on scavenged stock, so the Rascal is genuinely accessible once you have the blueprint. That’s the whole point of it – fast, repeatable anti-ARC firepower you can keep restocking without a grind every time you lose one.
+H2: More ARC Raiders Resources
+P: Looking for more blueprint guides and ARC Raiders tools? Check these out:
+LI: How to Find Every Blueprint in ARC Raiders
+LI: ARC Raiders Interactive Maps – plan your Raider Container routes
+LI: Event Timers – catch Night Raid and other map conditions
+LI: First Wave Caches Guide
+LI: Dolabra Blueprint Guide
+LI: Canto Blueprint Guide
+LI: Blueprint Tracker
+LI: MetaForge Discord
+DIV: Crazytrick
+DIV: Author
+H3: Comments
+DIV: No comments yet. Be the first to comment!
