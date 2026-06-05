@@ -22,7 +22,8 @@ const TradeExportCard: React.FC<{
   exportRef: React.RefObject<HTMLDivElement>;
   imageCache: Record<string, string>;
   intent: 'WTB' | 'WTS';
-}> = ({ giveList, receiveList, exportRef, imageCache, intent }) => {
+  bgDataUrl?: string;
+}> = ({ giveList, receiveList, exportRef, imageCache, intent, bgDataUrl }) => {
   const { t, language } = useLanguage();
 
   const showReceiveRelations = (intent === 'WTS');
@@ -49,7 +50,7 @@ const TradeExportCard: React.FC<{
           
           return (
             <React.Fragment key={entry.item.id}>
-              <ExportItemCard entry={entry} imageCache={imageCache} size={size} />
+              <ExportItemCard entry={entry} imageCache={imageCache} size={size} bgDataUrl={bgDataUrl} />
             </React.Fragment>
           );
         })}
@@ -79,7 +80,7 @@ const TradeExportCard: React.FC<{
 
           return (
             <React.Fragment key={entry.item.id}>
-              <ExportItemCard entry={entry} imageCache={imageCache} size={size} />
+              <ExportItemCard entry={entry} imageCache={imageCache} size={size} bgDataUrl={bgDataUrl} />
             </React.Fragment>
           );
         })}
@@ -215,25 +216,50 @@ const TradeExportCard: React.FC<{
 const ExportItemCard: React.FC<{ 
   entry: TradeEntry, 
   imageCache: Record<string, string>,
-  size?: { w: number, h: number, imgH: number, fontSize: string, qSize: string }
-}> = ({ entry, imageCache, size = { w: 120, h: 160, imgH: 110, fontSize: '9.5px', qSize: '12px' } }) => {
+  size?: { w: number, h: number, imgH: number, fontSize: string, qSize: string },
+  bgDataUrl?: string
+}> = ({ entry, imageCache, size = { w: 120, h: 160, imgH: 110, fontSize: '9.5px', qSize: '12px' }, bgDataUrl }) => {
   const { translateItemName } = useLanguage();
   const finalSrc = imageCache[entry.item.id] || null;
   const rarityHex = getRarityHex(entry.item.rarity);
+  const isBlueprint = entry.item.category === 'Blueprint' || entry.item.name.toLowerCase().includes('blueprint') || entry.item.id.toLowerCase().includes('blueprint');
   
   return (
     <div style={{
       width: `${size.w}px`, 
       height: `${size.h}px`, 
-      backgroundColor: '#131f37', 
+      backgroundColor: isBlueprint ? '#0a1628' : '#131f37', 
       borderRadius: '24px',
-      border: `4px solid ${rarityHex}`, 
+      border: isBlueprint ? '4px solid #ffffff' : `4px solid ${rarityHex}`, 
       display: 'flex', 
       flexDirection: 'column', 
       overflow: 'hidden', 
       position: 'relative',
-      boxShadow: '0 8px 24px rgba(0,0,0,0.45)'
+      boxShadow: '0 8px 24px rgba(0,0,0,0.45)',
+      backgroundImage: isBlueprint && bgDataUrl ? `url(${bgDataUrl})` : undefined,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
     }}>
+      {/* Blueprint grid overlay for export */}
+      {isBlueprint && (
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `linear-gradient(#135bec 1px, transparent 1px), linear-gradient(90deg, #135bec 1px, transparent 1px)`,
+          backgroundSize: '15% 15%',
+          opacity: 0.15,
+          pointerEvents: 'none',
+          zIndex: 0,
+        }} />
+      )}
+      {/* Blueprint overlay tint */}
+      {isBlueprint && (
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundColor: 'rgba(5, 12, 28, 0.40)',
+          pointerEvents: 'none', zIndex: 0
+        }} />
+      )}
       <div style={{ 
         position: 'absolute', 
         top: '12px', 
@@ -247,7 +273,7 @@ const ExportItemCard: React.FC<{
       }}>
         x{entry.quantity}
       </div>
-      <div style={{ height: `${size.imgH}px`, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: `${size.w/14}px ${size.w/14}px 6px ${size.w/14}px`, position: 'relative' }}>
+      <div style={{ height: `${size.imgH}px`, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: `${size.w/14}px ${size.w/14}px 6px ${size.w/14}px`, position: 'relative', zIndex: 1 }}>
         {finalSrc ? (
           <img src={finalSrc} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} alt={translateItemName(entry.item.name)} />
         ) : (
@@ -262,7 +288,7 @@ const ExportItemCard: React.FC<{
           </div>
         )}
       </div>
-      <div style={{ flex: 1, backgroundColor: '#0a0f1d', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '4px 16px 8px 16px' }}>
+      <div style={{ flex: 1, backgroundColor: '#0a0f1d', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '4px 16px 8px 16px', position: 'relative', zIndex: 1 }}>
         <div style={{ 
           fontSize: size.fontSize, 
           color: '#ffffff', 
@@ -333,6 +359,27 @@ const TradeScreen: React.FC<TradeScreenProps> = ({ onBack }) => {
   const [toastMsg, setToastMsg] = useState('');
   const [showExportMenu, setShowExportMenu] = useState(false);
   const [imageCache, setImageCache] = useState<Record<string, string>>({});
+  const [cardBgDataUrl, setCardBgDataUrl] = useState<string>('');
+
+  // Preload the BG image once as data:URL so html2canvas can use it in ExportItemCard
+  useEffect(() => {
+    const img = new Image();
+    const bgPath = '/images/BG-blueprint-bg.webp';
+    if (bgPath.startsWith('http')) {
+      img.crossOrigin = 'anonymous';
+    }
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext('2d')!;
+        ctx.drawImage(img, 0, 0);
+        setCardBgDataUrl(canvas.toDataURL('image/png'));
+      } catch { /* taint fallback */ }
+    };
+    img.src = bgPath;
+  }, []);
   
   const [pickerOpen, setPickerOpen] = useState(false);
   const [pickerTarget, setPickerTarget] = useState<'give' | 'receive' | null>(null);
@@ -585,27 +632,68 @@ const renderTradeList = (list: TradeEntry[], type: 'give' | 'receive') => {
 
       <div className="flex flex-wrap gap-4 justify-center">
         {list.map((entry) => {
+          const isBlueprint = entry.item.category === 'Blueprint' || entry.item.name.toLowerCase().includes('blueprint') || entry.item.id.toLowerCase().includes('blueprint');
+          const rarityColor = getRarityHex(entry.item.rarity);
           return (
-            <div key={entry.item.id} className={`w-40 group relative bg-slate-900/80 rounded-2xl p-3 flex flex-col items-center border border-white/5 hover:border-white/20 transition-all ${getRarityHoverStyles(entry.item.rarity)}`}>
-                <div className="w-16 h-16 mb-2 relative">
-                  {entry.item.image ? (
-                    <img src={entry.item.image} alt={translateItemName(entry.item.name)} className="w-full h-full object-contain" />
-                  ) : (
-                    <SmartItemIcon itemName={entry.item.name} rarity={entry.item.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-3xl text-slate-600" />
-                  )}
+            <div 
+              key={entry.item.id} 
+              className={`w-40 group relative rounded-2xl p-3 flex flex-col items-center border transition-all ${getRarityHoverStyles(entry.item.rarity)}`}
+              style={{
+                backgroundColor: isBlueprint ? '#0a0d14' : 'rgba(15, 23, 42, 0.8)',
+                border: isBlueprint ? '1px solid #ffffff' : '1px solid rgba(255, 255, 255, 0.05)',
+                ...(isBlueprint ? {
+                  backgroundImage: "linear-gradient(rgba(19, 91, 236, 0.45), rgba(5, 12, 28, 0.85)), url('/images/BG-blueprint-bg.webp')", 
+                  backgroundSize: 'cover', 
+                  backgroundPosition: 'center',
+                } : {}),
+              }}
+              onMouseEnter={(e) => {
+                const hoverColor = isBlueprint ? '#ffffff' : rarityColor;
+                e.currentTarget.style.border = isBlueprint ? '2px solid #ffffff' : `2px solid ${hoverColor}`;
+                e.currentTarget.style.boxShadow = isBlueprint 
+                  ? '0 0 20px rgba(255, 255, 255, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.2)' 
+                  : `0 0 20px ${hoverColor}60, inset 0 0 15px ${hoverColor}20`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.border = isBlueprint ? '1px solid #ffffff' : '1px solid rgba(255, 255, 255, 0.05)';
+                e.currentTarget.style.boxShadow = '';
+              }}
+            >
+              {/* Blueprint grid overlay */}
+              {isBlueprint && (
+                <div
+                  className="absolute inset-0 z-0 opacity-[0.08] group-hover:opacity-[0.18] transition-opacity duration-700 pointer-events-none rounded-2xl"
+                  style={{
+                    backgroundImage: `linear-gradient(#135bec 1px, transparent 1px), linear-gradient(90deg, #135bec 1px, transparent 1px)`,
+                    backgroundSize: '15% 15%',
+                  }}
+                />
+              )}
+              {/* Blueprint badge */}
+              {isBlueprint && (
+                <div className="absolute top-2 left-2 bg-white text-slate-950 text-[6.5px] font-black px-1.5 py-[1px] rounded uppercase tracking-wider z-20 border border-white leading-none">
+                  {language === 'pt-BR' ? 'Projeto' : 'BP'}
                 </div>
-                <div className="text-[10px] font-black text-center text-slate-200 uppercase line-clamp-1 break-words w-full px-1">
-                  {translateItemName(entry.item.name)}
-                </div>
-                <div className={`mt-3 flex items-center justify-between w-full bg-black/40 rounded-lg p-1 border ${type === 'give' ? 'border-red-500/20' : 'border-emerald-500/20'}`}>
-                  <button onClick={() => updateQuantity(type, entry.item.id, -1)} className="w-6 h-6 flex items-center justify-center bg-white/5 hover:bg-white/20 rounded text-slate-300">-</button>
-                  <span className="text-sm font-black text-white w-8 text-center">{entry.quantity}</span>
-                  <button onClick={() => updateQuantity(type, entry.item.id, 1)} className="w-6 h-6 flex items-center justify-center bg-white/5 hover:bg-white/20 rounded text-slate-300">+</button>
-                </div>
-                <button onClick={() => updateQuantity(type, entry.item.id, -999)} className="absolute -top-2 -right-2 w-6 h-6 bg-red-500/90 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg scale-75 hover:scale-100">
-                  <span className="material-symbols-outlined text-sm">close</span>
-                </button>
+              )}
+              <div className="w-16 h-16 mb-2 relative z-10">
+                {entry.item.image ? (
+                  <img src={entry.item.image} alt={translateItemName(entry.item.name)} className="w-full h-full object-contain" />
+                ) : (
+                  <SmartItemIcon itemName={entry.item.name} rarity={entry.item.rarity} imageClassName="w-full h-full object-contain" iconClassName="text-3xl text-slate-600" />
+                )}
               </div>
+              <div className="text-[10px] font-black text-center text-slate-200 uppercase line-clamp-1 break-words w-full px-1 relative z-10">
+                {translateItemName(entry.item.name)}
+              </div>
+              <div className={`mt-3 flex items-center justify-between w-full bg-black/40 rounded-lg p-1 border relative z-10 ${type === 'give' ? 'border-red-500/20' : 'border-emerald-500/20'}`}>
+                <button onClick={() => updateQuantity(type, entry.item.id, -1)} className="w-6 h-6 flex items-center justify-center bg-white/5 hover:bg-white/20 rounded text-slate-300">-</button>
+                <span className="text-sm font-black text-white w-8 text-center">{entry.quantity}</span>
+                <button onClick={() => updateQuantity(type, entry.item.id, 1)} className="w-6 h-6 flex items-center justify-center bg-white/5 hover:bg-white/20 rounded text-slate-300">+</button>
+              </div>
+              <button onClick={() => updateQuantity(type, entry.item.id, -999)} className="absolute -top-2 -right-2 w-6 h-6 bg-red-500/90 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg scale-75 hover:scale-100 z-20">
+                <span className="material-symbols-outlined text-sm">close</span>
+              </button>
+            </div>
           );
         })}
       </div>
@@ -627,6 +715,7 @@ const renderTradeList = (list: TradeEntry[], type: 'give' | 'receive') => {
         exportRef={exportRef} 
         imageCache={imageCache} 
         intent={tradeIntent} 
+        bgDataUrl={cardBgDataUrl}
       />
       
       {toastMsg && (
@@ -865,7 +954,7 @@ const renderTradeList = (list: TradeEntry[], type: 'give' | 'receive') => {
                 </div>
               )}
               {filteredItems.map(item => {
-                const isBlueprint = item.category === 'Blueprint';
+                const isBlueprint = item.category === 'Blueprint' || item.name.toLowerCase().includes('blueprint') || item.id.toLowerCase().includes('blueprint');
                 const rarityColor = getRarityHex(item.rarity);
                 const isSelected = tempSelection.some(i => i.id === item.id);
                 return (
